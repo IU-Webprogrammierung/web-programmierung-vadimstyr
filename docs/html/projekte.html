@@ -7,33 +7,47 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" type="image/x-icon" href="../picture/vs.svg">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Projekte - Vadim Styr</title>
 </head>
 
 <body>
     <div class="container">
-        <header class="header">
-            <h1 class="title"> Projekte</h1>
+        <header class="header" role="banner">
+            <h1 class="title">Projekte</h1>
             <p class="subtitle">verschiedene Projekte</p>
-                <nav class="nav">
-                    <ul>
-                        <li><a class="nav-link" id="lebenslauf-link" href="../html/lebenslauf.html"><span>Lebenslauf</span></a></li>
-                        <li><a class="nav-link" id="me-link" href="../html/me.html"><span>Me</span></a></li>
-                        <li><a class="nav-link" id="kontakt-link" href="../html/kontakt.html"><span>Kontakt</span></a></li>
-                        <li><a class="nav-link" id="home-link" href="../index.html"><span>Home</span></a></li>
-                    </ul>
-                </nav>
+            <nav class="nav" role="navigation">
+                <ul>
+                    <li><a class="nav-link" id="lebenslauf-link" href="../html/lebenslauf.html"><span>Lebenslauf</span></a></li>
+                    <li><a class="nav-link" id="me-link" href="../html/me.html"><span>Me</span></a></li>
+                    <li><a class="nav-link" id="kontakt-link" href="../html/kontakt.html"><span>Kontakt</span></a></li>
+                    <li><a class="nav-link" id="home-link" href="../index.html"><span>Home</span></a></li>
+                </ul>
+            </nav>
         </header>
-        <main class="content">
-            <div class="quiz-app-container">
-                <div class="quiz-app-picture"><img src="../picture/Quiz.svg" alt="Ein Bild, aufdem steht ready for a Quiz?."></div>
-                <div class="quiz-text-container"><h2>Quiz-App IU</h2></div>
-            </div>
-            <div class="e-commer-container">
-                <div class="e-commerce-picture"><img src="../picture/E-Commerce.svg" alt="Ein Bild, dass ein Mobil-Ecommerce Shopt."></div>
-                <div class="e-commerce-text"><h2>E-Commer Shop</h2></div>
-            </div>
+
+        <main class="content" role="main">
+            <section class="project-section">
+                <div class="quiz-app-container">
+                    <div class="quiz-app-picture">
+                        <img src="../picture/Quiz.svg" alt="Ein Bild mit dem Text: 'Ready for a Quiz?'" loading="lazy">
+                    </div>
+                    <div class="quiz-text-container">
+                        <h2>Quiz-App IU</h2>
+                    </div>
+                </div>
+
+                <div class="e-commerce-container">
+                    <div class="e-commerce-picture">
+                        <img src="../picture/E-Commerce.svg" alt="Ein Bild, das einen Mobil-Ecommerce-Shop zeigt." loading="lazy">
+                    </div>
+                    <div class="e-commerce-text">
+                        <h2>E-Commerce Shop</h2>
+                    </div>
+                </div>
+            </section>
         </main>
-        <footer class="impressum-footer">
+
+        <footer class="impressum-footer" role="contentinfo">
             <p><a href="../html/impressum.html" class="impressum-link">Impressum</a></p>
         </footer>
     </div>
