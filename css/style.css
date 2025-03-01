@@ -1,3 +1,11 @@
+/* ===== BASIS-ELEMENTE ===== */
+/* Grundlegende Seitengestaltung */
+body {
+    background-color: #f5e1c0;
+}
+
+/* ===== ACCESSIBILITY ===== */
+/* Skip-Link für Tastatur-Navigation (Barrierefreiheit) */
 .skip-link {
     position: absolute;
     top: -40px;
@@ -13,10 +21,8 @@
     top: 0;
 }
 
-body {
-    background-color: #f5e1c0;
-}
-
+/* ===== HAUPT-CONTAINER ===== */
+/* Container für den gesamten Seiteninhalt */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -28,20 +34,28 @@ body {
     text-align: center;
 }
 
+/* ===== HEADER-BEREICH ===== */
+/* Header-Container */
 .header {
     text-align: center;
     margin-bottom: 40px;
     padding-top: 60px;
 }
 
+/* Hauptüberschrift (H1) */
 .title {
+    font-size: 4.5em;
     margin-bottom: 10px;
 }
 
+/* Untertitel unter H1 */
 .subtitle {
+    font-size: 2em;
     margin-bottom: 40px;
 }
 
+/* ===== NAVIGATION ===== */
+/* Navigations-Liste */
 .nav ul {
     list-style-type: none;
     padding: 0;
@@ -51,6 +65,7 @@ body {
     gap: 20px;
 }
 
+/* Navigations-Links */
 .nav-link {
     display: block;
     background-color: #000;
@@ -63,20 +78,30 @@ body {
     border-radius: 5px;
 }
 
+/* Hover-Effekt für Navigation */
 .nav-link:hover {
     opacity: 0.8;
 }
 
-.impressum-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px 0;
-}
-
+/* ===== HAUPTINHALT ===== */
+/* Content-Bereich */
 .content {
     text-align: center;
 }
 
+/* ===== FOOTER-BEREICH ===== */
+/* Impressum-Footer, fixiert am unteren Bildschirmrand */
+.impressum-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 40px;
+}
+
+/* Gestaltung des Impressum-Links als Button */
 .impressum-link {
     display: inline-block;
     background-color: #000000;
@@ -88,22 +113,3 @@ body {
     border-radius: 8px;
     transition: background-color 0.3s, transform 0.2s;
 }
-
-
-.impressum-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-}
-
-.title {
-    font-size: 4.5em;
-}
-
-.subtitle {
-    font-size: 2em;
-}
-
