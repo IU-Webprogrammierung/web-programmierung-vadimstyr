@@ -74,3 +74,15 @@ body {
 .content {
     text-align: center;
 }
+
+.impressum-link {
+    display: block;
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
