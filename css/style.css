@@ -59,6 +59,8 @@ body {
     padding: 10px 20px;
     text-transform: uppercase;
     font-weight: bold;
+    font-size: 1.2em;
+    border-radius: 5px;
 }
 
 .nav-link:hover {
@@ -76,7 +78,7 @@ body {
 }
 
 .impressum-link {
-    display: block;
+    display: inline-block;
     background-color: #000000;
     color: #ffffff;
     text-decoration: none;
@@ -86,3 +88,22 @@ body {
     border-radius: 8px;
     transition: background-color 0.3s, transform 0.2s;
 }
+
+
+.impressum-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.title {
+    font-size: 4.5em;
+}
+
+.subtitle {
+    font-size: 2em;
+}
+
