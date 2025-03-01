@@ -12,23 +12,26 @@
 .skip-link:focus {
     top: 0;
 }
+
 body {
     background-color: #f5e1c0;
 }
 
-/* Grundlegende Container-Zentrierungen */
 .container {
     max-width: 1200px;
-    margin: 0 auto; /* Zentriert den Container horizontal */
-    padding: 0 20px;
-    text-align: center; /* Zentriert Text-Inhalte */
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-/* Header-Styling */
 .header {
     text-align: center;
     margin-bottom: 40px;
-    padding-top: 60px; /* Etwas Abstand nach oben */
+    padding-top: 60px;
 }
 
 .title {
@@ -36,41 +39,38 @@ body {
 }
 
 .subtitle {
-    margin-bottom: 40px; /* Mehr Abstand vor der Navigation */
+    margin-bottom: 40px;
 }
 
-/* Navigation-Styling */
 .nav ul {
-    list-style-type: none; /* Entfernt die Aufzählungspunkte */
+    list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Horizontale Anordnung */
-    justify-content: center; /* Zentriert die Menüpunkte */
-    gap: 20px; /* Abstand zwischen den Menüpunkten */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .nav-link {
     display: block;
-    background-color: #000; /* Schwarzer Hintergrund */
-    color: #fff; /* Weiße Schrift */
+    background-color: #000;
+    color: #fff;
     text-decoration: none;
-    padding: 10px 20px; /* Innenabstand für die Buttons */
-    text-transform: uppercase; /* Großbuchstaben wie im Screenshot */
+    padding: 10px 20px;
+    text-transform: uppercase;
     font-weight: bold;
 }
 
 .nav-link:hover {
-    opacity: 0.8; /* Leichter Hover-Effekt */
+    opacity: 0.8;
 }
 
-/* Footer-Styling */
 .impressum-footer {
     text-align: center;
     margin-top: 40px;
     padding: 20px 0;
 }
 
-/* Allgemeines Styling für den Hauptinhalt */
 .content {
     text-align: center;
 }
