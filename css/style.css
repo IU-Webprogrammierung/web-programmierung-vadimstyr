@@ -92,13 +92,10 @@ body {
 /* ===== FOOTER-BEREICH ===== */
 /* Impressum-Footer, fixiert am unteren Bildschirmrand */
 .impressum-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 40px;
+    padding: clamp(0.5rem, 2%, 1.5rem) 0;
+    margin-top: clamp(1rem, 5%, 3rem);
 }
 
 /* Gestaltung des Impressum-Links als Button */
@@ -107,9 +104,8 @@ body {
     background-color: #000000;
     color: #ffffff;
     text-decoration: none;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: background-color 0.3s, transform 0.2s;
+    padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem);
+    border-radius: 0.5rem;
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    margin: clamp(0.5rem, 2%, 1rem);
 }
