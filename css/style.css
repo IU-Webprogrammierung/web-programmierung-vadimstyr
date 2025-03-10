@@ -207,3 +207,90 @@ body {
 @media (min-width: 1025px) {
     /* Desktop-Styles */
 }
+
+/* ===== Lebenslauf ===== */
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr; /* Einspaltiges Layout für mobile Geräte */
+    gap: 1.5rem;
+    padding: 0.8rem;
+    max-width: 100%;
+  }
+  
+  /* Job-Abschnitte */
+  .job {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .job-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+    color: #2c3e50;
+  }
+  
+  .job-date, .job-field {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 0.5rem;
+  }
+  
+  .job-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .skills {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .skills ul, 
+.right-column ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+  
+  /* Rechte Spalte Elemente (Bildung, Zertifikate) */
+  .right-column {
+    background-color: #f0f4f8;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .right-column h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.4rem;
+  }
+  
+  .right-column ul {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .right-column li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  
+  /* Skills-Bereich */
+  .skills ul {
+    display: grid;
+    grid-template-columns: 1fr; /* Eine Spalte auf kleinen Mobilgeräten */
+    gap: 0.5rem;
+    padding-left: 1rem;
+  }
+  
