@@ -31,9 +31,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;;
     text-align: center;
     padding: 0 clamp(1rem, 3%, 2rem);
+    padding-bottom: clamp(4rem, 10%, 6rem);
 }
 
 /* ===== HEADER-BEREICH ===== */
@@ -99,12 +100,16 @@ body {
 }
 
 /* ===== FOOTER-BEREICH ===== */
-/* Impressum-Footer, fixiert am unteren Bildschirmrand */
 .impressum-footer {
     position: relative;
+    bottom: 0;
+    left: 0;
     width: 100%;
     padding: clamp(0.5rem, 2%, 1.5rem) 0;
-    margin-top: clamp(1rem, 5%, 3rem);
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
 }
 
 /* Gestaltung des Impressum-Links als Button */
