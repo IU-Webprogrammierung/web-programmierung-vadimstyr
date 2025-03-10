@@ -2,6 +2,7 @@
 /* Grundlegende Seitengestaltung */
 body {
     background-color: #f5e1c0;
+    font-family: "Arial", sans-serif;
 }
 
 /* ===== ACCESSIBILITY ===== */
@@ -57,6 +58,11 @@ body {
 
 /* ===== NAVIGATION ===== */
 /* Navigations-Liste */
+.nav {
+    width: 100%;
+    position: relative;
+}
+
 .nav ul {
     list-style-type: none;
     padding: 0;
@@ -84,7 +90,6 @@ body {
 /* Hover-Effekt für Navigation */
 .nav-link:hover {
     opacity: 0.8;
-    transform: translateY(-3px);
 }
 
 /* ===== HAUPTINHALT ===== */
@@ -107,31 +112,32 @@ body {
     display: inline-block;
     background-color: #000000;
     color: #ffffff;
+    font-weight: bold;
     text-decoration: none;
     padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem);
     border-radius: 0.5rem;
-    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    font-size: clamp(0.9em, 2vw, 1.2em);
     margin: clamp(0.5rem, 2%, 1rem);
 }
 
+/* ===== Bürger-Button ===== */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #000;
+    margin: 10px auto;
+}
 
 /* ===== Media Querys ===== */
-
 /* Mobile (340px bis 640px) */
-@media (min-width: 340px) and (max-width: 640px) {
+@media (max-width: 640px) {
     /* Navigation anpassen */
     .nav {
         flex-direction: column;
         gap: 10px;
-    }
-
-    /* Typografie skalieren */
-    h1 {
-        font-size: 1.5rem;
-    }
-    p {
-        font-size: 1rem;
-        line-height: 1.5;
     }
 
     /* Bilder und Medien optimieren */
@@ -141,7 +147,8 @@ body {
     }
 
     /* Buttons anpassen */
-    button, .link {
+    button,
+    .link {
         padding: 10px 20px;
         font-size: 1rem;
         border-radius: 0.5rem;
@@ -157,11 +164,43 @@ body {
     .sidebar {
         display: none;
     }
+
+    .impressum-footer {
+        text-align: center;
+    }
+
+    .impressum-link {
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Burger-Button einblenden */
+    .menu-toggle {
+        display: block;
+    }
+    
+    /* Navigationspunkte standardmäßig ausblenden */
+    .nav ul {
+        display: none;
+    }
+    
+    /* Nur anzeigen, wenn die Klasse nav-menu-active hinzugefügt wurde */
+    .nav ul.nav-menu-active {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 /* Tablet (641px bis 1024px) */
 @media (min-width: 641px) and (max-width: 1024px) {
-    /* Tablet-spezifische Regeln */
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav ul {
+        display: flex;
+    }
 }
 
 /* Desktop (größer als 1024px) */
