@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,38 +12,29 @@
 <body>
     <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
     <div class="container">
+        <nav class="nav">
+            <button class="menu-toggle" aria-label="Menü öffnen">☰</button>
+            <ul class="nav-menu">
+                <li><a class="nav-link" id="projekte-link" href="../html/projekte.html">PROJEKTE</a></li>
+                <li><a class="nav-link" id="lebenslauf-link" href="../html/lebenslauf.html">LEBENSLAUF</a></li>
+                <li><a class="nav-link" id="kontakt-link" href="../html/kontakt.html">KONTAKT</a></li>
+                <li><a class="nav-link" id="home-link" href="../index.html">HOME</a></li>
+            </ul>
+        </nav>
+
         <header class="header">
-            <h1 class="title">ME</h1>
-            <p class="subtitle">No drama, cut the act<br> stay real, that's pure facts.</p>
-            <nav class="nav">
-                <button class="menu-toggle" aria-label="Menü öffnen">☰</button>
-                <ul class="nav-menu">
-                    <li><a class="nav-link" id="projekte-link" href="../html/projekte.html"><span>Projekte</span></a></li>
-                    <li><a class="nav-link" id="lebenslauf-link" href="../html/lebenslauf.html"><span>Lebenslauf</span></a></li>
-                    <li><a class="nav-link" id="kontakt-link" href="../html/kontakt.html"><span>Kontakt</span></a></li>
-                    <li><a class="nav-link" id="home-link" href="../index.html"><span>Home</span></a></li>
-                </ul>
-                
-            </nav>
+            <h1 class="title" id="me-title">Me</h1>
+            <p class="subtitle" id="me-subtitle">No drama, cut the act<br> stay real, that's pure facts.</p>
         </header>
 
-        <main class="content">
+        <main class="content" id="main-content">
             <section class="profile-section">
-                <div class="image-container">
-                    <img src="../picture/Vadim.jpg" alt="Ich, der auf einem Bild zu sehen ist" loading="lazy"
-                        class="profile-picture">
-                </div>
                 <p>
-                    In meiner Freizeit widme ich mich leidenschaftlich dem Tanzen, dem Hören von Hörbüchern und dem
-                    Wandern,
-                    was mir einen idealen Ausgleich bietet. Zusätzlich nutze ich freie Zeit, um an meiner Website zu
-                    arbeiten und
-                    kontinuierlich deren SEO-Performance zu optimieren. Ich zeichne mich durch Geduld und eine
-                    ausgeprägte
-                    Offenheit für neue Lernmöglichkeiten aus, insbesondere durch die Teilnahme an Kursen auf Plattformen
-                    wie
-                    Udemy oder LinkedIn Learning.
+                    In meiner Freizeit widme ich mich leidenschaftlich dem Tanzen, dem Hören von Hörbüchern und dem Wandern, was mir einen idealen Ausgleich bietet. Zusätzlich nutze ich freie Zeit, um an meiner Website zu arbeiten und kontinuierlich deren SEO-Performance zu optimieren. Ich zeichne mich durch Geduld und eine ausgeprägte Offenheit für neue Lernmöglichkeiten aus, insbesondere durch die Teilnahme an Kursen auf Plattformen wie Udemy oder LinkedIn Learning.
                 </p>
+                <div class="image-container">
+                    <img src="../picture/Vadim.jpg" alt="Ich, der auf einem Bild zu sehen ist" loading="lazy" class="profile-picture">
+                </div>
             </section>
         </main>
 
@@ -53,5 +43,4 @@
         </footer>
     </div>
 </body>
-
 </html>

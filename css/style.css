@@ -150,6 +150,15 @@ body {
     padding: 0;
 }
 
+/* ===== Profil Picture ===== */
+
+.profile-picture {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 /* ===== Media Querys ===== */
 /* Mobile (340px bis 640px) */
 @media (max-width: 640px) {
@@ -211,7 +220,7 @@ body {
         flex-direction: column;
         align-items: center;
     }
-
+    
     .header {
         margin-top: auto;
         margin-bottom: 2rem;
@@ -235,9 +244,39 @@ body {
 
 /* Desktop (größer als 1024px) */
 @media (min-width: 1025px) {
-    /* Desktop-Styles */
-}
+    .container {
+        padding-top: 0; /* Kein Padding oben */
+        align-items: flex-start; /* Inhalte oben ausrichten */
+    }
+    .nav {
+        width: 100%;
+        align-items: flex-start;
+        margin-top: 0; /* Entfernt den Abstand von oben */
+        padding-top: 0; /* Kein zusätzliches Padding */
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .nav ul {
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 20px 0 20px 30px; /* Padding nur links und etwas oben/unten */
+        margin: 0;
+    }
+    
+    /* Menü-Toggle in Desktop-Ansicht ausblenden */
+    .menu-toggle {
+        display: none;
+    }
+    
+    /* Stellen Sie sicher, dass die Navigation immer angezeigt wird */
+    .nav ul {
+        display: flex;
+    }
 
+}
 /* ===== Lebenslauf ===== */
 
 .content {
