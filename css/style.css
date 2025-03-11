@@ -245,14 +245,16 @@ body {
 /* Desktop (größer als 1024px) */
 @media (min-width: 1025px) {
     .container {
-        padding-top: 0; /* Kein Padding oben */
-        align-items: flex-start; /* Inhalte oben ausrichten */
+        padding-top: 2rem; /* Etwas Abstand nach oben */
+        align-items: center; /* Container-Inhalte zentrieren */
+        justify-content: center; /* Vertikale Zentrierung */
     }
+    
     .nav {
         width: 100%;
         align-items: flex-start;
-        margin-top: 0; /* Entfernt den Abstand von oben */
-        padding-top: 0; /* Kein zusätzliches Padding */
+        margin-top: 0;
+        padding-top: 0;
         position: absolute;
         top: 0;
         left: 0;
@@ -262,21 +264,76 @@ body {
         display: flex;
         justify-content: flex-start;
         gap: 10px;
-        padding: 20px 0 20px 30px; /* Padding nur links und etwas oben/unten */
+        padding: 50px 0 50px 50px;
         margin: 0;
     }
     
-    /* Menü-Toggle in Desktop-Ansicht ausblenden */
     .menu-toggle {
         display: none;
     }
     
-    /* Stellen Sie sicher, dass die Navigation immer angezeigt wird */
-    .nav ul {
+    /* Hauptinhalt als Flex-Container für Desktop */
+    .header {
         display: flex;
+        flex-direction: row;
+        justify-content: center; 
+        align-items: center; 
+        gap: 3rem;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    
+    /* Text-Container links ausrichten */
+    .header .text-container {
+        flex: 1;
+        padding-right: 60px;
+        text-align: left;
+        max-width: 50%;
+    }
+
+    .text-container {
+        flex: 1;
+        max-width: 600px; /* Begrenze die Textbreite */
+        text-align: left; /* Text linksbündig lassen */
+    }
+    
+    /* Bild-Container rechts */
+    .profile-picture {
+        width: 550px;
+        height: 550px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    /* Titel links ausrichten */
+    .title {
+        text-align: left;
+    }
+    h1, .title {
+        margin-bottom: 0.5rem; /* Reduziert den Abstand nach unten */
+    }
+    
+    /* Abstand zwischen Untertitel und Haupttext verringern */
+    h2, .subtitle {
+        margin-top: 0.5rem; /* Reduziert den Abstand nach oben */
+        margin-bottom: 1rem; /* Reduziert den Abstand nach unten */
+    }
+    
+    /* Beschreibungstext links ausrichten */
+    .header p {
+        text-align: left;
+    }
+    p {
+        text-align: left;
+        font-size: 16px; /* Wähle die gewünschte Größe */
+        line-height: 1.4; /* Zeilenabstand */
+        font-weight: 500; /* Standard-Schriftstärke, ändere nach Bedarf */
+        max-width: 65ch; /* Optimale Lesebreite (ca. 65 Zeichen) */
     }
 
 }
+
 /* ===== Lebenslauf ===== */
 
 .content {
