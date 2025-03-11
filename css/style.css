@@ -6,6 +6,7 @@ body {
     font-family: "Arial", sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
 /* ===== ACCESSIBILITY ===== */
@@ -36,19 +37,21 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* Korrigiert: doppeltes Semikolon entfernt */
+    justify-content: space-between;
+    /* Ändere auf space-between */
     text-align: center;
     padding: 0 clamp(1rem, 3%, 2rem);
-    padding-bottom: clamp(4rem, 10%, 6rem);
+    /* Reduziere das Padding oben/unten */
 }
 
 /* ===== HEADER-BEREICH ===== */
 
 /* Header-Container */
 .header {
+    margin-top: auto;
+    /* Drückt den Header nach unten */
+    margin-bottom: 2rem;
     text-align: center;
-    margin-bottom: clamp(30px, 5vh, 50px);
-    padding-top: clamp(40px, 8vh, 60px);
     width: 100%;
 }
 
@@ -106,21 +109,18 @@ body {
 /* ===== HAUPTINHALT ===== */
 /* Content-Bereich */
 .content {
-    text-align: center;
-    width: 100%;
+    flex: 0;
+    /* Ändere zu 0 statt 1 */
 }
 
 /* ===== FOOTER-BEREICH ===== */
 
 .impressum-footer {
-    position: relative;
-    width: 100%;
-    padding: clamp(0.5rem, 2%, 1.5rem) 0;
+
     margin-top: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
+    /* Drückt den Footer ans Ende */
+    margin-bottom: auto;
+    /* Zieht den Footer etwas nach oben */
 }
 
 /* Gestaltung des Impressum-Links als Button */
@@ -133,7 +133,7 @@ body {
     padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
     border-radius: 0.5rem;
     font-size: clamp(0.9em, 2vw, 1.2em);
-    margin: 0; 
+    margin: 0;
 }
 
 /* ===== Bürger-Button ===== */
@@ -153,6 +153,7 @@ body {
 /* ===== Media Querys ===== */
 /* Mobile (340px bis 640px) */
 @media (max-width: 640px) {
+
     /* Navigation anpassen */
     .nav {
         flex-direction: column;
@@ -176,8 +177,8 @@ body {
 
     /* Seitenlayout anpassen */
     .container {
-        padding: 1rem;
-        max-width: 95%;
+        justify-content: space-between;
+        padding: 2rem 1rem;
     }
 
     /* Nicht benötigte Elemente ausblenden */
@@ -186,7 +187,8 @@ body {
     }
 
     .impressum-footer {
-        text-align: center;
+        margin-top: auto;
+        margin-bottom: 2rem;
     }
 
     .impressum-link {
@@ -197,17 +199,26 @@ body {
     .menu-toggle {
         display: block;
     }
-    
+
     /* Navigationspunkte standardmäßig ausblenden */
     .nav ul {
         display: none;
     }
-    
+
     /* Nur anzeigen, wenn die Klasse nav-menu-active hinzugefügt wurde */
     .nav ul.nav-menu-active {
         display: flex;
         flex-direction: column;
-        align-items: center; 
+        align-items: center;
+    }
+
+    .header {
+        margin-top: auto;
+        margin-bottom: 2rem;
+    }
+
+    .hamburger-menu {
+        margin: 1rem 0;
     }
 }
 
@@ -243,7 +254,7 @@ body {
     padding: 1rem;
     border-radius: 8px;
     margin-bottom: 1.2rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .job-title {
@@ -252,7 +263,8 @@ body {
     color: #2c3e50;
 }
 
-.job-date, .job-field {
+.job-date,
+.job-field {
     font-size: 0.9rem;
     color: #7f8c8d;
     margin-bottom: 0.5rem;
@@ -268,10 +280,10 @@ body {
     padding: 1rem;
     border-radius: 8px;
     margin-bottom: 1.2rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.skills ul, 
+.skills ul,
 .right-column ul {
     list-style-type: none;
     padding-left: 0;
@@ -284,7 +296,7 @@ body {
     padding: 1rem;
     border-radius: 8px;
     margin-bottom: 1.2rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .right-column h3 {
@@ -309,7 +321,7 @@ body {
 /* Skills-Bereich */
 .skills ul {
     display: grid;
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
     gap: 0.5rem;
     padding-left: 1rem;
 }
