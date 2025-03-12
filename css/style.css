@@ -72,6 +72,7 @@ body {
 .subtitle {
     font-size: clamp(1.2em, 4vw, 2em);
     margin-bottom: clamp(20px, 5vh, 40px);
+    font-style: italic;
 }
 
 /* ===== NAVIGATION ===== */
@@ -188,6 +189,7 @@ body {
         margin-top: 0;
         margin-bottom: 0.5rem;
         font-size: 1.2rem;
+        font-style: italic;
     }
 
     .profile-picture {
@@ -282,6 +284,8 @@ body {
     .subtitle {
         margin-top: 0;
         margin-bottom: 0.5rem;
+        font-weight: 500;
+        font-style: italic;
 
     }
 
@@ -293,8 +297,8 @@ body {
     }
 
     .profile-picture {
-        width: clamp(200px, 50vw, 400px);
-        height: clamp(200px, 50vw, 400px);
+        width: clamp(200px, 40vw, 400px);
+        height: clamp(200px, 40vw, 400px);
         border-radius: 50%;
         margin-top: 50px;
     }
@@ -341,14 +345,25 @@ body {
     .container {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 1rem;
+        justify-content: center; /* Vertikal zentrieren */
+        align-items: center;    /* Horizontal zentrieren */
+        height: 100vh;          /* Vollständige Viewport-Höhe */
+        padding: 1rem;          /* Etwas Abstand für Inhalte */
+        gap: 1rem;              /* Abstand zwischen den Elementen */
     }
 
     /* Header nach unten verschieben */
     .header {
-        margin-top: 2rem;
-        /* Mehr Abstand nach oben */
+        display: grid;
+        grid-template-areas:
+            "image"
+            "title"
+            "subtitle"
+            "text";
+        justify-items: center;
+        text-align: center;
+        gap: 0.3rem;
+        padding-bottom: 0.5rem;
     }
 
     .menu-toggle {
@@ -382,7 +397,7 @@ body {
 
 }
 
-/* Desktop (größer als 1024px) */
+/* Desktop (größer als 1025px) */
 @media (min-width: 1025px) {
 
     .home-page .nav {
