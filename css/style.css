@@ -192,17 +192,23 @@ body {
 
     .profile-picture {
         grid-area: image;
-        width: clamp(150px, 45vw, 250px);  /* Etwas kleiner */
-        height: clamp(150px, 45vw, 250px); /* Etwas kleiner */
-        margin: 0.7rem 0;  /* Reduzierte Abstände */
+        width: clamp(150px, 45vw, 250px);
+        /* Etwas kleiner */
+        height: clamp(150px, 45vw, 250px);
+        /* Etwas kleiner */
+        margin: 0.7rem 0;
+        /* Reduzierte Abstände */
     }
 
     .text-container {
         grid-area: text;
         width: 100%;
-        font-size: 0.9rem;  /* Kleinere Schriftgröße */
-        line-height: 1.4;   /* Kompakterer Zeilenabstand */
-        font-weight: 500;   /* Normalgewicht */
+        font-size: 0.9rem;
+        /* Kleinere Schriftgröße */
+        line-height: 1.4;
+        /* Kompakterer Zeilenabstand */
+        font-weight: 500;
+        /* Normalgewicht */
     }
 
     /* Navigation styles */
@@ -267,12 +273,93 @@ body {
 
 /* Tablet (641px bis 1024px) */
 @media (min-width: 641px) and (max-width: 1024px) {
+
+    /* Hauptüberschrift (H1) */
+    .title {
+        margin-top: 0.5rem;
+    }
+
+    .subtitle {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+
+    }
+
+    .profile-picture {
+        width: clamp(200px, 40vw, 400px);
+        height: clamp(200px, 40vw, 400px);
+        border-radius: 50%;
+    }
+
+    .text-container {
+        grid-area: text;
+        width: 100%;
+        font-size: 1.3rem;
+        /* Kleinere Schriftgröße */
+        line-height: 1.4;
+        /* Kompakterer Zeilenabstand */
+        font-weight: 500;
+        /* Normalgewicht */
+    }
+
+    /* Bestehenden Code beibehalten */
     .menu-toggle {
         display: none;
     }
 
     .nav ul {
         display: flex;
+    }
+
+    /* NEUE STYLES FÜR TABLET-NAVIGATION */
+    .nav {
+        position: relative;
+        top: auto;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Container-Struktur anpassen */
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        /* Beginnt oben statt zu zentrieren */
+        padding-top: 1rem;
+    }
+
+    /* Header nach unten verschieben */
+    .header {
+        margin-top: 2rem;
+        /* Mehr Abstand nach oben */
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav ul {
+        display: flex;
+    }
+    .impressum-footer {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: auto;
+        padding: 1rem;
+
+    }
+
+    .impressum-link {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        padding: clamp(0.3rem, 2vw, 0.6rem) clamp(1rem, 3vw, 1.5rem);
+        border-radius: 1.5rem;
+        font-size: clamp(0.9em, 2vw, 1em);
+        margin: 0;
     }
 }
 
