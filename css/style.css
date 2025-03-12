@@ -37,7 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     text-align: center;
     padding: 0 clamp(1rem, 3%, 2rem);
 }
@@ -246,8 +246,13 @@ body {
 
     /* Layout adjustments */
     .container {
-        justify-content: space-between;
-        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Zentriere vertikal */
+        align-items: center;    /* Zentriere horizontal */
+        min-height: 100vh;      /* Fülle den vollständigen Viewport */
+        padding: 2rem 1rem;          /* Etwas Abstand für mobilen Content */
+        gap: 1rem; 
     }
 
     .sidebar {
@@ -256,8 +261,9 @@ body {
 
     /* Footer positioning */
     .impressum-footer {
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-top: auto;            /* Footer wird automatisch nach unten geschoben */
+        text-align: center;          /* Zentriere den Text */
+        padding: 1rem 0;             /* Platz nach oben und unten */
     }
 
     .impressum-link {
@@ -610,4 +616,4 @@ body {
         gap: 0.5rem;
         padding-left: 1rem;
     }
-}
+} 
