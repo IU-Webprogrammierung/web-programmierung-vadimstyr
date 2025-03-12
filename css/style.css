@@ -193,22 +193,16 @@ body {
     .profile-picture {
         grid-area: image;
         width: clamp(150px, 45vw, 250px);
-        /* Etwas kleiner */
         height: clamp(150px, 45vw, 250px);
-        /* Etwas kleiner */
         margin: 0.7rem 0;
-        /* Reduzierte Abstände */
     }
 
     .text-container {
         grid-area: text;
         width: 100%;
         font-size: 0.9rem;
-        /* Kleinere Schriftgröße */
         line-height: 1.4;
-        /* Kompakterer Zeilenabstand */
         font-weight: 500;
-        /* Normalgewicht */
     }
 
     /* Navigation styles */
@@ -276,7 +270,7 @@ body {
 
     /* Hauptüberschrift (H1) */
     .title {
-        margin-top: 0.5rem;
+        margin-top: 0.6rem;
     }
 
     .subtitle {
@@ -285,21 +279,26 @@ body {
 
     }
 
+    p {
+        font-size: 1.5rem;
+        line-height: 1.5;
+        margin-bottom: 1.4rem;
+        font-weight: 500;
+    }
+
     .profile-picture {
-        width: clamp(200px, 40vw, 400px);
-        height: clamp(200px, 40vw, 400px);
+        width: clamp(200px, 50vw, 400px);
+        height: clamp(200px, 50vw, 400px);
         border-radius: 50%;
+        margin-top: 50px;
     }
 
     .text-container {
         grid-area: text;
         width: 100%;
         font-size: 1.3rem;
-        /* Kleinere Schriftgröße */
         line-height: 1.4;
-        /* Kompakterer Zeilenabstand */
         font-weight: 500;
-        /* Normalgewicht */
     }
 
     /* Bestehenden Code beibehalten */
@@ -319,12 +318,24 @@ body {
         margin-bottom: 0.5rem;
     }
 
+    .nav-link {
+        display: block;
+        background-color: #000;
+        color: #fff;
+        text-decoration: none;
+        padding: clamp(8px, 4vw, 20px) clamp(15px, 4vw, 30px);
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: clamp(0.9em, 2vw, 1.2em);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
     /* Container-Struktur anpassen */
     .container {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        /* Beginnt oben statt zu zentrieren */
         padding-top: 1rem;
     }
 
@@ -341,6 +352,7 @@ body {
     .nav ul {
         display: flex;
     }
+
     .impressum-footer {
         position: fixed;
         bottom: 0;
@@ -361,10 +373,32 @@ body {
         font-size: clamp(0.9em, 2vw, 1em);
         margin: 0;
     }
+
 }
 
 /* Desktop (größer als 1024px) */
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
+
+    .home-page .nav {
+        position: static;
+        margin-top: 1rem;
+    }
+
+    .home-page .nav ul {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .home-page .header {
+        flex-direction: column;
+    }
+
+    .home-page .title,
+    .home-page .subtitle,
+    .home-page .header p {
+        text-align: center;
+    }
+
     .impressum-footer {
         position: fixed;
         bottom: 0;
@@ -397,7 +431,7 @@ body {
 
     .nav {
         width: 100%;
-        align-items: flex-start;
+        align-items: center;
         margin-top: 0;
         padding-top: 0;
         position: absolute;
@@ -407,7 +441,7 @@ body {
 
     .nav ul {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         gap: 10px;
         padding: 50px 0 50px 50px;
         margin: 0;
@@ -490,92 +524,90 @@ body {
         /* Optimale Lesebreite (ca. 65 Zeichen) */
     }
 
-}
 
-/* ===== Lebenslauf ===== */
+    .content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0.8rem;
+        max-width: 100%;
+    }
 
-.content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 0.8rem;
-    max-width: 100%;
-}
+    /* Job-Abschnitte */
+    .job {
+        background-color: #f9f9f9;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1.2rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
 
-/* Job-Abschnitte */
-.job {
-    background-color: #f9f9f9;
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1.2rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
+    .job-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.2rem;
+        color: #2c3e50;
+    }
 
-.job-title {
-    font-size: 1.1rem;
-    margin-bottom: 0.2rem;
-    color: #2c3e50;
-}
+    .job-date,
+    .job-field {
+        font-size: 0.9rem;
+        color: #7f8c8d;
+        margin-bottom: 0.5rem;
+    }
 
-.job-date,
-.job-field {
-    font-size: 0.9rem;
-    color: #7f8c8d;
-    margin-bottom: 0.5rem;
-}
+    .job-description {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
 
-.job-description {
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
+    .skills {
+        background-color: #f9f9f9;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1.2rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
 
-.skills {
-    background-color: #f9f9f9;
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1.2rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
+    .skills ul,
+    .right-column ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-left: 0;
+    }
 
-.skills ul,
-.right-column ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin-left: 0;
-}
+    /* Rechte Spalte Elemente (Bildung, Zertifikate) */
+    .right-column {
+        background-color: #f0f4f8;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1.2rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
 
-/* Rechte Spalte Elemente (Bildung, Zertifikate) */
-.right-column {
-    background-color: #f0f4f8;
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1.2rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
+    .right-column h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 0.4rem;
+    }
 
-.right-column h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 0.4rem;
-}
+    .right-column ul {
+        padding-left: 1.2rem;
+        margin-bottom: 1rem;
+    }
 
-.right-column ul {
-    padding-left: 1.2rem;
-    margin-bottom: 1rem;
-}
+    .right-column li {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
 
-.right-column li {
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-    line-height: 1.4;
-}
-
-/* Skills-Bereich */
-.skills ul {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-    padding-left: 1rem;
+    /* Skills-Bereich */
+    .skills ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding-left: 1rem;
+    }
 }
