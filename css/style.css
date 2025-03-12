@@ -38,10 +38,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    /* Ändere auf space-between */
     text-align: center;
     padding: 0 clamp(1rem, 3%, 2rem);
-    /* Reduziere das Padding oben/unten */
 }
 
 /* ===== HEADER-BEREICH ===== */
@@ -54,9 +52,10 @@ body {
     text-align: center;
     width: 100%;
 }
+
 .profile-picture {
-    width: clamp(200px, 80vw, 400px);
-    height: clamp(200px, 80vw, 400px);
+    width: clamp(200px, 60vw, 400px);
+    height: clamp(200px, 60vw, 400px);
     border-radius: 50%;
     object-fit: cover;
     margin: 0 auto;
@@ -160,35 +159,84 @@ body {
 
 /* ===== Profil Picture ===== */
 
-.profile-picture {
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    object-fit: cover;
-}
 
 /* ===== Media Querys ===== */
 /* Mobile (340px bis 640px) */
 @media (max-width: 640px) {
 
-    /* Navigation anpassen */
+    /* Header structure */
+    .header {
+        display: grid;
+        grid-template-areas:
+            "image"
+            "title"
+            "subtitle"
+            "text";
+        justify-items: center;
+        text-align: center;
+        gap: 0.3rem;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Order of header elements */
+    .title {
+        margin-top: 0.5rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .subtitle {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .profile-picture {
+        grid-area: image;
+        width: clamp(150px, 45vw, 250px);  /* Etwas kleiner */
+        height: clamp(150px, 45vw, 250px); /* Etwas kleiner */
+        margin: 0.7rem 0;  /* Reduzierte Abstände */
+    }
+
+    .text-container {
+        grid-area: text;
+        width: 100%;
+        font-size: 0.9rem;  /* Kleinere Schriftgröße */
+        line-height: 1.4;   /* Kompakterer Zeilenabstand */
+        font-weight: 500;   /* Normalgewicht */
+    }
+
+    /* Navigation styles */
     .nav {
         flex-direction: column;
         gap: 10px;
         align-items: center;
     }
 
-    /* Bilder und Medien optimieren */
+    .nav ul {
+        display: none;
+    }
+
+    .nav ul.nav-menu-active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hamburger-menu {
+        margin: 1rem 0;
+    }
+
+    /* Image optimization */
     .img {
         max-width: 100%;
         height: auto;
     }
-    .profile-picture {
-        width: clamp(200px, 80vw, 300px);
-        height: clamp(200px, 80vw, 300px);
-    }
 
-    /* Buttons anpassen */
+    /* Button and link styles */
     button,
     .link {
         padding: 10px 20px;
@@ -196,50 +244,24 @@ body {
         border-radius: 0.5rem;
     }
 
-    /* Seitenlayout anpassen */
+    /* Layout adjustments */
     .container {
         justify-content: space-between;
         padding: 2rem 1rem;
     }
 
-    /* Nicht benötigte Elemente ausblenden */
     .sidebar {
         display: none;
     }
 
+    /* Footer positioning */
     .impressum-footer {
-        margin-top: auto;
-        margin-bottom: 2rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
     }
 
     .impressum-link {
         display: inline-block;
-    }
-
-    /* Burger-Button einblenden */
-    .menu-toggle {
-        display: block;
-    }
-
-    /* Navigationspunkte standardmäßig ausblenden */
-    .nav ul {
-        display: none;
-    }
-
-    /* Nur anzeigen, wenn die Klasse nav-menu-active hinzugefügt wurde */
-    .nav ul.nav-menu-active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .header {
-        margin-top: auto;
-        margin-bottom: 2rem;
-    }
-
-    .hamburger-menu {
-        margin: 1rem 0;
     }
 }
 
@@ -255,7 +277,7 @@ body {
 }
 
 /* Desktop (größer als 1024px) */
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
     .impressum-footer {
         position: fixed;
         bottom: 0;
