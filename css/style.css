@@ -54,6 +54,14 @@ body {
     text-align: center;
     width: 100%;
 }
+.profile-picture {
+    width: clamp(200px, 80vw, 400px);
+    height: clamp(200px, 80vw, 400px);
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
 
 /* Hauptüberschrift (H1) */
 .title {
@@ -171,9 +179,13 @@ body {
     }
 
     /* Bilder und Medien optimieren */
-    img {
+    .img {
         max-width: 100%;
         height: auto;
+    }
+    .profile-picture {
+        width: clamp(200px, 80vw, 300px);
+        height: clamp(200px, 80vw, 300px);
     }
 
     /* Buttons anpassen */
@@ -220,7 +232,7 @@ body {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .header {
         margin-top: auto;
         margin-bottom: 2rem;
@@ -244,12 +256,36 @@ body {
 
 /* Desktop (größer als 1024px) */
 @media (min-width: 1025px) {
-    .container {
-        padding-top: 2rem; /* Etwas Abstand nach oben */
-        align-items: center; /* Container-Inhalte zentrieren */
-        justify-content: center; /* Vertikale Zentrierung */
+    .impressum-footer {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: auto;
+        padding: 1rem;
+
     }
-    
+
+    .impressum-link {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        padding: clamp(0.3rem, 2vw, 0.6rem) clamp(1rem, 3vw, 1.5rem);
+        border-radius: 1.5rem;
+        font-size: clamp(0.9em, 2vw, 1em);
+        margin: 0;
+    }
+
+    .container {
+        padding-top: 2rem;
+        /* Etwas Abstand nach oben */
+        align-items: center;
+        /* Container-Inhalte zentrieren */
+        justify-content: center;
+        /* Vertikale Zentrierung */
+    }
+
     .nav {
         width: 100%;
         align-items: flex-start;
@@ -259,7 +295,7 @@ body {
         top: 0;
         left: 0;
     }
-    
+
     .nav ul {
         display: flex;
         justify-content: flex-start;
@@ -267,23 +303,23 @@ body {
         padding: 50px 0 50px 50px;
         margin: 0;
     }
-    
+
     .menu-toggle {
         display: none;
     }
-    
+
     /* Hauptinhalt als Flex-Container für Desktop */
     .header {
         display: flex;
         flex-direction: row;
-        justify-content: center; 
-        align-items: center; 
+        justify-content: center;
+        align-items: center;
         gap: 3rem;
         max-width: 1000px;
         margin: 0 auto;
         padding: 2rem;
     }
-    
+
     /* Text-Container links ausrichten */
     .header .text-container {
         flex: 1;
@@ -294,10 +330,12 @@ body {
 
     .text-container {
         flex: 1;
-        max-width: 600px; /* Begrenze die Textbreite */
-        text-align: left; /* Text linksbündig lassen */
+        max-width: 600px;
+        /* Begrenze die Textbreite */
+        text-align: left;
+        /* Text linksbündig lassen */
     }
-    
+
     /* Bild-Container rechts */
     .profile-picture {
         width: 550px;
@@ -305,31 +343,42 @@ body {
         border-radius: 50%;
         object-fit: cover;
     }
-    
+
     /* Titel links ausrichten */
     .title {
         text-align: left;
     }
-    h1, .title {
-        margin-bottom: 0.5rem; /* Reduziert den Abstand nach unten */
+
+    h1,
+    .title {
+        margin-bottom: 0.5rem;
+        /* Reduziert den Abstand nach unten */
     }
-    
+
     /* Abstand zwischen Untertitel und Haupttext verringern */
-    h2, .subtitle {
-        margin-top: 0.5rem; /* Reduziert den Abstand nach oben */
-        margin-bottom: 1rem; /* Reduziert den Abstand nach unten */
+    h2,
+    .subtitle {
+        margin-top: 0.5rem;
+        /* Reduziert den Abstand nach oben */
+        margin-bottom: 1rem;
+        /* Reduziert den Abstand nach unten */
     }
-    
+
     /* Beschreibungstext links ausrichten */
     .header p {
         text-align: left;
     }
+
     p {
         text-align: left;
-        font-size: 16px; /* Wähle die gewünschte Größe */
-        line-height: 1.4; /* Zeilenabstand */
-        font-weight: 500; /* Standard-Schriftstärke, ändere nach Bedarf */
-        max-width: 65ch; /* Optimale Lesebreite (ca. 65 Zeichen) */
+        font-size: 16px;
+        /* Wähle die gewünschte Größe */
+        line-height: 1.4;
+        /* Zeilenabstand */
+        font-weight: 500;
+        /* Standard-Schriftstärke, ändere nach Bedarf */
+        max-width: 65ch;
+        /* Optimale Lesebreite (ca. 65 Zeichen) */
     }
 
 }
