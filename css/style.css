@@ -345,11 +345,13 @@ body {
     .container {
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Vertikal zentrieren */
-        align-items: center;    /* Horizontal zentrieren */
-        height: 100vh;          /* Vollständige Viewport-Höhe */
-        padding: 1rem;          /* Etwas Abstand für Inhalte */
-        gap: 1rem;              /* Abstand zwischen den Elementen */
+        justify-content: flex-start; /* Ändere von center zu flex-start */
+        align-items: center;
+        min-height: 100vh;           /* Ändere von height: 10vh zu min-height: 100vh */
+        position: relative;          /* Wichtig für absolute Positionierung */
+        padding: 1rem;
+        padding-bottom: 4rem;        /* Extra Platz unten für den Footer */
+        gap: 1rem;
     }
 
     /* Header nach unten verschieben */
@@ -373,14 +375,13 @@ body {
     .nav ul {
         display: flex;
     }
-
     .impressum-footer {
-        position: fixed;
-        bottom: 0;
-        right: 0;
+        position: absol;             /* Hier kannst du fixed verwenden */
+        bottom: 1rem;                /* Abstand vom unteren Rand */
+        right: 1rem;                 /* Abstand vom rechten Rand */
         width: auto;
-        padding: 1rem;
-
+        padding: 0;                  /* Entferne padding hier */
+        z-index: 100;
     }
 
     .impressum-link {
@@ -394,6 +395,8 @@ body {
         font-size: clamp(0.9em, 2vw, 1em);
         margin: 0;
     }
+
+
 
 }
 
@@ -631,4 +634,4 @@ body {
         gap: 0.5rem;
         padding-left: 1rem;
     }
-} 
+}
