@@ -159,6 +159,14 @@ body {
 
 /* Mobile (340px bis 640px) */
 @media (max-width: 640px) {
+
+    .header img,
+    .header h1,
+    .header p {
+        margin: 0.2rem 0;
+        /* Verringert den vertikalen Abstand */
+    }
+
     .container {
         margin-top: 2rem;
         padding-top: 2rem;
@@ -389,23 +397,27 @@ body {
         line-height: 1.6;
         /* Verbessert die Lesbarkeit */
     }
+
     .social-media-buttons {
         display: flex;
-        justify-content: center; /* Zentriert die Icons */
-        gap: 2rem; /* Erhöht den Abstand zwischen den Icons */
-      }
-      
-      /* Icons schwarz färben */
-      .social-media-buttons i {
+        justify-content: center;
+        /* Zentriert die Icons */
+        gap: 2rem;
+        /* Erhöht den Abstand zwischen den Icons */
+    }
+
+    /* Icons schwarz färben */
+    .social-media-buttons i {
         color: black;
-        font-size: 1.5rem; /* Optional: Größe der Icons anpassen */
-      }
-      
-      /* Optional: Hover-Effekt für bessere Interaktion */
-      .social-media-link:hover i {
+        font-size: 1.5rem;
+        /* Optional: Größe der Icons anpassen */
+    }
+
+    /* Optional: Hover-Effekt für bessere Interaktion */
+    .social-media-link:hover i {
         opacity: 0.7;
         transition: opacity 0.3s ease;
-      }
+    }
 }
 
 /* Tablet (641px bis 1024px) */
