@@ -155,15 +155,13 @@ body {
     padding: 0;
 }
 
-/* ===== Profil Picture ===== */
-
-
 /* ===== Media Querys ===== */
+
 /* Mobile (340px bis 640px) */
 @media (max-width: 640px) {
     .container {
-        margin-top: 2rem; /* Abstand vom oberen Rand */
-        padding-top: 2rem; /* Innerer Abstand oben */
+        margin-top: 2rem;
+        padding-top: 2rem;
     }
 
     /* Hide regular navigation by default */
@@ -271,6 +269,143 @@ body {
     .impressum-link {
         display: inline-block;
     }
+
+    .lebenslauf-link {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+        border-radius: 0.5rem;
+        font-size: clamp(0.9em, 2vw, 1.2em);
+        margin: 0;
+    }
+
+    /* Abschnitte (Berufserfahrung, Fähigkeiten, etc.) */
+    .job,
+    .skills,
+    .right-column {
+        margin-bottom: 2rem;
+        /* Abstand zwischen Abschnitten */
+        padding: 1rem;
+        border: 1px solid #ccc;
+        /* Optional: Leichter Rahmen für Trennung */
+        border-radius: 5px;
+        /* Abgerundete Kanten */
+        background-color: #ffffff;
+        /* Hintergrundfarbe zur besseren Lesbarkeit */
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .job-title {
+        font-size: 1.2rem;
+        /* Größere Schrift für Jobtitel */
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+
+    .job-date {
+        font-size: 0.9rem;
+        color: #555;
+        /* Dezente Farbe für die Daten */
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+
+    .job-field {
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .job-description {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        /* Verbessert die Lesbarkeit */
+        text-align: center;
+        /* Ausrichtung für sauberen Blocksatz */
+        font-family: "Arial", sans-serif;
+        /* Beispiel-Schriftarten */
+        line-height: 1.6;
+        /* Verbessert die Lesbarkeit */
+    }
+
+    /* Fähigkeitenliste */
+    .skills ul {
+        column-count: 2;
+        /* Anzeige in zwei Spalten */
+        column-gap: 1rem;
+        list-style-type: disc;
+        /* Punkteformat */
+        padding-left: 1rem;
+        list-style: none;
+    }
+
+    /* Bildungs- und Zertifikatssektionen */
+    .right-column {
+        border: none;
+        /* Rahmen entfernen */
+        padding: 0;
+        box-shadow: 0 15px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .right-column h3 {
+        padding: 1rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .right-column ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+    }
+
+    .right-column p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .skills ul,
+    .right-column ul {
+        list-style: none;
+        /* Entfernt die Aufzählungszeichen */
+        padding: 0;
+        /* Entfernt Standard-Padding bei Listen */
+        margin: 0;
+        /* Entfernt Standard-Margin */
+        text-align: center;
+        /* Zentriert die Listeneinträge */
+    }
+
+    body {
+        font-family: "Arial", sans-serif;
+        /* Beispiel-Schriftarten */
+        line-height: 1.6;
+        /* Verbessert die Lesbarkeit */
+    }
+    .social-media-buttons {
+        display: flex;
+        justify-content: center; /* Zentriert die Icons */
+        gap: 2rem; /* Erhöht den Abstand zwischen den Icons */
+      }
+      
+      /* Icons schwarz färben */
+      .social-media-buttons i {
+        color: black;
+        font-size: 1.5rem; /* Optional: Größe der Icons anpassen */
+      }
+      
+      /* Optional: Hover-Effekt für bessere Interaktion */
+      .social-media-link:hover i {
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+      }
 }
 
 /* Tablet (641px bis 1024px) */
@@ -397,9 +532,9 @@ body {
         color: #ffffff;
         font-weight: bold;
         text-decoration: none;
-        padding: clamp(0.3rem, 2vw, 0.6rem) clamp(1rem, 3vw, 1.5rem);
-        border-radius: 1.5rem;
-        font-size: clamp(0.9em, 2vw, 1em);
+        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+        border-radius: 0.5rem;
+        font-size: clamp(0.9em, 2vw, 1.2em);
         margin: 0;
     }
 
