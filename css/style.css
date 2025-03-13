@@ -161,6 +161,10 @@ body {
 /* ===== Media Querys ===== */
 /* Mobile (340px bis 640px) */
 @media (max-width: 640px) {
+    .container {
+        margin-top: 2rem; /* Abstand vom oberen Rand */
+        padding-top: 2rem; /* Innerer Abstand oben */
+    }
 
     /* Hide regular navigation by default */
     .nav-menu {
@@ -205,6 +209,7 @@ body {
         width: 100%;
         margin: 0.5rem 0;
     }
+
     .nav-menu.nav-menu-active .nav-link {
         width: 80%;
         text-align: center;
@@ -220,6 +225,7 @@ body {
     .nav ul li {
         display: none;
     }
+
     .profile-picture {
         grid-area: image;
         width: clamp(150px, 45vw, 250px);
@@ -231,6 +237,14 @@ body {
     .img {
         max-width: 100%;
         height: auto;
+    }
+
+    .quiz-app-picture img,
+    .e-commerce-picture img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: contain;
     }
 
     /* Button and link styles */
