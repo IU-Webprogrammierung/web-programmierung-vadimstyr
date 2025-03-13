@@ -19,7 +19,6 @@ body {
     background: #000;
     color: white;
     padding: 8px;
-    z-index: 1000;
     transition: top 0.3s;
 }
 
@@ -47,7 +46,6 @@ body {
 /* Header-Container */
 .header {
     margin-top: auto;
-    /* Drückt den Header nach unten */
     margin-bottom: 2rem;
     text-align: center;
     width: 100%;
@@ -126,9 +124,8 @@ body {
 .impressum-footer {
 
     margin-top: auto;
-    /* Drückt den Footer ans Ende */
     margin-bottom: auto;
-    /* Zieht den Footer etwas nach oben */
+
 }
 
 /* Gestaltung des Impressum-Links als Button */
@@ -165,76 +162,69 @@ body {
 /* Mobile (340px bis 640px) */
 @media (max-width: 640px) {
 
-    /* Header structure */
-    .header {
-        display: grid;
-        grid-template-areas:
-            "image"
-            "title"
-            "subtitle"
-            "text";
-        justify-items: center;
+    /* Hide regular navigation by default */
+    .nav-menu {
+        display: none;
+    }
+
+    /* Show the hamburger menu button */
+    .menu-toggle {
+        display: block;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        /* Größe des Icons anpassen */
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 200;
+        padding: 5px 10px;
+        transition: all 0.3s ease;
+        background-color: transparent;
+    }
+
+    /* Menu when active */
+    .nav-menu.nav-menu-active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 50vh;
+        background-color: #f5e1c0;
+        z-index: 100;
+        padding: 4rem 1rem 1rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Navigation items styling */
+    .nav-menu.nav-menu-active li {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+    .nav-menu.nav-menu-active .nav-link {
+        width: 80%;
         text-align: center;
-        gap: 0.3rem;
-        padding-bottom: 0.5rem;
+        background-color: #000;
+        color: #fff;
+        padding: 0.8rem;
+        border-radius: 5px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bold;
     }
 
-    /* Order of header elements */
-    .title {
-        margin-top: 0.5rem;
-        margin-bottom: 0.2rem;
+    .nav ul li {
+        display: none;
     }
-
-    .subtitle {
-        margin-top: 0;
-        margin-bottom: 0.5rem;
-        font-size: 1.2rem;
-        font-style: italic;
-    }
-
     .profile-picture {
         grid-area: image;
         width: clamp(150px, 45vw, 250px);
         height: clamp(150px, 45vw, 250px);
         margin: 0.7rem 0;
-    }
-
-    .text-container {
-        grid-area: text;
-        width: 100%;
-        font-size: 0.9rem;
-        line-height: 1.4;
-        font-weight: 500;
-    }
-
-    /* Navigation styles */
-    .nav {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-        position: relative; /* Wichtig für absolute Positionierung des Menüs */
-        width: 100%;
-    }
-
-    .nav ul {
-        display: none;
-    }
-
-    .nav ul.nav-menu-active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        top: 1rem;
-        right: 1rem; /* Platziert das Menü oben rechts */
-    }
-
-    .hamburger-menu {
-        margin: 0; /* Entferne die Standardmargins */
     }
 
     /* Image optimization */
@@ -251,26 +241,17 @@ body {
         border-radius: 0.5rem;
     }
 
-    /* Layout adjustments */
-    .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between; /* Zentriere vertikal */
-        align-items: center;    /* Zentriere horizontal */
-        min-height: 100vh;      /* Fülle den vollständigen Viewport */
-        padding: 2rem 1rem;          /* Etwas Abstand für mobilen Content */
-        gap: 1rem; 
-    }
-
     .sidebar {
         display: none;
     }
 
     /* Footer positioning */
     .impressum-footer {
-        margin-top: auto;            /* Footer wird automatisch nach unten geschoben */
-        text-align: center;          /* Zentriere den Text */
-        padding: 1rem 0;             /* Platz nach oben und unten */
+        text-align: center;
+        left: auto;
+        transform: none;
+        width: 100%;
+        margin-bottom: 1rem;
     }
 
     .impressum-link {
@@ -350,12 +331,16 @@ body {
     .container {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Ändere von center zu flex-start */
+        justify-content: flex-start;
+        /* Ändere von center zu flex-start */
         align-items: center;
-        min-height: 100vh;           /* Ändere von height: 10vh zu min-height: 100vh */
-        position: relative;          /* Wichtig für absolute Positionierung */
+        min-height: 100vh;
+        /* Ändere von height: 10vh zu min-height: 100vh */
+        position: relative;
+        /* Wichtig für absolute Positionierung */
         padding: 1rem;
-        padding-bottom: 4rem;        /* Extra Platz unten für den Footer */
+        padding-bottom: 4rem;
+        /* Extra Platz unten für den Footer */
         gap: 1rem;
     }
 
@@ -380,13 +365,16 @@ body {
     .nav ul {
         display: flex;
     }
+
     .impressum-footer {
-        position: absol;             /* Hier kannst du fixed verwenden */
-        bottom: 1rem;                /* Abstand vom unteren Rand */
-        right: 1rem;                 /* Abstand vom rechten Rand */
+        position: fixed;
+        /* Hier kannst du fixed verwenden */
+        bottom: 1rem;
+        /* Abstand vom unteren Rand */
+        right: 1rem;
+        /* Abstand vom rechten Rand */
         width: auto;
-        padding: 0;                  /* Entferne padding hier */
-        z-index: 100;
+        padding: 0;
     }
 
     .impressum-link {

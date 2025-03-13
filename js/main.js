@@ -1,31 +1,22 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Burger-Menü Funktionalität
+document.addEventListener('DOMContentLoaded', function () {
+    // Select the menu toggle button
     const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
     
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('nav-menu-active');
-            
-            // Optional: Ändere das Burger-Icon zu einem X, wenn das Menü geöffnet ist
-            const isMenuOpen = navMenu.classList.contains('nav-menu-active');
-            this.innerHTML = isMenuOpen ? '✕' : '☰';
-            
-            // Zugänglichkeit verbessern
-            this.setAttribute('aria-expanded', isMenuOpen);
-        });
-    }
+    // Select the navigation menu
+    const navMenu = document.querySelector('.nav ul');
     
-    // Schließe das Menü, wenn außerhalb geklickt wird
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.nav') && !e.target.closest('.menu-toggle')) {
-            if (navMenu && navMenu.classList.contains('nav-menu-active')) {
-                navMenu.classList.remove('nav-menu-active');
-                if (menuToggle) {
-                    menuToggle.innerHTML = '☰';
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                }
-            }
-        }
+    // Add click event listener to menu toggle
+    menuToggle.addEventListener('click', function () {
+        // Toggle the "nav-menu-active" class on the nav menu
+        navMenu.classList.toggle('nav-menu-active');
+        
+        // Toggle the "active" class on the button itself (für X-Symbol)
+        this.classList.toggle('active');
+        
+        // Check if menu is expanded for accessibility
+        const isExpanded = navMenu.classList.contains('nav-menu-active');
+        
+        // Update aria-expanded attribute for accessibility
+        menuToggle.setAttribute('aria-expanded', isExpanded);
     });
 });
