@@ -397,121 +397,109 @@ body {
 }
 
 /* Tablet (641px bis 1024px) */
-@media (min-width: 641px) and (max-width: 1024px) {
-
-    /* Hauptüberschrift (H1) */
-    .title {
-        margin-top: 0.6rem;
+@media (min-width: 641px) and (max-width: 1023px) {
+    h1 {
+        font-size: clamp(2.3em, 3vw, 4rem);
+        margin-bottom: 2rem;
     }
 
-    .subtitle {
-        margin-top: 0;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-        font-style: italic;
-
+    h2 {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+        margin-bottom: 1.5rem;
     }
 
     p {
-        font-size: 1.5rem;
-        line-height: 1.5;
-        margin-bottom: 1.4rem;
-        font-weight: 500;
+        font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+        line-height: 1.7;
     }
 
+    /* Container und Layout */
+    .container {
+        padding: 1rem;
+        justify-content: flex-start;
+        text-align: center;
+    }
+
+    /* Header-Bereich mit zentrierter Ausrichtung */
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Profilbild anpassen */
     .profile-picture {
-        width: clamp(200px, 40vw, 400px);
-        height: clamp(200px, 40vw, 400px);
+        width: clamp(200px, 40vw, 300px);
+        height: clamp(200px, 40vw, 300px);
         border-radius: 50%;
-        margin-top: 50px;
+        margin: 0 auto 1.5rem;
     }
 
-    .text-container {
-        grid-area: text;
+    /* Titel und Untertitel zentrieren */
+    .title,
+    .subtitle {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    /* Navigation ohne Burger-Menü */
+    .nav {
         width: 100%;
-        font-size: 1.3rem;
-        line-height: 1.4;
-        font-weight: 500;
+        margin: 2rem auto;
     }
 
-    /* Bestehenden Code beibehalten */
     .menu-toggle {
         display: none;
+        /* Burger-Menü ausblenden */
     }
 
     .nav ul {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        padding: 0;
     }
 
-    /* NEUE STYLES FÜR TABLET-NAVIGATION */
-    .nav {
-        position: relative;
-        top: auto;
-        margin-top: 2rem;
-        margin-bottom: 0.5rem;
+    .nav ul li {
+        display: block;
+        /* Sicherstellen, dass alle Navigationspunkte sichtbar sind */
     }
 
     .nav-link {
-        display: block;
-        background-color: #000;
-        color: #fff;
-        text-decoration: none;
-        padding: clamp(8px, 4vw, 20px) clamp(15px, 4vw, 30px);
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        border-radius: 10px;
-        transition: all 0.3s ease;
+        font-size: 1.3rem;
     }
 
-    /* Container-Struktur anpassen */
-    .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        /* Ändere von center zu flex-start */
-        align-items: center;
-        min-height: 100vh;
-        /* Ändere von height: 10vh zu min-height: 100vh */
-        position: relative;
-        /* Wichtig für absolute Positionierung */
+    /* Content-Bereich */
+    .content {
+        width: 100%;
         padding: 1rem;
-        padding-bottom: 4rem;
-        /* Extra Platz unten für den Footer */
-        gap: 1rem;
     }
 
-    /* Header nach unten verschieben */
-    .header {
-        display: grid;
-        grid-template-areas:
-            "image"
-            "title"
-            "subtitle"
-            "text";
-        justify-items: center;
-        text-align: center;
-        gap: 0.3rem;
-        padding-bottom: 0.5rem;
-    }
-
-    .menu-toggle {
-        display: none;
-    }
-
-    .nav ul {
+    /* Social Media Buttons */
+    .social-media-buttons {
         display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin: 2rem auto;
     }
 
+    .social-media-buttons i {
+        color: black;
+        font-size: 1.8rem;
+    }
+
+    /* Impressum-Footer */
     .impressum-footer {
-        position: fixed;
-        /* Hier kannst du fixed verwenden */
-        bottom: 1rem;
-        /* Abstand vom unteren Rand */
-        right: 1rem;
-        /* Abstand vom rechten Rand */
-        width: auto;
-        padding: 0;
+        position: relative;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        width: 100%;
+        text-align: center;
     }
 
     .impressum-link {
@@ -520,12 +508,130 @@ body {
         color: #ffffff;
         font-weight: bold;
         text-decoration: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+    }
+
+    /* Projektseiten-spezifische Anpassungen */
+    .quiz-app-picture img,
+    .e-commerce-picture img {
+        max-width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .job,
+    .skills,
+    .right-column {
+        margin-bottom: 2.5rem;
+        padding: 1.5rem;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #ffffff;
+        text-align: left;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Job-Abschnitt */
+    .job-title {
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 0.7rem;
+        text-align: left;
+    }
+
+    .job-date {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 0.7rem;
+        text-align: left;
+    }
+
+    .job-field {
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-align: left;
+        margin-bottom: 0.7rem;
+    }
+
+    .job-description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        text-align: left;
+        font-family: "Arial", sans-serif;
+    }
+
+    /* Fähigkeiten-Abschnitt */
+    .skills h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+
+    .skills ul {
+        column-count: 2;
+        column-gap: 2rem;
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        text-align: left;
+    }
+
+    .skills li {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        break-inside: avoid;
+    }
+
+    /* Rechte Spalte (Bildung, Zertifikate) */
+    .right-column {
+        border: 1px solid #ccc;
+        padding: 1.5rem;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .right-column h3 {
+        padding: 0 0 0.7rem 0;
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-align: left;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .right-column ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        text-align: left;
+    }
+
+    .right-column li {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 0.7rem;
+    }
+
+    .right-column p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .lebenslauf-link {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
         padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
         border-radius: 0.5rem;
         font-size: clamp(0.9em, 2vw, 1.2em);
         margin: 0;
     }
-
 
 
 }
