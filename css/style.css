@@ -157,6 +157,9 @@ body {
 
 /* Mobile (340px bis 640px) */
 @media (max-width: 640px) {
+    .desktop-date {
+        display: none; /* Auf Mobile ausgeblendet */
+    }
 
     .header img,
     .header h1,
@@ -289,7 +292,8 @@ body {
     /* Abschnitte (Berufserfahrung, Fähigkeiten, etc.) */
     .job,
     .skills,
-    .right-column {
+    .right-column,
+    .cv-job {
         margin-bottom: 2rem;
         padding: 1rem;
         border: 1px solid #ccc;
@@ -300,28 +304,28 @@ body {
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .job-title {
+    .cv-title {
         font-size: 1.2rem;
         font-weight: bold;
         margin-bottom: 0.5rem;
         text-align: center;
     }
 
-    .job-date {
+    .cv-date {
         font-size: 0.9rem;
         color: #555;
         margin-bottom: 0.5rem;
         text-align: center;
     }
 
-    .job-field {
+    .cv-field {
         font-size: 0.9rem;
         font-weight: bold;
         text-align: center;
         margin-bottom: 0.5rem;
     }
 
-    .job-description {
+    .cv-description {
         font-size: 0.9rem;
         line-height: 1.4;
         text-align: center;
@@ -369,6 +373,7 @@ body {
         margin: 0;
         text-align: center;
     }
+
 
     body {
         font-family: "Arial", sans-serif;
@@ -500,42 +505,43 @@ body {
 
     .job,
     .skills,
-    .right-column {
-        margin-bottom: 2.5rem;
-        padding: 1.5rem;
+    .right-column,
+    .cv-job {
+        margin-bottom: 2rem;
+        padding: 1rem;
         border: 1px solid #ccc;
-        border-radius: 10px;
+        border-radius: 5px;
         background-color: #ffffff;
-        text-align: left;
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     }
-
+    .desktop-date {
+        display: none; /* Auf Mobile ausgeblendet */
+    }
     /* Job-Abschnitt */
-    .job-title {
+    .cv-title {
         font-size: 1.4rem;
         font-weight: bold;
         margin-bottom: 0.7rem;
         text-align: left;
     }
 
-    .job-date {
+    .cv-date {
         font-size: 1.1rem;
         color: #555;
         margin-bottom: 0.7rem;
         text-align: left;
     }
 
-    .job-field {
+    .cv-field {
         font-size: 1.1rem;
         font-weight: bold;
         text-align: left;
         margin-bottom: 0.7rem;
     }
 
-    .job-description {
+    .cv-description {
         font-size: 1.1rem;
         line-height: 1.6;
         text-align: left;
@@ -646,11 +652,15 @@ body {
         margin-right: auto;
 
     }
+
     .content {
-        max-width: 700px; /* Maximale Breite begrenzen */
+        max-width: 700px;
+        /* Maximale Breite begrenzen */
         margin-left: auto;
-        margin-right: auto; /* Auto-Margins links und rechts für Zentrierung */
-        padding: 0 1rem; /* Etwas Abstand an den Seiten */
+        margin-right: auto;
+        /* Auto-Margins links und rechts für Zentrierung */
+        padding: 0 1rem;
+        /* Etwas Abstand an den Seiten */
     }
 
     .nav {
@@ -682,91 +692,11 @@ body {
         margin: 0 auto 1.5rem;
     }
 
-
-    /* Job-Abschnitte */
-    .job {
-        background-color: #f9f9f9;
-        padding: 1rem;
-        border-radius: 8px;
-        margin-bottom: 1.2rem;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .job-title {
-        font-size: 1.1rem;
-        margin-bottom: 0.2rem;
-        color: #2c3e50;
-    }
-
-    .job-date,
-    .job-field {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        margin-bottom: 0.5rem;
-    }
-
-    .job-description {
-        font-size: 0.95rem;
-        line-height: 1.5;
-    }
-
-    .skills {
-        background-color: #f9f9f9;
-        padding: 1rem;
-        border-radius: 8px;
-        margin-bottom: 1.2rem;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .skills ul,
-    .right-column ul {
-        list-style-type: none;
-        padding-left: 0;
-        margin-left: 0;
-    }
-
-    /* Rechte Spalte Elemente (Bildung, Zertifikate) */
-    .right-column {
-        background-color: #f0f4f8;
-        padding: 1rem;
-        border-radius: 8px;
-        margin-bottom: 1.2rem;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .right-column h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.8rem;
-        color: #2c3e50;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 0.4rem;
-    }
-
-    .right-column ul {
-        padding-left: 1.2rem;
-        margin-bottom: 1rem;
-    }
-
-    .right-column li {
-        margin-bottom: 0.5rem;
-        font-size: 0.95rem;
-        line-height: 1.4;
-    }
-
-    /* Skills-Bereich */
-    .skills ul {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-        padding-left: 1rem;
-    }
-
     /* Social Media */
-    .social-media-buttons {
+    .content .social-media-buttons {
         display: flex;
         justify-content: center;
         gap: 3rem;
-
     }
 
     .header {
@@ -852,6 +782,7 @@ body {
         margin-bottom: 0.5rem;
         line-height: 1.5;
     }
+
     .project-button {
         background-color: #000000;
         color: #fff;
@@ -866,10 +797,12 @@ body {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         transition: box-shadow 0.3s ease;
     }
+
     .project-button:hover {
-        background-color: #ff0202; /* Farbe beim Hover ändern */
+        background-color: #ff0202;
+        /* Farbe beim Hover ändern */
     }
-    
+
     .impressum-footer {
         position: fixed;
         bottom: 0;
