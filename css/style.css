@@ -79,8 +79,6 @@ body {
     width: 100%;
     position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .nav ul {
@@ -627,118 +625,37 @@ body {
         padding: 1rem;
         margin-bottom: 30px;
     }
+
     .quiz-app-picture img,
     .e-commerce-picture img {
         height: auto;
         width: clamp(200px, 50vw, 300px);
         height: clamp(200px, 50vw, 300px);
-        border-radius: 50%;  
+        border-radius: 50%;
     }
 
 }
 
 /* Desktop (größer als 1025px) */
 @media (min-width: 1024px) {
-
-    .home-page .nav {
-        position: static;
-        margin-top: 1rem;
-    }
-
-    .home-page .nav ul {
-        justify-content: center;
-        padding: 0;
-    }
-
-    .home-page .header {
-        flex-direction: column;
-    }
-
-    .home-page .title,
-    .home-page .subtitle,
-    .home-page .header p {
-        text-align: center;
-    }
-
-    .impressum-footer {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: auto;
-        padding: 1rem;
-
-    }
-
-    .impressum-link {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(0.3rem, 2vw, 0.6rem) clamp(1rem, 3vw, 1.5rem);
-        border-radius: 1.5rem;
-        font-size: clamp(0.9em, 2vw, 1em);
-        margin: 0;
-    }
-
-    .container {
-        padding-top: 2rem;
-        /* Etwas Abstand nach oben */
-        align-items: center;
-        /* Container-Inhalte zentrieren */
-        justify-content: center;
-        /* Vertikale Zentrierung */
-    }
-
     .nav {
-        width: 100%;
-        align-items: center;
-        margin-top: 0;
-        padding-top: 0;
+        display: flex;
         position: absolute;
         top: 0;
-        left: 0;
+        left: 50px;
+        width: 100%;
+        padding-top: 2rem;
+        justify-content: flex-start;
+        z-index: 100;
     }
-
-    .nav ul {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        padding: 50px 0 50px 50px;
-        margin: 0;
+    .nav-link {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
     }
-
-    .menu-toggle {
-        display: none;
-    }
-
-    /* Hauptinhalt als Flex-Container für Desktop */
-    .header {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
-
-    /* Text-Container links ausrichten */
-    .header .text-container {
-        flex: 1;
-        padding-right: 60px;
-        text-align: left;
-        max-width: 50%;
-    }
-
-    .text-container {
-        flex: 1;
-        max-width: 600px;
-        /* Begrenze die Textbreite */
-        text-align: left;
-        /* Text linksbündig lassen */
-    }
+    .nav-link:hover{
+        /* Schatten beim Hover verstärken */
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+      }
 
     /* Bild-Container rechts */
     .profile-picture {
@@ -749,51 +666,6 @@ body {
         margin: 0 auto;
     }
 
-    /* Titel links ausrichten */
-    .title {
-        text-align: left;
-    }
-
-    h1,
-    .title {
-        margin-bottom: 0.5rem;
-        /* Reduziert den Abstand nach unten */
-    }
-
-    /* Abstand zwischen Untertitel und Haupttext verringern */
-    h2,
-    .subtitle {
-        margin-top: 0.5rem;
-        /* Reduziert den Abstand nach oben */
-        margin-bottom: 1rem;
-        /* Reduziert den Abstand nach unten */
-    }
-
-    /* Beschreibungstext links ausrichten */
-    .header p {
-        text-align: left;
-    }
-
-    p {
-        text-align: left;
-        font-size: 16px;
-        /* Wähle die gewünschte Größe */
-        line-height: 1.4;
-        /* Zeilenabstand */
-        font-weight: 500;
-        /* Standard-Schriftstärke, ändere nach Bedarf */
-        max-width: 65ch;
-        /* Optimale Lesebreite (ca. 65 Zeichen) */
-    }
-
-
-    .content {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0.8rem;
-        max-width: 100%;
-    }
 
     /* Job-Abschnitte */
     .job {
@@ -884,5 +756,26 @@ body {
     .social-media-buttons i {
         color: black;
         font-size: 1.8rem;
+    }
+
+    .impressum-footer {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: auto;
+        padding: 1rem;
+
+    }
+
+    .impressum-link {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        padding: clamp(0.3rem, 2vw, 0.6rem) clamp(1rem, 3vw, 1.5rem);
+        border-radius: 1.5rem;
+        font-size: clamp(0.9em, 2vw, 1em);
+        margin: 0;
     }
 }
