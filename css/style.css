@@ -671,7 +671,7 @@ body {
 
     .nav-link:hover {
         /* Schatten beim Hover verstärken */
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 6px 10px rgba(255, 94, 0, 0.4);
     }
 
     /* Bild-Container rechts */
@@ -852,7 +852,24 @@ body {
         margin-bottom: 0.5rem;
         line-height: 1.5;
     }
-
+    .project-button {
+        background-color: #000000;
+        color: #fff;
+        border: none;
+        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+        border-radius: 0.5rem;
+        font-size: clamp(0.3em, 2vw, 0.7em);
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
+    }
+    .project-button:hover {
+        background-color: #ff0202; /* Farbe beim Hover ändern */
+    }
+    
     .impressum-footer {
         position: fixed;
         bottom: 0;
