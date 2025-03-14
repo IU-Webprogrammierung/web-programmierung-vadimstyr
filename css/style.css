@@ -425,8 +425,6 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        text-align: center;
         margin-top: 3rem;
         margin-bottom: 2rem;
     }
@@ -491,26 +489,6 @@ body {
     .social-media-buttons i {
         color: black;
         font-size: 1.8rem;
-    }
-
-    /* Impressum-Footer */
-    .impressum-footer {
-        position: relative;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        width: 100%;
-        text-align: center;
-    }
-
-    .impressum-link {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: 0.8rem 1.5rem;
-        border-radius: 0.5rem;
-        font-size: 1rem;
     }
 
     /* Projektseiten-spezifische Anpassungen */
@@ -633,11 +611,32 @@ body {
         margin: 0;
     }
 
+    .home-page .header {
+        flex: 1;
+        /* Nimmt den verfügbaren Platz ein */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* Vertikale Zentrierung */
+        align-items: center;
+        /* Horizontale Zentrierung */
+        margin-top: 0;
+        /* Kein zusätzlicher margin nötig */
+
+    }
+
+    .impressum-footer {
+        position: center;
+        width: auto;
+        padding: 1rem;
+        margin-bottom: 30px;
+    }
+
 
 }
 
 /* Desktop (größer als 1025px) */
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
 
     .home-page .nav {
         position: static;
@@ -741,10 +740,11 @@ body {
 
     /* Bild-Container rechts */
     .profile-picture {
-        width: 550px;
-        height: 550px;
+        width: clamp(350px, 20vw, 450px);
         border-radius: 50%;
+        aspect-ratio: 1/1;
         object-fit: cover;
+        margin: 0 auto;
     }
 
     /* Titel links ausrichten */
@@ -869,5 +869,18 @@ body {
         grid-template-columns: 1fr;
         gap: 0.5rem;
         padding-left: 1rem;
+    }
+
+    /* Social Media */
+    .social-media-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin: 2rem auto;
+    }
+
+    .social-media-buttons i {
+        color: black;
+        font-size: 1.8rem;
     }
 }
