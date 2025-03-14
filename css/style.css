@@ -613,15 +613,11 @@ body {
 
     .home-page .header {
         flex: 1;
-        /* Nimmt den verfügbaren Platz ein */
         display: flex;
         flex-direction: column;
         justify-content: center;
-        /* Vertikale Zentrierung */
         align-items: center;
-        /* Horizontale Zentrierung */
         margin-top: 0;
-        /* Kein zusätzlicher margin nötig */
 
     }
 
@@ -631,7 +627,13 @@ body {
         padding: 1rem;
         margin-bottom: 30px;
     }
-
+    .quiz-app-picture img,
+    .e-commerce-picture img {
+        height: auto;
+        width: clamp(200px, 50vw, 300px);
+        height: clamp(200px, 50vw, 300px);
+        border-radius: 50%;  
+    }
 
 }
 
