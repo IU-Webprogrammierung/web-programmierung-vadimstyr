@@ -646,6 +646,13 @@ body {
         margin-right: auto;
 
     }
+    .content {
+        max-width: 700px; /* Maximale Breite begrenzen */
+        margin-left: auto;
+        margin-right: auto; /* Auto-Margins links und rechts für Zentrierung */
+        padding: 0 1rem; /* Etwas Abstand an den Seiten */
+    }
+
     .nav {
         display: flex;
         position: absolute;
@@ -767,33 +774,83 @@ body {
         margin-bottom: 1rem;
         padding: 2rem;
     }
+
     .header h1.title {
-        margin-bottom: 0.2rem; /* Reduziert den Abstand zwischen Titel und Untertitel */
+        margin-bottom: 0.2rem;
+        /* Reduziert den Abstand zwischen Titel und Untertitel */
     }
-    
+
     .header p.subtitle {
-        margin-bottom: 0.5rem; /* Reduziert den Abstand zwischen Untertitel und Text */
-        margin-top: 0; /* Entfernt jeden zusätzlichen Abstand oben */
+        margin-bottom: 0.5rem;
+        /* Reduziert den Abstand zwischen Untertitel und Text */
+        margin-top: 0;
+        /* Entfernt jeden zusätzlichen Abstand oben */
     }
-    
+
     .header p:not(.subtitle) {
-        margin-top: 0.3rem; /* Kleinerer Abstand zum vorherigen Element */
-        line-height: 1.3; /* Engerer Zeilenabstand innerhalb des Paragraphen selbst */
+        margin-top: 0.3rem;
+        /* Kleinerer Abstand zum vorherigen Element */
+        line-height: 1.3;
+        /* Engerer Zeilenabstand innerhalb des Paragraphen selbst */
     }
+
     .header .profile-picture {
-        margin-bottom: -1rem; /* Entferne den Abstand vollständig */
+        margin-bottom: -1rem;
+        /* Entferne den Abstand vollständig */
     }
+
     .social-media-buttons i {
         color: black;
         font-size: 1.8rem;
     }
+
+    .project-section .quiz-app-container,
+    .project-section .e-commerce-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        text-align: left;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Bildcontainer auf feste Breite setzen */
+    .quiz-app-picture,
+    .e-commerce-picture {
+        flex: 0 0 auto;
+        /* Verhindert, dass der Container sich dehnt */
+        width: 220px;
+        /* Breite des Bildcontainers */
+    }
+
     .quiz-app-picture img,
     .e-commerce-picture img {
-        width: 200px;          /* Kleinere feste Breite */
-        height: 200px;         /* Gleiche Höhe für perfekten Kreis */
-        object-fit: cover;     /* Wichtig: Bild füllt den Rahmen aus */
-        border-radius: 50%;    /* Macht das Bild rund */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optionaler Schatten */
+        width: 200px;
+        /* Kleinere feste Breite */
+        height: 200px;
+        /* Gleiche Höhe für perfekten Kreis */
+        object-fit: cover;
+        /* Wichtig: Bild füllt den Rahmen aus */
+        border-radius: 50%;
+        /* Macht das Bild rund */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        /* Optionaler Schatten */
+    }
+
+    /* Projekte-Überschriften links ausrichten */
+    .project-title {
+        text-align: left;
+        margin-top: 0;
+        /* Entfernt den oberen Rand */
+    }
+
+    /* Projekt-Beschreibung formatieren */
+    .project-description {
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
     }
 
     .impressum-footer {
