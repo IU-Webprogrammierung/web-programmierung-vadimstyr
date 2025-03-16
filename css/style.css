@@ -504,6 +504,10 @@ body {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
+    .impressum-section {
+        margin-bottom: 100px; /* Negative Margin zieht nach oben */
+        padding: 1rem;
+    }
 
 }
 
@@ -611,8 +615,22 @@ body {
     .social-media-buttons-kontakt i {
         color: black;
         font-size: 2.5rem;
-
     }
+
+    .social-media-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        margin-bottom: 200px;
+    }
+
+    .social-media-buttons i {
+        color: black;
+        font-size: 2.5rem;
+    }
+
 
     /* Projektseiten-spezifische Anpassungen */
     .quiz-app-picture img,
