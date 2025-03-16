@@ -224,7 +224,7 @@ body {
         position: fixed;
         top: 1rem;
         right: 1rem;
-        z-index: 200;
+        z-index: 1000;
         padding: 5px 10px;
         transition: all 0.3s ease;
         background-color: transparent;
@@ -232,17 +232,20 @@ body {
 
     /* Menu when active */
     .nav-menu.nav-menu-active {
+        position: fixed;
+        /* Fest positioniert, kein Verschieben des Inhalts */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
         display: flex;
         flex-direction: column;
-        position: center;
-        top: 0;
-        width: 100%;
-        height: 50vh;
-        background-color: #f5e1c0;
-        z-index: 100;
-        padding: 4rem 1rem 1rem;
         align-items: center;
         justify-content: center;
+        z-index: 999;
+        background-color: #f5e1c0;
     }
 
     /* Navigation items styling */
@@ -460,6 +463,46 @@ body {
     .social-media-link:hover i {
         opacity: 0.7;
         transition: opacity 0.3s ease;
+    }
+
+    .project-button {
+        background-color: #000000;
+        color: #fff;
+        border: none;
+        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+        border-radius: 0.5rem;
+        font-size: clamp(0.7em, 2vw, 0.9em);
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
+        margin-bottom: 20px;
+    }
+    .impressum-link {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+        border-radius: 0.5rem;
+        font-size: clamp(0.9em, 2vw, 1.2em);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .impressum-link-lebenslauf  {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+        border-radius: 0.5rem;
+        font-size: clamp(0.9em, 2vw, 1.2em);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
 }
@@ -770,6 +813,19 @@ body {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
+    .impressum-link-lebenslauf  {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+        border-radius: 0.5rem;
+        font-size: clamp(0.9em, 2vw, 1.2em);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
 
     .project-button {
         background-color: #000000;
@@ -1083,93 +1139,94 @@ body {
         text-align: left;
     }
 
- /* Styles für den Skills-Bereich */
-.skills {
-    width: 90%;
-    max-width: 900px;
-    margin: 30px auto;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    /* Styles für den Skills-Bereich */
+    .skills {
+        width: 90%;
+        max-width: 900px;
+        margin: 30px auto;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.skills h3 {
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin: 0 0 30px 0;
-    text-align: center;
-    width: 100%;
-}
+    .skills h3 {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0 0 30px 0;
+        text-align: center;
+        width: 100%;
+    }
 
-.skills ul {
-    column-count: 3;
-    column-gap: 30px;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    text-align: center;
-}
+    .skills ul {
+        column-count: 3;
+        column-gap: 30px;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
 
-.skills li {
-    margin-bottom: 10px;
-    break-inside: avoid;
-    text-align: center;
-}
+    .skills li {
+        margin-bottom: 10px;
+        break-inside: avoid;
+        text-align: center;
+    }
 
-/* Styles für die rechte Spalte */
-.right-column {
-    width: 90%;
-    max-width: 900px;
-    margin: 30px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    /* Styles für die rechte Spalte */
+    .right-column {
+        width: 90%;
+        max-width: 900px;
+        margin: 30px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.right-column h3 {
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin: 30px 0 20px 0;
-    text-align: center;
-    width: 100%;
-}
+    .right-column h3 {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 30px 0 20px 0;
+        text-align: center;
+        width: 100%;
+    }
 
-.right-column p {
-    margin: 0 0 30px 0;
-    font-size: 16px;
-    text-align: center;
-    width: 100%;
-}
+    .right-column p {
+        margin: 0 0 30px 0;
+        font-size: 16px;
+        text-align: center;
+        width: 100%;
+    }
 
-.right-column ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0 0 40px 0;
-    text-align: center;
-    width: 100%;
-}
+    .right-column ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0 0 40px 0;
+        text-align: center;
+        width: 100%;
+    }
 
-.right-column li {
-    margin-bottom: 8px;
-    text-align: center;
-}
-.lebenslauf-link {
-    display: inline-block;
-    background-color: #000000;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-    border-radius: 0.5rem;
-    font-size: clamp(0.9em, 2vw, 1.2em);
-    margin: 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
+    .right-column li {
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
+    .lebenslauf-link {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+        border-radius: 0.5rem;
+        font-size: clamp(0.9em, 2vw, 1.2em);
+        margin: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
 
 
 }
