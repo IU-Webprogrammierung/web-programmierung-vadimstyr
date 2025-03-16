@@ -6,29 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="picture/vs.svg">
+    <script defer src="js/main.js"></script>
     <title>Vadim Styr</title>
 </head>
 
-<body>
+<body class="home-page">
     <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
     <div class="container">
-        <header class="header">
-            <h1 class="title">Vadim Styr</h1>
-            <p class="subtitle">Keep it simple, keep it real - just<br> go with the flow and let it heal.</p>
-            <nav class="nav">
-                <ul>
-                    <li><a class="nav-link" id="projekte-link" href="html/projekte.html"><span>Projekte</span></a></li>
-                    <li><a class="nav-link" id="me-link" href="html/me.html"><span>Me</span></a></li>
-                    <li><a class="nav-link" id="lebenslauf-link" href="html/lebenslauf.html"><span>Lebenslauf</span></a></li>
-                    <li><a class="nav-link" id="kontakt-link" href="html/kontakt.html"><span>Kontakt</span></a></li>
-                </ul>
-            </nav>
-        </header>
+        <nav class="nav">
+            <button class="menu-toggle" aria-controls="nav-menu" aria-haspopup="true" aria-expanded="false" aria-label="Menü öffnen">☰</button>
+            <ul class="nav-menu">
+                <li><a class="nav-link" id="projekte-link" href="html/projekte.html"><span>Projekte</span></a></li>
+                <li><a class="nav-link" id="me-link" href="html/me.html"><span>Me</span></a></li>
+                <li><a class="nav-link" id="kontakt-link" href="html/kontakt.html"><span>Kontakt</span></a></li>
+                <li><a class="nav-link" id="lebenslauf-link" href="html/lebenslauf.html"><span>Lebenslauf</span></a></li>
+            </ul>
+        </nav>
 
-        <main class="content"></main>
 
-        <footer class="impressum-footer" >
-            <p><a href="html/impressum.html" class="impressum-link">Impressum</a></p>
+
+        <div class="content-wrapper">
+            <header class="header">
+                <h1 class="title">Vadim Styr</h1>
+                <p class="subtitle">Keep it simple, keep it real - just<br> go with the flow and let it heal.</p>
+            </header>
+
+            <main class="content" id="main-content">
+                <!-- Hier können weitere Inhalte eingefügt werden -->
+            </main>
+
+        <footer class="impressum-footer-index">
+            <p><a href="html/impressum.html" class="impressum-link-index">Impressum</a></p>
         </footer>
     </div>
 </body>

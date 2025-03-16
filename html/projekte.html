@@ -2,57 +2,78 @@
 <html lang="de">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" type="image/x-icon" href="../picture/vs.svg">
-    <title>Projekte - Vadim Styr</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/x-icon" href="../picture/vs.svg">
+  <title>Projekte - Vadim Styr</title>
+  <script defer src="../js/main.js"></script>
 </head>
 
 <body>
-    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
-    <div class="container">
-        <header class="header">
-            <h1 class="title">Projekte</h1>
-            <p class="subtitle">verschiedene Projekte</p>
-            <nav class="nav">
-                <ul>
-                    <li><a class="nav-link" id="lebenslauf-link"
-                            href="../html/lebenslauf.html"><span>Lebenslauf</span></a></li>
-                    <li><a class="nav-link" id="me-link" href="../html/me.html"><span>Me</span></a></li>
-                    <li><a class="nav-link" id="kontakt-link" href="../html/kontakt.html"><span>Kontakt</span></a></li>
-                    <li><a class="nav-link" id="home-link" href="../index.html"><span>Home</span></a></li>
-                </ul>
-            </nav>
-        </header>
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+  <div class="container">
+    <nav class="nav">
+      <button class="menu-toggle" aria-controls="nav-menu" aria-haspopup="true" aria-expanded="false" aria-label="Menü öffnen">☰</button>
+      <ul class="nav-menu">
+        <li><a class="nav-link" id="lebenslauf-link" href="../html/lebenslauf.html"><span>Lebenslauf</span></a></li>
+        <li><a class="nav-link" id="me-link" href="../html/me.html"><span>Me</span></a></li>
+        <li><a class="nav-link" id="kontakt-link" href="../html/kontakt.html"><span>Kontakt</span></a></li>
+        <li><a class="nav-link" id="home-link" href="../index.html"><span>Home</span></a></li>
+      </ul>
+    </nav>
 
-        <main class="content">
-            <section class="project-section">
-                <div class="quiz-app-container">
-                    <div class="quiz-app-picture">
-                        <img src="../picture/Quiz.svg" alt="Ein Bild mit dem Text: 'Ready for a Quiz?'" loading="lazy">
-                    </div>
-                    <div class="quiz-text-container">
-                        <h2>Quiz-App IU</h2>
-                    </div>
-                </div>
+    <header class="header">
+      <h1 class="title">Projekte</h1>
+      <p class="subtitle">verschiedene Projekte</p>
+    </header>
 
-                <div class="e-commerce-container">
-                    <div class="e-commerce-picture">
-                        <img src="../picture/E-Commerce.svg" alt="Ein Bild, das einen Mobil-Ecommerce-Shop zeigt."
-                            loading="lazy">
-                    </div>
-                    <div class="e-commerce-text">
-                        <h2>E-Commerce Shop</h2>
-                    </div>
-                </div>
-            </section>
-        </main>
+    <main class="content">
+      <section class="project-section">
+        <div class="quiz-app-container">
+          <div class="quiz-app-picture">
+            <a href="https://quiz-heroku-ui-projekt-9a26bdbd114f.herokuapp.com/html/userNameLoginIndex.html">
+              <img src="../picture/Quiz.svg" alt="Ein Bild mit dem Text: 'Ready for a Quiz?'" loading="lazy">
+            </a>
+          </div>
+          <div class="quiz-text-container">
+            <h2 class="project-title">Quiz-App IU</h2>
+            <p class="project-date">Oktober 2023 – Februar 2024</p>
+            <p class="project-tech">JavaScript, HTML, CSS, Heroku</p>
+            <p class="project-description">
+              Eine interaktive Quiz-Anwendung, entwickelt im Rahmen des IU-Studiums. Die App ermöglicht Benutzern, ihr Wissen in verschiedenen Kategorien zu testen, Ergebnisse zu speichern und mit anderen zu vergleichen.
+            </p>
+            <button class="project-button" onclick="location.href='https://quiz-heroku-ui-projekt-9a26bdbd114f.herokuapp.com/html/userNameLoginIndex.html'">
+              Klick mich
+            </button>
+          </div>
+        </div>
 
-        <footer class="impressum-footer">
-            <p><a href="../html/impressum.html" class="impressum-link">Impressum</a></p>
-        </footer>
-    </div>
+        <div class="e-commerce-container">
+          <div class="e-commerce-picture">
+            <a href="https://www.vavira.de/">
+              <img src="../picture/E-Commerce.svg" alt="Ein Bild, das einen Mobil-Ecommerce-Shop zeigt." loading="lazy">
+            </a>
+          </div>
+          <div class="e-commerce-text">
+            <h2 class="project-title">E-Commerce Shop</h2>
+            <p class="project-date">Mai 2021 – 2022</p>
+            <p class="project-tech">WordPress, WooCommerce, PHP, CSS</p>
+            <p class="project-description">
+              Online-Shop für [Produkte], optimiert für Mobile und Desktop. Implementierung von SEO-Best-Practices, responsive Design und benutzerfreundliche Zahlungsabwicklung.
+            </p>
+            <button class="project-button" onclick="location.href='https://quiz-heroku-ui-projekt-9a26bdbd114f.herokuapp.com/html/userNameLoginIndex.html'">
+              Klick mich
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="impressum-footer">
+      <p><a href="../html/impressum.html" class="impressum-link">Impressum</a></p>
+    </footer>
+  </div>
 </body>
 
 </html>

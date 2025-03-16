@@ -7,56 +7,60 @@
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="icon" type="image/x-icon" href="../picture/vs.svg" />
   <title>Kontakt</title>
+  <script defer src="../js/main.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
   <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
   <div class="container">
+    <nav class="nav">
+      <button class="menu-toggle" aria-controls="nav-menu" aria-haspopup="true" aria-expanded="false"
+        aria-label="Menü öffnen">☰</button>
+      <ul class="nav-menu">
+        <li><a class="nav-link" id="projekte-link" href="../html/projekte.html"><span>Projekte</span></a></li>
+        <li><a class="nav-link" id="me-link" href="../html/me.html"><span>Me</span></a></li>
+        <li><a class="nav-link" id="lebenslauf-link" href="../html/lebenslauf.html"><span>Lebenslauf</span></a></li>
+        <li><a class="nav-link" id="home-link" href="../index.html"><span>Home</span></a></li>
+      </ul>
+    </nav>
+
     <header class="header">
+      <img src="../picture/Vadim.jpg" alt="Ich, der auf einem Bild zu sehen ist" loading="lazy" class="profile-picture">
       <h1 class="title">Kontakt</h1>
-      <p class="subtitle">Hier entsteht mein Kontakt</p>
-      <nav class="nav">
-        <ul>
-          <li>
-            <a class="nav-link" id="projekte-link" href="../html/projekte.html">
-              <span>Projekte</span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" id="me-link" href="../html/me.html">
-              <span>Me</span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" id="lebenslauf-link" href="../html/lebenslauf.html">
-              <span>Lebenslauf</span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" id="home-link" href="../index.html">
-              <span>Home</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <p class="subtitle">Vadim Styr</p>
     </header>
-    <main id="main-content" class="content">
-      <h2>Vadim Styr</h2>
-      <p>
-        E-Mail: <a href="mailto:Vadimstyr@gmail.com">Vadimstyr@gmail.com</a>
-      </p>
-      <p>
-        Github:
-        <a href="https://github.com/IU-Webprogrammierung/web-programmierung-vadimstyr.git"
-          title="Vadim's Github Repository" target="_blank">
-          Hier
-        </a>
-      </p>
-    </main>
-    <footer class="impressum-footer">
-      <p>
-        <a href="../html/impressum.html" class="impressum-link">Impressum</a>
-      </p>
+
+
+
+    <div class="social-media-buttons-kontakt">
+      <a href="https://www.vavira.de" class="social-media-link" target="_blank" aria-label="Zu meiner Webseite Vavira">
+        <i class="fas fa-briefcase" aria-hidden="true"></i>
+      </a>
+
+      <a href="https://github.com/IU-Webprogrammierung/web-programmierung-vadimstyr.git" class="social-media-link"
+        target="_blank" aria-label="Zu meinem GitHub-Profil">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+
+      <a href="https://www.xing.com/profile/vadim_styr017633" class="social-media-link" target="_blank"
+        aria-label="Zu meinem XING-Profil">
+        <i class="fab fa-xing" aria-hidden="true"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/in/vadim-styr-3244261b8/" class="social-media-link" target="_blank"
+        aria-label="Zu meinem LinkedIn-Profil">
+        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+      </a>
+
+      <a href="mailto:Vadimstyr@googlemail.com" class="social-media-link"
+        aria-label="E-Mail an Vadimstyr@googlemail.com">
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <footer class="impressum-footer-kontakt">
+      <p><a href="../html/impressum.html" class="impressum-link">Impressum</a></p>
     </footer>
   </div>
 </body>

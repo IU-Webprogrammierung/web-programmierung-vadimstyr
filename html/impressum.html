@@ -1,46 +1,77 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="icon" type="image/x-icon" href="../picture/vs.svg" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/x-icon" href="../picture/vs.svg">
   <title>Impressum - Vadim Styr</title>
+  <script defer src="../js/main.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
   <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
-  <nav class="nav">
-    <ul>
-      <li>
-        <a class="nav-link" id="projekte-link" href="../html/projekte.html"><span>Projekte</span></a>
-      </li>
-      <li>
-        <a class="nav-link" id="me-link" href="../html/me.html"><span>Me</span></a>
-      </li>
-      <li>
-        <a class="nav-link" id="kontakt-link" href="../html/kontakt.html"><span>Kontakt</span></a>
-      </li>
-      <li>
-        <a class="nav-link" id="home-link" href="../index.html"><span>Home</span></a>
-      </li>
-    </ul>
-  </nav>
-
+  
   <div class="container">
     <header class="header">
-      <h1 class="title">Impressum</h1>
-      <p class="subtitle"></p>
-      <p>Vorname: Vadim</p>
-      <p>Nachname: Styr</p>
-      <p>Straße: Haustraße</p>
-      <p>Hausnummer: 23</p>
-      <p>PLZ: 872345</p>
-      <p>Ort: Egal</p>
-      <p>E-Mail: fake@gmail.com</p>
+      
+      <nav class="nav">
+        <button class="menu-toggle" aria-controls="nav-menu" aria-haspopup="true" aria-expanded="false" aria-label="Menü öffnen">☰</button>
+        <ul class="nav-menu">
+          <li><a class="nav-link" id="projekte-link" href="../html/projekte.html"><span>Projekte</span></a></li>
+          <li><a class="nav-link" id="me-link" href="../html/me.html"><span>Me</span></a></li>
+          <li><a class="nav-link" id="kontakt-link" href="../html/kontakt.html"><span>Kontakt</span></a></li>
+          <li><a class="nav-link" id="home-link" href="../index.html"><span>Home</span></a></li>
+        </ul>
+      </nav>
     </header>
+
+    <main id="main-content" class="content">
+      <section class="impressum-section">
+        <h1 class="title">Impressum</h1>
+        <h2>Angaben gemäß § 5 TMG</h2>
+        <address>
+          <p>Vadim Styr</p>
+          <p>Neckarburg 6/1</p>
+          <p>72654 Neckartenzlingen</p>
+        </address>
+
+        <h2>Kontakt</h2>
+        
+        <div class="social-media-buttons">
+          <a href="https://www.vavira.de" class="social-media-link" target="_blank"
+          aria-label="Zu meiner Webseite Vavira">
+         <i class="fas fa-briefcase" aria-hidden="true"></i>
+       </a>
+       
+       <a href="https://github.com/IU-Webprogrammierung/web-programmierung-vadimstyr.git" class="social-media-link" 
+          target="_blank" aria-label="Zu meinem GitHub-Profil">
+         <i class="fab fa-github" aria-hidden="true"></i>
+       </a>
+       
+       <a href="https://www.xing.com/profile/vadim_styr017633" class="social-media-link" target="_blank"
+          aria-label="Zu meinem XING-Profil">
+         <i class="fab fa-xing" aria-hidden="true"></i>
+       </a>
+       
+       <a href="https://www.linkedin.com/in/vadim-styr-3244261b8/" class="social-media-link" target="_blank"
+          aria-label="Zu meinem LinkedIn-Profil">
+         <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+       </a>
+       
+       <a href="mailto:Vadimstyr@googlemail.com" class="social-media-link"
+          aria-label="E-Mail an Vadimstyr@googlemail.com">
+         <i class="fas fa-envelope" aria-hidden="true"></i>
+       </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="impressum-footer">
+      <!-- Hier können Copyright-Informationen, zusätzliche Links oder andere Fußzeileninhalte stehen -->
+      <p>&copy; 2023 Vadim Styr. Alle Rechte vorbehalten.</p>
+    </footer>
   </div>
 </body>
-
 </html>
