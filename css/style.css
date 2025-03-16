@@ -967,8 +967,6 @@ body {
         transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-
-
     .impressum-link,
     .impressum-link-index,
     .impressum-link-kontakt {
@@ -1019,7 +1017,7 @@ body {
         margin: 0;
         padding: 0;
     }
-    
+
     .content {
         max-width: 1200px;
         margin: 0 auto;
@@ -1027,7 +1025,7 @@ body {
         display: flex;
         flex-wrap: wrap;
     }
-    
+
     /* Datum-Styling */
     .desktop-date {
         width: 180px;
@@ -1039,7 +1037,7 @@ body {
         box-sizing: border-box;
         white-space: nowrap;
     }
-    
+
     /* Job-Abschnitt */
     .cv-job {
         width: calc(100% - 180px);
@@ -1050,21 +1048,24 @@ body {
         align-items: flex-start;
         padding-left: 300px;
     }
-    
+
     /* Titel */
     .cv-title {
         font-size: 1.2rem;
         font-weight: bold;
         text-transform: uppercase;
-        margin: 0 0 15px 0;;
+        margin: 0 0 15px 0;
+        ;
         padding: 0;
         line-height: 1.2;
         width: 100%;
-        text-align: left; /* Titel zentrieren */
+        text-align: left;
+        /* Titel zentrieren */
     }
-    
+
     /* Berufsfeld */
-    .cv-field, .cv-date {
+    .cv-field,
+    .cv-date {
         font-style: italic;
         margin: 2px 0;
         padding: 0;
@@ -1072,7 +1073,7 @@ body {
         width: 100%;
         text-align: left;
     }
-    
+
     /* Beschreibung */
     .cv-description {
         margin: 5px 0 0 0;
@@ -1081,4 +1082,94 @@ body {
         width: 100%;
         text-align: left;
     }
+
+ /* Styles für den Skills-Bereich */
+.skills {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skills h3 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 0 30px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.skills ul {
+    column-count: 3;
+    column-gap: 30px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.skills li {
+    margin-bottom: 10px;
+    break-inside: avoid;
+    text-align: center;
+}
+
+/* Styles für die rechte Spalte */
+.right-column {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-column h3 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 30px 0 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.right-column p {
+    margin: 0 0 30px 0;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+}
+
+.right-column ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.right-column li {
+    margin-bottom: 8px;
+    text-align: center;
+}
+.lebenslauf-link {
+    display: inline-block;
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+    border-radius: 0.5rem;
+    font-size: clamp(0.9em, 2vw, 1.2em);
+    margin: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
 }
