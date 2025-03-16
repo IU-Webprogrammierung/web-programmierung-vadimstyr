@@ -48,7 +48,6 @@ body {
     margin-top: auto;
     margin-bottom: auto;
     text-align: center;
-    width: 100%;
 }
 
 .profile-picture {
@@ -121,8 +120,8 @@ body {
 
 .impressum-footer {
 
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: 0;
+    margin-bottom: 0;
 
 }
 
@@ -158,6 +157,47 @@ body {
 /* Mobile (340px bis 640px) */
 @media (max-width: 640px) {
 
+    .impressum-footer-index {
+        position: fixed;
+        /* Fixiert am Bildschirm */
+        bottom: 20px;
+        /* Abstand vom unteren Rand */
+        left: 50%;
+        /* Horizontale Zentrierung (Schritt 1) */
+        transform: translateX(-50%);
+        /* Horizontale Zentrierung (Schritt 2) */
+    }
+
+    .impressum-link-index {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+        border-radius: 0.5rem;
+        font-size: clamp(0.9em, 2vw, 1.2em);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .home-page .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* Verteilt Elemente - erste oben, letzte unten */
+        min-height: 50vh;
+
+    }
+
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: auto;
+    }
+
     .desktop-date {
         display: none;
         /* Auf Mobile ausgeblendet */
@@ -169,10 +209,6 @@ body {
         margin: 0.2rem 0;
     }
 
-    .container {
-        margin-top: 2rem;
-        padding-top: 2rem;
-    }
 
     /* Hide regular navigation by default */
     .nav-menu {
@@ -274,6 +310,7 @@ body {
         width: 100%;
         margin-bottom: 1rem;
     }
+
     .impressum-link {
         display: inline-block;
     }
@@ -292,12 +329,11 @@ body {
 
     .container {
         display: flex;
-        /* Flexbox aktivieren */
         justify-content: center;
-        /* Horizontal zentrieren */
         padding-left: 1rem;
         padding-right: 1rem;
-
+        margin-top: 2rem;
+        padding-top: 2rem;
     }
 
     /* Abschnitte (Berufserfahrung, Fähigkeiten, etc.) */
@@ -391,6 +427,23 @@ body {
         line-height: 1.6;
     }
 
+
+    .social-media-buttons-kontakt {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        margin-bottom: 200px;
+    }
+
+    /* Icons schwarz färben */
+    .social-media-buttons-kontakt i {
+        color: black;
+        font-size: 1.5rem;
+
+    }
+
     .social-media-buttons {
         display: flex;
         justify-content: center;
@@ -464,33 +517,35 @@ body {
         width: 100%;
         margin: 2rem auto;
         display: flex;
-        justify-content: center; /* Horizontale Zentrierung */
-        position: static; /* Überschreibt die absolute Position vom Desktop */
-        left: auto; /* Überschreibt den left-Wert vom Desktop */
+        justify-content: center;
+        position: static;
+        left: auto;
     }
-    
+
     .nav-menu {
         display: flex;
         justify-content: center;
         width: 100%;
     }
-    
+
     .nav ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
         padding: 0;
-        margin: 0 auto; /* Auto-Margins für Zentrierung */
+        margin: 0 auto;
     }
 
     .nav ul li {
         display: block;
-        /* Sicherstellen, dass alle Navigationspunkte sichtbar sind */
     }
 
     .nav-link {
         font-size: 1.3rem;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
     }
 
     /* Content-Bereich */
@@ -500,16 +555,20 @@ body {
     }
 
     /* Social Media Buttons */
-    .social-media-buttons {
+    .social-media-buttons-kontakt {
         display: flex;
         justify-content: center;
-        gap: 3rem;
-        margin: 2rem auto;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        margin-bottom: 200px;
     }
 
-    .social-media-buttons i {
+    /* Icons schwarz färben */
+    .social-media-buttons-kontakt i {
         color: black;
-        font-size: 1.8rem;
+        font-size: 2.5rem;
+
     }
 
     /* Projektseiten-spezifische Anpassungen */
@@ -648,35 +707,96 @@ body {
         height: clamp(200px, 50vw, 300px);
         border-radius: 50%;
     }
-    .content-wrapper .header {
-        margin-left: auto;
-        margin-right: auto;
-        min-height: 80vh; /* Wichtig für vertikale Zentrierung */
+
+    .home-page .container {
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Vertikale Zentrierung */
-        align-items: center;     /* Horizontale Zentrierung */
-        text-align: center;
+        justify-content: space-between;
+        /* Verteilt Elemente - erste oben, letzte unten */
+        min-height: 60vh;
+
     }
-    .header-wrapper {
-        min-height: 50vh;
+
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
         justify-content: center;
-        padding-top: 3rem; /* Etwas Abstand von oben */
+        align-items: center;
+        margin-top: auto;
     }
+
+
     .impressum-footer {
-        align-items: center;      /* Positioniert es horizontal mittig */
+        position: relative;
+        align-items: center;
+        bottom: 0;
     }
+
+    .impressum-link {
+        transition: background-color 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
+    }
+
     .impressum-footer-kontakt {
-        position: absolute;            /* Positionierung relativ zum Container */
-        bottom: 20px;                  /* Abstand zum unteren Rand des Containers */
-        left: 50%;                     /* Horizontale Position an der Mitte des Containers */
-        transform: translateX(-50%);  
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* impressum footer Index */
+
+    .impressum-footer-index {
+        position: fixed;
+        /* Fixiert am Bildschirm */
+        bottom: 20px;
+        /* Abstand vom unteren Rand */
+        left: 50%;
+        /* Horizontale Zentrierung (Schritt 1) */
+        transform: translateX(-50%);
+        /* Horizontale Zentrierung (Schritt 2) */
+    }
+
+    .impressum-link-index {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+        border-radius: 0.5rem;
+        font-size: clamp(0.9em, 2vw, 1.2em);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-button {
+        background-color: #000000;
+        color: #fff;
+        border: none;
+        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+        border-radius: 0.5rem;
+        font-size: clamp(0.3em, 2vw, 0.9em);
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
+        margin-bottom: 20px;
+    }
+
+    .project-button:hover {
+        background-color: #ff0202;
+        /* Farbe beim Hover ändern */
     }
 
 }
 
 /* Desktop (größer als 1025px) */
 @media (min-width: 1024px) {
+
     p {
         font-size: 1.1rem;
         line-height: 1.4;
@@ -688,12 +808,9 @@ body {
 
     .content {
         max-width: 700px;
-        /* Maximale Breite begrenzen */
         margin-left: auto;
         margin-right: auto;
-        /* Auto-Margins links und rechts für Zentrierung */
         padding: 0 1rem;
-        /* Etwas Abstand an den Seiten */
     }
 
     .nav {
@@ -792,22 +909,16 @@ body {
     .quiz-app-picture img,
     .e-commerce-picture img {
         width: 200px;
-        /* Kleinere feste Breite */
         height: 200px;
-        /* Gleiche Höhe für perfekten Kreis */
         object-fit: cover;
-        /* Wichtig: Bild füllt den Rahmen aus */
         border-radius: 50%;
-        /* Macht das Bild rund */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        /* Optionaler Schatten */
     }
 
     /* Projekte-Überschriften links ausrichten */
     .project-title {
         text-align: left;
         margin-top: 0;
-        /* Entfernt den oberen Rand */
     }
 
     /* Projekt-Beschreibung formatieren */
@@ -836,24 +947,136 @@ body {
         /* Farbe beim Hover ändern */
     }
 
-    .impressum-footer {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: auto;
-        padding: 1rem;
-
+    .impressum-footer-index {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
-    .impressum-link {
+    .impressum-link-index {
         display: inline-block;
         background-color: #000000;
         color: #ffffff;
         font-weight: bold;
         text-decoration: none;
-        padding: clamp(0.3rem, 2vw, 0.6rem) clamp(1rem, 3vw, 1.5rem);
-        border-radius: 1.5rem;
-        font-size: clamp(0.9em, 2vw, 1em);
+        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+        border-radius: 0.5rem;
+        font-size: clamp(0.9em, 2vw, 1.2em);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+
+
+    .impressum-link,
+    .impressum-link-index,
+    .impressum-link-kontakt {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+        border-radius: 0.5rem;
+        font-size: clamp(0.9em, 2vw, 1.2em);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .impressum-link-lebenslauf {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+        border-radius: 0.5rem;
+        font-size: clamp(0.9em, 2vw, 1.2em);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .social-media-buttons-kontakt {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        margin-bottom: 200px;
+    }
+
+    /* Icons schwarz färben */
+    .social-media-buttons-kontakt i {
+        color: black;
+        font-size: 1.5rem;
+    }
+
+    /* Lebenslauf Bereich */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5e1c0;
         margin: 0;
+        padding: 0;
+    }
+    
+    .content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    /* Datum-Styling */
+    .desktop-date {
+        width: 180px;
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin: 0;
+        padding-right: 20px;
+        text-align: left;
+        box-sizing: border-box;
+    }
+    
+    /* Job-Abschnitt */
+    .cv-job {
+        width: calc(100% - 180px);
+        margin: 0 0 40px 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Titel */
+    .cv-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0;
+        line-height: 1.2;
+        width: 100%;
+        text-align: center; /* Titel zentrieren */
+    }
+    
+    /* Berufsfeld */
+    .cv-field {
+        font-style: italic;
+        margin: 2px 0;
+        padding: 0;
+        line-height: 1.2;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Beschreibung */
+    .cv-description {
+        margin: 5px 0 0 0;
+        padding: 0;
+        line-height: 1.4;
+        width: 100%;
+        text-align: center;
     }
 }
