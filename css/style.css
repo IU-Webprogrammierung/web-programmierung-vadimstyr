@@ -1037,6 +1037,7 @@ body {
         padding-right: 20px;
         text-align: left;
         box-sizing: border-box;
+        white-space: nowrap;
     }
     
     /* Job-Abschnitt */
@@ -1046,7 +1047,8 @@ body {
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        padding-left: 300px;
     }
     
     /* Titel */
@@ -1054,21 +1056,21 @@ body {
         font-size: 1.2rem;
         font-weight: bold;
         text-transform: uppercase;
-        margin: 0;
+        margin: 0 0 15px 0;;
         padding: 0;
         line-height: 1.2;
         width: 100%;
-        text-align: center; /* Titel zentrieren */
+        text-align: left; /* Titel zentrieren */
     }
     
     /* Berufsfeld */
-    .cv-field {
+    .cv-field, .cv-date {
         font-style: italic;
         margin: 2px 0;
         padding: 0;
         line-height: 1.2;
         width: 100%;
-        text-align: center;
+        text-align: left;
     }
     
     /* Beschreibung */
@@ -1077,6 +1079,6 @@ body {
         padding: 0;
         line-height: 1.4;
         width: 100%;
-        text-align: center;
+        text-align: left;
     }
 }
