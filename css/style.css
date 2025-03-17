@@ -159,13 +159,9 @@ body {
 
     .impressum-footer-index {
         position: fixed;
-        /* Fixiert am Bildschirm */
         bottom: 20px;
-        /* Abstand vom unteren Rand */
         left: 50%;
-        /* Horizontale Zentrierung (Schritt 1) */
         transform: translateX(-50%);
-        /* Horizontale Zentrierung (Schritt 2) */
     }
 
     .impressum-link-index {
@@ -185,7 +181,6 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        /* Verteilt Elemente - erste oben, letzte unten */
         min-height: 50vh;
 
     }
@@ -200,7 +195,6 @@ body {
 
     .desktop-date {
         display: none;
-        /* Auf Mobile ausgeblendet */
     }
 
     .header img,
@@ -480,6 +474,7 @@ body {
         transition: box-shadow 0.3s ease;
         margin-bottom: 20px;
     }
+
     .impressum-link {
         display: inline-block;
         background-color: #000000;
@@ -492,7 +487,8 @@ body {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
-    .impressum-link-lebenslauf  {
+
+    .impressum-link-lebenslauf {
         display: inline-block;
         background-color: #000000;
         color: #ffffff;
@@ -504,8 +500,10 @@ body {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
+
     .impressum-section {
-        margin-bottom: 100px; /* Negative Margin zieht nach oben */
+        margin-bottom: 200px;
+        /* Negative Margin zieht nach oben */
         padding: 1rem;
     }
 
@@ -810,13 +808,9 @@ body {
 
     .impressum-footer-index {
         position: fixed;
-        /* Fixiert am Bildschirm */
         bottom: 20px;
-        /* Abstand vom unteren Rand */
         left: 50%;
-        /* Horizontale Zentrierung (Schritt 1) */
         transform: translateX(-50%);
-        /* Horizontale Zentrierung (Schritt 2) */
     }
 
     .impressum-link-index {
@@ -831,7 +825,8 @@ body {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
-    .impressum-link-lebenslauf  {
+
+    .impressum-link-lebenslauf {
         display: inline-block;
         background-color: #000000;
         color: #ffffff;
@@ -931,26 +926,20 @@ body {
 
     .header h1.title {
         margin-bottom: 0.2rem;
-        /* Reduziert den Abstand zwischen Titel und Untertitel */
     }
 
     .header p.subtitle {
         margin-bottom: 0.5rem;
-        /* Reduziert den Abstand zwischen Untertitel und Text */
         margin-top: 0;
-        /* Entfernt jeden zusätzlichen Abstand oben */
     }
 
     .header p:not(.subtitle) {
         margin-top: 0.3rem;
-        /* Kleinerer Abstand zum vorherigen Element */
         line-height: 1.3;
-        /* Engerer Zeilenabstand innerhalb des Paragraphen selbst */
     }
 
     .header .profile-picture {
         margin-bottom: -1rem;
-        /* Entferne den Abstand vollständig */
     }
 
     .social-media-buttons i {
@@ -975,9 +964,7 @@ body {
     .quiz-app-picture,
     .e-commerce-picture {
         flex: 0 0 auto;
-        /* Verhindert, dass der Container sich dehnt */
         width: 220px;
-        /* Breite des Bildcontainers */
     }
 
     .quiz-app-picture img,
@@ -1134,7 +1121,6 @@ body {
         line-height: 1.2;
         width: 100%;
         text-align: left;
-        /* Titel zentrieren */
     }
 
     /* Berufsfeld */
