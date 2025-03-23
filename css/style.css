@@ -1,18 +1,41 @@
-/* ===== BASIS-ELEMENTE ===== */
-
-/* Grundlegende Seitengestaltung */
-body {
-    background-color: #f5e1c0;
-    font-family: "Arial", sans-serif;
+/* Basis-Variablen */
+:root {
+    --primary: #000;
+    --background: #f5e1c0;
+    --accent: #ff0202;
+    --radius: 0.5rem;
+    --shadow: 0 4px 6px rgba(0,0,0,0.3);
+    --transition: all 0.3s ease;
+    --pad-btn: clamp(8px,1.5vw,10px) clamp(15px,2vw,20px);
+    --profile-size: clamp(200px,60vw,400px);
+  }
+  
+  /* Basis-Elemente */
+  body {
+    background: var(--background);
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     min-height: 100vh;
-}
-
-/* ===== ACCESSIBILITY ===== */
-
-/* Skip-Link für Tastatur-Navigation (Barrierefreiheit) */
-.skip-link {
+  }
+  
+  /* Gemeinsame Button-Stile */
+  .button, .nav-link, .impressum-link, .impressum-link-index, 
+  .impressum-link-kontakt, .impressum-link-lebenslauf, .project-button, 
+  .lebenslauf-link {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: var(--pad-btn);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+  }
+  
+  /* Accessibility */
+  .skip-link {
     position: absolute;
     top: -40px;
     left: 0;
@@ -20,16 +43,11 @@ body {
     color: white;
     padding: 8px;
     transition: top 0.3s;
-}
-
-.skip-link:focus {
-    top: 0;
-}
-
-/* ===== HAUPT-CONTAINER ===== */
-
-/* Container für den gesamten Seiteninhalt */
-.container {
+  }
+  .skip-link:focus { top: 0; }
+  
+  /* Layout */
+  .container {
     max-width: 1200px;
     margin: 0 auto;
     min-height: 100vh;
@@ -38,108 +56,68 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 clamp(1rem, 3%, 2rem);
-}
-
-/* ===== HEADER-BEREICH ===== */
-
-/* Header-Container */
-.header {
-    margin-top: auto;
-    margin-bottom: auto;
+    padding: 0 clamp(1rem,3%,2rem);
+  }
+  
+  /* Header */
+  .header {
+    margin: auto;
     text-align: center;
-}
-
-.profile-picture {
-    width: clamp(200px, 60vw, 400px);
-    height: clamp(200px, 60vw, 400px);
+  }
+  
+  .profile-picture {
+    width: var(--profile-size);
+    height: var(--profile-size);
     border-radius: 50%;
     object-fit: cover;
     margin: 0 auto;
-}
-
-
-/* Hauptüberschrift (H1) */
-.title {
-    font-size: clamp(3em, 8vw, 4.5em);
-    margin-bottom: clamp(5px, 2vh, 10px);
-}
-
-/* Untertitel unter H1 */
-.subtitle {
-    font-size: clamp(1.2em, 4vw, 2em);
-    margin-bottom: clamp(20px, 5vh, 40px);
+  }
+  
+  .title {
+    font-size: clamp(3em,8vw,4.5em);
+    margin-bottom: clamp(5px,2vh,10px);
+  }
+  
+  .subtitle {
+    font-size: clamp(1.2em,4vw,2em);
+    margin-bottom: clamp(20px,5vh,40px);
     font-style: italic;
-}
-
-/* ===== NAVIGATION ===== */
-/* Navigations-Liste */
-.nav {
+  }
+  
+  /* Navigation */
+  .nav {
     width: 100%;
     position: relative;
     display: flex;
-}
-
-.nav ul {
-    list-style-type: none;
+  }
+  
+  .nav ul {
+    list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     justify-content: center;
-    gap: clamp(10px, 2vw, 20px);
+    gap: clamp(10px,2vw,20px);
     flex-wrap: wrap;
-}
-
-/* Navigations-Links */
-.nav-link {
+  }
+  
+  .nav-link {
     display: block;
-    background-color: #000;
-    color: #fff;
-    text-decoration: none;
-    padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
     text-transform: uppercase;
-    font-weight: bold;
-    font-size: clamp(0.9em, 2vw, 1.2em);
+    font-size: clamp(0.9em,2vw,1.2em);
     border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-/* Hover-Effekt für Navigation */
-.nav-link:hover {
-    opacity: 0.8;
-}
-
-/* ===== HAUPTINHALT ===== */
-/* Content-Bereich */
-.content {
-    flex: 0;
-    /* Ändere zu 0 statt 1 */
-}
-
-/* ===== FOOTER-BEREICH ===== */
-
-.impressum-footer {
-
-    margin-top: 0;
-    margin-bottom: 0;
-
-}
-
-/* Gestaltung des Impressum-Links als Button */
-.impressum-link {
-    display: inline-block;
-    background-color: #000000;
-    color: #ffffff;
-    font-weight: bold;
-    text-decoration: none;
-    padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-    border-radius: 0.5rem;
-    font-size: clamp(0.9em, 2vw, 1.2em);
-    margin: 0;
-}
-
-/* ===== Bürger-Button ===== */
-.menu-toggle {
+  }
+  
+  .nav-link:hover { opacity: 0.8; }
+  
+  /* Content */
+  .content { flex: 0; }
+  
+  /* Footer */
+  .impressum-footer { margin: 0; }
+  
+  /* Burger-Menu */
+  .menu-toggle {
     display: none;
     background: none;
     border: none;
@@ -150,1101 +128,529 @@ body {
     align-self: center;
     width: 40px;
     padding: 0;
-}
-
-/* ===== Media Querys ===== */
-
-/* Mobile (340px bis 640px) */
-@media (max-width: 640px) {
-
+  }
+  
+  /* Social Media */
+  .social-media-buttons,
+  .social-media-buttons-kontakt {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .social-media-buttons i,
+  .social-media-buttons-kontakt i {
+    color: black;
+    font-size: 1.5rem;
+  }
+  
+  .social-media-link:hover i {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Mobile */
+  @media (max-width: 640px) {
+    :root { --profile-size: clamp(150px,45vw,250px); }
+    
     .impressum-footer-index {
-        position: fixed;
-        /* Fixiert am Bildschirm */
-        bottom: 20px;
-        /* Abstand vom unteren Rand */
-        left: 50%;
-        /* Horizontale Zentrierung (Schritt 1) */
-        transform: translateX(-50%);
-        /* Horizontale Zentrierung (Schritt 2) */
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
     }
-
-    .impressum-link-index {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
+    
     .home-page .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        /* Verteilt Elemente - erste oben, letzte unten */
-        min-height: 50vh;
-
+      justify-content: space-between;
+      min-height: 50vh;
     }
-
+    
     .content-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: auto;
     }
-
-    .desktop-date {
-        display: none;
-        /* Auf Mobile ausgeblendet */
-    }
-
-    .header img,
-    .header h1,
-    .header p {
-        margin: 0.2rem 0;
-    }
-
-
-    /* Hide regular navigation by default */
-    .nav-menu {
-        display: none;
-    }
-
-    /* Show the hamburger menu button */
+    
+    .desktop-date { display: none; }
+    
+    .header img, .header h1, .header p { margin: 0.2rem 0; }
+    
+    /* Navigation */
+    .nav-menu { display: none; }
+    
     .menu-toggle {
-        display: block;
-        border: none;
-        cursor: pointer;
-        font-size: 24px;
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        z-index: 1000;
-        padding: 5px 10px;
-        transition: all 0.3s ease;
-        background-color: transparent;
+      display: block;
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+      padding: 5px 10px;
+      background: transparent;
     }
-
-    /* Menu when active */
+    
     .nav-menu.nav-menu-active {
-        position: fixed;
-        /* Fest positioniert, kein Verschieben des Inhalts */
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        z-index: 999;
-        background-color: #f5e1c0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      background: var(--background);
     }
-
-    /* Navigation items styling */
+    
     .nav-menu.nav-menu-active li {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin: 0.5rem 0;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: 0.5rem 0;
     }
-
+    
     .nav-menu.nav-menu-active .nav-link {
-        width: 80%;
-        text-align: center;
-        background-color: #000;
-        color: #fff;
-        padding: 0.8rem;
-        border-radius: 5px;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-weight: bold;
+      width: 80%;
+      text-align: center;
+      padding: 0.8rem;
     }
-
-    .nav ul li {
-        display: none;
-    }
-
-    .profile-picture {
-        grid-area: image;
-        width: clamp(150px, 45vw, 250px);
-        height: clamp(150px, 45vw, 250px);
-        margin: 0.7rem 0;
-    }
-
-    /* Image optimization */
-    .img {
-        max-width: 100%;
-        height: auto;
-    }
-
+    
+    .nav-menu li { display: none; }
+    
+    /* Images */
+    .img { max-width: 100%; height: auto; }
+    
     .quiz-app-picture img,
     .e-commerce-picture img {
-        width: 100%;
-        height: auto;
-        max-height: 200px;
-        object-fit: contain;
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+      object-fit: contain;
     }
-
-    /* Button and link styles */
-    button,
-    .link {
-        padding: 10px 20px;
-        font-size: 1rem;
-        border-radius: 0.5rem;
-    }
-
-    .sidebar {
-        display: none;
-    }
-
-    /* Footer positioning */
+    
+    /* Layout */
+    .sidebar { display: none; }
+    
     .impressum-footer {
-        text-align: center;
-        left: auto;
-        transform: none;
-        width: 100%;
-        margin-bottom: 1rem;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 1rem;
     }
-
-    .impressum-link {
-        display: inline-block;
-    }
-
-    .lebenslauf-link {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        margin: 0;
-    }
-
+    
     .container {
-        display: flex;
-        justify-content: center;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        margin-top: 2rem;
-        padding-top: 2rem;
+      justify-content: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
     }
-
-    /* Abschnitte (Berufserfahrung, Fähigkeiten, etc.) */
-    .job,
-    .skills,
-    .right-column,
-    .cv-job {
-        margin-bottom: 1rem;
-        padding: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #ffffff;
-        text-align: center;
-        border-radius: 10px;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    
+    /* CV Layout */
+    .job, .skills, .right-column, .cv-job {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 10px 10px rgba(0,0,0,0.1);
     }
-
+    
     .cv-title {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-        text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
     }
-
+    
     .cv-date {
-        font-size: 0.9rem;
-        color: #555;
-        margin-bottom: 0.5rem;
-        text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.5rem;
     }
-
+    
     .cv-field {
-        font-size: 0.9rem;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
     }
-
+    
     .cv-description {
-        font-size: 0.9rem;
-        line-height: 1.4;
-        text-align: center;
-        font-family: "Arial", sans-serif;
-        line-height: 1.6;
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
-
-    /* Fähigkeitenliste */
+    
     .skills ul {
-        column-count: 2;
-        column-gap: 1rem;
-        list-style-type: disc;
-        padding-left: 1rem;
-        list-style: none;
+      column-count: 2;
+      column-gap: 1rem;
+      list-style: none;
     }
-
-    /* Bildungs- und Zertifikatssektionen */
+    
     .right-column {
-        border: none;
-        padding: 0;
-        box-shadow: 0 15px 10px rgba(0, 0, 0, 0.1);
+      border: none;
+      padding: 0;
+      box-shadow: 0 15px 10px rgba(0,0,0,0.1);
     }
-
+    
     .right-column h3 {
-        padding: 1rem;
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
     }
-
-    .right-column ul {
-        list-style-type: disc;
-        padding-left: 1.5rem;
+    
+    .right-column ul, .skills ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
     }
-
-    .right-column p {
-        font-size: 0.9rem;
-        line-height: 1.4;
-    }
-
-    .skills ul,
-    .right-column ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        text-align: center;
-    }
-
-
-    body {
-        font-family: "Arial", sans-serif;
-        line-height: 1.6;
-    }
-
-
-    .social-media-buttons-kontakt {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        width: 100%;
-        margin-bottom: 200px;
-    }
-
-    /* Icons schwarz färben */
-    .social-media-buttons-kontakt i {
-        color: black;
-        font-size: 1.5rem;
-
-    }
-
-    .social-media-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-    }
-
-    /* Icons schwarz färben */
-    .social-media-buttons i {
-        color: black;
-        font-size: 1.5rem;
-    }
-
-    /* Optional: Hover-Effekt für bessere Interaktion */
-    .social-media-link:hover i {
-        opacity: 0.7;
-        transition: opacity 0.3s ease;
-    }
-
+    
+    .right-column p { font-size: 0.9rem; line-height: 1.4; }
+    
     .project-button {
-        background-color: #000000;
-        color: #fff;
-        border: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.7em, 2vw, 0.9em);
-        text-transform: uppercase;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease;
-        margin-bottom: 20px;
+      margin-bottom: 20px;
+      font-size: clamp(0.7em,2vw,0.9em);
     }
-    .impressum-link {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .impressum-link-lebenslauf  {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .impressum-section {
-        margin-bottom: 100px; /* Negative Margin zieht nach oben */
-        padding: 1rem;
-    }
-
-}
-
-/* Tablet (641px bis 1024px) */
-@media (min-width: 641px) and (max-width: 1023px) {
-    h1 {
-        font-size: clamp(2.3em, 3vw, 4rem);
-        margin-bottom: 2rem;
-    }
-
-    h2 {
-        font-size: clamp(2.5rem, 4vw, 3.5rem);
-        margin-bottom: 1.5rem;
-    }
-
-    p {
-        font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-        line-height: 1.7;
-    }
-
-    /* Container und Layout */
+    
+    .impressum-section { margin-bottom: 100px; padding: 1rem; }
+    
+    .social-media-buttons-kontakt { margin-bottom: 200px; }
+  }
+  
+  /* Tablet */
+  @media (min-width: 641px) and (max-width: 1023px) {
+    :root { --profile-size: clamp(200px,40vw,300px); }
+    
+    h1 { font-size: clamp(2.3em,3vw,4rem); margin-bottom: 2rem; }
+    h2 { font-size: clamp(2.5rem,4vw,3.5rem); margin-bottom: 1.5rem; }
+    p { font-size: clamp(1.5rem,2.5vw,2.2rem); line-height: 1.7; }
+    
     .container {
-        padding: 1rem;
-        justify-content: flex-start;
-        text-align: center;
+      padding: 1rem;
+      justify-content: flex-start;
     }
-
-    /* Header-Bereich mit zentrierter Ausrichtung */
+    
     .header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 3rem 0 2rem;
     }
-
-    /* Profilbild anpassen */
-    .profile-picture {
-        width: clamp(200px, 40vw, 300px);
-        height: clamp(200px, 40vw, 300px);
-        border-radius: 50%;
-        margin: 0 auto 1.5rem;
-    }
-
-    /* Titel und Untertitel zentrieren */
-    .title,
-    .subtitle {
-        text-align: center;
-        margin: 0 auto;
-    }
-
-    /* Navigation ohne Burger-Menü */
+    
+    .title, .subtitle { margin: 0 auto; }
+    
     .nav {
-        width: 100%;
-        margin: 2rem auto;
-        display: flex;
-        justify-content: center;
-        position: static;
-        left: auto;
+      margin: 2rem auto;
+      position: static;
     }
-
+    
     .nav-menu {
-        display: flex;
-        justify-content: center;
-        width: 100%;
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
-
+    
     .nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        padding: 0;
-        margin: 0 auto;
+      gap: 1rem;
+      margin: 0 auto;
     }
-
-    .nav ul li {
-        display: block;
-    }
-
-    .nav-link {
-        font-size: 1.3rem;
-        transition: background-color 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease;
-    }
-
-    /* Content-Bereich */
-    .content {
-        width: 100%;
-        padding: 1rem;
-    }
-
-    /* Social Media Buttons */
+    
+    .nav ul li { display: block; }
+    
+    .nav-link { font-size: 1.3rem; }
+    
+    .content { width: 100%; padding: 1rem; }
+    
+    .social-media-buttons, 
     .social-media-buttons-kontakt {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        width: 100%;
-        margin-bottom: 200px;
+      margin-bottom: 200px;
     }
-
-    /* Icons schwarz färben */
-    .social-media-buttons-kontakt i {
-        color: black;
-        font-size: 2.5rem;
-    }
-
-    .social-media-buttons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        width: 100%;
-        margin-bottom: 200px;
-    }
-
-    .social-media-buttons i {
-        color: black;
-        font-size: 2.5rem;
-    }
-
-
-    /* Projektseiten-spezifische Anpassungen */
+    
+    .social-media-buttons i,
+    .social-media-buttons-kontakt i { font-size: 2.5rem; }
+    
     .quiz-app-picture img,
     .e-commerce-picture img {
-        max-width: 100%;
-        height: auto;
-        max-height: 300px;
-        object-fit: contain;
+      max-height: 300px;
+      width: clamp(200px,50vw,300px);
+      height: clamp(200px,50vw,300px);
+      border-radius: 50%;
     }
-
-    .job,
-    .skills,
-    .right-column,
-    .cv-job {
-        margin-bottom: 1rem;
-        padding: center;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #ffffff;
-        text-align: center;
-        border-radius: 10px;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    
+    /* CV Styles */
+    .desktop-date { display: none; }
+    
+    .cv-title, .cv-date, .cv-field, 
+    .cv-description, .skills h3 {
+      text-align: left;
+      padding-left: 1rem;
     }
-
-    .desktop-date {
-        display: none;
-        /* Auf Mobile ausgeblendet */
-    }
-
-    /* Job-Abschnitt */
-    .cv-title {
-        font-size: 1.4rem;
-        font-weight: bold;
-        margin-bottom: 0.7rem;
-        text-align: left;
-        padding-left: 1rem;
-    }
-
-    .cv-date {
-        font-size: 1.1rem;
-        color: #555;
-        margin-bottom: 0.7rem;
-        text-align: left;
-        padding-left: 1rem;
-    }
-
-    .cv-field {
-        font-size: 1.1rem;
-        font-weight: bold;
-        text-align: left;
-        margin-bottom: 0.7rem;
-        padding-left: 1rem;
-    }
-
-    .cv-description {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        text-align: left;
-        font-family: "Arial", sans-serif;
-        padding-left: 1rem;
-    }
-
-    /* Fähigkeiten-Abschnitt */
-    .skills h3 {
-        font-size: 1.4rem;
-        margin-bottom: 1rem;
-        text-align: left;
-        padding-left: 1rem;
-    }
-
+    
+    .cv-title { font-size: 1.4rem; margin-bottom: 0.7rem; }
+    .cv-date { font-size: 1.1rem; margin-bottom: 0.7rem; }
+    .cv-field { font-size: 1.1rem; margin-bottom: 0.7rem; }
+    .cv-description { font-size: 1.1rem; }
+    .skills h3 { font-size: 1.4rem; margin-bottom: 1rem; }
+    
     .skills ul {
-        column-count: 2;
-        column-gap: 2rem;
-        list-style-type: disc;
-        padding-left: 1.5rem;
-        text-align: left;
+      column-count: 2;
+      column-gap: 2rem;
+      padding-left: 1.5rem;
+      text-align: left;
     }
-
-    .skills li {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-        break-inside: avoid;
-    }
-
-    /* Rechte Spalte (Bildung, Zertifikate) */
+    
+    .skills li { font-size: 1.1rem; margin-bottom: 0.5rem; break-inside: avoid; }
+    
     .right-column {
-        border: 1px solid #ccc;
-        padding: 1.5rem;
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     }
-
+    
     .right-column h3 {
-        padding: 0 0 0.7rem 0;
-        font-size: 1.4rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        text-align: left;
-        border-bottom: 2px solid #ddd;
+      padding: 0 0 0.7rem 0;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      text-align: left;
+      border-bottom: 2px solid #ddd;
     }
-
+    
     .right-column ul {
-        list-style-type: disc;
-        padding-left: 1.5rem;
-        text-align: left;
+      list-style: disc;
+      padding-left: 1.5rem;
+      text-align: left;
     }
-
-    .right-column li {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        margin-bottom: 0.7rem;
+    
+    .right-column li, .right-column p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: left;
     }
-
-    .right-column p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        text-align: left;
-    }
-
-    .lebenslauf-link {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        margin: 0;
-    }
-
-    .quiz-app-picture img,
-    .e-commerce-picture img {
-        height: auto;
-        width: clamp(200px, 50vw, 300px);
-        height: clamp(200px, 50vw, 300px);
-        border-radius: 50%;
-    }
-
-    .home-page .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        /* Verteilt Elemente - erste oben, letzte unten */
-        min-height: 60vh;
-
-    }
-
-    .content-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: auto;
-    }
-
-
+    
+    .right-column li { margin-bottom: 0.7rem; }
+    
+    .home-page .container { min-height: 60vh; }
+    
     .impressum-footer {
-        position: relative;
-        align-items: center;
-        bottom: 0;
+      position: relative;
+      align-items: center;
+      bottom: 0;
     }
-
-    .impressum-link {
-        transition: background-color 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease;
-    }
-
+    
     .impressum-footer-kontakt {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
     }
-
-    /* impressum footer Index */
-
+    
     .impressum-footer-index {
-        position: fixed;
-        /* Fixiert am Bildschirm */
-        bottom: 20px;
-        /* Abstand vom unteren Rand */
-        left: 50%;
-        /* Horizontale Zentrierung (Schritt 1) */
-        transform: translateX(-50%);
-        /* Horizontale Zentrierung (Schritt 2) */
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
     }
-
-    .impressum-link-index {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .impressum-link-lebenslauf  {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-
+    
     .project-button {
-        background-color: #000000;
-        color: #fff;
-        border: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.3em, 2vw, 0.9em);
-        text-transform: uppercase;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease;
-        margin-bottom: 20px;
+      font-size: clamp(0.3em,2vw,0.9em);
+      margin-bottom: 20px;
     }
-
-    .project-button:hover {
-        background-color: #ff0202;
-        /* Farbe beim Hover ändern */
-    }
-
-}
-
-/* Desktop (größer als 1025px) */
-@media (min-width: 1024px) {
-
-    p {
-        font-size: 1.1rem;
-        line-height: 1.4;
-        max-width: 65ch;
-        margin-left: auto;
-        margin-right: auto;
-
-    }
-
+    
+    .project-button:hover { background: var(--accent); }
+  }
+  
+  /* Desktop */
+  @media (min-width: 1024px) {
+    :root { --profile-size: clamp(200px,40vw,300px); }
+    
+    p { font-size: 1.1rem; line-height: 1.4; max-width: 65ch; margin: 0 auto; }
+    
     .content {
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0 1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 1rem;
     }
-
+    
     .nav {
-        display: flex;
-        position: absolute;
-        top: 0;
-        left: 50px;
-        width: 100%;
-        padding-top: 2rem;
-        justify-content: flex-start;
-        z-index: 100;
+      position: absolute;
+      top: 0;
+      left: 50px;
+      padding-top: 2rem;
+      justify-content: flex-start;
+      z-index: 100;
     }
-
-    .nav-link {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease;
-    }
-
-    .nav-link:hover {
-        /* Schatten beim Hover verstärken */
-        box-shadow: 0 6px 10px rgba(255, 94, 0, 0.4);
-    }
-
-    /* Bild-Container rechts */
-    .profile-picture {
-        width: clamp(200px, 40vw, 300px);
-        height: clamp(200px, 40vw, 300px);
-        border-radius: 50%;
-        margin: 0 auto 1.5rem;
-    }
-
-    /* Social Media */
-    .content .social-media-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 3rem;
-    }
-
-    .header {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        padding: 2rem;
-    }
-
-    .header h1.title {
-        margin-bottom: 0.2rem;
-        /* Reduziert den Abstand zwischen Titel und Untertitel */
-    }
-
-    .header p.subtitle {
-        margin-bottom: 0.5rem;
-        /* Reduziert den Abstand zwischen Untertitel und Text */
-        margin-top: 0;
-        /* Entfernt jeden zusätzlichen Abstand oben */
-    }
-
-    .header p:not(.subtitle) {
-        margin-top: 0.3rem;
-        /* Kleinerer Abstand zum vorherigen Element */
-        line-height: 1.3;
-        /* Engerer Zeilenabstand innerhalb des Paragraphen selbst */
-    }
-
-    .header .profile-picture {
-        margin-bottom: -1rem;
-        /* Entferne den Abstand vollständig */
-    }
-
-    .social-media-buttons i {
-        color: black;
-        font-size: 1.8rem;
-    }
-
+    
+    .nav-link:hover { box-shadow: 0 6px 10px rgba(255,94,0,0.4); }
+    
+    .header { margin: 2rem 0 1rem; padding: 2rem; }
+    .header h1.title { margin-bottom: 0.2rem; }
+    .header p.subtitle { margin: 0 0 0.5rem; }
+    .header p:not(.subtitle) { margin-top: 0.3rem; line-height: 1.3; }
+    .header .profile-picture { margin-bottom: -1rem; }
+    
+    .social-media-buttons i { font-size: 1.8rem; }
+    
+    /* Project Layout */
     .project-section .quiz-app-container,
     .project-section .e-commerce-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 2rem;
-        margin-bottom: 3rem;
-        text-align: left;
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin: 0 auto 3rem;
+      text-align: left;
+      max-width: 90%;
     }
-
-    /* Bildcontainer auf feste Breite setzen */
+    
     .quiz-app-picture,
-    .e-commerce-picture {
-        flex: 0 0 auto;
-        /* Verhindert, dass der Container sich dehnt */
-        width: 220px;
-        /* Breite des Bildcontainers */
-    }
-
+    .e-commerce-picture { flex: 0 0 auto; width: 220px; }
+    
     .quiz-app-picture img,
     .e-commerce-picture img {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-
-    /* Projekte-Überschriften links ausrichten */
-    .project-title {
-        text-align: left;
-        margin-top: 0;
-    }
-
-    /* Projekt-Beschreibung formatieren */
-    .project-description {
-        margin-bottom: 0.5rem;
-        line-height: 1.5;
-    }
-
-    .project-button {
-        background-color: #000000;
-        color: #fff;
-        border: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.3em, 2vw, 0.7em);
-        text-transform: uppercase;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease;
-    }
-
-    .project-button:hover {
-        background-color: #ff0202;
-        /* Farbe beim Hover ändern */
-    }
-
+    
+    .project-title { text-align: left; margin-top: 0; }
+    .project-description { margin-bottom: 0.5rem; line-height: 1.5; }
+    .project-button { font-size: clamp(0.3em,2vw,0.7em); }
+    .project-button:hover { background: var(--accent); }
+    
     .impressum-footer-index {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
     }
-
-    .impressum-link-index {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .impressum-link,
-    .impressum-link-index,
-    .impressum-link-kontakt {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .impressum-link-lebenslauf {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .social-media-buttons-kontakt {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        width: 100%;
-        margin-bottom: 200px;
-    }
-
-    /* Icons schwarz färben */
-    .social-media-buttons-kontakt i {
-        color: black;
-        font-size: 1.5rem;
-    }
-
-    /* Lebenslauf Bereich */
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f5e1c0;
-        margin: 0;
-        padding: 0;
-    }
-
+    
+    .social-media-buttons-kontakt { margin-bottom: 200px; }
+    
+    /* CV Layout */
     .content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-        display: flex;
-        flex-wrap: wrap;
+      max-width: 1200px;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
     }
-
-    /* Datum-Styling */
+    
     .desktop-date {
-        width: 180px;
-        font-size: 1.8rem;
-        font-weight: bold;
-        margin: 0;
-        padding-right: 20px;
-        text-align: left;
-        box-sizing: border-box;
-        white-space: nowrap;
+      width: 180px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0;
+      padding-right: 20px;
+      text-align: left;
+      box-sizing: border-box;
+      white-space: nowrap;
     }
-
-    /* Job-Abschnitt */
+    
     .cv-job {
-        width: calc(100% - 180px);
-        margin: 0 0 40px 0;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 300px;
+      width: calc(100% - 180px);
+      margin: 0 0 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 300px;
     }
-
-    /* Titel */
+    
     .cv-title {
-        font-size: 1.2rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 0 0 15px 0;
-        ;
-        padding: 0;
-        line-height: 1.2;
-        width: 100%;
-        text-align: left;
-        /* Titel zentrieren */
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0 0 15px;
+      padding: 0;
+      line-height: 1.2;
+      width: 100%;
+      text-align: left;
     }
-
-    /* Berufsfeld */
-    .cv-field,
-    .cv-date {
-        font-style: italic;
-        margin: 2px 0;
-        padding: 0;
-        line-height: 1.2;
-        width: 100%;
-        text-align: left;
+    
+    .cv-field, .cv-date {
+      font-style: italic;
+      margin: 2px 0;
+      padding: 0;
+      line-height: 1.2;
+      width: 100%;
+      text-align: left;
     }
-
-    /* Beschreibung */
+    
     .cv-description {
-        margin: 5px 0 0 0;
-        padding: 0;
-        line-height: 1.4;
-        width: 100%;
-        text-align: left;
+      margin: 5px 0 0;
+      padding: 0;
+      line-height: 1.4;
+      width: 100%;
+      text-align: left;
     }
-
-    /* Styles für den Skills-Bereich */
+    
     .skills {
-        width: 90%;
-        max-width: 900px;
-        margin: 30px auto;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      width: 90%;
+      max-width: 900px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-
+    
     .skills h3 {
-        font-size: 24px;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 0 0 30px 0;
-        text-align: center;
-        width: 100%;
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0 0 30px;
+      text-align: center;
+      width: 100%;
     }
-
+    
     .skills ul {
-        column-count: 3;
-        column-gap: 30px;
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        text-align: center;
+      column-count: 3;
+      column-gap: 30px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      text-align: center;
     }
-
+    
     .skills li {
-        margin-bottom: 10px;
-        break-inside: avoid;
-        text-align: center;
+      margin-bottom: 10px;
+      break-inside: avoid;
+      text-align: center;
     }
-
-    /* Styles für die rechte Spalte */
+    
     .right-column {
-        width: 90%;
-        max-width: 900px;
-        margin: 30px auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      width: 90%;
+      max-width: 900px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-
+    
     .right-column h3 {
-        font-size: 24px;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 30px 0 20px 0;
-        text-align: center;
-        width: 100%;
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 30px 0 20px;
+      text-align: center;
+      width: 100%;
     }
-
+    
     .right-column p {
-        margin: 0 0 30px 0;
-        font-size: 16px;
-        text-align: center;
-        width: 100%;
+      margin: 0 0 30px;
+      font-size: 16px;
+      text-align: center;
+      width: 100%;
     }
-
+    
     .right-column ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0 0 40px 0;
-        text-align: center;
-        width: 100%;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 40px;
+      text-align: center;
+      width: 100%;
     }
-
+    
     .right-column li {
-        margin-bottom: 8px;
-        text-align: center;
+      margin-bottom: 8px;
+      text-align: center;
     }
-
-    .lebenslauf-link {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        margin: 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-
-}
+  }

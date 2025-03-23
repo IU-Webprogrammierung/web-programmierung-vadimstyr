@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const menuToggle = document.querySelector('.menu-toggle');
     
     // Select the navigation menu
-    const navMenu = document.querySelector('.nav ul');
+    const navMenu = document.querySelector('#nav-menu');
     
     // Add click event listener to menu toggle
     menuToggle.addEventListener('click', function () {
