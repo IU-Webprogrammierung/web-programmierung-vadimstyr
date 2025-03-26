@@ -48,48 +48,48 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 600);
     }
 
-    // Lego-Block Animation Code - direkt hier, NICHT in einem weiteren DOMContentLoaded
+    // Seitenübergangs-Animation
+    // Füge page-transition Element zum DOM hinzu
     const transitionElement = document.createElement('div');
     transitionElement.className = 'page-transition';
-
-    const blocksContainer = document.createElement('div');
-    blocksContainer.className = 'blocks-container';
-
-    for (let i = 0; i < 100; i++) {
-        const block = document.createElement('div');
-        block.className = 'lego-block';
-        const column = i % 10;
-        block.style.animationDelay = `${column * 0.05}s`;
-        blocksContainer.appendChild(block);
-    }
-
-    transitionElement.appendChild(blocksContainer);
     document.body.appendChild(transitionElement);
 
-    const links = document.querySelectorAll('a[href]:not([href^="#"]):not([href^="javascript"]):not([target="_blank"])');
+    // Warte, bis alles geladen ist
+    setTimeout(() => {
+        // Erfasse alle Links, die zu internen Seiten führen
+        const internalLinks = document.querySelectorAll('a[href^="html/"], a[href^="/"], a[href^="./"], a[href^="../"], a[href="index.html"]');
 
-    links.forEach(link => {
-        link.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
+        internalLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                // Vermeide Standard-Navigation
+                event.preventDefault();
 
-            // Wenn es ein interner Link ist
-            if (href && !href.startsWith('http') && !href.startsWith('//')) {
-                e.preventDefault();
+                const targetUrl = this.getAttribute('href');
 
-                // Aktiviere die Aufbauanimation
+                // Aktiviere die Übergangsanimation
                 transitionElement.classList.add('active');
 
-                // Verzögere, um die Aufbauanimation zu sehen
+                // Warte, bis die Animation abgeschlossen ist, dann navigiere zur Zielseite
                 setTimeout(() => {
-                    // Aktiviere die Abbauanimation
-                    transitionElement.classList.add('closing');
-
-                    // Warte auf Ende der Abbauanimation, dann navigiere
-                    setTimeout(() => {
-                        window.location.href = href;
-                    }, 700);
-                }, 800);
-            }
+                    window.location.href = targetUrl;
+                }, 800); // Entspricht der Animationsdauer (0.8s)
+            });
         });
-    });
+    }, 100);
+});
+
+// Animation beim Laden der Seite
+window.addEventListener('pageshow', function (event) {
+    // Überprüfe, ob die Seite aus dem Cache geladen wird
+    if (event.persisted) {
+        location.reload();
+    } else {
+        const transitionElement = document.querySelector('.page-transition');
+        if (transitionElement) {
+            // Entferne die Animation nach dem Seitenladen mit leichter Verzögerung
+            setTimeout(() => {
+                transitionElement.classList.remove('active');
+            }, 100);
+        }
+    }
 });

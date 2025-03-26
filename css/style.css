@@ -9,6 +9,7 @@
     --transition: all 0.3s ease;
     --pad-btn: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
     --profile-size: clamp(200px, 60vw, 400px);
+    --main-font: 'Anton', sans-serif;
 }
 
 /* Basis-Elemente */
@@ -20,6 +21,9 @@ body {
     min-height: 100vh;
 }
 
+.title {
+    font-family: var(--main-font);
+}
 
 
 /* Gemeinsame Button-Stile */
@@ -32,122 +36,25 @@ body {
 .project-button,
 .lebenslauf-link {
     display: inline-block;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.5);
+    /* Leicht weißer Hintergrund */
     color: var(--primary);
     font-weight: bold;
     text-decoration: none;
     padding: var(--pad-btn);
     border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    transition: var(--transition);
+    border: 1.5px solid var(--primary);
+    /* Etwas dickere Umrandung */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    /* Leichter Schatten für Tiefe */
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    /* Stellt sicher, dass Buttons über anderen Elementen liegen */
 }
 
 .nav-link {
     border-radius: var(--nav-radius);
-}
-
-/* Keyframes für den Farbwechsel */
-@keyframes glowing {
-    0% {
-        background-position: 0 0;
-    }
-
-    50% {
-        background-position: 400% 0;
-    }
-
-    100% {
-        background-position: 0 0;
-    }
-}
-
-/* Korrektur für Glow-Effekt bei Nav-Links */
-.nav-link::before {
-    border-radius: var(--nav-radius);
-}
-
-/* Button-Basis erweitern */
-.button,
-.nav-link,
-.impressum-link,
-.impressum-link-index,
-.impressum-link-kontakt,
-.impressum-link-lebenslauf,
-.project-button,
-.lebenslauf-link {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-}
-
-/* Glowing-Effekt mit ::before */
-.button::before,
-.nav-link::before,
-.impressum-link::before,
-.impressum-link-index::before,
-.impressum-link-kontakt::before,
-.impressum-link-lebenslauf::before,
-.project-button::before,
-.lebenslauf-link::before {
-    content: "";
-    background: linear-gradient(45deg,
-            #8B0000, #9B4500, #9B9900, #006400,
-            #008B8B, #00008B, #8B008B, #8B0000);
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    background-size: 600%;
-    z-index: -1;
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    filter: blur(8px);
-    animation: glowing 20s linear infinite;
-    border-radius: var(--radius);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-/* Hover-Effekt aktivieren */
-.button:hover::before,
-.nav-link:hover::before,
-.impressum-link:hover::before,
-.impressum-link-index:hover::before,
-.impressum-link-kontakt:hover::before,
-.impressum-link-lebenslauf:hover::before,
-.project-button:hover::before,
-.lebenslauf-link:hover::before {
-    opacity: 1;
-}
-
-/* Aktiver Zustand */
-.button:active,
-.nav-link:active,
-.impressum-link:active,
-.impressum-link-index:active,
-.impressum-link-kontakt:active,
-.impressum-link-lebenslauf:active,
-.project-button:active,
-.lebenslauf-link:active {
-    color: var(--primary);
-    background-color: transparent;
-}
-
-.button:hover,
-.nav-link:hover,
-.impressum-link:hover,
-.impressum-link-index:hover,
-.impressum-link-kontakt:hover,
-.impressum-link-lebenslauf:hover,
-.project-button:hover,
-.lebenslauf-link:hover {
-    color: white;
-    /* Textfarbe wird weiß */
-}
-
-/* Überschreibe bestehende Hover-Effekte */
-.nav-link:hover {
-    box-shadow: none;
-    opacity: 1;
 }
 
 /* Trennlinie unter der Navigation - besser an .nav ul anhängen */
@@ -200,6 +107,35 @@ body {
     }
 }
 
+/* Verbesserter Hover-Effekt */
+.button:hover,
+.nav-link:hover,
+.impressum-link:hover,
+.impressum-link-index:hover,
+.impressum-link-kontakt:hover,
+.impressum-link-lebenslauf:hover,
+.project-button:hover,
+.lebenslauf-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Active-Effekt verstärken */
+.button:active,
+.nav-link:active,
+.impressum-link:active,
+.impressum-link-index:active,
+.impressum-link-kontakt:active,
+.impressum-link-lebenslauf:active,
+.project-button:active,
+.lebenslauf-link:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    animation: pulse 0.3s ease-out;
+    border-color: var(--accent);
+}
+
 /* Pulsier-Animation beim Klick */
 .button:active,
 .nav-link:active,
@@ -242,7 +178,7 @@ body {
     top: 0;
 }
 
-/* Lego-Block-Aufbau Animation */
+/* Moderne Clip-Path Animation */
 .page-transition {
     position: fixed;
     top: 0;
@@ -250,17 +186,25 @@ body {
     width: 100%;
     height: 100%;
     z-index: 9999;
-    opacity: 0;
+    background: var(--background);
     pointer-events: none;
-    transition: opacity 0.2s ease;
-    background: rgba(245, 225, 192, 0.85);
-    /* Angepasst an dein --background mit 85% Opazität */
-    overflow: hidden;
+    clip-path: circle(0% at center);
+    transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .page-transition.active {
-    opacity: 1;
+    clip-path: circle(150% at center);
     pointer-events: all;
+}
+
+.page-transition.closing {
+    clip-path: circle(150% at center);
+    animation: reverse-clip 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes reverse-clip {
+    from { clip-path: circle(150% at center); }
+    to { clip-path: circle(0% at center); }
 }
 
 .blocks-container {
@@ -879,7 +823,7 @@ body {
     }
 
     .nav-link:hover {
-        box-shadow: 0 6px 10px rgba(255, 94, 0, 0.4);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
         border-radius: var(--nav-radius);
         /* Sicherstellen, dass der Radius beim Hover erhalten bleibt */
     }
@@ -891,6 +835,123 @@ body {
 
     .header h1.title {
         margin-bottom: 0.2rem;
+    }
+
+    /*Farbverlauf mit Animation*/
+    #title-header-index {
+        font-size: 10rem;
+        background: linear-gradient(45deg,
+                #0015ff 0%,
+                /* Dunkelblau */
+                #000000 25%,
+                /* Grün */
+                #3083ff 50%,
+                /* Gold */
+                #000000 75%,
+                /* Orangerot */
+                #003366 100%
+                /* Zurück zu Dunkelblau */
+            );
+        background-size: 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradient-shift 10s ease infinite;
+    }
+
+    @keyframes gradient-shift {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .subtitle-line {
+        font-size: 2rem;
+        font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 1px;
+        color: rgba(0, 0, 0, 0.8);
+        border-right: 2px solid transparent;
+        width: 0;
+    }
+
+    #subtitle-header-index-line1 {
+        border-right: 2px solid var(--accent);
+        /* Blinkender Cursor für erste Zeile */
+        animation:
+            typing 2.5s steps(30, end) 1s forwards,
+            blink-caret 0.75s step-end infinite,
+            hide-cursor 0.1s linear 3.5s forwards;
+        /* Cursor ausblenden, wenn zweite Zeile beginnt */
+    }
+
+    /* Vereinfachte Version für die zweite Zeile */
+    #subtitle-header-index-line2 {
+        border-right: 2px solid transparent;
+        animation:
+            waiting 3.5s steps(1, end),
+            /* Warten bis erste Zeile fertig ist */
+            show-cursor 0.1s linear 3.5s forwards,
+            /* Cursor anzeigen */
+            typing 3s steps(35, end) 3.6s forwards,
+            /* Text wird normal getippt */
+            blink-caret 0.75s step-end 6.6s forwards 8,
+            /* Cursor blinkt 8 Mal am Ende */
+            hide-cursor 0.1s linear 12.6s forwards;
+        /* Cursor ausblenden nach dem Tippen */
+    }
+
+    /* Keyframes für normale Tippanimation */
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+
+        to {
+            width: 100%;
+        }
+    }
+
+    @keyframes blink-caret {
+
+        from,
+        to {
+            border-color: transparent;
+        }
+
+        50% {
+            border-color: var(--accent);
+        }
+    }
+
+    @keyframes hide-cursor {
+        to {
+            border-color: transparent;
+        }
+    }
+
+    @keyframes waiting {
+
+        0%,
+        100% {
+            width: 0;
+        }
+    }
+
+    @keyframes show-cursor {
+        to {
+            border-color: var(--accent);
+        }
     }
 
     .header p.subtitle {
