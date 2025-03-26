@@ -203,8 +203,13 @@ body {
 }
 
 @keyframes reverse-clip {
-    from { clip-path: circle(150% at center); }
-    to { clip-path: circle(0% at center); }
+    from {
+        clip-path: circle(150% at center);
+    }
+
+    to {
+        clip-path: circle(0% at center);
+    }
 }
 
 .blocks-container {
@@ -613,14 +618,14 @@ body {
 
     .container {
         padding: 1rem;
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     .header {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 3rem 0 2rem;
+        margin: 0;
     }
 
     .title,
@@ -629,8 +634,19 @@ body {
     }
 
     .nav {
-        margin: 2rem auto;
-        position: static;
+        position: absolute;
+        /* Von 'static' zu 'absolute' ändern */
+        top: 0;
+        /* Am oberen Rand positionieren */
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding-top: 2rem;
+        /* Abstand von oben */
+        margin: 0;
+        /* Margin auf 0 setzen (statt 2rem auto) */
+        z-index: 100;
+        /* Über dem Inhalt bleiben */
     }
 
     .nav-menu {
@@ -757,7 +773,10 @@ body {
     }
 
     .home-page .container {
-        min-height: 60vh;
+        min-height: 90vh;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
     }
 
     .impressum-footer {
@@ -787,6 +806,34 @@ body {
 
     .project-button:hover {
         background: var(--accent);
+    }
+
+    /* Anpassungen für die Überschriften im Tablet-Modus */
+    .header h1.title {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Anpassungen für die Untertitel im Tablet-Modus */
+    .subtitle-line {
+        font-size: 1.5rem;
+        /* Etwas kleiner als Desktop */
+        margin: 0 auto;
+        letter-spacing: 1px;
+    }
+
+    /* Erste Untertitelzeile */
+    #subtitle-header-index-line1 {
+        margin-bottom: 0.3rem;
+    }
+
+    /* Zweite Untertitelzeile */
+    #subtitle-header-index-line2 {
+        margin-bottom: 1rem;
+    }
+
+    /* Abstand zwischen Header und Inhalt anpassen */
+    .content-wrapper {
+        margin-top: 1rem;
     }
 }
 
