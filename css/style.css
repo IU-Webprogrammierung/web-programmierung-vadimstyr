@@ -44,13 +44,10 @@ body {
     padding: var(--pad-btn);
     border-radius: var(--radius);
     border: 1.5px solid var(--primary);
-    /* Etwas dickere Umrandung */
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-    /* Leichter Schatten für Tiefe */
     transition: all 0.3s ease;
     position: relative;
     z-index: 1;
-    /* Stellt sicher, dass Buttons über anderen Elementen liegen */
 }
 
 .nav-link {
@@ -104,6 +101,63 @@ body {
     to {
         transform: scale(4);
         opacity: 0;
+    }
+}
+
+/* Title und Text Animation */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: var(--accent);
+    }
+}
+
+@keyframes hide-cursor {
+    to {
+        border-color: transparent;
+    }
+}
+
+@keyframes waiting {
+
+    0%,
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes show-cursor {
+    to {
+        border-color: var(--accent);
     }
 }
 
@@ -593,6 +647,71 @@ body {
     .social-media-buttons-kontakt {
         margin-bottom: 200px;
     }
+
+    /* Farbverlauf mit Animation für den Titel */
+    #title-header-index {
+        font-size: 4rem;
+        /* Kleiner für mobile Geräte */
+        background: linear-gradient(45deg,
+                #0015ff 0%,
+                #000000 25%,
+                #3083ff 50%,
+                #000000 75%,
+                #003366 100%);
+        background-size: 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradient-shift 10s ease infinite;
+    }
+
+    /* Typewriter-Effekt für Untertitel */
+    .subtitle-line {
+        font-size: 1.0rem;
+        /* Kleiner für mobile Geräte */
+        font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 1px;
+        color: rgba(0, 0, 0, 0.8);
+        border-right: 2px solid transparent;
+        width: 0;
+    }
+
+    #subtitle-header-index-line1 {
+        border-right: 2px solid var(--accent);
+        animation:
+            typing 2.5s steps(30, end) 1s forwards,
+            blink-caret 0.75s step-end infinite,
+            hide-cursor 0.1s linear 3.5s forwards;
+    }
+
+    #subtitle-header-index-line2 {
+        border-right: 2px solid transparent;
+        animation:
+            waiting 3.5s steps(1, end),
+            show-cursor 0.1s linear 3.5s forwards,
+            typing 3s steps(35, end) 3.6s forwards,
+            blink-caret 0.75s step-end 6.6s forwards 8,
+            hide-cursor 0.1s linear 12.6s forwards;
+    }
+
+    /* Spezielle Anpassung für das Layout der Startseite */
+    .home-page .header {
+        margin-top: 40px;
+        /* Etwas Abstand nach oben */
+    }
+
+    /* Erste Untertitelzeile */
+    #subtitle-header-index-line1 {
+        margin-bottom: 0.3rem;
+    }
+
+    /* Zweite Untertitelzeile */
+    #subtitle-header-index-line2 {
+        margin-bottom: 1rem;
+    }
 }
 
 /* Tablet */
@@ -628,6 +747,27 @@ body {
         margin: 0;
     }
 
+    body:not(.home-page) .profile-picture {
+        margin-top: 100px;
+        /* Verschiebt das Bild nach unten */
+    }
+
+    /* Container auf der Me-Seite mit mehr Platz nach oben */
+    body:not(.home-page) .container {
+        padding-top: 50px;
+        justify-content: flex-start;
+    }
+
+    /* Mehr Platz für Navigation */
+    .nav {
+        margin-bottom: 80px;
+    }
+
+    /* Wenn nötig, Footer nach unten schieben */
+    body:not(.home-page) .impressum-footer {
+        margin-top: 40px;
+    }
+
     .title,
     .subtitle {
         margin: 0 auto;
@@ -635,18 +775,13 @@ body {
 
     .nav {
         position: absolute;
-        /* Von 'static' zu 'absolute' ändern */
         top: 0;
-        /* Am oberen Rand positionieren */
         left: 0;
         right: 0;
         width: 100%;
         padding-top: 2rem;
-        /* Abstand von oben */
         margin: 0;
-        /* Margin auf 0 setzen (statt 2rem auto) */
         z-index: 100;
-        /* Über dem Inhalt bleiben */
     }
 
     .nav-menu {
@@ -813,10 +948,10 @@ body {
         margin-bottom: 0.5rem;
     }
 
+
     /* Anpassungen für die Untertitel im Tablet-Modus */
     .subtitle-line {
         font-size: 1.5rem;
-        /* Etwas kleiner als Desktop */
         margin: 0 auto;
         letter-spacing: 1px;
     }
@@ -834,6 +969,53 @@ body {
     /* Abstand zwischen Header und Inhalt anpassen */
     .content-wrapper {
         margin-top: 1rem;
+    }
+
+    #title-header-index {
+        font-size: 7rem;
+        /* Kleiner als auf Desktop */
+        background: linear-gradient(45deg,
+                #0015ff 0%,
+                #000000 25%,
+                #3083ff 50%,
+                #000000 75%,
+                #003366 100%);
+        background-size: 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradient-shift 10s ease infinite;
+    }
+
+    .subtitle-line {
+        font-size: 1.5rem;
+        /* Angepasste Größe */
+        font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 1px;
+        color: rgba(0, 0, 0, 0.8);
+        border-right: 2px solid transparent;
+        width: 0;
+    }
+
+    #subtitle-header-index-line1 {
+        border-right: 2px solid var(--accent);
+        animation:
+            typing 2.5s steps(30, end) 1s forwards,
+            blink-caret 0.75s step-end infinite,
+            hide-cursor 0.1s linear 3.5s forwards;
+    }
+
+    #subtitle-header-index-line2 {
+        border-right: 2px solid transparent;
+        animation:
+            waiting 3.5s steps(1, end),
+            show-cursor 0.1s linear 3.5s forwards,
+            typing 3s steps(35, end) 3.6s forwards,
+            blink-caret 0.75s step-end 6.6s forwards 8,
+            hide-cursor 0.1s linear 12.6s forwards;
     }
 }
 
@@ -889,35 +1071,15 @@ body {
         font-size: 10rem;
         background: linear-gradient(45deg,
                 #0015ff 0%,
-                /* Dunkelblau */
                 #000000 25%,
-                /* Grün */
                 #3083ff 50%,
-                /* Gold */
                 #000000 75%,
-                /* Orangerot */
-                #003366 100%
-                /* Zurück zu Dunkelblau */
-            );
+                #003366 100%);
         background-size: 200%;
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         animation: gradient-shift 10s ease infinite;
-    }
-
-    @keyframes gradient-shift {
-        0% {
-            background-position: 0% 50%;
-        }
-
-        50% {
-            background-position: 100% 50%;
-        }
-
-        100% {
-            background-position: 0% 50%;
-        }
     }
 
     .subtitle-line {
@@ -934,71 +1096,20 @@ body {
 
     #subtitle-header-index-line1 {
         border-right: 2px solid var(--accent);
-        /* Blinkender Cursor für erste Zeile */
         animation:
             typing 2.5s steps(30, end) 1s forwards,
             blink-caret 0.75s step-end infinite,
             hide-cursor 0.1s linear 3.5s forwards;
-        /* Cursor ausblenden, wenn zweite Zeile beginnt */
     }
 
-    /* Vereinfachte Version für die zweite Zeile */
     #subtitle-header-index-line2 {
         border-right: 2px solid transparent;
         animation:
             waiting 3.5s steps(1, end),
-            /* Warten bis erste Zeile fertig ist */
             show-cursor 0.1s linear 3.5s forwards,
-            /* Cursor anzeigen */
             typing 3s steps(35, end) 3.6s forwards,
-            /* Text wird normal getippt */
             blink-caret 0.75s step-end 6.6s forwards 8,
-            /* Cursor blinkt 8 Mal am Ende */
             hide-cursor 0.1s linear 12.6s forwards;
-        /* Cursor ausblenden nach dem Tippen */
-    }
-
-    /* Keyframes für normale Tippanimation */
-    @keyframes typing {
-        from {
-            width: 0;
-        }
-
-        to {
-            width: 100%;
-        }
-    }
-
-    @keyframes blink-caret {
-
-        from,
-        to {
-            border-color: transparent;
-        }
-
-        50% {
-            border-color: var(--accent);
-        }
-    }
-
-    @keyframes hide-cursor {
-        to {
-            border-color: transparent;
-        }
-    }
-
-    @keyframes waiting {
-
-        0%,
-        100% {
-            width: 0;
-        }
-    }
-
-    @keyframes show-cursor {
-        to {
-            border-color: var(--accent);
-        }
     }
 
     .header p.subtitle {
