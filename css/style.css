@@ -533,6 +533,11 @@ body {
         display: none;
     }
 
+    /* Trennlinie im mobilen Burger-Menü entfernen */
+    #nav-menu.nav-menu-active::after {
+        display: none;
+    }
+    
     /* Images */
     .img {
         max-width: 100%;
@@ -712,6 +717,7 @@ body {
     #subtitle-header-index-line2 {
         margin-bottom: 1rem;
     }
+
 }
 
 /* Tablet */
