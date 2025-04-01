@@ -537,7 +537,7 @@ body {
     #nav-menu.nav-menu-active::after {
         display: none;
     }
-    
+
     /* Images */
     .img {
         max-width: 100%;
@@ -1118,6 +1118,65 @@ body {
             hide-cursor 0.1s linear 12.6s forwards;
     }
 
+    /* Spezielles Layout für die Me-Seite */
+    body:not(.home-page) .header {
+        display: flex;
+        flex-direction: row-reverse;
+        /* Bild rechts, Text links */
+        align-items: center;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+
+    #profile-picture {
+        position: relative;
+        z-index: 2;
+        border-radius: 50%;
+        border: 2px solid transparent;
+    }
+
+    /* Der rotierende Rahmen */
+    #profile-picture::before {
+        content: "";
+        position: absolute;
+        inset: -15px;
+        /* Kurzschreibweise für top, right, bottom, left */
+        border-radius: 50%;
+        background: conic-gradient(var(--accent),
+                #0015ff,
+                #3083ff,
+                var(--accent));
+        z-index: -1;
+        animation: spin 8s linear infinite;
+    }
+
+    /* Der Abstandshalter zwischen Bild und Rahmen */
+    .profile-picture::after {
+        content: "";
+        position: absolute;
+        inset: -8px;
+        border-radius: 50%;
+        background: var(--background);
+        z-index: -1;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .text-container {
+        flex: 1;
+        /* Text-Container nimmt den verfügbaren Platz ein */
+        text-align: center;
+        padding-right: 2rem;
+    }
+
     .header p.subtitle {
         margin: 0 0 0.5rem;
     }
@@ -1318,5 +1377,48 @@ body {
     .right-column li {
         margin-bottom: 8px;
         text-align: center;
+    }
+
+    /* Container für das Bild */
+    .profile-picture-container {
+        position: relative;
+        display: inline-block;
+        border-radius: 50%;
+        z-index: 2;
+        flex: 0 0 auto;
+        /* Behält die Größe bei */
+    }
+
+    /* Der rotierende Rahmen */
+    .profile-picture-container::before {
+        content: "";
+        position: absolute;
+        inset: -15px;
+        border-radius: 50%;
+        background: conic-gradient(var(--accent),
+                #0015ff,
+                #3083ff,
+                var(--accent));
+        z-index: -1;
+        animation: spin 8s linear infinite;
+    }
+
+    /* Der Abstandshalter zwischen Bild und Rahmen */
+    .profile-picture-container::after {
+        content: "";
+        position: absolute;
+        inset: -8px;
+        border-radius: 50%;
+        background: var(--background);
+        z-index: -1;
+    }
+
+    /* Das Bild selbst */
+    .profile-picture {
+        border-radius: 50%;
+        width: var(--profile-size);
+        height: var(--profile-size);
+        object-fit: cover;
+        display: block;
     }
 }
