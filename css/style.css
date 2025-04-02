@@ -1225,49 +1225,61 @@ body {
     }
 
 
-    /* Project Layout */
-    .project-section .quiz-app-container,
-    .project-section .e-commerce-container {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        margin: 0 auto 3rem;
-        text-align: left;
-        max-width: 90%;
-    }
+  /* ======================================================
+   PROJECT LAYOUT - STYLING & STRUKTUR
+   Für die Projekt-Seite mit Bildvorschau links und Text rechts
+   Enthält Stile für Container, Bilder, Titel, Beschreibungen und Buttons
+   ====================================================== */
 
-    .quiz-app-picture,
-    .e-commerce-picture {
-        flex: 0 0 auto;
-        width: 220px;
-    }
+/* Container für die Projekt-Einträge mit Flexbox-Layout */
+.project-section .quiz-app-container,
+.project-section .e-commerce-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 auto 3rem;
+    text-align: left;
+    max-width: 90%;
+}
 
-    .quiz-app-picture img,
-    .e-commerce-picture img {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+/* Container für die Projekt-Bilder */
+.quiz-app-picture,
+.e-commerce-picture {
+    flex: 0 0 auto;
+    width: 220px;
+}
 
-    .project-title {
-        text-align: left;
-        margin-top: 0;
-    }
+/* Stilisierung der eigentlichen Bilder mit rundem Design */
+.quiz-app-picture img,
+.e-commerce-picture img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-    .project-description {
-        margin-bottom: 0.5rem;
-        line-height: 1.5;
-    }
+/* Überschrift des Projekts */
+.project-title {
+    text-align: left;
+    margin-top: 0;
+}
 
-    .project-button {
-        font-size: clamp(0.3em, 2vw, 0.7em);
-    }
+/* Projektbeschreibungstext */
+.project-description {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
 
-    .project-button:hover {
-        background: var(--accent);
-    }
+/* Stilisierung der Projekt-Buttons */
+.project-button {
+    font-size: clamp(0.3em, 2vw, 0.7em);
+}
+
+.project-button:hover {
+    background: var(--accent);
+}
+/* ====== ENDE PROJECT LAYOUT ====== */
 
     .impressum-footer-index {
         position: absolute;
@@ -1280,133 +1292,154 @@ body {
         margin-bottom: 200px;
     }
 
-    /* CV Layout */
-    .content {
-        max-width: 1200px;
-        display: flex;
-        flex-wrap: wrap;
-        padding: 20px;
-    }
+   /* ======================================================
+   LEBENSLAUF LAYOUT - STRUKTUR & STYLING
+   Layout für die Lebenslauf-Seite mit zweispaltiger Anordnung
+   Enthält Stile für Datum, Job-Titel, Beschreibungen, Skills und zusätzliche Informationen
+   ====================================================== */
 
-    .desktop-date {
-        width: 180px;
-        font-size: 1.8rem;
-        font-weight: bold;
-        margin: 0;
-        padding-right: 20px;
-        text-align: left;
-        box-sizing: border-box;
-        white-space: nowrap;
-    }
+/* Hauptcontainer für den Lebenslauf-Inhalt */
+.content {
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
 
-    .cv-job {
-        width: calc(100% - 180px);
-        margin: 0 0 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 300px;
-    }
+/* Linke Spalte: Datumsangaben (nur in Desktop-Ansicht sichtbar) */
+.desktop-date {
+    width: 180px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+    padding-right: 20px;
+    text-align: left;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
 
-    .cv-title {
-        font-size: 1.2rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 0 0 15px;
-        padding: 0;
-        line-height: 1.2;
-        width: 100%;
-        text-align: left;
-    }
+/* Container für jeden Lebenslauf-Eintrag */
+.cv-job {
+    width: calc(100% - 180px);
+    margin: 0 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 300px;
+}
 
-    .cv-field,
-    .cv-date {
-        font-style: italic;
-        margin: 2px 0;
-        padding: 0;
-        line-height: 1.2;
-        width: 100%;
-        text-align: left;
-    }
+/* Überschrift für den Job-Titel */
+.cv-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 0 15px;
+    padding: 0;
+    line-height: 1.2;
+    width: 100%;
+    text-align: left;
+}
 
-    .cv-description {
-        margin: 5px 0 0;
-        padding: 0;
-        line-height: 1.4;
-        width: 100%;
-        text-align: left;
-    }
+/* Kursiver Text für Berufsfeld und Datumsangaben */
+.cv-field,
+.cv-date {
+    font-style: italic;
+    margin: 2px 0;
+    padding: 0;
+    line-height: 1.2;
+    width: 100%;
+    text-align: left;
+}
 
-    .skills {
-        width: 90%;
-        max-width: 900px;
-        margin: 30px auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+/* Beschreibungstext eines Jobs/einer Station */
+.cv-description {
+    margin: 5px 0 0;
+    padding: 0;
+    line-height: 1.4;
+    width: 100%;
+    text-align: left;
+}
 
-    .skills h3 {
-        font-size: 24px;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 0 0 30px;
-        text-align: center;
-        width: 100%;
-    }
+/* Skills-Bereich mit dreispaltiger Darstellung */
+.skills {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    .skills ul {
-        column-count: 3;
-        column-gap: 30px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        text-align: center;
-    }
+/* Überschrift für den Skills-Bereich */
+.skills h3 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 0 30px;
+    text-align: center;
+    width: 100%;
+}
 
-    .skills li {
-        margin-bottom: 10px;
-        break-inside: avoid;
-        text-align: center;
-    }
+/* Dreispaltige Liste für Skills */
+.skills ul {
+    column-count: 3;
+    column-gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
 
-    .right-column {
-        width: 90%;
-        max-width: 900px;
-        margin: 30px auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+/* Einzelne Skill-Einträge */
+.skills li {
+    margin-bottom: 10px;
+    break-inside: avoid; /* Verhindert Umbrüche innerhalb eines Eintrags */
+    text-align: center;
+}
 
-    .right-column h3 {
-        font-size: 24px;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 30px 0 20px;
-        text-align: center;
-        width: 100%;
-    }
+/* Rechte Spalte für zusätzliche Informationen */
+.right-column {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    .right-column p {
-        margin: 0 0 30px;
-        font-size: 16px;
-        text-align: center;
-        width: 100%;
-    }
+/* Überschriften in der rechten Spalte */
+.right-column h3 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 30px 0 20px;
+    text-align: center;
+    width: 100%;
+}
 
-    .right-column ul {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 40px;
-        text-align: center;
-        width: 100%;
-    }
+/* Textabsätze in der rechten Spalte */
+.right-column p {
+    margin: 0 0 30px;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+}
 
-    .right-column li {
-        margin-bottom: 8px;
-        text-align: center;
-    }
+/* Listen in der rechten Spalte */
+.right-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Listeneinträge in der rechten Spalte */
+.right-column li {
+    margin-bottom: 8px;
+    text-align: center;
+}
+/* ====== ENDE LEBENSLAUF LAYOUT ====== */
 
 }
