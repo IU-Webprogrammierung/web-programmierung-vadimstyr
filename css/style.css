@@ -1197,6 +1197,14 @@ body:not(.home-page) .header {
     border-radius: 50%;
     border: 2px solid transparent;
 }
+
+    /* Impressum-Footer auf der Me-Seite */
+    body:not(.home-page) .impressum-footer {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 /* ====== ENDE ME-SEITE LAYOUT ====== */
 
  /* ======================================================
@@ -1288,7 +1296,10 @@ body:not(.home-page) .header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Überschrift des Projekts */
+/* Überschrift des Pr
+
+
+ojekts */
 .project-title {
     text-align: left;
     margin-top: 0;
@@ -1314,7 +1325,10 @@ body:not(.home-page) .header {
    /* ======================================================
    LEBENSLAUF LAYOUT - STRUKTUR & STYLING
    Layout für die Lebenslauf-Seite mit zweispaltiger Anordnung
-   Enthält Stile für Datum, Job-Titel, Beschreibungen, Skills und zusätzliche Informationen
+   Enthält Stile für Datum, 
+
+
+Job-Titel, Beschreibungen, Skills und zusätzliche Informationen
    ====================================================== */
 
 /* Hauptcontainer für den Lebenslauf-Inhalt */
@@ -1331,7 +1345,8 @@ body:not(.home-page) .header {
     font-size: 1.8rem;
     font-weight: bold;
     margin: 0;
-    padding-right: 20px;
+    padding-right
+: 20px;
     text-align: left;
     box-sizing: border-box;
     white-space: nowrap;
@@ -1367,7 +1382,8 @@ body:not(.home-page) .header {
     padding: 0;
     line-height: 1.2;
     width: 100%;
-    text-align: left;
+    
+text-align: left;
 }
 
 /* Beschreibungstext eines Jobs/einer Station */
@@ -1462,3 +1478,4 @@ body:not(.home-page) .header {
 /* ====== ENDE LEBENSLAUF LAYOUT ====== */
 
 }
+
