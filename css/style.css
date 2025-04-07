@@ -429,10 +429,12 @@ body {
 
 /* Social Media */
 .social-media-buttons,
-.social-media-buttons-kontakt {
+.social-media-buttons-kontakt,
+.social-media-buttons-profile {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .social-media-buttons i,
@@ -1119,6 +1121,90 @@ body {
         padding-top: 20px;
     }
 
+
+    /* ======================================================
+   KONTAKTFORMULAR
+   Stilisierung für das Kontaktformular
+   ====================================================== */
+
+.contact-form-section {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+.contact-heading {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.contact-intro {
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+.form-group:has(input[type="checkbox"]) {
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.form-group:has(input[type="checkbox"]) label {
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.submit-button {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+}
+
+.submit-button:hover {
+    background-color: var(--accent-hover, #0056b3);
+}
+
 /* ======================================================
    TITELANIMATIONEN & TYPOGRAFIE-EFFEKTE
    Enthält animierten Farbverlauf für den Haupttitel und
@@ -1476,6 +1562,74 @@ text-align: left;
     text-align: center;
 }
 /* ====== ENDE LEBENSLAUF LAYOUT ====== */
+  /* Gemeinsames Icon-Styling */
+  /* Spezifisches Layout für die Kontaktseite */
+      /* Spezifisches Layout für die Kontaktseite */
+    /* Container richtig gestalten */
+    .kontakt-page .content-wrapper {
+        display: flex;
+        flex-direction: row-reverse; /* Umgekehrte Richtung: Formular links, Profilbild rechts */
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 6rem; /* Platz für das Menü */
+    }
+    
+    /* Header-Layout für die Kontaktseite komplett überschreiben */
+    .kontakt-page .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 6rem; /* Platz für das Menü */
+    }
+    
+    /* Kontaktformular direkt im Header platzieren */
+    .kontakt-page .contact-form-section {
+        width: 75%;
+        order: 1; /* Links anordnen */
+    }
+    
+    /* Profilbereich richtig ausrichten */
+    .kontakt-page .profile-section {
+        width: 60%;
+        order: 2; /* Rechts anordnen */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Bild-Container zentrieren */
+    .kontakt-page .profile-picture-container {
+        margin: 0 auto;
+    }
+    
+    /* Social Media Icons zentrieren */
+    .kontakt-page .social-media-buttons-profile {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
 
+    .submit-button {
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        align-self: center; /* Ändere von flex-start zu center */
+        margin-top: 1rem; /* Etwas mehr Abstand nach oben */
+    }
+    #impressum-footer-kontakt{
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: -100px;
+    }
+    
 }
 
