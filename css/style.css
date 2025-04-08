@@ -1043,6 +1043,7 @@ body {
         margin: 0 auto;
         padding: 0 1rem;
     }
+
     .header {
         margin: 2rem 0 1rem;
         padding: 2rem;
@@ -1071,7 +1072,7 @@ body {
     .social-media-buttons i {
         font-size: 1.8rem;
     }
-    
+
     .impressum-footer-index {
         position: absolute;
         bottom: 20px;
@@ -1127,162 +1128,163 @@ body {
    Stilisierung für das Kontaktformular
    ====================================================== */
 
-.contact-form-section {
-    max-width: 800px;
-    margin: 3rem auto;
-    padding: 0 1rem;
-}
+    .contact-form-section {
+        max-width: 800px;
+        margin: 3rem auto;
+        padding: 0 1rem;
+    }
 
-.contact-heading {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-}
+    .contact-heading {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+    }
 
-.contact-intro {
-    margin-bottom: 2rem;
-    color: var(--text-secondary);
-}
+    .contact-intro {
+        margin-bottom: 2rem;
+        color: var(--text-secondary);
+    }
 
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
 
-.form-group label {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
+    .form-group label {
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
 
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1rem;
-}
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 1rem;
+    }
 
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-}
+    .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
 
-.form-group input[type="checkbox"] {
-    margin-right: 0.5rem;
-}
+    .form-group input[type="checkbox"] {
+        margin-right: 0.5rem;
+    }
 
-.form-group:has(input[type="checkbox"]) {
-    flex-direction: row;
-    align-items: flex-start;
-}
+    .form-group:has(input[type="checkbox"]) {
+        flex-direction: row;
+        align-items: flex-start;
+    }
 
-.form-group:has(input[type="checkbox"]) label {
-    font-size: 0.9rem;
-    font-weight: normal;
-}
+    .form-group:has(input[type="checkbox"]) label {
+        font-size: 0.9rem;
+        font-weight: normal;
+    }
 
-.submit-button {
-    background-color: var(--accent);
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    align-self: flex-start;
-}
+    .submit-button {
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        align-self: flex-start;
+    }
 
-.submit-button:hover {
-    background-color: var(--accent-hover, #0056b3);
-}
+    .submit-button:hover {
+        background-color: var(--accent-hover, #0056b3);
+    }
 
-/* ======================================================
+    /* ======================================================
    TITELANIMATIONEN & TYPOGRAFIE-EFFEKTE
    Enthält animierten Farbverlauf für den Haupttitel und
    Schreibmaschineneffekt für die Untertitel auf der Startseite
    ====================================================== */
 
-/* Haupttitel mit animiertem Farbverlauf */
-#title-header-index {
-    font-size: 10rem;
-    background: linear-gradient(45deg,
-            #0015ff 0%,
-            #000000 25%,
-            #3083ff 50%,
-            #000000 75%,
-            #003366 100%);
-    background-size: 200%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: gradient-shift 10s ease infinite;
-}
+    /* Haupttitel mit animiertem Farbverlauf */
+    #title-header-index {
+        font-size: 10rem;
+        background: linear-gradient(45deg,
+                #0015ff 0%,
+                #000000 25%,
+                #3083ff 50%,
+                #000000 75%,
+                #003366 100%);
+        background-size: 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradient-shift 10s ease infinite;
+    }
 
-/* Basisstil für Schreibmaschineneffekt der Untertitel */
-.subtitle-line {
-    font-size: 2rem;
-    font-weight: bold;
-    overflow: hidden;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: 1px;
-    color: rgba(0, 0, 0, 0.8);
-    border-right: 2px solid transparent;
-    width: 0;
-}
+    /* Basisstil für Schreibmaschineneffekt der Untertitel */
+    .subtitle-line {
+        font-size: 2rem;
+        font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 1px;
+        color: rgba(0, 0, 0, 0.8);
+        border-right: 2px solid transparent;
+        width: 0;
+    }
 
-/* Erste Zeile des Untertitels mit Tipp-Animation */
-#subtitle-header-index-line1 {
-    border-right: 2px solid var(--accent);
-    animation:
-        typing 2.5s steps(30, end) 1s forwards,
-        blink-caret 0.75s step-end infinite,
-        hide-cursor 0.1s linear 3.5s forwards;
-}
+    /* Erste Zeile des Untertitels mit Tipp-Animation */
+    #subtitle-header-index-line1 {
+        border-right: 2px solid var(--accent);
+        animation:
+            typing 2.5s steps(30, end) 1s forwards,
+            blink-caret 0.75s step-end infinite,
+            hide-cursor 0.1s linear 3.5s forwards;
+    }
 
-/* Zweite Zeile des Untertitels mit verzögerter Tipp-Animation */
-#subtitle-header-index-line2 {
-    border-right: 2px solid transparent;
-    animation:
-        waiting 3.5s steps(1, end),
-        show-cursor 0.1s linear 3.5s forwards,
-        typing 3s steps(35, end) 3.6s forwards,
-        blink-caret 0.75s step-end 6.6s forwards 8,
-        hide-cursor 0.1s linear 12.6s forwards;
-}
-/* ====== ENDE TITELANIMATIONEN ====== */
+    /* Zweite Zeile des Untertitels mit verzögerter Tipp-Animation */
+    #subtitle-header-index-line2 {
+        border-right: 2px solid transparent;
+        animation:
+            waiting 3.5s steps(1, end),
+            show-cursor 0.1s linear 3.5s forwards,
+            typing 3s steps(35, end) 3.6s forwards,
+            blink-caret 0.75s step-end 6.6s forwards 8,
+            hide-cursor 0.1s linear 12.6s forwards;
+    }
 
-/* ======================================================
+    /* ====== ENDE TITELANIMATIONEN ====== */
+
+    /* ======================================================
    ME-SEITE LAYOUT
    Spezielles Layout für die persönliche Profilseite
    ====================================================== */
 
-/* Container mit Text links, Profilbild rechts */
-body:not(.home-page) .header {
-    display: flex;
-    flex-direction: row-reverse;
-    /* Bild rechts, Text links */
-    align-items: center;
-    justify-content: space-between;
-    gap: 4rem;
-}
+    /* Container mit Text links, Profilbild rechts */
+    body:not(.home-page) .header {
+        display: flex;
+        flex-direction: row-reverse;
+        /* Bild rechts, Text links */
+        align-items: center;
+        justify-content: space-between;
+        gap: 4rem;
+    }
 
-/* Basis-Styling für das Profilbild */
-.profile-picture {
-    position: relative;
-    z-index: 2;
-    border-radius: 50%;
-    border: 2px solid transparent;
-}
+    /* Basis-Styling für das Profilbild */
+    .profile-picture {
+        position: relative;
+        z-index: 2;
+        border-radius: 50%;
+        border: 2px solid transparent;
+    }
 
     /* Impressum-Footer auf der Me-Seite */
     body:not(.home-page) .impressum-footer {
@@ -1291,124 +1293,192 @@ body:not(.home-page) .header {
         left: 50%;
         transform: translateX(-50%);
     }
-/* ====== ENDE ME-SEITE LAYOUT ====== */
 
- /* ======================================================
+    /* ====== ENDE ME-SEITE LAYOUT ====== */
+
+    /* ======================================================
    PROFILBILD-ANIMATION - ROTIERENDE STREIFEN
    Erzeugt zwei rotierende schwarze Streifen um das Profilbild
    auf der Me-Seite (nur in Desktop-Ansicht)
    ====================================================== */
 
-/* Animation für die Rotation der Streifen um das Profilbild */
-@keyframes rotate-strip {
-    0%   { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+    /* Animation für die Rotation der Streifen um das Profilbild */
+    @keyframes rotate-strip {
+        0% {
+            transform: rotate(0deg);
+        }
 
-/* Container für das Profilbild mit dem rotierenden Effekt */
-.profile-picture-container {
-    position: relative;
-    display: inline-block; /* Verhindert unerwartetes Layoutverhalten */
-    border-radius: 50%;
-    vertical-align: middle; /* Hilft bei der Ausrichtung im Textfluss */
-}
+        100% {
+            transform: rotate(360deg);
+        }
+    }
 
-/* Äußerer rotierender Streifen-Effekt */
-.profile-picture-container::before {
-    content: "";
-    position: absolute;
-    inset: -10px; /* Äußerer Rand: 10px vom Bild entfernt */
-    border-radius: 50%;
-    /* Zwei schwarze Streifen mit transparenten Lücken dazwischen */
-    background: conic-gradient(
-        rgb(255, 255, 255) 0deg,          /* Start 1. schwarzer Streifen */
-        black 90deg,                       /* Ende 1. schwarzer Streifen */
-        transparent 90deg,                 /* Start 1. Lücke */
-        transparent 180deg,                /* Ende 1. Lücke */
-        rgb(253, 253, 253) 180deg,        /* Start 2. schwarzer Streifen */
-        black 270deg,                      /* Ende 2. schwarzer Streifen */
-        transparent 270deg,                /* Start 2. Lücke */
-        transparent 360deg                 /* Ende 2. Lücke */
-    );
-    z-index: -1; /* Hinter Bild und ::after */
-    animation: rotate-strip 5s linear infinite; /* Dauer und Art der Rotation */
-}
+    /* Container für das Profilbild mit dem rotierenden Effekt */
+    .profile-picture-container {
+        position: relative;
+        display: inline-block;
+        /* Verhindert unerwartetes Layoutverhalten */
+        border-radius: 50%;
+        vertical-align: middle;
+        /* Hilft bei der Ausrichtung im Textfluss */
+    }
 
-/* Weißer Abstandshalter zwischen Bild und rotierendem Streifen */
-.profile-picture-container::after {
-    content: "";
-    position: absolute;
-    inset: -5px; /* Innerer Rand: 5px vom Bild entfernt (Streifendicke: 5px) */
-    border-radius: 50%;
-    background: #ffffff; /* Weißer Hintergrund als Abstandshalter */
-    z-index: -1; /* Hinter Bild, aber über den rotierenden Streifen */
-}
-/* ====== ENDE PROFILBILD-ANIMATION ====== */
+    /* Äußerer rotierender Streifen-Effekt */
+    .profile-picture-container::before {
+        content: "";
+        position: absolute;
+        inset: -10px;
+        /* Äußerer Rand: 10px vom Bild entfernt */
+        border-radius: 50%;
+        /* Zwei schwarze Streifen mit transparenten Lücken dazwischen */
+        background: conic-gradient(rgb(255, 255, 255) 0deg,
+                /* Start 1. schwarzer Streifen */
+                black 90deg,
+                /* Ende 1. schwarzer Streifen */
+                transparent 90deg,
+                /* Start 1. Lücke */
+                transparent 180deg,
+                /* Ende 1. Lücke */
+                rgb(253, 253, 253) 180deg,
+                /* Start 2. schwarzer Streifen */
+                black 270deg,
+                /* Ende 2. schwarzer Streifen */
+                transparent 270deg,
+                /* Start 2. Lücke */
+                transparent 360deg
+                /* Ende 2. Lücke */
+            );
+        z-index: -1;
+        /* Hinter Bild und ::after */
+        animation: rotate-strip 5s linear infinite;
+        /* Dauer und Art der Rotation */
+    }
+
+    /* Weißer Abstandshalter zwischen Bild und rotierendem Streifen */
+    .profile-picture-container::after {
+        content: "";
+        position: absolute;
+        inset: -5px;
+        /* Innerer Rand: 5px vom Bild entfernt (Streifendicke: 5px) */
+        border-radius: 50%;
+        background: #ffffff;
+        /* Weißer Hintergrund als Abstandshalter */
+        z-index: -1;
+        /* Hinter Bild, aber über den rotierenden Streifen */
+    }
+
+    /* ====== ENDE PROFILBILD-ANIMATION ====== */
 
 
 
 
-  /* ======================================================
+    /* ======================================================
    PROJECT LAYOUT - STYLING & STRUKTUR
    Für die Projekt-Seite mit Bildvorschau links und Text rechts
    Enthält Stile für Container, Bilder, Titel, Beschreibungen und Buttons
    ====================================================== */
 
-/* Container für die Projekt-Einträge mit Flexbox-Layout */
-.project-section .quiz-app-container,
-.project-section .e-commerce-container {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    margin: 0 auto 3rem;
-    text-align: left;
-    max-width: 90%;
-}
+    /* Container für die Projekt-Einträge mit Flexbox-Layout */
 
-/* Container für die Projekt-Bilder */
-.quiz-app-picture,
-.e-commerce-picture {
-    flex: 0 0 auto;
-    width: 220px;
-}
+    .centered-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-/* Stilisierung der eigentlichen Bilder mit rundem Design */
+    /* Gemeinsame Ausrichtung für Header, Content und Überschriften */
+    .centered-content .header-projekte,
+    .centered-content .content-projekte,
+    .centered-content .title,
+    .centered-content .subtitle {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Stilvoller Untertitel */
+    .header-projekte .subtitle {
+        font-size: 1.2rem;
+        font-weight: normal;
+        font-style: italic;
+        color: rgba(0, 0, 0, 0.7);
+        margin-top: 1.5rem;
+        letter-spacing: 1px;
+        padding-bottom: 20px;
+    }
+
+    .project-section .quiz-app-container,
+    .project-section .e-commerce-container {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin: 0 auto 3rem;
+        text-align: center;
+        max-width: 80%;
+    }
+
+    .quiz-app-picture,
+    .e-commerce-picture {
+        flex: 0 0 auto;
+        width: 220px;
+    }
+
+    .quiz-app-picture img,
+    .e-commerce-picture img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-title {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .project-description {
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+    }
+
+    .project-button {
+        font-size: clamp(0.3em, 2vw, 0.7em);
+        margin-top: 20px;
+    }
+
+    .project-button:hover {
+        background: var(--accent);
+    }
+
+    /* Pulsierende Animation für Projektbilder */
+@keyframes pulse-image {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+      transform: scale(1.1);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  /* Klasse für die Pulsier-Animation */
 .quiz-app-picture img,
 .e-commerce-picture img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pulse-image 2s ease-in-out;
 }
 
-/* Überschrift des Pr
+    /* ====== ENDE PROJECT LAYOUT ====== */
 
 
-ojekts */
-.project-title {
-    text-align: left;
-    margin-top: 0;
-}
-
-/* Projektbeschreibungstext */
-.project-description {
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
-}
-
-/* Stilisierung der Projekt-Buttons */
-.project-button {
-    font-size: clamp(0.3em, 2vw, 0.7em);
-}
-
-.project-button:hover {
-    background: var(--accent);
-}
-/* ====== ENDE PROJECT LAYOUT ====== */
-
-
-   /* ======================================================
+    /* ======================================================
    LEBENSLAUF LAYOUT - STRUKTUR & STYLING
    Layout für die Lebenslauf-Seite mit zweispaltiger Anordnung
    Enthält Stile für Datum, 
@@ -1417,163 +1487,166 @@ ojekts */
 Job-Titel, Beschreibungen, Skills und zusätzliche Informationen
    ====================================================== */
 
-/* Hauptcontainer für den Lebenslauf-Inhalt */
-.content {
-    max-width: 1200px;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-}
+    /* Hauptcontainer für den Lebenslauf-Inhalt */
+    .content {
+        max-width: 1200px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
 
-/* Linke Spalte: Datumsangaben (nur in Desktop-Ansicht sichtbar) */
-.desktop-date {
-    width: 180px;
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin: 0;
-    padding-right
-: 20px;
-    text-align: left;
-    box-sizing: border-box;
-    white-space: nowrap;
-}
+    /* Linke Spalte: Datumsangaben (nur in Desktop-Ansicht sichtbar) */
+    .desktop-date {
+        width: 180px;
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin: 0;
+        padding-right: 20px;
+        text-align: left;
+        box-sizing: border-box;
+        white-space: nowrap;
+    }
 
-/* Container für jeden Lebenslauf-Eintrag */
-.cv-job {
-    width: calc(100% - 180px);
-    margin: 0 0 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 300px;
-}
+    /* Container für jeden Lebenslauf-Eintrag */
+    .cv-job {
+        width: calc(100% - 180px);
+        margin: 0 0 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 300px;
+    }
 
-/* Überschrift für den Job-Titel */
-.cv-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin: 0 0 15px;
-    padding: 0;
-    line-height: 1.2;
-    width: 100%;
-    text-align: left;
-}
+    /* Überschrift für den Job-Titel */
+    .cv-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0 0 15px;
+        padding: 0;
+        line-height: 1.2;
+        width: 100%;
+        text-align: left;
+    }
 
-/* Kursiver Text für Berufsfeld und Datumsangaben */
-.cv-field,
-.cv-date {
-    font-style: italic;
-    margin: 2px 0;
-    padding: 0;
-    line-height: 1.2;
-    width: 100%;
-    
-text-align: left;
-}
+    /* Kursiver Text für Berufsfeld und Datumsangaben */
+    .cv-field,
+    .cv-date {
+        font-style: italic;
+        margin: 2px 0;
+        padding: 0;
+        line-height: 1.2;
+        width: 100%;
 
-/* Beschreibungstext eines Jobs/einer Station */
-.cv-description {
-    margin: 5px 0 0;
-    padding: 0;
-    line-height: 1.4;
-    width: 100%;
-    text-align: left;
-}
+        text-align: left;
+    }
 
-/* Skills-Bereich mit dreispaltiger Darstellung */
-.skills {
-    width: 90%;
-    max-width: 900px;
-    margin: 30px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    /* Beschreibungstext eines Jobs/einer Station */
+    .cv-description {
+        margin: 5px 0 0;
+        padding: 0;
+        line-height: 1.4;
+        width: 100%;
+        text-align: left;
+    }
 
-/* Überschrift für den Skills-Bereich */
-.skills h3 {
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin: 0 0 30px;
-    text-align: center;
-    width: 100%;
-}
+    /* Skills-Bereich mit dreispaltiger Darstellung */
+    .skills {
+        width: 90%;
+        max-width: 900px;
+        margin: 30px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-/* Dreispaltige Liste für Skills */
-.skills ul {
-    column-count: 3;
-    column-gap: 30px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    text-align: center;
-}
+    /* Überschrift für den Skills-Bereich */
+    .skills h3 {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0 0 30px;
+        text-align: center;
+        width: 100%;
+    }
 
-/* Einzelne Skill-Einträge */
-.skills li {
-    margin-bottom: 10px;
-    break-inside: avoid; /* Verhindert Umbrüche innerhalb eines Eintrags */
-    text-align: center;
-}
+    /* Dreispaltige Liste für Skills */
+    .skills ul {
+        column-count: 3;
+        column-gap: 30px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
 
-/* Rechte Spalte für zusätzliche Informationen */
-.right-column {
-    width: 90%;
-    max-width: 900px;
-    margin: 30px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    /* Einzelne Skill-Einträge */
+    .skills li {
+        margin-bottom: 10px;
+        break-inside: avoid;
+        /* Verhindert Umbrüche innerhalb eines Eintrags */
+        text-align: center;
+    }
 
-/* Überschriften in der rechten Spalte */
-.right-column h3 {
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin: 30px 0 20px;
-    text-align: center;
-    width: 100%;
-}
+    /* Rechte Spalte für zusätzliche Informationen */
+    .right-column {
+        width: 90%;
+        max-width: 900px;
+        margin: 30px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-/* Textabsätze in der rechten Spalte */
-.right-column p {
-    margin: 0 0 30px;
-    font-size: 16px;
-    text-align: center;
-    width: 100%;
-}
+    /* Überschriften in der rechten Spalte */
+    .right-column h3 {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 30px 0 20px;
+        text-align: center;
+        width: 100%;
+    }
 
-/* Listen in der rechten Spalte */
-.right-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 40px;
-    text-align: center;
-    width: 100%;
-}
+    /* Textabsätze in der rechten Spalte */
+    .right-column p {
+        margin: 0 0 30px;
+        font-size: 16px;
+        text-align: center;
+        width: 100%;
+    }
 
-/* Listeneinträge in der rechten Spalte */
-.right-column li {
-    margin-bottom: 8px;
-    text-align: center;
-}
-/* ====== ENDE LEBENSLAUF LAYOUT ====== */
-  /* Gemeinsames Icon-Styling */
-  /* Spezifisches Layout für die Kontaktseite */
-      /* Spezifisches Layout für die Kontaktseite */
+    /* Listen in der rechten Spalte */
+    .right-column ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 40px;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Listeneinträge in der rechten Spalte */
+    .right-column li {
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
+    /* ====== ENDE LEBENSLAUF LAYOUT ====== */
+    /* Gemeinsames Icon-Styling */
+    /* Spezifisches Layout für die Kontaktseite */
+    /* Spezifisches Layout für die Kontaktseite */
     /* Container richtig gestalten */
     .kontakt-page .content-wrapper {
         display: flex;
-        flex-direction: row-reverse; /* Umgekehrte Richtung: Formular links, Profilbild rechts */
+        flex-direction: row-reverse;
+        /* Umgekehrte Richtung: Formular links, Profilbild rechts */
         justify-content: space-between;
         gap: 1rem;
-        margin-top: 6rem; /* Platz für das Menü */
+        margin-top: 6rem;
+        /* Platz für das Menü */
     }
-    
+
     /* Header-Layout für die Kontaktseite komplett überschreiben */
     .kontakt-page .header {
         display: flex;
@@ -1581,29 +1654,32 @@ text-align: left;
         justify-content: space-between;
         align-items: flex-start;
         width: 100%;
-        margin-top: 6rem; /* Platz für das Menü */
+        margin-top: 6rem;
+        /* Platz für das Menü */
     }
-    
+
     /* Kontaktformular direkt im Header platzieren */
     .kontakt-page .contact-form-section {
         width: 75%;
-        order: 1; /* Links anordnen */
+        order: 1;
+        /* Links anordnen */
     }
-    
+
     /* Profilbereich richtig ausrichten */
     .kontakt-page .profile-section {
         width: 60%;
-        order: 2; /* Rechts anordnen */
+        order: 2;
+        /* Rechts anordnen */
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    
+
     /* Bild-Container zentrieren */
     .kontakt-page .profile-picture-container {
         margin: 0 auto;
     }
-    
+
     /* Social Media Icons zentrieren */
     .kontakt-page .social-media-buttons-profile {
         display: flex;
@@ -1620,16 +1696,20 @@ text-align: left;
         font-size: 1rem;
         cursor: pointer;
         transition: background-color 0.3s;
-        align-self: center; /* Ändere von flex-start zu center */
-        margin-top: 1rem; /* Etwas mehr Abstand nach oben */
+        align-self: center;
+        /* Ändere von flex-start zu center */
+        margin-top: 1rem;
+        /* Etwas mehr Abstand nach oben */
     }
-    #impressum-footer-kontakt{
+
+    #impressum-footer-kontakt {
         position: absolute;
         bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
         margin-bottom: -100px;
     }
-    
-}
 
+
+
+}
