@@ -1454,185 +1454,34 @@ body {
     }
 
     /* Pulsierende Animation für Projektbilder */
-@keyframes pulse-image {
-    0% {
-      transform: scale(1);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    50% {
-      transform: scale(1.1);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    }
-    100% {
-      transform: scale(1);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-  }
+    @keyframes pulse-image {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-  /* Klasse für die Pulsier-Animation */
-.quiz-app-picture img,
-.e-commerce-picture img {
-  animation: pulse-image 2s ease-in-out;
-}
+        50% {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        100% {
+            transform: scale(1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    /* Klasse für die Pulsier-Animation */
+    .quiz-app-picture img,
+    .e-commerce-picture img {
+        animation: pulse-image 2s ease-in-out;
+    }
 
     /* ====== ENDE PROJECT LAYOUT ====== */
 
 
-    /* ======================================================
-   LEBENSLAUF LAYOUT - STRUKTUR & STYLING
-   Layout für die Lebenslauf-Seite mit zweispaltiger Anordnung
-   Enthält Stile für Datum, 
+   
 
-
-Job-Titel, Beschreibungen, Skills und zusätzliche Informationen
-   ====================================================== */
-
-    /* Hauptcontainer für den Lebenslauf-Inhalt */
-    .content {
-        max-width: 1200px;
-        display: flex;
-        flex-wrap: wrap;
-        padding: 20px;
-    }
-
-    /* Linke Spalte: Datumsangaben (nur in Desktop-Ansicht sichtbar) */
-    .desktop-date {
-        width: 180px;
-        font-size: 1.8rem;
-        font-weight: bold;
-        margin: 0;
-        padding-right: 20px;
-        text-align: left;
-        box-sizing: border-box;
-        white-space: nowrap;
-    }
-
-    /* Container für jeden Lebenslauf-Eintrag */
-    .cv-job {
-        width: calc(100% - 180px);
-        margin: 0 0 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 300px;
-    }
-
-    /* Überschrift für den Job-Titel */
-    .cv-title {
-        font-size: 1.2rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 0 0 15px;
-        padding: 0;
-        line-height: 1.2;
-        width: 100%;
-        text-align: left;
-    }
-
-    /* Kursiver Text für Berufsfeld und Datumsangaben */
-    .cv-field,
-    .cv-date {
-        font-style: italic;
-        margin: 2px 0;
-        padding: 0;
-        line-height: 1.2;
-        width: 100%;
-
-        text-align: left;
-    }
-
-    /* Beschreibungstext eines Jobs/einer Station */
-    .cv-description {
-        margin: 5px 0 0;
-        padding: 0;
-        line-height: 1.4;
-        width: 100%;
-        text-align: left;
-    }
-
-    /* Skills-Bereich mit dreispaltiger Darstellung */
-    .skills {
-        width: 90%;
-        max-width: 900px;
-        margin: 30px auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Überschrift für den Skills-Bereich */
-    .skills h3 {
-        font-size: 24px;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 0 0 30px;
-        text-align: center;
-        width: 100%;
-    }
-
-    /* Dreispaltige Liste für Skills */
-    .skills ul {
-        column-count: 3;
-        column-gap: 30px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    /* Einzelne Skill-Einträge */
-    .skills li {
-        margin-bottom: 10px;
-        break-inside: avoid;
-        /* Verhindert Umbrüche innerhalb eines Eintrags */
-        text-align: center;
-    }
-
-    /* Rechte Spalte für zusätzliche Informationen */
-    .right-column {
-        width: 90%;
-        max-width: 900px;
-        margin: 30px auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Überschriften in der rechten Spalte */
-    .right-column h3 {
-        font-size: 24px;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 30px 0 20px;
-        text-align: center;
-        width: 100%;
-    }
-
-    /* Textabsätze in der rechten Spalte */
-    .right-column p {
-        margin: 0 0 30px;
-        font-size: 16px;
-        text-align: center;
-        width: 100%;
-    }
-
-    /* Listen in der rechten Spalte */
-    .right-column ul {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 40px;
-        text-align: center;
-        width: 100%;
-    }
-
-    /* Listeneinträge in der rechten Spalte */
-    .right-column li {
-        margin-bottom: 8px;
-        text-align: center;
-    }
-
-    /* ====== ENDE LEBENSLAUF LAYOUT ====== */
     /* Gemeinsames Icon-Styling */
     /* Spezifisches Layout für die Kontaktseite */
     /* Spezifisches Layout für die Kontaktseite */
@@ -1710,6 +1559,417 @@ Job-Titel, Beschreibungen, Skills und zusätzliche Informationen
         margin-bottom: -100px;
     }
 
+    /* ======================================================
+   TIMELINE LAYOUT FÜR LEBENSLAUF
+   Animierte Timeline mit abwechselnden Einträgen links/rechts
+   ====================================================== */
+
+   /* Titel und Datum in den Timeline-Boxen zentrieren */
+.timeline-content .cv-title,
+.timeline-content .timeline-date,
+.timeline-content .cv-field,
+.timeline-content .cv-description {
+    text-align: center; /* Von left auf center geändert */
+    width: 100%;
+}
+
+/* Optional: Weitere Verbesserungen für die Timeline-Boxen */
+.timeline-content {
+    padding: 20px 30px;
+    background-color: rgba(245, 225, 192, 0.7);
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-left: 3px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Hilft zusätzlich bei der Zentrierung */
+}
+
+    /* Timeline Container mit relativer Position für absolute Positionierung der Linie */
+    .timeline-container {
+        position: relative;
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 2rem 0;
+    }
+
+    /* Vertikale Linie in der Mitte */
+    .timeline-container::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background-color: var(--accent);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+        transform: scaleY(0);
+        transform-origin: top;
+        animation: grow-line 1.8s ease forwards 0.5s;
+    }
 
 
+
+    /* Timeline-Einträge */
+    .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+        box-sizing: border-box;
+        opacity: 0;
+        animation: fade-in 0.8s ease forwards;
+        animation-delay: calc(var(--delay) + 0.8s);
+        margin-bottom: 30px;
+    }
+
+
+
+    /* Rechts positionierte Einträge */
+    .right {
+        left: 50%;
+    }
+
+    /* Links positionierte Einträge */
+    .left {
+        left: 0;
+    }
+
+    /* Kreise auf dem Zeitstrahl */
+    .timeline-item::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        /* Breite des horizontalen Strichs */
+        height: 4px;
+        /* Höhe des horizontalen Strichs */
+        background-color: var(--accent);
+        /* Farbe des Strichs */
+        top: 30px;
+        /* Position anpassen */
+        opacity: 0;
+        animation: line-appear 0.6s ease forwards;
+        animation-delay: calc(var(--delay) + 1.8s);
+        z-index: 1;
+    }
+
+    /* Rechte Timeline-Items: Strich geht nach links */
+    .right::after {
+        left: 3px;
+        transform-origin: left center;
+    }
+
+    /* Linke Timeline-Items: Strich geht nach rechts */
+    .left::after {
+        right: -3px;
+        transform-origin: right center;
+    }
+
+    /* Animation für die erscheinenden Striche */
+    @keyframes line-appear {
+        from {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        to {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+    }
+
+    /* Animation für das Einblenden */
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Animation für die wachsende Linie */
+    @keyframes grow-line {
+        from {
+            transform: scaleY(0);
+        }
+
+        to {
+            transform: scaleY(1);
+        }
+    }
+
+    /* Styling für die Timeline-Inhalte */
+    .timeline-content {
+        padding: 20px 30px;
+        background-color: white;
+        position: relative;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        border-left: 3px solid var(--accent);
+    }
+
+    /* Start- und Endkreise ebenfalls zu Strichen ändern */
+    .timeline-start-circle {
+        width: 20px;
+        height: 20px;
+        background-color: var(--accent);
+        border-radius: 50%;
+        /* Änderung von 0 zu 50% für einen Kreis */
+        position: absolute;
+        top: -10px;
+        /* Anpassung der Position */
+        left: 50%;
+        transform: translateX(-50%) scale(0);
+        /* scaleX zu scale geändert */
+        animation: circle-appear 1s ease forwards;
+        /* line-appear zu circle-appear geändert */
+    }
+
+    .timeline-end-circle {
+        width: 20px;
+        height: 20px;
+        background-color: var(--accent);
+        border-radius: 50%;
+        /* Änderung von 0 zu 50% für einen Kreis */
+        position: absolute;
+        bottom: -10px;
+        /* Anpassung der Position */
+        left: 50%;
+        transform: translateX(-50%) scale(0);
+        /* scaleX zu scale geändert */
+        animation: circle-appear 0.6s ease forwards 2.2s;
+    }
+
+    /* Animation für die erscheinenden Kreise */
+    @keyframes circle-appear {
+        from {
+            opacity: 0;
+            transform: translateX(-50%) scale(0);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+    }
+
+    @keyframes circle-pulse {
+        0% {
+            transform: translateX(-50%) scale(0);
+        }
+
+        70% {
+            transform: translateX(-50%) scale(1.2);
+        }
+
+        100% {
+            transform: translateX(-50%) scale(1);
+        }
+    }
+
+    /* Styling für die Datumsanzeige in der Timeline */
+    .timeline-date {
+        font-weight: bold;
+        color: var(--accent);
+        margin: 0 0 8px;
+    }
+
+    /* Skill-Grid mit Kategorien */
+.skills-container {
+    max-width: 1000px;
+    margin: 4rem auto;
+    position: relative;
+}
+
+/* Überschrift mit akzentuierter Unterstreichung */
+.skills-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.skills-header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* Skill-Kategorien */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    background-color: rgba(245, 225, 192, 0.7); /* Leicht transparente Version deiner --background Farbe */
+    border-radius: 8px;
+    padding: 2rem;
+    opacity: 0;
+    animation: fade-in 0.8s ease forwards;
+    animation-delay: calc(var(--delay) + 0.3s);
+    backdrop-filter: blur(3px); /* Leichter Blur-Effekt für mehr Tiefe */
+}
+
+.category-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+/* Skills als Tags/Pills */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.skill-tag {
+    background-color: rgba(245,245,245,0.7);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: 1px solid rgba(0,0,0,0.1);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: tag-appear 0.5s ease forwards;
+    animation-delay: calc(var(--tag-delay) + 0.5s);
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background-color: rgba(255,2,2,0.1);
+}
+
+/* Bildung und Zertifikate */
+.education-section,
+.certificates-section {
+    margin-top: 4rem;
+}
+
+.certificate-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.certificate-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border-left: 3px solid var(--accent);
+    opacity: 0;
+    animation: fade-in 0.6s ease forwards;
+    animation-delay: calc(var(--cert-delay) + 0.8s);
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+@keyframes tag-appear {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Kreisförmige Fortschrittsbalken für Skills */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .skill-item {
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fade-in 0.8s ease forwards;
+    animation-delay: calc(var(--tag-delay) + 0.3s);
+  }
+  
+  .circle-progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+  }
+  
+  .circle-progress {
+    position: relative;
+    width: 120px;
+    height: 120px;
+  }
+  
+  .circle-progress-svg {
+    transform: rotate(-90deg);
+  }
+  
+  .circle-progress-background {
+    fill: rgba(245, 225, 192, 0.5); /* Sehr leicht transparente Hintergrundfarbe */
+    stroke: rgba(0, 0, 0, 0.1);
+    stroke-width: 10px;
+  }
+  
+  .circle-progress-bar {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 10px;
+    stroke-linecap: round;
+    stroke-dasharray: 339.292; /* 2 * PI * 54 (Radius) */
+    stroke-dashoffset: calc(339.292 - (339.292 * var(--percent)) / 100);
+    animation: progress-animation 1.8s ease forwards;
+  }
+  
+  .circle-progress-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .skill-percent {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  
+  .skill-name {
+    margin-top: 10px;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .skill-level {
+    font-size: 0.8rem;
+    color: #666;
+    text-align: center;
+  }
+  
+  @keyframes progress-animation {
+    from {
+      stroke-dashoffset: 339.292; /* Anfangswert (0%) */
+    }
+    to {
+      stroke-dashoffset: calc(339.292 - (339.292 * var(--percent)) / 100);
+    }
+  }
 }

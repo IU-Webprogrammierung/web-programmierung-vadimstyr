@@ -15,7 +15,8 @@
   <div class="container">
     <!-- Navigation zuerst, außerhalb des Headers -->
     <nav class="nav">
-      <button class="menu-toggle" aria-controls="nav-menu" aria-haspopup="true" aria-expanded="false" aria-label="Menü öffnen">☰</button>
+      <button class="menu-toggle" aria-controls="nav-menu" aria-haspopup="true" aria-expanded="false"
+        aria-label="Menü öffnen">☰</button>
       <ul class="nav-menu" id="nav-menu">
         <li><a class="nav-link" id="projekte-link" href="../html/projekte.html"><span>Projekte</span></a></li>
         <li><a class="nav-link" id="me-link" href="../html/me.html"><span>Me</span></a></li>
@@ -32,110 +33,311 @@
       <a href="https://1drv.ms/b/s!Al5AC_GnRkuSi5p8iKWCwmERFfB21Q?e=FPTRgk"
         class="lebenslauf-link">Lebenslauf-Download</a>
     </p>
-    <main class="content">
-      <p class="desktop-date">09/2010 – 10/2014</p>
-      <section class="cv-job">
-        <h3 class="cv-title">Ausbildung zum Feinwerkmechaniker</h3>
-        <p class="cv-date">10.2014 - 10.2024</p>
-        <p class="cv-field">Feinwerkmechaniker</p>
-        <p class="cv-description">
-          Schwerpunkte: Konventionell drehen - fräsen, sägen, CNC-Maschine
-          bestücken, einrichten, Nachbesserung an Programmen und anfahren,
-          Messprüfung an Werkstücken.
-        </p>
-      </section>
 
-      <p class="desktop-date">10.2014 - 10.2024</p>
-      <section class="cv-job">
-        <h3 class="cv-title">Fritz Zerspannungsmechaniker</h3>
-        <p class="cv-date">10.2014 - 10.2024</p>
-        <p class="cv-field">Zerspannungstechnik</p>
-        <p class="cv-description">
-          Als Zerspannungsmechaniker war ich verantwortlich für das
-          selbstständige Bedienen und Einrichten verschiedener
-          CNC-Bearbeitungszentren und Drehmaschinen mit unterschiedlichen
-          Steuerungssystemen (Siemens, Heidenhain). Zu meinen Hauptaufgaben
-          gehörten die Programmierung und Einrichtung der Maschinen, die
-          Herstellung von Kleinserien nach Zeichnungsvorgabe sowie die
-          Qualitätskontrolle der gefertigten Werkstücke. Ich arbeitete mit
-          hochmodernen Mess- und Prüfsystemen, erstellte Einrichtpläne und
-          führte Dokumentationen durch. Besondere Expertise entwickelte ich in
-          der Bearbeitung von Kugelgewindemuttern und der Verwaltung von
-          Lagersystemen.
-        </p>
-      </section>
+    <main class="content" id="main-content">
+      <div class="timeline-container">
+        <!-- Kreisförmiger Startpunkt -->
+        <div class="timeline-start-circle"></div>
 
-      <p class="desktop-date">01.2018 - 12.2022</p>
-      <section class="cv-job">
-        <h3 class="cv-title">Projekt Selbst</h3>
-        <p class="cv-date">01.2018 - 12.2022</p>
-        <p class="cv-field">E-Commerce</p>
-        <p class="cv-description">
-          Als selbstständiger Webentwickler spezialisierte ich mich auf die
-          Erstellung und Optimierung von WordPress-Websites. Mein
-          Aufgabenbereich umfasste die komplette technische Umsetzung von der
-          Konzeption bis zum Launch, einschließlich SEO-Optimierung und
-          Performance-Verbesserung. Ich entwickelte digitale Produkte wie
-          Online-Kurse und E-Books, implementierte E-Commerce-Lösungen und
-          integrierte verschiedene Plugins.
-        </p>
-      </section>
+        <!-- 1. Ausbildung zum Feinwerkmechaniker -->
+        <div class="timeline-item right" style="--delay: 0.2s">
+          <div class="timeline-content">
+            <h3 class="cv-title">Ausbildung zum Feinwerkmechaniker</h3>
+            <p class="timeline-date">09/2010 – 10/2014</p>
+            <p class="cv-field">Feinwerkmechaniker</p>
+            <p class="cv-description">
+              Schwerpunkte: Konventionell drehen - fräsen, sägen, CNC-Maschine
+              bestücken, einrichten, Nachbesserung an Programmen und anfahren,
+              Messprüfung an Werkstücken.
+            </p>
+          </div>
+        </div>
 
-      <p class="desktop-date">01.2020 - Heute</p>
-      <section class="cv-job">
-        <h3 class="cv-title">Hausverwaltung (WEG) Beirat</h3>
-        <p class="cv-date">11.2020 - Heute</p>
-        <p class="cv-field">Kunze-Gruppe</p>
-        <p class="cv-description">
-          Als Beirat einer Wohnungseigentümergemeinschaft (WEG) unterstütze
-          und überwache ich die Tätigkeiten des Hausverwalters. Meine
-          Verantwortungen umfassen die aktive Mitwirkung bei der Verwaltung
-          und Instandhaltung der Wohnanlage sowie die sorgfältige Prüfung der
-          Rechnungen. In dieser Position stelle ich eine wichtige Verbindung
-          zwischen Eigentümern und Verwaltung dar und trage zur effizienten
-          Führung der Wohnanlage bei.
-        </p>
-      </section>
+        <!-- 2. Fritz Zerspannungsmechaniker -->
+        <div class="timeline-item left" style="--delay: 0.6s">
+          <div class="timeline-content">
+            <h3 class="cv-title">Fritz GmbH</h3>
+            <p class="timeline-date">10.2014 - 10.2024</p>
+            <p class="cv-field">Zerspannungstechnik</p>
+            <p class="cv-description">
+              Als Zerspannungsmechaniker war ich verantwortlich für das
+              selbstständige Bedienen und Einrichten verschiedener
+              CNC-Bearbeitungszentren und Drehmaschinen mit unterschiedlichen
+              Steuerungssystemen (Siemens, Heidenhain). Zu meinen Hauptaufgaben
+              gehörten die Programmierung und Einrichtung der Maschinen, die
+              Herstellung von Kleinserien nach Zeichnungsvorgabe sowie die
+              Qualitätskontrolle der gefertigten Werkstücke.
+            </p>
+          </div>
+        </div>
 
-      <p class="desktop-date">01.2025 - Heute</p>
-      <section class="cv-job">
-        <h3 class="cv-title">Facility Manager</h3>
-        <p class="cv-date">01.2025 - Heute</p>
-        <p class="cv-field">Kunze-Gruppe</p>
-        <p class="cv-description">
-          Als Facility Manager für Außenanlagen bin ich verantwortlich für die
-          umfassende Pflege und Instandhaltung der gesamten Außenbereiche. Ich
-          koordiniere ein kleines Team von zwei Mitarbeitern, übernehme den
-          Einkauf des erforderlichen Equipments und sorge dafür, dass alle
-          Maßnahmen zur Optimierung der Anlagen effizient umgesetzt werden.
-          Dabei identifiziere ich kontinuierlich bestehende Probleme und
-          organisiere die Beauftragung externer Dienstleister, um etwaige
-          Mängel schnell zu beheben. Meine Verantwortungen umfassen zudem die
-          strategische Planung und Umsetzung von Maßnahmen zur langfristigen
-          Sicherung der Anlagequalität. In dieser Position stelle ich eine
-          zentrale Verbindung zwischen operativen Abläufen und strategischem
-          Management dar und trage maßgeblich zur Werterhaltung sowie zur
-          kontinuierlichen Verbesserung der Außenanlagen bei.
-        </p>
-      </section>
+        <!-- 3. Projekt Selbst -->
+        <div class="timeline-item right" style="--delay: 1.0s">
+          <div class="timeline-content">
+            <h3 class="cv-title">Projekt Selbst</h3>
+            <p class="timeline-date">01.2018 - 12.2022</p>
+            <p class="cv-field">E-Commerce</p>
+            <p class="cv-description">
+              Als selbstständiger Webentwickler spezialisierte ich mich auf die
+              Erstellung und Optimierung von WordPress-Websites. Mein
+              Aufgabenbereich umfasste die komplette technische Umsetzung von der
+              Konzeption bis zum Launch, einschließlich SEO-Optimierung und
+              Performance-Verbesserung.
+            </p>
+          </div>
+        </div>
+
+        <!-- IU Internationale Hochschule -->
+        <div class="timeline-item left" style="--delay: 1.4s">
+          <div class="timeline-content">
+            <h3 class="cv-title">IU INTERNATIONALE HOCHSCHULE</h3>
+            <p class="timeline-date">2019 - 2025</p>
+            <p class="cv-field">Bachelor of Science Informatik</p>
+            <p class="cv-description">
+              Fernstudium im Bereich Informatik mit Fokus auf Softwareentwicklung,
+              Datenbanken und Web-Technologien. Erworbene Kenntnisse in verschiedenen
+              Programmiersprachen und Methoden der Softwareentwicklung.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4. Hausverwaltung (WEG) Beirat -->
+        <div class="timeline-item right" style="--delay: 1.4s">
+          <div class="timeline-content">
+            <h3 class="cv-title">Hausverwaltung (WEG) Beirat</h3>
+            <p class="timeline-date">11.2020 - Heute</p>
+            <p class="cv-field">Kunze-Gruppe</p>
+            <p class="cv-description">
+              Als Beirat einer (WEG) unterstütze
+              und überwache ich die Tätigkeiten des Hausverwalters. Meine
+              Verantwortungen umfassen die aktive Mitwirkung bei der Verwaltung
+              und Instandhaltung der Wohnanlage sowie die sorgfältige Prüfung der
+              Rechnungen.
+            </p>
+          </div>
+        </div>
+
+        <!-- 5. Facility Manager -->
+        <div class="timeline-item left" style="--delay: 1.8s">
+          <div class="timeline-content">
+            <h3 class="cv-title">Facility Manager</h3>
+            <p class="timeline-date">01.2025 - Heute</p>
+            <p class="cv-field">Kunze-Gruppe</p>
+            <p class="cv-description">
+              Als Facility Manager für Außenanlagen bin ich verantwortlich für die
+              umfassende Pflege und Instandhaltung der gesamten Außenbereiche. Ich
+              koordiniere ein kleines Team von zwei Mitarbeitern, übernehme den
+              Einkauf des erforderlichen Equipments und sorge dafür, dass alle
+              Maßnahmen zur Optimierung der Anlagen effizient umgesetzt werden.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-end-circle"></div>
+      </div>
     </main>
 
     <section class="skills">
-      <h3>FÄHIGKEITEN</h3>
-      <ul>
-        <li>Python-Programmierung</li>
-        <li>Erstellung von Websites</li>
-        <li>Problemanalyse</li>
-        <li>Problemlösung</li>
-        <li>Geduld</li>
-        <li>Offenheit für Neues</li>
-        <li>Microsoft Word</li>
-        <li>Microsoft Excel</li>
-        <li>PowerPoint</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>Search Engine Optimization (SEO)</li>
-      </ul>
+      <div class="skills-container">
+        <div class="skills-header">
+          <h2 class="title">Fähigkeiten</h2>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Programmierung -->
+          <div class="skill-category" style="--delay: 0.1s">
+            <h3 class="category-title">Programmierung</h3>
+            <div class="skills-list">
+              <!-- Python -->
+              <div class="skill-item" style="--tag-delay: 0.1s">
+                <div class="circle-progress-container">
+                  <div class="circle-progress" data-percent="80">
+                    <svg class="circle-progress-svg" width="120" height="120" viewBox="0 0 120 120">
+                      <circle class="circle-progress-background" cx="60" cy="60" r="54" />
+                      <circle class="circle-progress-bar" cx="60" cy="60" r="54" style="--percent: 80" />
+                    </svg>
+                    <div class="circle-progress-content">
+                      <span class="skill-percent">80%</span>
+                    </div>
+                  </div>
+                  <span class="skill-name">Python</span>
+                  <span class="skill-level">Fortgeschritten</span>
+                </div>
+              </div>
+
+              <!-- HTML -->
+              <div class="skill-item" style="--tag-delay: 0.2s">
+                <div class="circle-progress-container">
+                  <div class="circle-progress" data-percent="90">
+                    <svg class="circle-progress-svg" width="120" height="120" viewBox="0 0 120 120">
+                      <circle class="circle-progress-background" cx="60" cy="60" r="54" />
+                      <circle class="circle-progress-bar" cx="60" cy="60" r="54" style="--percent: 90" />
+                    </svg>
+                    <div class="circle-progress-content">
+                      <span class="skill-percent">90%</span>
+                    </div>
+                  </div>
+                  <span class="skill-name">HTML</span>
+                  <span class="skill-level">Experte</span>
+                </div>
+              </div>
+
+              <!-- CSS -->
+              <div class="skill-item" style="--tag-delay: 0.3s">
+                <div class="circle-progress-container">
+                  <div class="circle-progress" data-percent="85">
+                    <svg class="circle-progress-svg" width="120" height="120" viewBox="0 0 120 120">
+                      <circle class="circle-progress-background" cx="60" cy="60" r="54" />
+                      <circle class="circle-progress-bar" cx="60" cy="60" r="54" style="--percent: 85" />
+                    </svg>
+                    <div class="circle-progress-content">
+                      <span class="skill-percent">85%</span>
+                    </div>
+                  </div>
+                  <span class="skill-name">CSS</span>
+                  <span class="skill-level">Fortgeschritten</span>
+                </div>
+              </div>
+
+              <!-- JavaScript -->
+              <div class="skill-item" style="--tag-delay: 0.4s">
+                <div class="circle-progress-container">
+                  <div class="circle-progress" data-percent="65">
+                    <svg class="circle-progress-svg" width="120" height="120" viewBox="0 0 120 120">
+                      <circle class="circle-progress-background" cx="60" cy="60" r="54" />
+                      <circle class="circle-progress-bar" cx="60" cy="60" r="54" style="--percent: 65" />
+                    </svg>
+                    <div class="circle-progress-content">
+                      <span class="skill-percent">65%</span>
+                    </div>
+                  </div>
+                  <span class="skill-name">JavaScript</span>
+                  <span class="skill-level">Fortgeschritten</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Soft Skills -->
+          <div class="skill-category" style="--delay: 0.3s">
+            <h3 class="category-title">Problemlösung</h3>
+            <div class="skills-list">
+              <!-- Problemanalyse -->
+              <div class="skill-item" style="--tag-delay: 0.5s">
+                <div class="circle-progress-container">
+                  <div class="circle-progress" data-percent="95">
+                    <svg class="circle-progress-svg" width="120" height="120" viewBox="0 0 120 120">
+                      <circle class="circle-progress-background" cx="60" cy="60" r="54" />
+                      <circle class="circle-progress-bar" cx="60" cy="60" r="54" style="--percent: 95" />
+                    </svg>
+                    <div class="circle-progress-content">
+                      <span class="skill-percent">95%</span>
+                    </div>
+                  </div>
+                  <span class="skill-name">Problemanalyse</span>
+                  <span class="skill-level">Experte</span>
+                </div>
+              </div>
+
+              <!-- Geduld -->
+              <div class="skill-item" style="--tag-delay: 0.6s">
+                <div class="circle-progress-container">
+                  <div class="circle-progress" data-percent="90">
+                    <svg class="circle-progress-svg" width="120" height="120" viewBox="0 0 120 120">
+                      <circle class="circle-progress-background" cx="60" cy="60" r="54" />
+                      <circle class="circle-progress-bar" cx="60" cy="60" r="54" style="--percent: 90" />
+                    </svg>
+                    <div class="circle-progress-content">
+                      <span class="skill-percent">90%</span>
+                    </div>
+                  </div>
+                  <span class="skill-name">Geduld</span>
+                  <span class="skill-level">Experte</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Office Software -->
+          <div class="skill-category" style="--delay: 0.5s">
+            <h3 class="category-title">Office Software</h3>
+            <div class="skills-list">
+              <!-- Microsoft Word -->
+              <div class="skill-item" style="--tag-delay: 0.7s">
+                <div class="circle-progress-container">
+                  <div class="circle-progress" data-percent="85">
+                    <svg class="circle-progress-svg" width="120" height="120" viewBox="0 0 120 120">
+                      <circle class="circle-progress-background" cx="60" cy="60" r="54" />
+                      <circle class="circle-progress-bar" cx="60" cy="60" r="54" style="--percent: 85" />
+                    </svg>
+                    <div class="circle-progress-content">
+                      <span class="skill-percent">85%</span>
+                    </div>
+                  </div>
+                  <span class="skill-name">Microsoft Word</span>
+                  <span class="skill-level">Fortgeschritten</span>
+                </div>
+              </div>
+
+              <!-- Microsoft Excel -->
+              <div class="skill-item" style="--tag-delay: 0.8s">
+                <div class="circle-progress-container">
+                  <div class="circle-progress" data-percent="75">
+                    <svg class="circle-progress-svg" width="120" height="120" viewBox="0 0 120 120">
+                      <circle class="circle-progress-background" cx="60" cy="60" r="54" />
+                      <circle class="circle-progress-bar" cx="60" cy="60" r="54" style="--percent: 75" />
+                    </svg>
+                    <div class="circle-progress-content">
+                      <span class="skill-percent">75%</span>
+                    </div>
+                  </div>
+                  <span class="skill-name">Microsoft Excel</span>
+                  <span class="skill-level">Fortgeschritten</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Web Development -->
+          <div class="skill-category" style="--delay: 0.7s">
+            <h3 class="category-title">Web Development</h3>
+            <div class="skills-list">
+              <!-- Website-Erstellung -->
+              <div class="skill-item" style="--tag-delay: 0.9s">
+                <div class="circle-progress-container">
+                  <div class="circle-progress" data-percent="90">
+                    <svg class="circle-progress-svg" width="120" height="120" viewBox="0 0 120 120">
+                      <circle class="circle-progress-background" cx="60" cy="60" r="54" />
+                      <circle class="circle-progress-bar" cx="60" cy="60" r="54" style="--percent: 90" />
+                    </svg>
+                    <div class="circle-progress-content">
+                      <span class="skill-percent">90%</span>
+                    </div>
+                  </div>
+                  <span class="skill-name">Website-Erstellung</span>
+                  <span class="skill-level">Experte</span>
+                </div>
+              </div>
+
+              <!-- SEO -->
+              <div class="skill-item" style="--tag-delay: 1.0s">
+                <div class="circle-progress-container">
+                  <div class="circle-progress" data-percent="70">
+                    <svg class="circle-progress-svg" width="120" height="120" viewBox="0 0 120 120">
+                      <circle class="circle-progress-background" cx="60" cy="60" r="54" />
+                      <circle class="circle-progress-bar" cx="60" cy="60" r="54" style="--percent: 70" />
+                    </svg>
+                    <div class="circle-progress-content">
+                      <span class="skill-percent">70%</span>
+                    </div>
+                  </div>
+                  <span class="skill-name">SEO</span>
+                  <span class="skill-level">Fortgeschritten</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <aside class="right-column">
@@ -172,7 +374,6 @@
         </li>
       </ul>
     </aside>
-    </main>
     <footer class="impressum-footer-lebenslauf">
       <p>
         <a href="../html/impressum.html" class="impressum-link-lebenslauf">Impressum</a>
