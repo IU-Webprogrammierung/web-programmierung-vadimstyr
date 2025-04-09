@@ -93,3 +93,15 @@ window.addEventListener('pageshow', function (event) {
         }
     }
 });
+
+// Zertifikate-Button - ausklappen von Zertufikaten
+
+document.addEventListener('DOMContentLoaded', () => {
+    const certToggle = document.querySelector('.certificates-toggle');
+    
+    if (certToggle) {
+      certToggle.addEventListener('click', () => {
+        certToggle.classList.toggle('active');
+      });
+    }
+  });

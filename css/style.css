@@ -1972,4 +1972,95 @@ body {
       stroke-dashoffset: calc(339.292 - (339.292 * var(--percent)) / 100);
     }
   }
+
+  /* Kompakte Zertifikate-Sektion */
+  .certificates-compact {
+    max-width: 900px;
+    margin: 40px auto; /* Oberer und unterer Abstand erhöht, links/rechts auto für horizontale Zentrierung */
+    padding: 0;
+    position: relative;
+    text-align: center; /* Text innerhalb des Containers zentrieren */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Hilft bei der Zentrierung aller Elemente im Container */
+  }
+  
+  /* Toggle-Button zentrieren */
+  .certificates-toggle {
+    display: inline-flex; /* Inline-Flex statt Flex für bessere Zentrierung */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+  }
+
+.certificates-toggle h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #555;
+  font-weight: 500;
+}
+
+.toggle-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--accent);
+  color: white;
+  border-radius: 50%;
+  margin-right: 10px;
+  text-align: center;
+  line-height: 24px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.certificates-toggle.active .toggle-icon {
+  transform: rotate(45deg);
+}
+
+.certificates-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    justify-content: center; /* Zertifikate-Tags im Grid zentrieren */
+  }
+
+.certificates-toggle.active + .certificates-grid {
+  max-height: 300px; /* Beliebiger großer Wert */
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.cert-tag {
+  background-color: rgba(0,0,0,0.05);
+  color: #333;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 30px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  animation: cert-fade-in 0.5s ease forwards;
+  animation-delay: calc(var(--cert-delay) + 0.1s);
+  animation-play-state: paused;
+}
+
+.certificates-toggle.active + .certificates-grid .cert-tag {
+  animation-play-state: running;
+}
+
+@keyframes cert-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cert-tag:hover {
+  background-color: rgba(255,0,0,0.1);
+}
 }
