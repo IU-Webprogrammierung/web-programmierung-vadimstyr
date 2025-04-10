@@ -105,3 +105,27 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  // Social Media Icons Animation
+document.addEventListener('DOMContentLoaded', function() {
+    const socialLinks = document.querySelectorAll('.social-media-buttons-profile .social-media-link');
+    
+    // Klassennamen für die Farben hinzufügen
+    const colorClasses = ['color-vavira', 'color-github', 'color-xing', 'color-linkedin', 'color-mail'];
+    
+    // Animation starten mit Verzögerung
+    setTimeout(() => {
+      socialLinks.forEach((link, index) => {
+        // Farbklasse hinzufügen
+        link.classList.add(colorClasses[index]);
+        
+        // Animation starten
+        link.classList.add('animate');
+        
+        // Farbklasse nach Abschluss der Animation entfernen
+        setTimeout(() => {
+          link.classList.remove(colorClasses[index]);
+        }, 1200); // 1.2 Sekunden (Animation + maximale Verzögerung)
+      });
+    }, 500); // 500ms Verzögerung nach dem Laden der Seite
+  });

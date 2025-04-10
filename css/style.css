@@ -2083,4 +2083,59 @@ body {
     margin-top: 10px;
     margin-bottom: 1.5rem;
   }
+
+ /* Kontakt Social Media Icons aufploppen und anderes Design unter Desktop */
+  /* Basis-Styling der Social-Media-Icons */
+.social-media-link {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease; /* Wichtig für den Hover-Effekt */
+  color: #000;
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+/* Individuelle Farbklassen für jedes Icon */
+.social-media-link.color-vavira i { color: #e74c3c; }
+.social-media-link.color-github i { color: #333; }
+.social-media-link.color-xing i { color: #026466; }
+.social-media-link.color-linkedin i { color: #0077b5; }
+.social-media-link.color-mail i { color: #d54b3d; }
+
+/* Animation-Keyframes für das Aufploppen */
+@keyframes popAndColor {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animation beim Laden der Seite */
+.social-media-link.animate {
+  animation: popAndColor 0.6s forwards;
+}
+
+/* Verzögerung für jedes Icon */
+.social-media-buttons-profile a:nth-child(1).animate { animation-delay: 0.2s; }
+.social-media-buttons-profile a:nth-child(2).animate { animation-delay: 0.4s; }
+.social-media-buttons-profile a:nth-child(3).animate { animation-delay: 0.6s; }
+.social-media-buttons-profile a:nth-child(4).animate { animation-delay: 0.8s; }
+.social-media-buttons-profile a:nth-child(5).animate { animation-delay: 1.0s; }
+
+/* Hover-Effekt für die Icons - mit !important für höhere Priorität */
+.social-media-link:hover {
+  transform: scale(1.2) !important;
+  transition: transform 0.3s ease !important;
+}
 }
