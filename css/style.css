@@ -448,29 +448,582 @@ body {
     transition: opacity 0.3s ease;
 }
 
-    /* Pulsierende Animation für Projektbilder */
-    @keyframes pulse-image {
-        0% {
-            transform: scale(1);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        50% {
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        100% {
-            transform: scale(1);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+/* Pulsierende Animation für Projektbilder */
+@keyframes pulse-image {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    /* Klasse für die Pulsier-Animation */
-    .quiz-app-picture img,
-    .e-commerce-picture img {
-        animation: pulse-image 2s ease-in-out;
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Klasse für die Pulsier-Animation */
+.quiz-app-picture img,
+.e-commerce-picture img {
+    animation: pulse-image 2s ease-in-out;
+}
+
+/* ======================================================
+   TIMELINE LAYOUT FÜR LEBENSLAUF
+   Animierte Timeline mit abwechselnden Einträgen links/rechts
+   ====================================================== */
+
+/* Titel und Datum in den Timeline-Boxen zentrieren */
+.timeline-content .cv-title,
+.timeline-content .timeline-date,
+.timeline-content .cv-field,
+.timeline-content .cv-description {
+    text-align: center;
+    /* Von left auf center geändert */
+    width: 100%;
+}
+
+/* Optional: Weitere Verbesserungen für die Timeline-Boxen */
+.timeline-content {
+    padding: 20px 30px;
+    background-color: rgba(245, 225, 192, 0.7);
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-left: 3px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Hilft zusätzlich bei der Zentrierung */
+}
+
+/* Timeline Container mit relativer Position für absolute Positionierung der Linie */
+.timeline-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem 0;
+}
+
+/* Vertikale Linie in der Mitte */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--accent);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    transform: scaleY(0);
+    transform-origin: top;
+    animation: grow-line 1.8s ease forwards 0.5s;
+}
+
+
+
+/* Timeline-Einträge */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    opacity: 0;
+    animation: fade-in 0.8s ease forwards;
+    animation-delay: calc(var(--delay) + 0.8s);
+    margin-bottom: 30px;
+}
+
+
+
+/* Rechts positionierte Einträge */
+.right {
+    left: 50%;
+}
+
+/* Links positionierte Einträge */
+.left {
+    left: 0;
+}
+
+/* Kreise auf dem Zeitstrahl */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    /* Breite des horizontalen Strichs */
+    height: 4px;
+    /* Höhe des horizontalen Strichs */
+    background-color: var(--accent);
+    /* Farbe des Strichs */
+    top: 30px;
+    /* Position anpassen */
+    opacity: 0;
+    animation: line-appear 0.6s ease forwards;
+    animation-delay: calc(var(--delay) + 1.8s);
+    z-index: 1;
+}
+
+/* Rechte Timeline-Items: Strich geht nach links */
+.right::after {
+    left: 3px;
+    transform-origin: left center;
+}
+
+/* Linke Timeline-Items: Strich geht nach rechts */
+.left::after {
+    right: -3px;
+    transform-origin: right center;
+}
+
+/* Animation für die erscheinenden Striche */
+@keyframes line-appear {
+    from {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+/* Animation für das Einblenden */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation für die wachsende Linie */
+@keyframes grow-line {
+    from {
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+}
+
+/* Styling für die Timeline-Inhalte */
+.timeline-content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-left: 3px solid var(--accent);
+}
+
+/* Start- und Endkreise ebenfalls zu Strichen ändern */
+.timeline-start-circle {
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    /* Änderung von 0 zu 50% für einen Kreis */
+    position: absolute;
+    top: -10px;
+    /* Anpassung der Position */
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    /* scaleX zu scale geändert */
+    animation: circle-appear 1s ease forwards;
+    /* line-appear zu circle-appear geändert */
+}
+
+.timeline-end-circle {
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    /* Änderung von 0 zu 50% für einen Kreis */
+    position: absolute;
+    bottom: -10px;
+    /* Anpassung der Position */
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    /* scaleX zu scale geändert */
+    animation: circle-appear 0.6s ease forwards 2.2s;
+}
+
+/* Animation für die erscheinenden Kreise */
+@keyframes circle-appear {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+@keyframes circle-pulse {
+    0% {
+        transform: translateX(-50%) scale(0);
+    }
+
+    70% {
+        transform: translateX(-50%) scale(1.2);
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* Styling für die Datumsanzeige in der Timeline */
+.timeline-date {
+    font-weight: bold;
+    color: var(--accent);
+    margin: 0 0 8px;
+}
+
+/* Skill-Grid mit Kategorien */
+.skills-container {
+    max-width: 1000px;
+    margin: 4rem auto;
+    position: relative;
+}
+
+/* Überschrift mit akzentuierter Unterstreichung */
+.skills-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.skills-header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* Skill-Kategorien */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    background-color: rgba(245, 225, 192, 0.7);
+    /* Leicht transparente Version deiner --background Farbe */
+    border-radius: 8px;
+    padding: 2rem;
+    opacity: 0;
+    animation: fade-in 0.8s ease forwards;
+    animation-delay: calc(var(--delay) + 0.3s);
+    backdrop-filter: blur(3px);
+    /* Leichter Blur-Effekt für mehr Tiefe */
+}
+
+.category-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Skills als Tags/Pills */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.skill-tag {
+    background-color: rgba(245, 245, 245, 0.7);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: tag-appear 0.5s ease forwards;
+    animation-delay: calc(var(--tag-delay) + 0.5s);
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 2, 2, 0.1);
+}
+
+/* Bildung und Zertifikate */
+.education-section,
+.certificates-section {
+    margin-top: 4rem;
+}
+
+.certificate-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.certificate-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 3px solid var(--accent);
+    opacity: 0;
+    animation: fade-in 0.6s ease forwards;
+    animation-delay: calc(var(--cert-delay) + 0.8s);
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes tag-appear {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Kreisförmige Fortschrittsbalken für Skills */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.skill-item {
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fade-in 0.8s ease forwards;
+    animation-delay: calc(var(--tag-delay) + 0.3s);
+}
+
+.circle-progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+}
+
+.circle-progress {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.circle-progress-svg {
+    transform: rotate(-90deg);
+}
+
+.circle-progress-background {
+    fill: rgba(245, 225, 192, 0.5);
+    /* Sehr leicht transparente Hintergrundfarbe */
+    stroke: rgba(0, 0, 0, 0.1);
+    stroke-width: 10px;
+}
+
+.circle-progress-bar {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 10px;
+    stroke-linecap: round;
+    stroke-dasharray: 339.292;
+    /* 2 * PI * 54 (Radius) */
+    stroke-dashoffset: calc(339.292 - (339.292 * var(--percent)) / 100);
+    animation: progress-animation 1.8s ease forwards;
+}
+
+.circle-progress-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill-percent {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.skill-name {
+    margin-top: 10px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.skill-level {
+    font-size: 0.8rem;
+    color: #666;
+    text-align: center;
+}
+
+@keyframes progress-animation {
+    from {
+        stroke-dashoffset: 339.292;
+        /* Anfangswert (0%) */
+    }
+
+    to {
+        stroke-dashoffset: calc(339.292 - (339.292 * var(--percent)) / 100);
+    }
+}
+
+/* Kompakte Zertifikate-Sektion */
+.certificates-compact {
+    max-width: 900px;
+    margin: 40px auto;
+    /* Oberer und unterer Abstand erhöht, links/rechts auto für horizontale Zentrierung */
+    padding: 0;
+    position: relative;
+    text-align: center;
+    /* Text innerhalb des Containers zentrieren */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Hilft bei der Zentrierung aller Elemente im Container */
+}
+
+/* Toggle-Button zentrieren */
+.certificates-toggle {
+    display: inline-flex;
+    /* Inline-Flex statt Flex für bessere Zentrierung */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.certificates-toggle h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #555;
+    font-weight: 500;
+}
+
+.toggle-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: var(--accent);
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 24px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.certificates-toggle.active .toggle-icon {
+    transform: rotate(45deg);
+}
+
+.certificates-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    justify-content: center;
+    /* Zertifikate-Tags im Grid zentrieren */
+}
+
+.certificates-toggle.active+.certificates-grid {
+    max-height: 300px;
+    /* Beliebiger großer Wert */
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.cert-tag {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #333;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 30px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    animation: cert-fade-in 0.5s ease forwards;
+    animation-delay: calc(var(--cert-delay) + 0.1s);
+    animation-play-state: paused;
+}
+
+.certificates-toggle.active+.certificates-grid .cert-tag {
+    animation-play-state: running;
+}
+
+@keyframes cert-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cert-tag:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+/* Spezifischer Header für den Lebenslauf */
+.cv-header {
+    text-align: center;
+    margin: 2rem auto 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.cv-header .title {
+    margin-bottom: 0.5rem;
+    margin-top: 200px;
+}
+
+.cv-header .subtitle {
+    margin-top: 10px;
+    margin-bottom: 1.5rem;
+}
 
 /* Mobile */
 @media (max-width: 640px) {
@@ -597,7 +1150,6 @@ body {
 
     /* CV Layout */
     .job,
-    .skills,
     .right-column,
     .cv-job {
         margin-bottom: 1rem;
@@ -610,9 +1162,26 @@ body {
     }
 
     .cv-title {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
+        position: relative;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Aktiver Zustand, wenn aufgeklappt */
+    .cv-job.active .cv-description {
+        max-height: 300px;
+        /* Ausreichend großer Wert für Beschreibungen */
+        opacity: 1;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Icon drehen, wenn aufgeklappt */
+    .cv-job.active .cv-title::after {
+        transform: rotate(45deg);
     }
 
     .cv-date {
@@ -621,15 +1190,82 @@ body {
         margin-bottom: 0.5rem;
     }
 
+    /* Plus-Icon entfernen vom cv-title */
+    .cv-title::after {
+        content: none;
+        /* Entferne das bestehende Plus-Symbol */
+    }
+
+    /* CSS für aufklappbare Elemente */
+    .timeline-content .cv-description {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+        opacity: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-size: 0.9rem; /* Lesbare Größe */
+        margin: 0; /* Entferne alle Margins */
+    }
+
+    .timeline-content.active .cv-description {
+        max-height: 300px; /* Eventuell zu klein? */
+        opacity: 1;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        display: block; /* Erzwinge display:block */
+        visibility: visible; /* Erzwinge Sichtbarkeit */
+    }
+
+    .timeline-content.active .cv-field::after {
+        transform: translateX(-50%) rotate(45deg);
+    }
+
+    /* Plus-Icon zum cv-field hinzufügen */
     .cv-field {
-        font-size: 0.9rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
+        position: relative;
+        cursor: pointer;
+        padding-bottom: 1.5rem;
+    }
+
+    .cv-field::after {
+        content: "+";
+        position: absolute;
+        bottom: -15px;
+        /* Von -5px auf -15px geändert für mehr Abstand */
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.2rem;
+        color: var(--accent);
+        transition: transform 0.3s ease;
+        width: 24px;
+        /* Definierte Breite */
+        height: 24px;
+        /* Definierte Höhe */
+        line-height: 24px;
+        /* Für vertikale Zentrierung */
+        text-align: center;
+        /* Für horizontale Zentrierung */
+        background-color: rgba(240, 240, 240, 0.7);
+        /* Leichter Hintergrund */
+        border-radius: 50%;
+        /* Kreisform */
+        cursor: pointer;
+        /* Deutlicher Hinweis, dass es klickbar ist */
+    }
+
+    /* Icon drehen bei active state */
+    .cv-job.active .cv-field::after {
+        transform: translateX(-50%) rotate(45deg);
     }
 
     .cv-description {
-        font-size: 0.9rem;
-        line-height: 1.6;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+        opacity: 0;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     .skills ul {
@@ -862,18 +1498,19 @@ body {
         display: none;
     }
 
-    .cv-title,
+
     .cv-date,
     .cv-field,
     .cv-description,
     .skills h3 {
-        text-align: left;
+        text-align: center;
         padding-left: 1rem;
     }
 
     .cv-title {
         font-size: 1.4rem;
         margin-bottom: 0.7rem;
+        font-weight: bold;
     }
 
     .cv-date {
@@ -882,8 +1519,9 @@ body {
     }
 
     .cv-field {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         margin-bottom: 0.7rem;
+        font-weight: bold;
     }
 
     .cv-description {
@@ -1488,7 +2126,7 @@ body {
     /* ====== ENDE PROJECT LAYOUT ====== */
 
 
-   
+
 
     /* Gemeinsames Icon-Styling */
     /* Spezifisches Layout für die Kontaktseite */
@@ -1567,583 +2205,92 @@ body {
         margin-bottom: -100px;
     }
 
-    /* ======================================================
-   TIMELINE LAYOUT FÜR LEBENSLAUF
-   Animierte Timeline mit abwechselnden Einträgen links/rechts
-   ====================================================== */
 
-   /* Titel und Datum in den Timeline-Boxen zentrieren */
-.timeline-content .cv-title,
-.timeline-content .timeline-date,
-.timeline-content .cv-field,
-.timeline-content .cv-description {
-    text-align: center; /* Von left auf center geändert */
-    width: 100%;
-}
 
-/* Optional: Weitere Verbesserungen für die Timeline-Boxen */
-.timeline-content {
-    padding: 20px 30px;
-    background-color: rgba(245, 225, 192, 0.7);
-    position: relative;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    border-left: 3px solid var(--accent);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Hilft zusätzlich bei der Zentrierung */
-}
-
-    /* Timeline Container mit relativer Position für absolute Positionierung der Linie */
-    .timeline-container {
+    /* Kontakt Social Media Icons aufploppen und anderes Design unter Desktop */
+    /* Basis-Styling der Social-Media-Icons */
+    .social-media-link {
         position: relative;
-        max-width: 1200px;
-        margin: 4rem auto;
-        padding: 2rem 0;
-    }
-
-    /* Vertikale Linie in der Mitte */
-    .timeline-container::after {
-        content: '';
-        position: absolute;
-        width: 6px;
-        background-color: var(--accent);
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        margin-left: -3px;
-        transform: scaleY(0);
-        transform-origin: top;
-        animation: grow-line 1.8s ease forwards 0.5s;
-    }
-
-
-
-    /* Timeline-Einträge */
-    .timeline-item {
-        padding: 10px 40px;
-        position: relative;
-        width: 50%;
-        box-sizing: border-box;
+        display: inline-block;
+        transition: all 0.3s ease;
+        /* Wichtig für den Hover-Effekt */
+        color: #000;
         opacity: 0;
-        animation: fade-in 0.8s ease forwards;
-        animation-delay: calc(var(--delay) + 0.8s);
-        margin-bottom: 30px;
+        transform: scale(0.5);
     }
 
-
-
-    /* Rechts positionierte Einträge */
-    .right {
-        left: 50%;
+    /* Individuelle Farbklassen für jedes Icon */
+    .social-media-link.color-vavira i {
+        color: #e74c3c;
     }
 
-    /* Links positionierte Einträge */
-    .left {
-        left: 0;
+    .social-media-link.color-github i {
+        color: #333;
     }
 
-    /* Kreise auf dem Zeitstrahl */
-    .timeline-item::after {
-        content: '';
-        position: absolute;
-        width: 20px;
-        /* Breite des horizontalen Strichs */
-        height: 4px;
-        /* Höhe des horizontalen Strichs */
-        background-color: var(--accent);
-        /* Farbe des Strichs */
-        top: 30px;
-        /* Position anpassen */
-        opacity: 0;
-        animation: line-appear 0.6s ease forwards;
-        animation-delay: calc(var(--delay) + 1.8s);
-        z-index: 1;
+    .social-media-link.color-xing i {
+        color: #026466;
     }
 
-    /* Rechte Timeline-Items: Strich geht nach links */
-    .right::after {
-        left: 3px;
-        transform-origin: left center;
+    .social-media-link.color-linkedin i {
+        color: #0077b5;
     }
 
-    /* Linke Timeline-Items: Strich geht nach rechts */
-    .left::after {
-        right: -3px;
-        transform-origin: right center;
+    .social-media-link.color-mail i {
+        color: #d54b3d;
     }
 
-    /* Animation für die erscheinenden Striche */
-    @keyframes line-appear {
-        from {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-
-        to {
-            opacity: 1;
-            transform: scaleX(1);
-        }
-    }
-
-    /* Animation für das Einblenden */
-    @keyframes fade-in {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Animation für die wachsende Linie */
-    @keyframes grow-line {
-        from {
-            transform: scaleY(0);
-        }
-
-        to {
-            transform: scaleY(1);
-        }
-    }
-
-    /* Styling für die Timeline-Inhalte */
-    .timeline-content {
-        padding: 20px 30px;
-        background-color: white;
-        position: relative;
-        border-radius: 8px;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        border-left: 3px solid var(--accent);
-    }
-
-    /* Start- und Endkreise ebenfalls zu Strichen ändern */
-    .timeline-start-circle {
-        width: 20px;
-        height: 20px;
-        background-color: var(--accent);
-        border-radius: 50%;
-        /* Änderung von 0 zu 50% für einen Kreis */
-        position: absolute;
-        top: -10px;
-        /* Anpassung der Position */
-        left: 50%;
-        transform: translateX(-50%) scale(0);
-        /* scaleX zu scale geändert */
-        animation: circle-appear 1s ease forwards;
-        /* line-appear zu circle-appear geändert */
-    }
-
-    .timeline-end-circle {
-        width: 20px;
-        height: 20px;
-        background-color: var(--accent);
-        border-radius: 50%;
-        /* Änderung von 0 zu 50% für einen Kreis */
-        position: absolute;
-        bottom: -10px;
-        /* Anpassung der Position */
-        left: 50%;
-        transform: translateX(-50%) scale(0);
-        /* scaleX zu scale geändert */
-        animation: circle-appear 0.6s ease forwards 2.2s;
-    }
-
-    /* Animation für die erscheinenden Kreise */
-    @keyframes circle-appear {
-        from {
-            opacity: 0;
-            transform: translateX(-50%) scale(0);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateX(-50%) scale(1);
-        }
-    }
-
-    @keyframes circle-pulse {
+    /* Animation-Keyframes für das Aufploppen */
+    @keyframes popAndColor {
         0% {
-            transform: translateX(-50%) scale(0);
+            transform: scale(0.5);
+            opacity: 0;
+        }
+
+        40% {
+            transform: scale(1.2);
+            opacity: 1;
         }
 
         70% {
-            transform: translateX(-50%) scale(1.2);
+            transform: scale(0.9);
         }
 
         100% {
-            transform: translateX(-50%) scale(1);
+            transform: scale(1);
+            opacity: 1;
         }
     }
 
-    /* Styling für die Datumsanzeige in der Timeline */
-    .timeline-date {
-        font-weight: bold;
-        color: var(--accent);
-        margin: 0 0 8px;
+    /* Animation beim Laden der Seite */
+    .social-media-link.animate {
+        animation: popAndColor 0.6s forwards;
     }
 
-    /* Skill-Grid mit Kategorien */
-.skills-container {
-    max-width: 1000px;
-    margin: 4rem auto;
-    position: relative;
-}
-
-/* Überschrift mit akzentuierter Unterstreichung */
-.skills-header {
-    text-align: center;
-    margin-bottom: 3rem;
-    position: relative;
-}
-
-.skills-header::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background-color: var(--accent);
-    margin: 1rem auto 0;
-    border-radius: 2px;
-}
-
-/* Skill-Kategorien */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.skill-category {
-    background-color: rgba(245, 225, 192, 0.7); /* Leicht transparente Version deiner --background Farbe */
-    border-radius: 8px;
-    padding: 2rem;
-    opacity: 0;
-    animation: fade-in 0.8s ease forwards;
-    animation-delay: calc(var(--delay) + 0.3s);
-    backdrop-filter: blur(3px); /* Leichter Blur-Effekt für mehr Tiefe */
-}
-
-.category-title {
-    font-size: 1.4rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid rgba(0,0,0,0.1);
-}
-
-/* Skills als Tags/Pills */
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    justify-content: center;
-}
-
-.skill-tag {
-    background-color: rgba(245,245,245,0.7);
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    border: 1px solid rgba(0,0,0,0.1);
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    opacity: 0;
-    animation: tag-appear 0.5s ease forwards;
-    animation-delay: calc(var(--tag-delay) + 0.5s);
-}
-
-.skill-tag:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    background-color: rgba(255,2,2,0.1);
-}
-
-/* Bildung und Zertifikate */
-.education-section,
-.certificates-section {
-    margin-top: 4rem;
-}
-
-.certificate-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-.certificate-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    border-left: 3px solid var(--accent);
-    opacity: 0;
-    animation: fade-in 0.6s ease forwards;
-    animation-delay: calc(var(--cert-delay) + 0.8s);
-}
-
-.certificate-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-}
-
-@keyframes tag-appear {
-    from { opacity: 0; transform: scale(0.7); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* Kreisförmige Fortschrittsbalken für Skills */
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: center;
-  }
-  
-  .skill-item {
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fade-in 0.8s ease forwards;
-    animation-delay: calc(var(--tag-delay) + 0.3s);
-  }
-  
-  .circle-progress-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 120px;
-  }
-  
-  .circle-progress {
-    position: relative;
-    width: 120px;
-    height: 120px;
-  }
-  
-  .circle-progress-svg {
-    transform: rotate(-90deg);
-  }
-  
-  .circle-progress-background {
-    fill: rgba(245, 225, 192, 0.5); /* Sehr leicht transparente Hintergrundfarbe */
-    stroke: rgba(0, 0, 0, 0.1);
-    stroke-width: 10px;
-  }
-  
-  .circle-progress-bar {
-    fill: none;
-    stroke: var(--accent);
-    stroke-width: 10px;
-    stroke-linecap: round;
-    stroke-dasharray: 339.292; /* 2 * PI * 54 (Radius) */
-    stroke-dashoffset: calc(339.292 - (339.292 * var(--percent)) / 100);
-    animation: progress-animation 1.8s ease forwards;
-  }
-  
-  .circle-progress-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .skill-percent {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--accent);
-  }
-  
-  .skill-name {
-    margin-top: 10px;
-    font-weight: 500;
-    text-align: center;
-  }
-  
-  .skill-level {
-    font-size: 0.8rem;
-    color: #666;
-    text-align: center;
-  }
-  
-  @keyframes progress-animation {
-    from {
-      stroke-dashoffset: 339.292; /* Anfangswert (0%) */
+    /* Verzögerung für jedes Icon */
+    .social-media-buttons-profile a:nth-child(1).animate {
+        animation-delay: 0.2s;
     }
-    to {
-      stroke-dashoffset: calc(339.292 - (339.292 * var(--percent)) / 100);
+
+    .social-media-buttons-profile a:nth-child(2).animate {
+        animation-delay: 0.4s;
     }
-  }
 
-  /* Kompakte Zertifikate-Sektion */
-  .certificates-compact {
-    max-width: 900px;
-    margin: 40px auto; /* Oberer und unterer Abstand erhöht, links/rechts auto für horizontale Zentrierung */
-    padding: 0;
-    position: relative;
-    text-align: center; /* Text innerhalb des Containers zentrieren */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Hilft bei der Zentrierung aller Elemente im Container */
-  }
-  
-  /* Toggle-Button zentrieren */
-  .certificates-toggle {
-    display: inline-flex; /* Inline-Flex statt Flex für bessere Zentrierung */
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    margin-bottom: 15px;
-    transition: all 0.3s ease;
-  }
+    .social-media-buttons-profile a:nth-child(3).animate {
+        animation-delay: 0.6s;
+    }
 
-.certificates-toggle h3 {
-  font-size: 1.1rem;
-  margin: 0;
-  color: #555;
-  font-weight: 500;
-}
+    .social-media-buttons-profile a:nth-child(4).animate {
+        animation-delay: 0.8s;
+    }
 
-.toggle-icon {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background-color: var(--accent);
-  color: white;
-  border-radius: 50%;
-  margin-right: 10px;
-  text-align: center;
-  line-height: 24px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
+    .social-media-buttons-profile a:nth-child(5).animate {
+        animation-delay: 1.0s;
+    }
 
-.certificates-toggle.active .toggle-icon {
-  transform: rotate(45deg);
-}
-
-.certificates-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.5s ease;
-    justify-content: center; /* Zertifikate-Tags im Grid zentrieren */
-  }
-
-.certificates-toggle.active + .certificates-grid {
-  max-height: 300px; /* Beliebiger großer Wert */
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.cert-tag {
-  background-color: rgba(0,0,0,0.05);
-  color: #333;
-  font-size: 0.85rem;
-  padding: 6px 12px;
-  border-radius: 30px;
-  white-space: nowrap;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-  animation: cert-fade-in 0.5s ease forwards;
-  animation-delay: calc(var(--cert-delay) + 0.1s);
-  animation-play-state: paused;
-}
-
-.certificates-toggle.active + .certificates-grid .cert-tag {
-  animation-play-state: running;
-}
-
-@keyframes cert-fade-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.cert-tag:hover {
-  background-color: rgba(255,0,0,0.1);
-}
-
-/* Spezifischer Header für den Lebenslauf */
-.cv-header {
-    text-align: center;
-    margin: 2rem auto 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .cv-header .title {
-    margin-bottom: 0.5rem;
-    margin-top: 200px;
-  }
-  
-  .cv-header .subtitle {
-    margin-top: 10px;
-    margin-bottom: 1.5rem;
-  }
-
- /* Kontakt Social Media Icons aufploppen und anderes Design unter Desktop */
-  /* Basis-Styling der Social-Media-Icons */
-.social-media-link {
-  position: relative;
-  display: inline-block;
-  transition: all 0.3s ease; /* Wichtig für den Hover-Effekt */
-  color: #000;
-  opacity: 0;
-  transform: scale(0.5);
-}
-
-/* Individuelle Farbklassen für jedes Icon */
-.social-media-link.color-vavira i { color: #e74c3c; }
-.social-media-link.color-github i { color: #333; }
-.social-media-link.color-xing i { color: #026466; }
-.social-media-link.color-linkedin i { color: #0077b5; }
-.social-media-link.color-mail i { color: #d54b3d; }
-
-/* Animation-Keyframes für das Aufploppen */
-@keyframes popAndColor {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  40% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-  70% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* Animation beim Laden der Seite */
-.social-media-link.animate {
-  animation: popAndColor 0.6s forwards;
-}
-
-/* Verzögerung für jedes Icon */
-.social-media-buttons-profile a:nth-child(1).animate { animation-delay: 0.2s; }
-.social-media-buttons-profile a:nth-child(2).animate { animation-delay: 0.4s; }
-.social-media-buttons-profile a:nth-child(3).animate { animation-delay: 0.6s; }
-.social-media-buttons-profile a:nth-child(4).animate { animation-delay: 0.8s; }
-.social-media-buttons-profile a:nth-child(5).animate { animation-delay: 1.0s; }
-
-/* Hover-Effekt für die Icons - mit !important für höhere Priorität */
-.social-media-link:hover {
-  transform: scale(1.2) !important;
-  transition: transform 0.3s ease !important;
-}
+    /* Hover-Effekt für die Icons - mit !important für höhere Priorität */
+    .social-media-link:hover {
+        transform: scale(1.2) !important;
+        transition: transform 0.3s ease !important;
+    }
 }

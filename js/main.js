@@ -98,34 +98,56 @@ window.addEventListener('pageshow', function (event) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const certToggle = document.querySelector('.certificates-toggle');
-    
-    if (certToggle) {
-      certToggle.addEventListener('click', () => {
-        certToggle.classList.toggle('active');
-      });
-    }
-  });
 
-  // Social Media Icons Animation
-document.addEventListener('DOMContentLoaded', function() {
+    if (certToggle) {
+        certToggle.addEventListener('click', () => {
+            certToggle.classList.toggle('active');
+        });
+    }
+});
+
+// Social Media Icons Animation
+document.addEventListener('DOMContentLoaded', function () {
     const socialLinks = document.querySelectorAll('.social-media-buttons-profile .social-media-link');
-    
+
     // Klassennamen für die Farben hinzufügen
     const colorClasses = ['color-vavira', 'color-github', 'color-xing', 'color-linkedin', 'color-mail'];
-    
+
     // Animation starten mit Verzögerung
     setTimeout(() => {
-      socialLinks.forEach((link, index) => {
-        // Farbklasse hinzufügen
-        link.classList.add(colorClasses[index]);
-        
-        // Animation starten
-        link.classList.add('animate');
-        
-        // Farbklasse nach Abschluss der Animation entfernen
-        setTimeout(() => {
-          link.classList.remove(colorClasses[index]);
-        }, 1200); // 1.2 Sekunden (Animation + maximale Verzögerung)
-      });
+        socialLinks.forEach((link, index) => {
+            // Farbklasse hinzufügen
+            link.classList.add(colorClasses[index]);
+
+            // Animation starten
+            link.classList.add('animate');
+
+            // Farbklasse nach Abschluss der Animation entfernen
+            setTimeout(() => {
+                link.classList.remove(colorClasses[index]);
+            }, 1200); // 1.2 Sekunden (Animation + maximale Verzögerung)
+        });
     }, 500); // 500ms Verzögerung nach dem Laden der Seite
-  });
+});
+
+// Kollabierbare CV-Beschreibungen für mobile Geräte
+document.addEventListener('DOMContentLoaded', function () {
+    // Nur auf mobilen Geräten ausführen
+    if (window.innerWidth <= 640) {
+        const cvFields = document.querySelectorAll('.cv-field');
+
+        // Sicherstellen, dass die CV-Beschreibungen anfangs versteckt sind
+        document.querySelectorAll('.cv-description').forEach(desc => {
+            desc.style.maxHeight = '0';
+            desc.style.opacity = '0';
+            desc.style.paddingTop = '0';
+            desc.style.paddingBottom = '0';
+        });
+
+        cvFields.forEach(field => {
+            // Klick-Ereignis sowohl auf dem Feld als auch auf dem Plus-Symbol
+            field.addEventListener('click', toggleDescription);
+
+        });
+    } // Hier fehlt die schließende Klammer
+});
