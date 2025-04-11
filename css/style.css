@@ -1148,19 +1148,6 @@ body {
         padding-top: 2rem;
     }
 
-    /* CV Layout */
-    .job,
-    .right-column,
-    .cv-job {
-        margin-bottom: 1rem;
-        padding: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        background: #fff;
-        text-align: center;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    }
-
     .cv-title {
         position: relative;
         cursor: pointer;
@@ -1170,102 +1157,10 @@ body {
         align-items: center;
     }
 
-    /* Aktiver Zustand, wenn aufgeklappt */
-    .cv-job.active .cv-description {
-        max-height: 300px;
-        /* Ausreichend großer Wert für Beschreibungen */
-        opacity: 1;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-    }
-
-    /* Icon drehen, wenn aufgeklappt */
-    .cv-job.active .cv-title::after {
-        transform: rotate(45deg);
-    }
-
     .cv-date {
         font-size: 0.9rem;
         color: #555;
         margin-bottom: 0.5rem;
-    }
-
-    /* Plus-Icon entfernen vom cv-title */
-    .cv-title::after {
-        content: none;
-        /* Entferne das bestehende Plus-Symbol */
-    }
-
-    /* CSS für aufklappbare Elemente */
-    .timeline-content .cv-description {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
-        opacity: 0;
-        padding-top: 0;
-        padding-bottom: 0;
-        font-size: 0.9rem; /* Lesbare Größe */
-        margin: 0; /* Entferne alle Margins */
-    }
-
-    .timeline-content.active .cv-description {
-        max-height: 300px; /* Eventuell zu klein? */
-        opacity: 1;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        display: block; /* Erzwinge display:block */
-        visibility: visible; /* Erzwinge Sichtbarkeit */
-    }
-
-    .timeline-content.active .cv-field::after {
-        transform: translateX(-50%) rotate(45deg);
-    }
-
-    /* Plus-Icon zum cv-field hinzufügen */
-    .cv-field {
-        position: relative;
-        cursor: pointer;
-        padding-bottom: 1.5rem;
-    }
-
-    .cv-field::after {
-        content: "+";
-        position: absolute;
-        bottom: -15px;
-        /* Von -5px auf -15px geändert für mehr Abstand */
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 1.2rem;
-        color: var(--accent);
-        transition: transform 0.3s ease;
-        width: 24px;
-        /* Definierte Breite */
-        height: 24px;
-        /* Definierte Höhe */
-        line-height: 24px;
-        /* Für vertikale Zentrierung */
-        text-align: center;
-        /* Für horizontale Zentrierung */
-        background-color: rgba(240, 240, 240, 0.7);
-        /* Leichter Hintergrund */
-        border-radius: 50%;
-        /* Kreisform */
-        cursor: pointer;
-        /* Deutlicher Hinweis, dass es klickbar ist */
-    }
-
-    /* Icon drehen bei active state */
-    .cv-job.active .cv-field::after {
-        transform: translateX(-50%) rotate(45deg);
-    }
-
-    .cv-description {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
-        opacity: 0;
-        padding-top: 0;
-        padding-bottom: 0;
     }
 
     .skills ul {
@@ -1312,6 +1207,105 @@ body {
 
     .social-media-buttons-kontakt {
         margin-bottom: 200px;
+    }
+
+    /* Das klickbare Element (Titel) MUSS relative Position haben */
+    .timeline-item .cv-title {
+        position: static;
+        cursor: default;
+        padding-right: 0;
+        display: block;
+        /* Oder Standard-Display */
+        /* Sicherstellen, dass kein ::after vom Titel mehr existiert */
+    }
+
+    /* Das Plus/Minus-Icon */
+    .timeline-item .cv-title::after {
+        content: '';
+        display: none;
+        position: absolute;
+        /* Positioniert sich relativ zum .cv-title */
+        /* Positionierung rechts innerhalb des .cv-title */
+        right: 5px;
+        /* Abstand vom rechten Rand des Titels */
+        top: 50%;
+        /* Vertikal mittig ausrichten */
+        transform: translateY(-50%);
+        /* Exakte vertikale Zentrierung */
+        font-weight: bold;
+        font-size: 1.6em;
+        /* Etwas größer für bessere Klickbarkeit */
+        color: var(--accent);
+        line-height: 1;
+        /* Verhindert unerwünschten Zeilenumbruch */
+        transition: transform 0.3s ease;
+        z-index: 1;
+        /* Sicherstellen, dass es über dem Text liegt, falls es Überlappungen gibt */
+    }
+
+    /* Das Feld (.cv-field) als Trigger */
+    .timeline-item .cv-field {
+        cursor: pointer;
+        position: relative;
+        /* Beibehalten für alle Fälle */
+        display: block;
+        margin-bottom: 5px;
+        /* Weniger Margin hier, da das Icon Platz braucht */
+        /* Kein Padding-Right mehr für das Icon nötig */
+        padding-right: 0;
+    }
+
+    /* Das Plus/Minus-Icon UNTER dem .cv-field */
+    .timeline-item .cv-field::after {
+        content: '+';
+        display: block !important;
+        /* Erzwingen, dass es ein Block-Element ist */
+        clear: both;
+        /* Sicherstellen, dass es unter floatenden Elementen steht */
+        width: 100%;
+        /* Volle Breite des Containers nehmen */
+        text-align: center;
+        /* Icon zentrieren */
+        font-weight: bold;
+        font-size: 1.8em;
+        /* Ggf. Größe anpassen */
+        line-height: 1.2;
+        /* Höhe anpassen */
+        color: var(--accent);
+        margin-top: 5px;
+        /* Abstand zum .cv-field Text */
+        margin-bottom: 10px;
+        /* Abstand zur Beschreibung darunter schaffen */
+        padding: 5px 0;
+        /* Etwas Padding für Klickfläche (optional) */
+        transition: transform 0.3s ease;
+    }
+
+    /* Zustand, wenn ausgeklappt (Icon dreht sich) */
+    .timeline-item.description-visible .cv-field::after {
+        content: '−';
+        transform: rotate(180deg);
+    }
+
+    /* Beschreibung (Stile für Verstecken/Zeigen bleiben gleich) */
+    .timeline-item .cv-description {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        font-size: 1rem; /* Standardgröße für Mobilgeräte, passe sie an */
+        line-height: 1.5; /* Verbessert die Lesbarkeit bei mehr Text */
+        text-align: left; /* Stelle sicher, dass der Text linksbündig ist */
+        transition: max-height 0.5s ease-out, opacity 0.3s ease-out, padding 0.5s ease-out, margin 0.5s ease-out, font-size 0.3s ease; /* Font-size hinzugefügt, obwohl nicht animiert */
+   }
+
+    .timeline-item.description-visible .cv-description {
+         max-height: 500px; /* Oder mehr */
+         opacity: 1;
+         /* Padding/Margin wiederherstellen, wenn sichtbar */
+         padding: 10px 0; /* Oder dein gewünschtes Padding */
+         margin-top: 5px; /* Kleiner Abstand zum Icon darüber */
     }
 
     /* Farbverlauf mit Animation für den Titel */
@@ -2292,5 +2286,16 @@ body {
     .social-media-link:hover {
         transform: scale(1.2) !important;
         transition: transform 0.3s ease !important;
+    }
+
+    /* Beschreibungen auf Desktop IMMER sichtbar */
+    .cv-description,
+    .timeline-content .cv-description {
+        max-height: none !important;
+        opacity: 1 !important;
+        overflow: visible !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        transition: none !important;
     }
 }

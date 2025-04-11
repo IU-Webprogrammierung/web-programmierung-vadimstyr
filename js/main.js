@@ -130,24 +130,114 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 500); // 500ms Verzögerung nach dem Laden der Seite
 });
 
-// Kollabierbare CV-Beschreibungen für mobile Geräte
+// ========================================================================
+// START: Kollabierbare CV-Beschreibungen für mobile Geräte
+// ========================================================================
 document.addEventListener('DOMContentLoaded', function () {
-    // Nur auf mobilen Geräten ausführen
-    if (window.innerWidth <= 640) {
-        const cvFields = document.querySelectorAll('.cv-field');
+    // Funktion zum Initialisieren oder Entfernen der Listener
+    const setupAccordion = () => {
+        const isMobile = window.innerWidth <= 640;
+        // ******** WICHTIG: HIER MUSS '.cv-field' STEHEN! ********
+        const triggers = document.querySelectorAll('.timeline-item .cv-field');
+        // **********************************************************
 
-        // Sicherstellen, dass die CV-Beschreibungen anfangs versteckt sind
-        document.querySelectorAll('.cv-description').forEach(desc => {
-            desc.style.maxHeight = '0';
-            desc.style.opacity = '0';
-            desc.style.paddingTop = '0';
-            desc.style.paddingBottom = '0';
+        triggers.forEach(trigger => {
+            const parentItem = trigger.closest('.timeline-item');
+            const description = parentItem ? parentItem.querySelector('.cv-description') : null;
+
+            // Entferne immer zuerst alte Listener und Attribute, um Fehler zu vermeiden
+            trigger.removeEventListener('click', toggleDescriptionHandler);
+            trigger.removeEventListener('keydown', keydownHandler); // Auch Keydown-Listener entfernen
+            trigger.removeAttribute('role');
+            trigger.removeAttribute('tabindex');
+            trigger.removeAttribute('aria-expanded');
+            if (description) {
+                description.removeAttribute('aria-hidden');
+                trigger.removeAttribute('aria-controls');
+                const descId = description.id; // Alte ID holen
+                if (descId && descId.startsWith('desc-')) { // Nur IDs entfernen, die wir generiert haben
+                    description.id = '';
+                }
+            }
+
+
+            if (isMobile && parentItem && description) {
+                // Eindeutige ID für die Beschreibung erstellen (für ARIA), falls nicht vorhanden
+                let descId = description.id;
+                if (!descId || !descId.startsWith('desc-')) {
+                   descId = 'desc-' + Math.random().toString(36).substr(2, 9);
+                   description.id = descId;
+                }
+
+                // Mache den Trigger (.cv-field) zugänglich
+                trigger.setAttribute('role', 'button');
+                trigger.setAttribute('tabindex', '0');
+                trigger.setAttribute('aria-controls', descId);
+
+                // Initialen Zustand setzen (standardmäßig geschlossen)
+                // Stelle sicher, dass die Klasse beim Initialisieren entfernt wird
+                parentItem.classList.remove('description-visible');
+                trigger.setAttribute('aria-expanded', 'false');
+                description.setAttribute('aria-hidden', 'true');
+
+                // Event Listener hinzufügen
+                trigger.addEventListener('click', toggleDescriptionHandler);
+                trigger.addEventListener('keydown', keydownHandler); // Listener für Tastatur hinzufügen
+
+            } else if (parentItem) {
+                 // Desktop-Reset (Klasse entfernen, Listener sind ja schon weg)
+                parentItem.classList.remove('description-visible');
+                 // Optional: Inline-Styles zurücksetzen, falls alte Skripte welche gesetzt haben
+                 if (description) {
+                   description.style.maxHeight = '';
+                   description.style.opacity = '';
+                   description.style.padding = '';
+                   description.style.margin = '';
+                 }
+            }
         });
+    };
 
-        cvFields.forEach(field => {
-            // Klick-Ereignis sowohl auf dem Feld als auch auf dem Plus-Symbol
-            field.addEventListener('click', toggleDescription);
+    // Handler für Klick-Ereignisse
+    function toggleDescriptionHandler(event) {
+        const trigger = event.currentTarget; // Das geklickte Element (jetzt .cv-field)
+        const parentItem = trigger.closest('.timeline-item'); // Finde das übergeordnete Item
 
-        });
-    } // Hier fehlt die schließende Klammer
+        if (parentItem) {
+            const description = parentItem.querySelector('.cv-description'); // Finde die Beschreibung darin
+            const isExpanded = parentItem.classList.toggle('description-visible'); // Schalte die Klasse um
+
+            // ARIA-Attribute aktualisieren
+            trigger.setAttribute('aria-expanded', isExpanded);
+             if(description) {
+               description.setAttribute('aria-hidden', !isExpanded);
+             }
+        }
+    }
+
+    // Handler für Tastaturereignisse (Enter/Space auf dem .cv-field)
+    function keydownHandler(e) {
+      // Prüfen, ob Enter oder Leertaste gedrückt wurde
+      if (e.key === 'Enter' || e.key === ' ' || e.keyCode === 13 || e.keyCode === 32) {
+        e.preventDefault(); // Verhindert Standardaktionen (z.B. Scrollen bei Leertaste)
+        // Rufe den Klick-Handler auf, als ob geklickt wurde
+        // 'this' bezieht sich hier auf das Element, das den keydown-Listener hat (das .cv-field)
+        toggleDescriptionHandler.call(this, e);
+      }
+    }
+
+    // --- Initialisierung ---
+    // Führe die Funktion beim ersten Laden aus
+    setupAccordion();
+
+    // Führe die Funktion erneut aus, wenn sich die Fenstergröße ändert
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        // Kurze Verzögerung, um nicht bei jeder Pixeländerung zu feuern
+        resizeTimer = setTimeout(setupAccordion, 250);
+    });
 });
+// ========================================================================
+// ENDE: Kollabierbare CV-Beschreibungen für mobile Geräte
+// ========================================================================
