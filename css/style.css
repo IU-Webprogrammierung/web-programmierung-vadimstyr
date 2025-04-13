@@ -1292,6 +1292,10 @@ body {
         display: block;
     }
 
+    .cv-title {
+        font-size: 0.9rem;
+    }
+
     .timeline-date {
         font-size: 0.8rem;
         margin-bottom: 0.5rem;
@@ -1377,19 +1381,6 @@ body {
         /* Sicherstellen, dass es immer ausgeblendet bleibt */
     }
 
-    .cv-modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        overflow: auto;
-    }
-
-
     /* Container einschränken */
     .container {
         max-width: 100%;
@@ -1421,7 +1412,17 @@ body {
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
-
+    .cv-modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        overflow: auto;
+    }
     /* Modal-Inhalt */
     .modal-content {
         background-color: var(--background);
@@ -1774,6 +1775,8 @@ body {
         margin-top: 120px;
     }
 
+    /* CV Schriftgrößere angepasst */
+
     .cv-header{
         font-size: 1.5rem;
     }
@@ -1816,6 +1819,16 @@ body {
         font-size: 2rem; /* Passe den Wert an */
         color: #000;
     }
+
+        /* Modal komplett ausblenden auf Tablets */
+        .cv-modal {
+            display: none !important;
+        }
+        
+        /* Schließen-Button verstecken */
+        .modal-close {
+            display: none !important;
+        }
 
 }
 
@@ -2430,4 +2443,14 @@ body {
         padding-bottom: 0.5rem !important;
         transition: none !important;
     }
+
+            /* Modal komplett ausblenden auf Tablets */
+            .cv-modal {
+                display: none !important;
+            }
+            
+            /* Schließen-Button verstecken */
+            .modal-close {
+                display: none !important;
+            }
 }
