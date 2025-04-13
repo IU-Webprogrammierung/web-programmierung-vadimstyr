@@ -1167,13 +1167,75 @@ body {
        Höhe und optimale Darstellung */
     .quiz-app-picture img,
     .e-commerce-picture img {
-        width: 100%;
-        height: auto;
-        max-height: 200px;
-        object-fit: contain;
+        width: 200px;
+        height: 200px; 
+        object-fit: cover; 
+        border-radius: 50%; 
+        display: block;
+        margin: 0 auto; 
     }
 
-    /* Layout-Anpassungen für die mobile Ansicht */
+/* ====================================================
+   ELEGANTE TRENNLINIE - PROJEKTEHEADER
+   Erstellt eine subtile, horizontale Gradientenlinie unter 
+   der "Projekte"-Überschrift mit zentrierter Position 
+   und sanften Verlaufseffekten für mehr visuelle Tiefe
+   ==================================================== */
+   .header-projekte {
+    position: relative;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.header-projekte::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right,
+            transparent,
+            rgba(0, 0, 0, 0.1) 20%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.1) 80%,
+            transparent);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+    
+/* ====================================================
+   ELEGANTE TRENNLINIE - PROJEKTCONTAINER
+   Fügt eine dezente Separation zwischen Projekten ein
+   mit identischem Gradient-Stil wie die Header-Trennlinie
+   für visuelle Konsistenz im mobilen Layout
+   ==================================================== */
+   .project-section .quiz-app-container,
+   .project-section .e-commerce-container {
+       position: relative;
+       padding-bottom: 2rem;
+       margin-bottom: 3rem;
+   }
+   
+   .project-section .quiz-app-container::after,
+   .project-section .e-commerce-container::after {
+       content: "";
+       position: absolute;
+       bottom: 0;
+       left: 50%;
+       transform: translateX(-50%);
+       width: 80%;
+       height: 1px;
+       background: linear-gradient(to right,
+               transparent,
+               rgba(0, 0, 0, 0.1) 20%,
+               rgba(0, 0, 0, 0.2) 50%,
+               rgba(0, 0, 0, 0.1) 80%,
+               transparent);
+       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+   }
 
     /* Blendet die Seitenleiste aus, die auf Desktop angezeigt wird */
     .sidebar {
