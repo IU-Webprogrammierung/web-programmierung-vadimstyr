@@ -1711,6 +1711,65 @@ body {
         margin-bottom: 1rem;
     }
 
+    
+
+        /* ====================================================
+       PROFILBILD-ANIMATION FÜR MOBILE GERÄTE
+       Fügt rotierende schwarze Streifen um das Profilbild 
+       für ein dynamisches Erscheinungsbild auf Mobilgeräten
+       ==================================================== */
+    
+    /* Container für das Profilbild mit dem rotierenden Effekt */
+    .profile-picture-container {
+        position: relative;
+        display: inline-block;
+        border-radius: 50%;
+        vertical-align: middle;
+        margin: 0 auto; /* Für bessere Zentrierung auf Mobilgeräten */
+    }
+
+    /* Äußerer rotierender Streifen-Effekt */
+    .profile-picture-container::before {
+        content: "";
+        position: absolute;
+        inset: -5px; /* Etwas kompakter als auf Desktop (-10px) */
+        border-radius: 50%;
+        background: conic-gradient(rgb(0, 0, 0) 0deg,
+                rgb(0, 0, 0) 90deg,
+                transparent 90deg,
+                transparent 180deg,
+                rgb(0, 0, 0) 180deg,
+                rgb(0, 0, 0) 270deg,
+                transparent 270deg,
+                transparent 360deg
+            );
+        z-index: -1;
+        animation: rotate-strip 5s linear infinite;
+    }
+
+    /* Weißer Abstandshalter zwischen Bild und rotierendem Streifen */
+    .profile-picture-container::after {
+        content: "";
+        position: absolute;
+        inset: -5px; /* Etwas kompakter als auf Desktop (-5px) */
+        border-radius: 50%;
+        background: #ffffff;
+        z-index: -1;
+    }
+
+    /* Animation für rotierende Profilbildstreifen - global verfügbar */
+    @keyframes rotate-strip {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+
+
+
 }
 
 /* Tablet */
