@@ -517,8 +517,6 @@ body {
     background-color: var(--accent);
     top: 0;
     bottom: 0;
-    left: 50%;
-    margin-left: -3px;
     transform: scaleY(0);
     transform-origin: top;
     animation: grow-line 1.8s ease forwards 0.5s;
@@ -737,7 +735,7 @@ body {
 }
 
 .category-title {
-    font-size: 1.4rem;
+    font-size: 1.0rem;
     margin-bottom: 1.5rem;
     text-align: center;
     padding-bottom: 0.5rem;
@@ -1149,6 +1147,7 @@ body {
     }
 
     .cv-title {
+        font-size: 1rem;
         position: relative;
         cursor: pointer;
         padding: 0.5rem;
@@ -1209,14 +1208,91 @@ body {
         margin-bottom: 200px;
     }
 
-    /* Das klickbare Element (Titel) MUSS relative Position haben */
+
+
+    /* ====================================================
+       TIMELINE MOBILE STYLES - Modal - LEBENSLAUF
+       ==================================================== */
+
+       
+    .modal-content {
+        background-color: var(--background);
+        margin: 5% auto;
+        /* Weniger vertikalen Abstand (von 15% auf 5%) */
+        padding: 20px;
+        border-radius: 8px;
+        width: 90%;
+        /* Etwas breiter (von 85% auf 90%) */
+        max-width: 640px;
+        /* Größeres Maximum */
+        max-height: 80vh;
+        /* Begrenzt die Höhe auf 80% der Viewport-Höhe */
+        overflow-y: auto;
+        /* Scrollbar, wenn der Inhalt zu lang ist */
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        /* Stärkerer Schatten */
+    }
+
+    /* Verbessern des Schließen-Buttons */
+    .modal-close {
+        color: var(--accent);
+        float: right;
+        font-size: 32px;
+        /* Größer (von 28px) */
+        font-weight: bold;
+        cursor: pointer;
+        width: 40px;
+        /* Feste Breite */
+        height: 40px;
+        /* Feste Höhe */
+        line-height: 36px;
+        /* Für vertikale Zentrierung */
+        text-align: center;
+        /* Horizontal zentriert */
+        border-radius: 50%;
+        /* Kreisförmiger Button */
+        background-color: rgba(0, 0, 0, 0.05);
+        /* Leichter Hintergrund */
+        position: sticky;
+        /* Bleibt sichtbar beim Scrollen */
+        top: 0;
+        /* Am oberen Rand */
+        margin-bottom: 10px;
+        /* Abstand zum Inhalt */
+        transition: background-color 0.2s;
+    }
+
+    .modal-close:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        /* Dunklerer Hintergrund beim Hover */
+    }
+
+    /* Modal-Titel - bessere Platzierung */
+    #modal-title {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        /* Mehr Abstand nach unten */
+        color: var(--accent);
+        font-size: 20px;
+        /* Größere Schrift */
+        padding-right: 40px;
+        /* Platz für den Schließen-Button */
+    }
+
     .timeline-item .cv-title {
         position: static;
         cursor: default;
         padding-right: 0;
         display: block;
-        /* Oder Standard-Display */
-        /* Sicherstellen, dass kein ::after vom Titel mehr existiert */
+    }
+
+    .timeline-date {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+    .cv-field {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
     }
 
     /* Das Plus/Minus-Icon */
@@ -1224,10 +1300,6 @@ body {
         content: '';
         display: none;
         position: absolute;
-        /* Positioniert sich relativ zum .cv-title */
-        /* Positionierung rechts innerhalb des .cv-title */
-        right: 5px;
-        /* Abstand vom rechten Rand des Titels */
         top: 50%;
         /* Vertikal mittig ausrichten */
         transform: translateY(-50%);
@@ -1287,25 +1359,122 @@ body {
         transform: rotate(180deg);
     }
 
-    /* Beschreibung (Stile für Verstecken/Zeigen bleiben gleich) */
+    /* Beschreibung in der Timeline immer ausblenden */
     .timeline-item .cv-description {
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        padding: 0;
-        margin: 0;
-        font-size: 1rem; /* Standardgröße für Mobilgeräte, passe sie an */
-        line-height: 1.5; /* Verbessert die Lesbarkeit bei mehr Text */
-        text-align: left; /* Stelle sicher, dass der Text linksbündig ist */
-        transition: max-height 0.5s ease-out, opacity 0.3s ease-out, padding 0.5s ease-out, margin 0.5s ease-out, font-size 0.3s ease; /* Font-size hinzugefügt, obwohl nicht animiert */
-   }
+        display: none;
+        /* Einfach ausblenden statt der komplexen max-height Animation */
+    }
 
+    /* Rest versteckt lassen */
     .timeline-item.description-visible .cv-description {
-         max-height: 500px; /* Oder mehr */
-         opacity: 1;
-         /* Padding/Margin wiederherstellen, wenn sichtbar */
-         padding: 10px 0; /* Oder dein gewünschtes Padding */
-         margin-top: 5px; /* Kleiner Abstand zum Icon darüber */
+        display: none;
+        /* Sicherstellen, dass es immer ausgeblendet bleibt */
+    }
+
+    .cv-modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        overflow: auto;
+    }
+
+    /* Horizontales Scrollen verhindern */
+    html,
+    body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    /* Container einschränken */
+    .container {
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    /* Timeline-Container einschränken */
+    .timeline-container {
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    /* Sicherstellen, dass Timeline-Elemente nicht über den Rand hinauslaufen */
+    .timeline-item {
+        box-sizing: border-box;
+        /* Keine Breitenänderung, nur overflow kontrollieren */
+        overflow-x: hidden;
+    }
+
+    /* Inhalt der Timeline-Elemente einschränken */
+    .timeline-content {
+        width: 100%;
+        /* Breiter machen (vorher max-width: 100%) */
+        padding: 5px 5px;
+        /* Padding reduzieren für mehr Innenraum */
+        margin-left: auto;
+        margin-right: auto;
+        /* Zentrieren */
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Modal-Inhalt */
+    .modal-content {
+        background-color: var(--background);
+        margin: 15% auto;
+        padding: 20px;
+        border-radius: 8px;
+        width: 85%;
+        max-width: 600px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Schließen-Button */
+    .modal-close {
+        color: var(--accent);
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    /* Modal-Titel und -Beschreibung */
+    #modal-title {
+        margin-top: 10px;
+        color: var(--accent);
+    }
+
+    #modal-description {
+        margin-top: 15px;
+        line-height: 1.6;
+        font-size: 16px;
+    }
+
+    /* Sichtbares Modal */
+    .cv-modal.show {
+        display: block;
+        animation: fadeIn 0.3s;
+    }
+
+    /* ====================================================
+       ENDE TIMELINE MOBILE STYLES
+       ==================================================== */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
 
     /* Farbverlauf mit Animation für den Titel */
@@ -1398,7 +1567,9 @@ body {
 
     .container {
         padding: 1rem;
-        justify-content: center;
+        margin-top: 4rem;
+        padding-top: 1rem;
+        justify-content: flex-start;
     }
 
     .header {
@@ -1445,10 +1616,17 @@ body {
         z-index: 100;
     }
 
+    /* Navigation & allgemeine Mobile-Styles (behalten) */
     .nav-menu {
-        display: flex;
-        justify-content: center;
-        width: 100%;
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1000;
     }
 
     .nav ul {
@@ -1492,15 +1670,6 @@ body {
         display: none;
     }
 
-
-    .cv-date,
-    .cv-field,
-    .cv-description,
-    .skills h3 {
-        text-align: center;
-        padding-left: 1rem;
-    }
-
     .cv-title {
         font-size: 1.4rem;
         margin-bottom: 0.7rem;
@@ -1516,10 +1685,6 @@ body {
         font-size: 1.3rem;
         margin-bottom: 0.7rem;
         font-weight: bold;
-    }
-
-    .cv-description {
-        font-size: 1.1rem;
     }
 
     .skills h3 {
