@@ -629,15 +629,11 @@ body {
     height: 20px;
     background-color: var(--accent);
     border-radius: 50%;
-    /* Änderung von 0 zu 50% für einen Kreis */
     position: absolute;
-    top: -10px;
-    /* Anpassung der Position */
+    top: 0px;
     left: 50%;
     transform: translateX(-50%) scale(0);
-    /* scaleX zu scale geändert */
     animation: circle-appear 1s ease forwards;
-    /* line-appear zu circle-appear geändert */
 }
 
 .timeline-end-circle {
@@ -1286,6 +1282,7 @@ body {
     }
 
     .timeline-item .cv-title {
+        position: static;
         cursor: default;
         display: block;
     }
