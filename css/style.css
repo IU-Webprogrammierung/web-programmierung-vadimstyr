@@ -1766,10 +1766,12 @@ body {
             transform: rotate(360deg);
         }
     }
-
-
-
-
+    .social-media-buttons-profile i {
+        color: rgb(0, 0, 0) !important;
+        font-size: 1.3rem;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }
 
 /* Tablet */
