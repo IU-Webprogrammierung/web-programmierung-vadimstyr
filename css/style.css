@@ -415,14 +415,12 @@ body {
 
 /* Burger-Menu */
 .menu-toggle {
-    display: none;
+    display: none; /* Standardmäßig versteckt */
     background: none;
     border: none;
     font-size: 2rem;
     cursor: pointer;
     color: #000;
-    margin: 10px auto;
-    align-self: center;
     width: 40px;
     padding: 0;
 }
@@ -958,12 +956,10 @@ body {
     overflow: hidden;
     transition: all 0.5s ease;
     justify-content: center;
-    /* Zertifikate-Tags im Grid zentrieren */
 }
 
 .certificates-toggle.active+.certificates-grid {
-    max-height: 300px;
-    /* Beliebiger großer Wert */
+    max-height: 900px;
     margin-top: 10px;
     margin-bottom: 20px;
 }
@@ -1006,7 +1002,6 @@ body {
 /* Spezifischer Header für den Lebenslauf */
 .cv-header {
     text-align: center;
-    margin: 2rem auto 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1044,7 +1039,10 @@ body {
         justify-content: space-between;
         min-height: 50vh;
     }
-
+    .cv-header .title {
+        margin-bottom: 0.5rem;
+        margin-top: 20px;
+    }
     .content-wrapper {
         display: flex;
         flex-direction: column;
@@ -1184,8 +1182,6 @@ body {
     .right-column ul,
     .skills ul {
         list-style: none;
-        padding: 0;
-        margin: 0;
         text-align: center;
     }
 
@@ -1206,6 +1202,16 @@ body {
 
     .social-media-buttons-kontakt {
         margin-bottom: 200px;
+    }
+
+
+    /* Fähigkeite */
+
+    .cert-tag{
+        font-size: 0.7rem;
+    }
+    .skills-header .title {
+        font-size: 2.5rem; /* Passe diesen Wert nach Bedarf an */
     }
 
 
@@ -1383,13 +1389,6 @@ body {
         overflow: auto;
     }
 
-    /* Horizontales Scrollen verhindern */
-    html,
-    body {
-        overflow-x: hidden;
-        width: 100%;
-        position: relative;
-    }
 
     /* Container einschränken */
     .container {
@@ -1415,12 +1414,9 @@ body {
     /* Inhalt der Timeline-Elemente einschränken */
     .timeline-content {
         width: 100%;
-        /* Breiter machen (vorher max-width: 100%) */
         padding: 5px 5px;
-        /* Padding reduzieren für mehr Innenraum */
         margin-left: auto;
         margin-right: auto;
-        /* Zentrieren */
         box-sizing: border-box;
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -1622,11 +1618,7 @@ body {
     }
 
     .menu-toggle {
-        display: block;
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        z-index: 1000;
+        display: none !important;
     }
 
     .nav ul {
