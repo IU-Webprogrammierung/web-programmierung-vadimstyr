@@ -1168,74 +1168,74 @@ body {
     .quiz-app-picture img,
     .e-commerce-picture img {
         width: 200px;
-        height: 200px; 
-        object-fit: cover; 
-        border-radius: 50%; 
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
         display: block;
-        margin: 0 auto; 
+        margin: 0 auto;
     }
 
-/* ====================================================
+    /* ====================================================
    ELEGANTE TRENNLINIE - PROJEKTEHEADER
    Erstellt eine subtile, horizontale Gradientenlinie unter 
    der "Projekte"-Überschrift mit zentrierter Position 
    und sanften Verlaufseffekten für mehr visuelle Tiefe
    ==================================================== */
-   .header-projekte {
-    position: relative;
-    padding-bottom: 1.5rem;
-    margin-bottom: 2rem;
-}
+    .header-projekte {
+        position: relative;
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+    }
 
-.header-projekte::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 1px;
-    background: linear-gradient(to right,
-            transparent,
-            rgba(0, 0, 0, 0.1) 20%,
-            rgba(0, 0, 0, 0.2) 50%,
-            rgba(0, 0, 0, 0.1) 80%,
-            transparent);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
+    .header-projekte::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.1) 20%,
+                rgba(0, 0, 0, 0.2) 50%,
+                rgba(0, 0, 0, 0.1) 80%,
+                transparent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
 
-    
-/* ====================================================
+
+    /* ====================================================
    ELEGANTE TRENNLINIE - PROJEKTCONTAINER
    Fügt eine dezente Separation zwischen Projekten ein
    mit identischem Gradient-Stil wie die Header-Trennlinie
    für visuelle Konsistenz im mobilen Layout
    ==================================================== */
-   .project-section .quiz-app-container,
-   .project-section .e-commerce-container {
-       position: relative;
-       padding-bottom: 2rem;
-       margin-bottom: 3rem;
-   }
-   
-   .project-section .quiz-app-container::after,
-   .project-section .e-commerce-container::after {
-       content: "";
-       position: absolute;
-       bottom: 0;
-       left: 50%;
-       transform: translateX(-50%);
-       width: 80%;
-       height: 1px;
-       background: linear-gradient(to right,
-               transparent,
-               rgba(0, 0, 0, 0.1) 20%,
-               rgba(0, 0, 0, 0.2) 50%,
-               rgba(0, 0, 0, 0.1) 80%,
-               transparent);
-       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-   }
+    .project-section .quiz-app-container,
+    .project-section .e-commerce-container {
+        position: relative;
+        padding-bottom: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .project-section .quiz-app-container::after,
+    .project-section .e-commerce-container::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.1) 20%,
+                rgba(0, 0, 0, 0.2) 50%,
+                rgba(0, 0, 0, 0.1) 80%,
+                transparent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
 
     /* Blendet die Seitenleiste aus, die auf Desktop angezeigt wird */
     .sidebar {
@@ -1711,28 +1711,30 @@ body {
         margin-bottom: 1rem;
     }
 
-    
 
-        /* ====================================================
+
+    /* ====================================================
        PROFILBILD-ANIMATION FÜR MOBILE GERÄTE
        Fügt rotierende schwarze Streifen um das Profilbild 
        für ein dynamisches Erscheinungsbild auf Mobilgeräten
        ==================================================== */
-    
+
     /* Container für das Profilbild mit dem rotierenden Effekt */
     .profile-picture-container {
         position: relative;
         display: inline-block;
         border-radius: 50%;
         vertical-align: middle;
-        margin: 0 auto; /* Für bessere Zentrierung auf Mobilgeräten */
+        margin: 0 auto;
+        /* Für bessere Zentrierung auf Mobilgeräten */
     }
 
     /* Äußerer rotierender Streifen-Effekt */
     .profile-picture-container::before {
         content: "";
         position: absolute;
-        inset: -5px; /* Etwas kompakter als auf Desktop (-10px) */
+        inset: -5px;
+        /* Etwas kompakter als auf Desktop (-10px) */
         border-radius: 50%;
         background: conic-gradient(rgb(0, 0, 0) 0deg,
                 rgb(0, 0, 0) 90deg,
@@ -1741,8 +1743,7 @@ body {
                 rgb(0, 0, 0) 180deg,
                 rgb(0, 0, 0) 270deg,
                 transparent 270deg,
-                transparent 360deg
-            );
+                transparent 360deg);
         z-index: -1;
         animation: rotate-strip 5s linear infinite;
     }
@@ -1751,7 +1752,8 @@ body {
     .profile-picture-container::after {
         content: "";
         position: absolute;
-        inset: -5px; /* Etwas kompakter als auf Desktop (-5px) */
+        inset: -5px;
+        /* Etwas kompakter als auf Desktop (-5px) */
         border-radius: 50%;
         background: #ffffff;
         z-index: -1;
@@ -1762,21 +1764,25 @@ body {
         0% {
             transform: rotate(0deg);
         }
+
         100% {
             transform: rotate(360deg);
         }
     }
+
     .social-media-buttons-profile i {
         color: rgb(0, 0, 0) !important;
         font-size: 1.3rem;
         margin-top: 10px;
         margin-bottom: 20px;
     }
+
     .social-media-buttons-profile {
         position: relative;
         padding-bottom: 1.5rem;
         margin-bottom: 1.5rem;
     }
+
     .social-media-buttons-profile::after {
         content: "";
         position: absolute;
@@ -1793,18 +1799,19 @@ body {
                 transparent);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
-        /* ====================================================
+
+    /* ====================================================
        KONTAKTFORMULAR MOBILE OPTIMIERUNG
        Verbessert die Benutzerfreundlichkeit und das visuelle 
        Erscheinungsbild des Kontaktformulars auf mobilen Geräten
        ==================================================== */
-    
+
     /* Kontakt-Sektion mit besseren Abständen und Zentrierung */
     .contact-form-section {
         border-radius: 12px;
         text-align: center;
     }
-    
+
     /* Überschrift des Kontaktformulars */
     .contact-heading {
         font-size: 1.6rem;
@@ -1812,7 +1819,7 @@ body {
         color: var(--accent);
         text-align: center;
     }
-    
+
     /* Einleitungstext zum Formular */
     .contact-intro {
         text-align: center;
@@ -1820,12 +1827,12 @@ body {
         font-size: 0.95rem;
         line-height: 1.5;
     }
-    
+
     /* Das Formular selbst */
     .contact-form {
         padding: 0 3rem;
     }
-    
+
     /* Einzelne Formulargruppen mit verbesserten Abständen */
     .form-group {
         width: 100%;
@@ -1833,7 +1840,7 @@ body {
         margin: 0 0 1.2rem 0;
         box-sizing: border-box;
     }
-    
+
     /* Optimierte Labels für bessere Lesbarkeit */
     .contact-form label {
         display: block;
@@ -1841,20 +1848,21 @@ body {
         font-weight: 500;
         font-size: 0.9rem;
     }
-    
+
     /* Verbesserte Eingabefelder für Touch-Eingabe */
     .contact-form input[type="text"],
     .contact-form input[type="email"],
     .contact-form textarea {
         width: 100%;
-        padding: 0.8rem;
+        box-sizing: border-box;
+        padding: 0.75rem;
         border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 8px;
         background: rgba(255, 255, 255, 0.9);
         font-size: 1rem;
         transition: border-color 0.2s, box-shadow 0.2s;
     }
-    
+
     /* Hover- und Fokus-Effekte für Eingabefelder */
     .contact-form input:focus,
     .contact-form textarea:focus {
@@ -1862,20 +1870,20 @@ body {
         border-color: var(--accent);
         box-shadow: 0 0 0 2px rgba(0, 21, 255, 0.1);
     }
-    
+
     /* Checkbox-Styling für bessere Bedienbarkeit */
     .contact-form input[type="checkbox"] {
         margin-right: 0.5rem;
         transform: scale(1.2);
     }
-    
+
     /* Beschriftung für Checkbox mit kleinerem Text */
-    .contact-form input[type="checkbox"] + label {
+    .contact-form input[type="checkbox"]+label {
         display: inline;
         font-size: 0.8rem;
         line-height: 1.3;
     }
-    
+
     /* Verbesserter Submit-Button */
     .submit-button {
         width: 100%;
@@ -1890,23 +1898,24 @@ body {
         margin-top: 1rem;
         transition: background-color 0.3s;
     }
-    
+
     /* Hover-Effekt für Button */
     .submit-button:hover {
         background-color: #0010cc;
     }
-    
+
     /* Verbesserte Textfeld-Größen für mobile Eingabe */
     .contact-form textarea {
         min-height: 120px;
         resize: vertical;
     }
-        /* Container für das Kontaktformular richtig ausrichten */
-        .content-wrapper {
-            width: 100%;
-            padding: 0;
-            box-sizing: border-box;
-        }
+
+    /* Container für das Kontaktformular richtig ausrichten */
+    .content-wrapper {
+        width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
 }
 
@@ -2311,17 +2320,17 @@ body {
    Stilisierung für das Kontaktformular
    ====================================================== */
 
-    .contact-form-section {
-        width: 100%;
-        padding: 1.5rem 0;
-        box-sizing: border-box;
-    }
+   .contact-form-section {
+    width: 100%;
+    padding: 1.5rem 0;
+    box-sizing: border-box;
+}
 
-    .contact-heading {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        color: var(--text-primary);
-    }
+.contact-heading {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
 
     .contact-intro {
         margin-bottom: 2rem;
@@ -2330,7 +2339,8 @@ body {
 
     .form-group {
         width: 100%;
-        margin: 0 0 1rem 0; /* Kein seitlicher Margin */
+        margin: 0 0 1rem 0;
+        /* Kein seitlicher Margin */
     }
 
     .form-group label {
@@ -2338,9 +2348,12 @@ body {
         font-weight: bold;
     }
 
+    /* Eingabefelder auf 100% Breite setzen */
     .form-group input[type="text"],
     .form-group input[type="email"],
     .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
         padding: 0.75rem;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -2664,7 +2677,7 @@ body {
 
     /* Kontaktformular direkt im Header platzieren */
     .kontakt-page .contact-form-section {
-        width: 75%;
+        width: 100%;
         order: 1;
         /* Links anordnen */
     }
