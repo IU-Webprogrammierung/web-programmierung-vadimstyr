@@ -1083,6 +1083,12 @@ body {
         min-height: 50vh;
     }
 
+    #me-subtitle{
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
     /* ====================================================
        HEADER UND LAYOUT-ELEMENTE
        ==================================================== */
