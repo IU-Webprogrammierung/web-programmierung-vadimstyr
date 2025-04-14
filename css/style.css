@@ -2623,13 +2623,7 @@ body {
     }
 
 
-    /* Projektbeschreibungen größer und besser lesbar */
-    .project-description {
-        font-size: 1.2rem;
-        line-height: 1.5;
-        margin: 1rem 0;
-        text-align: center;
-    }
+
 
     /* Projekt-Titel mit Gradient-Unterstreichung */
     .project-title {
@@ -2671,7 +2665,7 @@ body {
         background-color: rgba(0, 0, 0, 0.05);
         padding: 0.35rem 0.8rem;
         border-radius: 20px;
-        font-size: 0.9rem;
+        font-size: 1rem;
         font-weight: 500;
         color: #444;
         transition: all 0.3s ease;
@@ -2688,8 +2682,9 @@ body {
         line-height: 1.7;
         margin: 1.5rem auto;
         max-width: 550px;
-        font-size: 1.05rem;
+        font-size: 1.3rem;
     }
+
 
     /* Button anpassen und vergrößern für bessere Bedienung */
     .project-button {
