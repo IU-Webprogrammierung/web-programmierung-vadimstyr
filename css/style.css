@@ -1793,6 +1793,121 @@ body {
                 transparent);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
+        /* ====================================================
+       KONTAKTFORMULAR MOBILE OPTIMIERUNG
+       Verbessert die Benutzerfreundlichkeit und das visuelle 
+       Erscheinungsbild des Kontaktformulars auf mobilen Geräten
+       ==================================================== */
+    
+    /* Kontakt-Sektion mit besseren Abständen und Zentrierung */
+    .contact-form-section {
+        border-radius: 12px;
+        text-align: center;
+    }
+    
+    /* Überschrift des Kontaktformulars */
+    .contact-heading {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+        color: var(--accent);
+        text-align: center;
+    }
+    
+    /* Einleitungstext zum Formular */
+    .contact-intro {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    /* Das Formular selbst */
+    .contact-form {
+        padding: 0 3rem;
+    }
+    
+    /* Einzelne Formulargruppen mit verbesserten Abständen */
+    .form-group {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 1.2rem 0;
+        box-sizing: border-box;
+    }
+    
+    /* Optimierte Labels für bessere Lesbarkeit */
+    .contact-form label {
+        display: block;
+        margin-bottom: 0.4rem;
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+    
+    /* Verbesserte Eingabefelder für Touch-Eingabe */
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    
+    /* Hover- und Fokus-Effekte für Eingabefelder */
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 2px rgba(0, 21, 255, 0.1);
+    }
+    
+    /* Checkbox-Styling für bessere Bedienbarkeit */
+    .contact-form input[type="checkbox"] {
+        margin-right: 0.5rem;
+        transform: scale(1.2);
+    }
+    
+    /* Beschriftung für Checkbox mit kleinerem Text */
+    .contact-form input[type="checkbox"] + label {
+        display: inline;
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+    
+    /* Verbesserter Submit-Button */
+    .submit-button {
+        width: 100%;
+        padding: 0.9rem;
+        background: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: background-color 0.3s;
+    }
+    
+    /* Hover-Effekt für Button */
+    .submit-button:hover {
+        background-color: #0010cc;
+    }
+    
+    /* Verbesserte Textfeld-Größen für mobile Eingabe */
+    .contact-form textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+        /* Container für das Kontaktformular richtig ausrichten */
+        .content-wrapper {
+            width: 100%;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
 }
 
 /* Tablet */
@@ -2197,9 +2312,9 @@ body {
    ====================================================== */
 
     .contact-form-section {
-        max-width: 800px;
-        margin: 3rem auto;
-        padding: 0 1rem;
+        width: 100%;
+        padding: 1.5rem 0;
+        box-sizing: border-box;
     }
 
     .contact-heading {
@@ -2213,15 +2328,9 @@ body {
         color: var(--text-secondary);
     }
 
-    .contact-form {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
     .form-group {
-        display: flex;
-        flex-direction: column;
+        width: 100%;
+        margin: 0 0 1rem 0; /* Kein seitlicher Margin */
     }
 
     .form-group label {
