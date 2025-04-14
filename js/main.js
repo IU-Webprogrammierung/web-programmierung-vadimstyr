@@ -174,3 +174,25 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+// In main.js - verbesserte Version
+document.addEventListener('DOMContentLoaded', function() {
+    const profileContainers = document.querySelectorAll('.profile-picture-container');
+    
+    profileContainers.forEach(container => {
+        // Container quadratisch machen
+        container.style.aspectRatio = "1/1";
+        container.classList.add('js-animation');
+        
+        // Elemente erstellen
+        const stripes = document.createElement('div');
+        stripes.className = 'rotating-stripes';
+        
+        const spacer = document.createElement('div');
+        spacer.className = 'white-spacer';
+        
+        // Elemente in der richtigen Reihenfolge einfügen
+        // Wichtig: stripes muss VOR spacer eingefügt werden damit die Animation sichtbar ist
+        container.insertBefore(stripes, container.firstChild);
+        container.insertBefore(spacer, container.firstChild);
+    });
+});

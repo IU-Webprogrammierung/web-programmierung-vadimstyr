@@ -2012,14 +2012,32 @@ body {
         padding: 1rem;
     }
 
-    .social-media-buttons,
-    .social-media-buttons-kontakt {
-        margin-bottom: 200px;
+    /* ====================================================
+       ELEGANTE TRENNLINIE - SOCIAL MEDIA ICONS
+       Fügt eine subtile, horizontale Gradientenlinie unter 
+       den Social-Media-Icons ein für konsistentes Design
+       ==================================================== */
+    .social-media-buttons-profile {
+        position: relative;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
     }
 
-    .social-media-buttons i,
-    .social-media-buttons-kontakt i {
-        font-size: 2.5rem;
+    .social-media-buttons-profile::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.1) 20%,
+                rgba(0, 0, 0, 0.2) 50%,
+                rgba(0, 0, 0, 0.1) 80%,
+                transparent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
 
     .quiz-app-picture img,
@@ -2208,22 +2226,23 @@ body {
     .modal-close {
         display: none !important;
     }
-        /* ======================================================
+
+    /* ======================================================
    KONTAKTFORMULAR
    Stilisierung für das Kontaktformular
    ====================================================== */
 
-   .contact-form-section {
-    width: 100%;
-    padding: 1.5rem 0;
-    box-sizing: border-box;
-}
+    .contact-form-section {
+        width: 100%;
+        padding: 1.5rem 0;
+        box-sizing: border-box;
+    }
 
-.contact-heading {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-}
+    .contact-heading {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+    }
 
     .contact-intro {
         margin-bottom: 2rem;
@@ -2288,6 +2307,66 @@ body {
     .submit-button:hover {
         background-color: var(--accent-hover, #0056b3);
     }
+
+    /* ======================================================
+       PROFILBILD-ANIMATION - ROTIERENDE STREIFEN (TABLET)
+       Erzeugt zwei rotierende schwarze Streifen um das Profilbild
+       auf der Me-Seite - identisch zur Desktop-Version
+       ====================================================== */
+    body:not(.home-page) .profile-picture {
+        margin-top: 0;
+        /* Entferne die Verschiebung */
+    }
+
+    /* Angepasste CSS-Styles */
+    @keyframes rotate-strip {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Container-Styling */
+    .profile-picture-container.js-animation {
+        position: relative;
+        border-radius: 50%;
+        overflow: visible;
+        aspect-ratio: 1/1;
+        /* Erzwingt ein quadratisches Verhältnis */
+    }
+
+    /* Rotierender Streifen */
+    .rotating-stripes {
+        position: absolute;
+        inset: -12px;
+        /* Kleiner Abstand */
+        border-radius: 50%;
+        background: conic-gradient(rgb(255, 255, 255) 0deg,
+                black 90deg,
+                transparent 90deg,
+                transparent 180deg,
+                rgb(253, 253, 253) 180deg,
+                black 270deg,
+                transparent 270deg,
+                transparent 360deg);
+        z-index: -2;
+        animation: rotate-strip 5s linear infinite;
+    }
+
+    /* Weißer Spacer */
+    .white-spacer {
+        position: absolute;
+        inset: -4px;
+        /* Halb so groß wie Stripes-Abstand */
+        border-radius: 50%;
+        background: #ffffff;
+        z-index: -1;
+    }
+
+
 
 }
 
@@ -2394,17 +2473,17 @@ body {
    Stilisierung für das Kontaktformular
    ====================================================== */
 
-   .contact-form-section {
-    width: 100%;
-    padding: 1.5rem 0;
-    box-sizing: border-box;
-}
+    .contact-form-section {
+        width: 100%;
+        padding: 1.5rem 0;
+        box-sizing: border-box;
+    }
 
-.contact-heading {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-}
+    .contact-heading {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+    }
 
     .contact-intro {
         margin-bottom: 2rem;
