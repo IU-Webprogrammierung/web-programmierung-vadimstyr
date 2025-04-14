@@ -1847,6 +1847,8 @@ body {
         margin-bottom: 0.4rem;
         font-weight: 500;
         font-size: 0.9rem;
+        color: black;
+        font-weight: bold;
     }
 
     /* Verbesserte Eingabefelder für Touch-Eingabe */
@@ -1909,14 +1911,6 @@ body {
         min-height: 120px;
         resize: vertical;
     }
-
-    /* Container für das Kontaktformular richtig ausrichten */
-    .content-wrapper {
-        width: 100%;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
 }
 
 /* Tablet */
@@ -2213,6 +2207,86 @@ body {
     /* Schließen-Button verstecken */
     .modal-close {
         display: none !important;
+    }
+        /* ======================================================
+   KONTAKTFORMULAR
+   Stilisierung für das Kontaktformular
+   ====================================================== */
+
+   .contact-form-section {
+    width: 100%;
+    padding: 1.5rem 0;
+    box-sizing: border-box;
+}
+
+.contact-heading {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+    .contact-intro {
+        margin-bottom: 2rem;
+        color: var(--text-secondary);
+    }
+
+    .form-group {
+        width: 100%;
+        margin: 0 0 1rem 0;
+        /* Kein seitlicher Margin */
+    }
+
+    .form-group label {
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+
+    /* Eingabefelder auf 100% Breite setzen */
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 1rem;
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .form-group input[type="checkbox"] {
+        margin-right: 0.5rem;
+    }
+
+    .form-group:has(input[type="checkbox"]) {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .form-group:has(input[type="checkbox"]) label {
+        font-size: 0.9rem;
+        font-weight: normal;
+    }
+
+    .submit-button {
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        align-self: flex-start;
+    }
+
+    .submit-button:hover {
+        background-color: var(--accent-hover, #0056b3);
     }
 
 }
