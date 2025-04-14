@@ -2241,7 +2241,8 @@ body {
     .contact-heading {
         font-size: 2.5rem;
         margin-bottom: 1rem;
-        color: var(--text-primary);
+        color:red;
+        font-weight: bold;
     }
 
     .contact-intro {
@@ -2335,14 +2336,13 @@ body {
         border-radius: 50%;
         overflow: visible;
         aspect-ratio: 1/1;
-        /* Erzwingt ein quadratisches Verhältnis */
+        margin-top: 2rem;
     }
 
     /* Rotierender Streifen */
     .rotating-stripes {
         position: absolute;
         inset: -12px;
-        /* Kleiner Abstand */
         border-radius: 50%;
         background: conic-gradient(rgb(255, 255, 255) 0deg,
                 black 90deg,
@@ -2360,14 +2360,77 @@ body {
     .white-spacer {
         position: absolute;
         inset: -4px;
-        /* Halb so groß wie Stripes-Abstand */
         border-radius: 50%;
         background: #ffffff;
         z-index: -1;
     }
 
+    /* Social Media Icons Pop-Animation */
 
+    /* Basis-Styling der Social-Media-Icons */
+    .social-media-link {
+        position: relative;
+        display: inline-block;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: scale(0.5);
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
 
+    /* Die Pop-Animation */
+    @keyframes popAndColor {
+        0% {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        70% {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* DIESE REGEL FEHLT - füge sie hinzu: */
+    .social-media-link.animate {
+        animation: popAndColor 0.6s forwards;
+    }
+
+    .social-media-buttons-profile a:nth-child(1).animate {
+        animation-delay: 0.2s;
+    }
+
+    .social-media-buttons-profile a:nth-child(2).animate {
+        animation-delay: 0.4s;
+    }
+
+    .social-media-buttons-profile a:nth-child(3).animate {
+        animation-delay: 0.6s;
+    }
+
+    .social-media-buttons-profile a:nth-child(4).animate {
+        animation-delay: 0.8s;
+    }
+
+    .social-media-buttons-profile a:nth-child(5).animate {
+        animation-delay: 1.0s;
+    }
+
+    /* ÄNDERN: Farbregel ohne !important während Animation */
+    .social-media-buttons-profile i {
+        transition: color 0.5s ease;
+        font-size: 2rem;
+    }
+
+    /* Farbe nur für Icons OHNE Farbklasse */
+    .social-media-buttons-profile a:not(.color-vavira):not(.color-github):not(.color-xing):not(.color-linkedin):not(.color-mail) i {
+        color: black;
+    }
 }
 
 /* Desktop */
