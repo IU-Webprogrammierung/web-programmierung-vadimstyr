@@ -1016,12 +1016,14 @@ body {
     margin-top: 10px;
     margin-bottom: 1.5rem;
 }
+
 /* Animation für me-subtitle */
 @keyframes slideInFromLeft {
     0% {
         transform: translateX(-20px);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
@@ -1032,9 +1034,11 @@ body {
     0% {
         color: black;
     }
+
     80% {
         color: black;
     }
+
     100% {
         color: var(--accent, #ff0000);
     }
@@ -1083,7 +1087,7 @@ body {
         min-height: 50vh;
     }
 
-    #me-subtitle{
+    #me-subtitle {
         font-size: 1.2rem;
         margin-top: 0.5rem;
         margin-bottom: 1rem;
@@ -1946,6 +1950,73 @@ body {
         min-height: 120px;
         resize: vertical;
     }
+
+
+    /* ======================================================
+   PROJEKT-PRÄSENTATION STYLING
+   System zur einheitlichen Darstellung von Projekten
+   ====================================================== */
+
+    /* Projekt-Titel mit eleganter Unterstreichung */
+    .project-title {
+        font-size: 2.0rem;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .project-title::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, var(--accent), transparent);
+    }
+
+    /* Zeitraum im dezenten Stil */
+    .project-date {
+        font-style: italic;
+        color: #666;
+        margin-bottom: 1.2rem;
+        font-size: 1.1rem;
+    }
+
+    /* Flexible Tag-Container für Technologien */
+    .tech-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+        justify-content: center;
+    }
+
+    /* Einzelne Technologie-Tags mit Hover-Effekt */
+    .tech-tag {
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 0.35rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #444;
+        transition: all 0.3s ease;
+    }
+
+    .tech-tag:hover {
+        background-color: var(--accent);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    /* Optimierte Projektbeschreibung */
+    .project-description {
+        line-height: 1.7;
+        margin: 1.5rem auto;
+        max-width: 550px;
+        font-size: 1.05rem;
+    }
 }
 
 /* Tablet */
@@ -2196,9 +2267,6 @@ body {
             hide-cursor 0.1s linear 12.6s forwards;
     }
 
-    .centered-content {
-        margin-top: 120px;
-    }
 
     /* CV Schriftgrößere angepasst */
 
@@ -2276,7 +2344,7 @@ body {
     .contact-heading {
         font-size: 2.5rem;
         margin-bottom: 1rem;
-        color:red;
+        color: red;
         font-weight: bold;
     }
 
@@ -2467,11 +2535,11 @@ body {
         color: black;
     }
 
-        /* ====================================================
+    /* ====================================================
        PROJEKTSEITE LAYOUT UND TRENNLINIEN (TABLET)
        Optimierte Darstellung mit stilvollen Trennlinien
        ==================================================== */
-    
+
     /* Hauptcontainer für Projekte zentrieren und optimieren */
     .centered-content {
         max-width: 90%;
@@ -2479,7 +2547,7 @@ body {
         padding: 0 15px;
         margin-top: 2rem;
     }
-    
+
     /* Elegante Trennlinie unter der Projekteüberschrift */
     .header-projekte {
         position: relative;
@@ -2487,7 +2555,7 @@ body {
         margin-bottom: 3rem;
         text-align: center;
     }
-    
+
     .header-projekte::after {
         content: "";
         position: absolute;
@@ -2505,7 +2573,7 @@ body {
                 transparent);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
-    
+
     /* Projektcontainer vertikal anordnen statt horizontal */
     .project-section .quiz-app-container,
     .project-section .e-commerce-container {
@@ -2518,7 +2586,7 @@ body {
         margin-bottom: 3rem;
         max-width: 100%;
     }
-    
+
     /* Elegante Trennlinie unter jedem Projekt */
     .project-section .quiz-app-container::after,
     .project-section .e-commerce-container::after {
@@ -2537,12 +2605,12 @@ body {
                 transparent);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
-    
+
     /* Keine Trennlinie unter dem letzten Projekt */
     .project-section .e-commerce-container:last-child::after {
         display: none;
     }
-    
+
     /* Größere Projektbilder für bessere Sichtbarkeit */
     .quiz-app-picture img,
     .e-commerce-picture img {
@@ -2554,7 +2622,7 @@ body {
         margin-bottom: 1.5rem;
     }
 
-    
+
     /* Projektbeschreibungen größer und besser lesbar */
     .project-description {
         font-size: 1.2rem;
@@ -2562,15 +2630,67 @@ body {
         margin: 1rem 0;
         text-align: center;
     }
-    
-    /* Projekttitel hervorheben */
+
+    /* Projekt-Titel mit Gradient-Unterstreichung */
     .project-title {
-        font-size: 1.8rem;
-        margin-top: 0.5rem;
-        margin-bottom: 1rem;
-        color: var(--primary);
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+        position: relative;
+        display: inline-block;
     }
-    
+
+    .project-title::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, var(--accent), transparent);
+    }
+
+    /* Zeitraum stilvoller darstellen */
+    .project-date {
+        font-style: italic;
+        color: #666;
+        margin-bottom: 1.2rem;
+        font-size: 1.1rem;
+    }
+
+    /* Technologie-Tags */
+    .tech-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+        justify-content: center;
+    }
+
+    .tech-tag {
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 0.35rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #444;
+        transition: all 0.3s ease;
+    }
+
+    .tech-tag:hover {
+        background-color: var(--accent);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    /* Projekt-Beschreibung mit besserer Lesbarkeit */
+    .project-description {
+        line-height: 1.7;
+        margin: 1.5rem auto;
+        max-width: 550px;
+        font-size: 1.05rem;
+    }
+
     /* Button anpassen und vergrößern für bessere Bedienung */
     .project-button {
         font-size: 1.1rem;
@@ -2579,7 +2699,7 @@ body {
         background-color: rgba(255, 255, 255, 0.7);
         transition: all 0.3s ease;
     }
-    
+
     .project-button:hover {
         background-color: var(--accent);
         color: white;
@@ -2933,94 +3053,6 @@ body {
 
 
 
-    /* ======================================================
-   PROJECT LAYOUT - STYLING & STRUKTUR
-   Für die Projekt-Seite mit Bildvorschau links und Text rechts
-   Enthält Stile für Container, Bilder, Titel, Beschreibungen und Buttons
-   ====================================================== */
-
-    /* Container für die Projekt-Einträge mit Flexbox-Layout */
-
-    .centered-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Gemeinsame Ausrichtung für Header, Content und Überschriften */
-    .centered-content .header-projekte,
-    .centered-content .content-projekte,
-    .centered-content .title,
-    .centered-content .subtitle {
-        width: 100%;
-        text-align: center;
-    }
-
-    /* Stilvoller Untertitel */
-    .header-projekte .subtitle {
-        font-size: 1.2rem;
-        font-weight: normal;
-        font-style: italic;
-        color: rgba(0, 0, 0, 0.7);
-        margin-top: 1.5rem;
-        letter-spacing: 1px;
-        padding-bottom: 20px;
-    }
-
-    .project-section .quiz-app-container,
-    .e-commerce-container {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        margin: 0 auto 3rem;
-        text-align: center;
-        max-width: 80%;
-    }
-
-    .quiz-app-picture,
-    .e-commerce-picture {
-        flex: 0 0 auto;
-        width: 220px;
-    }
-
-    .quiz-app-picture img,
-    .e-commerce-picture img {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .project-title {
-        text-align: center;
-        margin-top: 0;
-    }
-
-    .project-description {
-        margin-bottom: 0.5rem;
-        line-height: 1.5;
-    }
-
-    .project-button {
-        font-size: clamp(0.3em, 2vw, 0.7em);
-        margin-top: 20px;
-    }
-
-    .project-button:hover {
-        background: var(--accent);
-    }
-
-
-
-    /* ====== ENDE PROJECT LAYOUT ====== */
-
-
-
-
     /* Gemeinsames Icon-Styling */
     /* Spezifisches Layout für die Kontaktseite */
     /* Spezifisches Layout für die Kontaktseite */
@@ -3206,5 +3238,205 @@ body {
     /* Schließen-Button verstecken */
     .modal-close {
         display: none !important;
+    }
+
+    /* ======================================================
+       PROJEKT-PRÄSENTATION STYLING (DESKTOP)
+       Elegante und responsive Darstellung von Projekten für große Bildschirme
+       ====================================================== */
+    /* Header-Projekte weiter nach unten verschieben, um Überlappung mit dem Menü zu vermeiden */
+    .header-projekte {
+        margin-top: 6rem;
+        /* Großzügiger Abstand zum Menü */
+        padding-top: 2rem;
+        /* Zusätzlicher innerer Abstand */
+        position: relative;
+        text-align: center;
+    }
+
+    /* Elegante Trennlinie unter der Projekteüberschrift auch für Desktop */
+    .header-projekte::after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 2px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.1) 20%,
+                var(--accent) 50%,
+                rgba(0, 0, 0, 0.1) 80%,
+                transparent);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Hauptcontainer für Projekte */
+    .centered-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Projekttitel mit Gradient-Unterstreichung */
+    .project-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        position: relative;
+        display: inline-block;
+        text-align: left;
+        /* Links ausrichten für Desktop */
+    }
+
+    .project-title::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(to right, var(--accent), transparent 80%);
+    }
+
+    /* Zweispaltiges Layout für Projekte */
+    .project-section .quiz-app-container,
+    .project-section .e-commerce-container {
+        display: flex;
+        align-items: center;
+        gap: 5rem;
+        margin: 4rem auto;
+        position: relative;
+        max-width: 1000px;
+    }
+
+    /* Abwechselnde Ausrichtung für mehr visuelle Dynamik */
+    .project-section .quiz-app-container {
+        flex-direction: row;
+        /* Bild links, Text rechts */
+    }
+
+    .project-section .e-commerce-container {
+        flex-direction: row-reverse;
+        /* Bild rechts, Text links */
+    }
+
+    /* Bildcontainer mit vergrößerten Bildern */
+    .quiz-app-picture,
+    .e-commerce-picture {
+        flex: 0 0 330px;
+    }
+
+    .quiz-app-picture img,
+    .e-commerce-picture img {
+        width: 320px;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .quiz-app-picture img:hover,
+    .e-commerce-picture img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Textcontainer mit besserer Ausrichtung */
+    .quiz-text-container,
+    .e-commerce-text-container {
+        flex: 1;
+        text-align: left;
+    }
+
+    /* Projektdatum mit dezenter Darstellung */
+    .project-date {
+        font-style: italic;
+        color: #666;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+
+    /* Technologie-Tags mit linksbündiger Ausrichtung */
+    .tech-tags {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 1.2rem 0;
+        justify-content: flex-start;
+    }
+
+    .tech-tag {
+        background-color: rgba(0, 0, 0, 0.04);
+        padding: 0.4rem 1rem;
+        border-radius: 25px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #333;
+        transition: all 0.3s ease;
+    }
+
+    .tech-tag:hover {
+        background-color: var(--accent);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Projekt-Beschreibung mit optimierter Lesbarkeit */
+    .project-description {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin: 1.5rem 0;
+        max-width: 650px;
+        color: #333;
+    }
+
+    /* Größere, auffälligere Call-to-Action-Buttons */
+    .project-button {
+        font-size: 1rem;
+        padding: 0.8rem 2rem;
+        margin-top: 1rem;
+        background-color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .project-button:hover {
+        background-color: var(--accent);
+        color: white;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Trennlinie zwischen Projekten */
+    .project-section .quiz-app-container::after {
+        content: "";
+        position: absolute;
+        bottom: -2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.05) 20%,
+                rgba(0, 0, 0, 0.1) 50%,
+                rgba(0, 0, 0, 0.05) 80%,
+                transparent);
+    }
+
+    .e-commerce-container .tech-tags {
+        justify-content: center; /* Muss rechtsbündig sein, erscheint aber linksbündig wegen flex-direction: row-reverse */
+    }
+    
+
+
+
+
+    #impressum-footer-projekte {
+        bottom: -250px;
     }
 }
