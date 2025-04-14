@@ -196,3 +196,42 @@ document.addEventListener('DOMContentLoaded', function() {
         container.insertBefore(spacer, container.firstChild);
     });
 });
+
+// Text-Animation für me-subtitle - buchstabenweise
+document.addEventListener('DOMContentLoaded', function() {
+    const subtitle = document.getElementById('me-subtitle');
+    
+    if (subtitle) {
+        // Aktuellen Text holen
+        const text = subtitle.innerText;
+        let animatedHTML = '';
+        let delay = 0;
+        let charIndex = 0;
+        
+        // Durch jeden Buchstaben des Textes iterieren
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i];
+            
+            if (char === '\n') {
+                // Zeilenumbrüche beibehalten
+                animatedHTML += '<br>';
+                delay += 0.1; // Kurze Pause nach Zeilenumbruch
+            } else if (char === ' ') {
+                // Leerzeichen beibehalten, aber keine Animation
+                animatedHTML += ' ';
+                delay += 0.05; // Kurze Pause bei Leerzeichen
+            } else {
+                // Jeder Buchstabe bekommt seine eigene Animation mit verzögertem Start
+                animatedHTML += `<span class="animated-char" 
+                                      style="animation-delay: ${delay}s;">
+                                      ${char}
+                                 </span>`;
+                delay += 0.08; // Delay zwischen Buchstaben (vorher 0.2 für Wörter)
+                charIndex++;
+            }
+        }
+        
+        // Ersetze den Originaltext durch die animierten Spans
+        subtitle.innerHTML = animatedHTML;
+    }
+});

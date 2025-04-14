@@ -1016,6 +1016,35 @@ body {
     margin-top: 10px;
     margin-bottom: 1.5rem;
 }
+/* Animation für me-subtitle */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes changeColor {
+    0% {
+        color: black;
+    }
+    80% {
+        color: black;
+    }
+    100% {
+        color: var(--accent, #ff0000);
+    }
+}
+
+.animated-char {
+    display: inline-block;
+    opacity: 0;
+    animation: slideInFromLeft 0.8s forwards, changeColor 2s forwards;
+}
 
 /* Mobile */
 @media (max-width: 640px) {
@@ -2430,6 +2459,126 @@ body {
     /* Farbe nur für Icons OHNE Farbklasse */
     .social-media-buttons-profile a:not(.color-vavira):not(.color-github):not(.color-xing):not(.color-linkedin):not(.color-mail) i {
         color: black;
+    }
+
+        /* ====================================================
+       PROJEKTSEITE LAYOUT UND TRENNLINIEN (TABLET)
+       Optimierte Darstellung mit stilvollen Trennlinien
+       ==================================================== */
+    
+    /* Hauptcontainer für Projekte zentrieren und optimieren */
+    .centered-content {
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 0 15px;
+        margin-top: 2rem;
+    }
+    
+    /* Elegante Trennlinie unter der Projekteüberschrift */
+    .header-projekte {
+        position: relative;
+        padding-bottom: 2rem;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+    
+    .header-projekte::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.1) 20%,
+                rgba(0, 0, 0, 0.2) 50%,
+                rgba(0, 0, 0, 0.1) 80%,
+                transparent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Projektcontainer vertikal anordnen statt horizontal */
+    .project-section .quiz-app-container,
+    .project-section .e-commerce-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        padding-bottom: 3rem;
+        margin-bottom: 3rem;
+        max-width: 100%;
+    }
+    
+    /* Elegante Trennlinie unter jedem Projekt */
+    .project-section .quiz-app-container::after,
+    .project-section .e-commerce-container::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.1) 20%,
+                rgba(0, 0, 0, 0.2) 50%,
+                rgba(0, 0, 0, 0.1) 80%,
+                transparent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Keine Trennlinie unter dem letzten Projekt */
+    .project-section .e-commerce-container:last-child::after {
+        display: none;
+    }
+    
+    /* Größere Projektbilder für bessere Sichtbarkeit */
+    .quiz-app-picture img,
+    .e-commerce-picture img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-bottom: 1.5rem;
+    }
+
+    
+    /* Projektbeschreibungen größer und besser lesbar */
+    .project-description {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin: 1rem 0;
+        text-align: center;
+    }
+    
+    /* Projekttitel hervorheben */
+    .project-title {
+        font-size: 1.8rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary);
+    }
+    
+    /* Button anpassen und vergrößern für bessere Bedienung */
+    .project-button {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+        margin-top: 1rem;
+        background-color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+    }
+    
+    .project-button:hover {
+        background-color: var(--accent);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
 }
 
