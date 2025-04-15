@@ -1,3 +1,15 @@
+// Dieser Code steuert das mobile Menü (Hamburger-Menü) und den Ripple-Effekt für Buttons:
+//
+// 1. Menü-Toggle:
+//    - Öffnet und schließt das mobile Navigationsmenü, wenn auf das Menü-Icon geklickt wird.
+//    - Wechselt die Sichtbarkeit des Menüs und den aktiven Zustand des Icons.
+//    - Setzt das aria-expanded-Attribut für Barrierefreiheit.
+//
+// 2. Ripple-Effekt:
+//    - Fügt bei Klick auf Buttons und bestimmte Links einen animierten "Ripple"-Effekt hinzu.
+//    - Der Effekt breitet sich vom Klickpunkt aus und verschwindet nach kurzer Zeit wieder.
+//    - Vorherige Ripple-Elemente werden entfernt, damit immer nur ein Effekt sichtbar ist.
+
 document.addEventListener('DOMContentLoaded', function () {
     // Menü-Toggle Code
     const menuToggle = document.querySelector('.menu-toggle');
@@ -48,8 +60,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 600);
     }
 
-    // Seitenübergangs-Animation
-    // Füge page-transition Element zum DOM hinzu
+
+// Seitenübergangs-Animation:
+// Fügt beim Klick auf interne Links eine sanfte Übergangsanimation ein.
+// Beim Klick auf einen Link wird die Standard-Navigation verhindert, eine Overlay-Animation gestartet
+// und nach Abschluss der Animation (0.8s) zur Zielseite navigiert.
+// Das sorgt für einen flüssigen, modernen Seitenwechsel-Effekt.
+
     const transitionElement = document.createElement('div');
     transitionElement.className = 'page-transition';
     document.body.appendChild(transitionElement);
@@ -78,7 +95,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 100);
 });
 
-// Animation beim Laden der Seite
+
+// Animation beim Laden der Seite:
+// Stellt sicher, dass die Seitenübergangs-Animation korrekt angezeigt wird.
+// Wenn die Seite aus dem Cache geladen wird (z.B. beim Zurück-Navigieren), wird sie neu geladen,
+// damit die Animation erneut abgespielt werden kann.
+// Nach dem Laden der Seite wird das Overlay für die Seitenübergangs-Animation mit kurzer Verzögerung entfernt,
+// sodass der Inhalt sichtbar wird.
 window.addEventListener('pageshow', function (event) {
     // Überprüfe, ob die Seite aus dem Cache geladen wird
     if (event.persisted) {
@@ -94,7 +117,11 @@ window.addEventListener('pageshow', function (event) {
     }
 });
 
-// Zertifikate-Button - ausklappen von Zertufikaten
+
+// Zertifikate-Button - ausklappen von Zertifikaten:
+// Steuert das Ein- und Ausklappen der Zertifikate-Liste auf der Seite.
+// Beim Klick auf den Toggle-Button wird die Klasse "active" hinzugefügt oder entfernt,
+// wodurch die Zertifikate sichtbar oder versteckt werden (z.B. für mobile Ansicht).
 
 document.addEventListener('DOMContentLoaded', () => {
     const certToggle = document.querySelector('.certificates-toggle');
@@ -106,7 +133,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Social Media Icons Animation
+// Social Media Icons Animation:
+// Animiert die Social Media Icons im Profilbereich beim Laden der Seite.
+// Jedem Icon wird kurzzeitig eine Farbklasse und die Klasse "animate" zugewiesen,
+// wodurch ein Pop- und Farbeffekt ausgelöst wird. Nach der Animation wird die Farbklasse wieder entfernt.
+// Die Animation startet mit einer kurzen Verzögerung nach dem Seitenladen.
 document.addEventListener('DOMContentLoaded', function () {
     const socialLinks = document.querySelectorAll('.social-media-buttons-profile .social-media-link');
 
@@ -133,7 +164,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// Nur für mobile Geräte - CV-Beschreibung als Modal
+// Nur für mobile Geräte - CV-Beschreibung als Modal:
+// Zeigt die Beschreibung eines Lebenslauf-Eintrags als Modal an, wenn auf das Feld geklickt wird (nur bei mobiler Ansicht).
+// Beim Klick auf ein .cv-field wird das Modal mit Titel und Beschreibung gefüllt und angezeigt.
+// Das Modal kann über den Schließen-Button oder durch Klick außerhalb des Inhalts wieder geschlossen werden.
+// Während das Modal geöffnet ist, wird das Hintergrund-Scrolling deaktiviert.
 document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth <= 640) {
       const cvFields = document.querySelectorAll('.cv-field');
@@ -174,7 +209,12 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
-// In main.js - verbesserte Version
+
+
+// Profilbild-Animation (rotierende Streifen):
+// Fügt jedem .profile-picture-container beim Laden der Seite animierte, rotierende Streifen hinzu.
+// Erstellt dazu zwei zusätzliche Elemente (rotating-stripes und white-spacer) und fügt sie in der richtigen Reihenfolge ein.
+// Die Streifen rotieren um das Profilbild und sorgen für einen modernen Animationseffekt.
 document.addEventListener('DOMContentLoaded', function() {
     const profileContainers = document.querySelectorAll('.profile-picture-container');
     
@@ -197,7 +237,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Text-Animation für me-subtitle - buchstabenweise
+
+// Text-Animation für me-subtitle - buchstabenweise:
+// Animiert den Text im Element mit der ID "me-subtitle", indem jeder Buchstabe einzeln mit Verzögerung erscheint.
+// Jeder Buchstabe wird in ein <span> mit einer individuellen animation-delay gepackt.
+// Zeilenumbrüche und Leerzeichen werden korrekt behandelt, sodass der Text natürlich animiert wirkt.
 document.addEventListener('DOMContentLoaded', function() {
     const subtitle = document.getElementById('me-subtitle');
     

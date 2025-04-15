@@ -3397,6 +3397,10 @@ body {
                 transparent);
     }
 
+    #impressum-footer-projekte {
+        bottom: -250px;
+    }
+
     .e-commerce-container .tech-tags {
         justify-content: center; /* Muss rechtsbündig sein, erscheint aber linksbündig wegen flex-direction: row-reverse */
     }
@@ -3405,7 +3409,5 @@ body {
 
 
 
-    #impressum-footer-projekte {
-        bottom: -250px;
-    }
+
 }
