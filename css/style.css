@@ -12,7 +12,7 @@
     --main-font: 'Anton', sans-serif;
 }
 
-/* Basis-Elemente */
+/* Grundlegende Body-Styles: Hintergrund, Schrift, Reset */
 body {
     background: var(--background);
     font-family: Arial, sans-serif;
@@ -21,40 +21,47 @@ body {
     min-height: 100vh;
 }
 
+/* Haupttitel-Schriftart */
 .title {
     font-family: var(--main-font);
 }
 
-/* Gemeinsame Button-Stile */
-.button,
-.nav-link,
-.impressum-link,
-.impressum-link-index,
-.impressum-link-kontakt,
-.impressum-link-lebenslauf,
-.project-button,
-.lebenslauf-link {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.5);
-    /* Leicht weißer Hintergrund */
-    color: var(--primary);
-    font-weight: bold;
-    text-decoration: none;
-    padding: var(--pad-btn);
-    border-radius: var(--radius);
-    border: 1.5px solid var(--primary);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 1;
-}
+/* ======================================================
+   BUTTONS UND LINKS
+   Einheitliche Gestaltung für alle Buttons und Links
+   ====================================================== */
+   .button,
+   .nav-link,
+   .impressum-link,
+   .impressum-link-index,
+   .impressum-link-kontakt,
+   .impressum-link-lebenslauf,
+   .project-button,
+   .lebenslauf-link {
+       display: inline-block;
+       background: rgba(255, 255, 255, 0.5); /* Leicht weißer Hintergrund */
+       color: var(--primary);
+       font-weight: bold;
+       text-decoration: none;
+       padding: var(--pad-btn);
+       border-radius: var(--radius);
+       border: 1.5px solid var(--primary);
+       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+       transition: all 0.3s ease;
+       position: relative;
+       z-index: 1;
+   }
+   
+   /* Navigation-Link mit speziellem Radius */
+   .nav-link {
+       border-radius: var(--nav-radius);
+   }
 
-.nav-link {
-    border-radius: var(--nav-radius);
-}
-
-/* Trennlinie unter der Navigation - besser an .nav ul anhängen */
-.nav ul::after {
+/* ======================================================
+   NAVIGATION
+   Trennlinie unter der Navigation für visuelle Abgrenzung
+   ====================================================== */
+   .nav ul::after {
     content: "";
     display: block;
     width: 100%;
@@ -69,95 +76,74 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Hover-Effekt für Projekt-Button */
 .project-button:hover {
     background: var(--primary);
 }
 
-/* Klick-Animation: Ripple-Effekt */
-.button,
-.nav-link,
-.impressum-link,
-.impressum-link-index,
-.impressum-link-kontakt,
-.impressum-link-lebenslauf,
-.project-button,
-.lebenslauf-link {
-    position: relative;
-    overflow: hidden;
-}
+/* ======================================================
+   BUTTON-EFFEKTE UND ANIMATIONEN
+   Ripple-Effekt und aktive Zustände für Buttons und Links
+   ====================================================== */
+   .button,
+   .nav-link,
+   .impressum-link,
+   .impressum-link-index,
+   .impressum-link-kontakt,
+   .impressum-link-lebenslauf,
+   .project-button,
+   .lebenslauf-link {
+       position: relative;
+       overflow: hidden;
+   }
+   
+   /* Ripple-Element für Klick-Animation (per JS eingefügt) */
+   .ripple {
+       position: absolute;
+       border-radius: 50%;
+       background: rgba(255, 255, 255, 0.7);
+       transform: scale(0);
+       animation: ripple-animation 0.6s ease-out;
+       pointer-events: none;
+   }
+   
+   @keyframes ripple-animation {
+       to {
+           transform: scale(4);
+           opacity: 0;
+       }
+   }
 
-/* Ripple-Element wird durch JS eingefügt */
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.7);
-    transform: scale(0);
-    animation: ripple-animation 0.6s ease-out;
-    pointer-events: none;
-}
-
-@keyframes ripple-animation {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
-
-/* Title und Text Animation */
-@keyframes gradient-shift {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+/* ======================================================
+   TEXT- UND TITEL-ANIMATIONEN
+   Farbverlauf, Schreibmaschinen- und Cursor-Effekte
+   ====================================================== */
+   @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 @keyframes typing {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 100%;
-    }
+    from { width: 0; }
+    to { width: 100%; }
 }
 
 @keyframes blink-caret {
-
-    from,
-    to {
-        border-color: transparent;
-    }
-
-    50% {
-        border-color: var(--accent);
-    }
+    from, to { border-color: transparent; }
+    50% { border-color: var(--accent); }
 }
 
 @keyframes hide-cursor {
-    to {
-        border-color: transparent;
-    }
+    to { border-color: transparent; }
 }
 
 @keyframes waiting {
-
-    0%,
-    100% {
-        width: 0;
-    }
+    0%, 100% { width: 0; }
 }
 
 @keyframes show-cursor {
-    to {
-        border-color: var(--accent);
-    }
+    to { border-color: var(--accent); }
 }
 
 /* Verbesserter Hover-Effekt */
@@ -174,7 +160,10 @@ body {
     background: rgba(255, 255, 255, 0.8);
 }
 
-/* Active-Effekt verstärken */
+/* ======================================================
+   BUTTON-HOVER UND ACTIVE-ZUSTÄNDE
+   Verbesserte Interaktion und visuelles Feedback
+   ====================================================== */
 .button:active,
 .nav-link:active,
 .impressum-link:active,
@@ -216,7 +205,10 @@ body {
     }
 }
 
-/* Accessibility */
+/* ======================================================
+   ACCESSIBILITY: SKIP-LINK
+   Ermöglicht das Überspringen der Navigation für Screenreader
+   ====================================================== */
 .skip-link {
     position: absolute;
     top: -40px;
@@ -232,7 +224,10 @@ body {
     outline: 2px solid var(--accent);
 }
 
-/* Moderne Clip-Path Animation */
+/* ======================================================
+   PAGE-TRANSITION UND BLOCK-ANIMATIONEN
+   Für Seitenübergänge und visuelle Effekte
+   ====================================================== */
 .page-transition {
     position: fixed;
     top: 0;
@@ -337,7 +332,10 @@ body {
     }
 }
 
-/* Layout */
+/* ======================================================
+   LAYOUT-GRUNDELEMENTE
+   Container, Header, Navigation, Footer, Social Media
+   ====================================================== */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -374,14 +372,24 @@ body {
     margin-bottom: clamp(20px, 5vh, 40px);
     font-style: italic;
 }
+/* ======================================================
+   ENDE BASIS-ELEMENTE UND GRUNDDESIGN
+   ====================================================== */
 
-/* Navigation */
+/* ======================================================
+   NAVIGATION, FOOTER UND SOCIAL MEDIA
+   Enthält das Layout und die Stile für die Navigationsleiste,
+   Footer, Burger-Menü und Social Media Bereiche.
+   ====================================================== */
+
+/* Navigation-Leiste: horizontale Ausrichtung und volle Breite */
 .nav {
     width: 100%;
     position: relative;
     display: flex;
 }
 
+/* Navigation-Liste: zentriert, ohne Standard-List-Styles */
 .nav ul {
     list-style: none;
     padding: 0;
@@ -392,6 +400,7 @@ body {
     flex-wrap: wrap;
 }
 
+/* Navigation-Link: Großbuchstaben, responsive Schrift, abgerundete Ecken */
 .nav-link {
     display: block;
     text-transform: uppercase;
@@ -400,21 +409,22 @@ body {
     /* Von 5px auf var(--nav-radius) geändert */
 }
 
+/* Navigation-Link Hover-Effekt: Transparenz */
 .nav-link:hover {
     opacity: 0.8;
 }
 
-/* Content */
+/* Content-Bereich: nimmt keinen zusätzlichen Platz ein */
 .content {
     flex: 0;
 }
 
-/* Footer */
+/* Footer: kein zusätzlicher Außenabstand */
 .impressum-footer {
     margin: 0;
 }
 
-/* Burger-Menu */
+/* Burger-Menü-Button: nur für mobile Ansicht sichtbar */
 .menu-toggle {
     display: none;
     /* Standardmäßig versteckt */
@@ -427,7 +437,7 @@ body {
     padding: 0;
 }
 
-/* Social Media */
+/* Social Media Button-Gruppen: zentriert, mit Abstand */
 .social-media-buttons,
 .social-media-buttons-kontakt,
 .social-media-buttons-profile {
@@ -437,36 +447,39 @@ body {
     margin-top: 1.5rem;
 }
 
+/* Social Media Icons: schwarze Farbe, größere Schrift */
 .social-media-buttons i,
 .social-media-buttons-kontakt i {
     color: black;
     font-size: 1.5rem;
 }
 
+/* Social Media Icon Hover: Transparenz-Übergang */
 .social-media-link:hover i {
     opacity: 0.7;
     transition: opacity 0.3s ease;
 }
 
-/* Pulsierende Animation für Projektbilder */
+/* ======================================================
+   PROJEKTBILDER ANIMATION
+   Pulsierender Effekt für Projektbilder
+   ====================================================== */
 @keyframes pulse-image {
     0% {
         transform: scale(1);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-
     50% {
         transform: scale(1.1);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
-
     100% {
         transform: scale(1);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 }
 
-/* Klasse für die Pulsier-Animation */
+/* Klasse für die Pulsier-Animation bei Projektbildern */
 .quiz-app-picture img,
 .e-commerce-picture img {
     animation: pulse-image 2s ease-in-out;
@@ -477,17 +490,16 @@ body {
    Animierte Timeline mit abwechselnden Einträgen links/rechts
    ====================================================== */
 
-/* Titel und Datum in den Timeline-Boxen zentrieren */
+/* Zentriert Titel, Datum, Feld und Beschreibung in den Timeline-Boxen */
 .timeline-content .cv-title,
 .timeline-content .timeline-date,
 .timeline-content .cv-field,
 .timeline-content .cv-description {
-    text-align: center;
-    /* Von left auf center geändert */
+    text-align: center; /* Inhalt mittig ausrichten */
     width: 100%;
 }
 
-/* Optional: Weitere Verbesserungen für die Timeline-Boxen */
+/* Timeline-Boxen: Hintergrund, Rahmen, Schatten, zentrierte Ausrichtung */
 .timeline-content {
     padding: 20px 30px;
     background-color: rgba(245, 225, 192, 0.7);
@@ -498,10 +510,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Hilft zusätzlich bei der Zentrierung */
 }
 
-/* Timeline Container mit relativer Position für absolute Positionierung der Linie */
+/* Container für die Timeline: mittig, mit Abstand und Padding */
 .timeline-container {
     position: relative;
     max-width: 1200px;
@@ -509,7 +520,7 @@ body {
     padding: 2rem 0;
 }
 
-/* Vertikale Linie in der Mitte */
+/* Vertikale Linie in der Timeline-Mitte, animiert beim Laden */
 .timeline-container::after {
     content: '';
     position: absolute;
@@ -518,17 +529,13 @@ body {
     top: 0;
     bottom: 0;
     left: 50%;
-    /* Horizontale Position: Mitte */
     margin-left: -3px;
-    /* Hälfte der Breite für exakte Zentrierung */
     transform: scaleY(0);
     transform-origin: top;
     animation: grow-line 1.8s ease forwards 0.5s;
 }
 
-
-
-/* Timeline-Einträge */
+/* Einzelne Timeline-Einträge: halbe Breite, Animation beim Erscheinen */
 .timeline-item {
     padding: 10px 40px;
     position: relative;
@@ -540,26 +547,22 @@ body {
     margin-bottom: 30px;
 }
 
-
-
-/* Rechts positionierte Einträge */
+/* Rechts positionierte Timeline-Einträge */
 .right {
     left: 50%;
 }
 
-/* Links positionierte Einträge */
+/* Links positionierte Timeline-Einträge */
 .left {
     left: 0;
 }
 
-/* Kreise auf dem Zeitstrahl */
+/* Verbindungslinien zwischen Timeline-Einträgen und Mittelachse */
 .timeline-item::after {
     content: '';
     position: absolute;
     width: 20px;
-    /* Breite des horizontalen Strichs */
     height: 4px;
-    /* Höhe des horizontalen Strichs */
     background-color: var(--accent);
     top: 30px;
     opacity: 0;
@@ -568,56 +571,53 @@ body {
     z-index: 1;
 }
 
-/* Rechte Timeline-Items: Strich geht nach links */
+/* Linie zeigt nach links bei rechten Einträgen */
 .right::after {
     left: 3px;
     transform-origin: left center;
 }
 
-/* Linke Timeline-Items: Strich geht nach rechts */
+/* Linie zeigt nach rechts bei linken Einträgen */
 .left::after {
     right: -3px;
     transform-origin: right center;
 }
 
-/* Animation für die erscheinenden Striche */
+/* Animation: Linie erscheint horizontal */
 @keyframes line-appear {
     from {
         opacity: 0;
         transform: scaleX(0);
     }
-
     to {
         opacity: 1;
         transform: scaleX(1);
     }
 }
 
-/* Animation für das Einblenden */
+/* Animation: Timeline-Eintrag blendet von unten ein */
 @keyframes fade-in {
     from {
         opacity: 0;
         transform: translateY(30px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Animation für die wachsende Linie */
+/* Animation: Vertikale Linie wächst von oben nach unten */
 @keyframes grow-line {
     from {
         transform: scaleY(0);
     }
-
     to {
         transform: scaleY(1);
     }
 }
 
-/* Styling für die Timeline-Inhalte */
+/* Weiße Variante der Timeline-Box für Detailansicht */
 .timeline-content {
     padding: 20px 30px;
     background-color: white;
@@ -627,7 +627,7 @@ body {
     border-left: 3px solid var(--accent);
 }
 
-/* Start- und Endkreise ebenfalls zu Strichen ändern */
+/* Start- und Endpunkte der Timeline als Kreise */
 .timeline-start-circle {
     width: 20px;
     height: 20px;
@@ -645,64 +645,63 @@ body {
     height: 20px;
     background-color: var(--accent);
     border-radius: 50%;
-    /* Änderung von 0 zu 50% für einen Kreis */
     position: absolute;
     bottom: -10px;
-    /* Anpassung der Position */
     left: 50%;
     transform: translateX(-50%) scale(0);
-    /* scaleX zu scale geändert */
     animation: circle-appear 0.6s ease forwards 2.2s;
 }
 
-/* Animation für die erscheinenden Kreise */
+/* Animation: Kreise erscheinen mit Skalierung */
 @keyframes circle-appear {
     from {
         opacity: 0;
         transform: translateX(-50%) scale(0);
     }
-
     to {
         opacity: 1;
         transform: translateX(-50%) scale(1);
     }
 }
 
+/* Animation: Pulsierender Effekt für Kreise */
 @keyframes circle-pulse {
     0% {
         transform: translateX(-50%) scale(0);
     }
-
     70% {
         transform: translateX(-50%) scale(1.2);
     }
-
     100% {
         transform: translateX(-50%) scale(1);
     }
 }
 
-/* Styling für die Datumsanzeige in der Timeline */
+/* Datumsanzeige in der Timeline: Akzentfarbe und Fettdruck */
 .timeline-date {
     font-weight: bold;
     color: var(--accent);
     margin: 0 0 8px;
 }
 
-/* Skill-Grid mit Kategorien */
+/* ======================================================
+   SKILLS & ZERTIFIKATE IM LEBENSLAUF
+   Enthält Grid-Layout, Fortschrittsbalken und Zertifikate
+   ====================================================== */
+
+/* Container für Skills-Grid */
 .skills-container {
     max-width: 1000px;
     margin: 4rem auto;
     position: relative;
 }
 
-/* Überschrift mit akzentuierter Unterstreichung */
+/* Überschrift für Skills mit Unterstreichung */
 .skills-header {
     text-align: center;
     margin-bottom: 3rem;
     position: relative;
 }
-
 .skills-header::after {
     content: '';
     display: block;
@@ -713,25 +712,25 @@ body {
     border-radius: 2px;
 }
 
-/* Skill-Kategorien */
+/* Grid für Skill-Kategorien */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
 }
 
+/* Einzelne Skill-Kategorie */
 .skill-category {
     background-color: rgba(245, 225, 192, 0.7);
-    /* Leicht transparente Version deiner --background Farbe */
     border-radius: 8px;
     padding: 2rem;
     opacity: 0;
     animation: fade-in 0.8s ease forwards;
     animation-delay: calc(var(--delay) + 0.3s);
     backdrop-filter: blur(3px);
-    /* Leichter Blur-Effekt für mehr Tiefe */
 }
 
+/* Titel der Skill-Kategorie */
 .category-title {
     font-size: 1.0rem;
     margin-bottom: 1.5rem;
@@ -748,6 +747,7 @@ body {
     justify-content: center;
 }
 
+/* Einzelner Skill-Tag */
 .skill-tag {
     background-color: rgba(245, 245, 245, 0.7);
     padding: 0.5rem 1rem;
@@ -766,18 +766,20 @@ body {
     background-color: rgba(255, 2, 2, 0.1);
 }
 
-/* Bildung und Zertifikate */
+/* Bildung und Zertifikate Sektionen */
 .education-section,
 .certificates-section {
     margin-top: 4rem;
 }
 
+/* Grid für Zertifikate */
 .certificate-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
 }
 
+/* Einzelne Zertifikatskarte */
 .certificate-card {
     background-color: white;
     border-radius: 8px;
@@ -795,12 +797,12 @@ body {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
+/* Animation für das Erscheinen der Skill-Tags */
 @keyframes tag-appear {
     from {
         opacity: 0;
         transform: scale(0.7);
     }
-
     to {
         opacity: 1;
         transform: scale(1);
@@ -841,7 +843,6 @@ body {
 
 .circle-progress-background {
     fill: rgba(245, 225, 192, 0.5);
-    /* Sehr leicht transparente Hintergrundfarbe */
     stroke: rgba(0, 0, 0, 0.1);
     stroke-width: 10px;
 }
@@ -852,7 +853,6 @@ body {
     stroke-width: 10px;
     stroke-linecap: round;
     stroke-dasharray: 339.292;
-    /* 2 * PI * 54 (Radius) */
     stroke-dashoffset: calc(339.292 - (339.292 * var(--percent)) / 100);
     animation: progress-animation 1.8s ease forwards;
 }
@@ -886,12 +886,11 @@ body {
     text-align: center;
 }
 
+/* Animation für Fortschrittsbalken */
 @keyframes progress-animation {
     from {
         stroke-dashoffset: 339.292;
-        /* Anfangswert (0%) */
     }
-
     to {
         stroke-dashoffset: calc(339.292 - (339.292 * var(--percent)) / 100);
     }
@@ -901,21 +900,17 @@ body {
 .certificates-compact {
     max-width: 900px;
     margin: 40px auto;
-    /* Oberer und unterer Abstand erhöht, links/rechts auto für horizontale Zentrierung */
     padding: 0;
     position: relative;
     text-align: center;
-    /* Text innerhalb des Containers zentrieren */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Hilft bei der Zentrierung aller Elemente im Container */
 }
 
-/* Toggle-Button zentrieren */
+/* Zertifikate-Toggle-Button */
 .certificates-toggle {
     display: inline-flex;
-    /* Inline-Flex statt Flex für bessere Zentrierung */
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -948,6 +943,7 @@ body {
     transform: rotate(45deg);
 }
 
+/* Zertifikate-Grid: Animation beim Öffnen */
 .certificates-grid {
     display: flex;
     flex-wrap: wrap;
@@ -964,6 +960,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* Einzelne Zertifikate als Tag */
 .cert-tag {
     background-color: rgba(0, 0, 0, 0.05);
     color: #000000;
@@ -983,12 +980,12 @@ body {
     animation-play-state: running;
 }
 
+/* Animation für das Einblenden der Zertifikate-Tags */
 @keyframes cert-fade-in {
     from {
         opacity: 0;
         transform: translateY(10px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -999,7 +996,7 @@ body {
     background-color: rgba(255, 0, 0, 0.1);
 }
 
-/* Spezifischer Header für den Lebenslauf */
+/* Header für den Lebenslauf */
 .cv-header {
     text-align: center;
     display: flex;
@@ -1017,6 +1014,11 @@ body {
     margin-top: 10px;
     margin-bottom: 1.5rem;
 }
+
+/* ======================================================
+   ME-SEITE: ANIMATIONEN UND EFFEKTE
+   Spezielle Animationen für die persönliche Profilseite (me.html)
+   ====================================================== */
 
 /* Animation für me-subtitle */
 @keyframes slideInFromLeft {
