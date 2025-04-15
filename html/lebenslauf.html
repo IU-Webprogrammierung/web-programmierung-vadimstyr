@@ -27,10 +27,14 @@
 
     <header class="cv-header">
       <h1 class="title">Vadim Styr</h1>
-      <p class="subtitle">Lebenslauf</p>
+      <h2 class="subtitle">Lebenslauf</h2>
       <a href="https://1drv.ms/b/s!Al5AC_GnRkuSi5p8iKWCwmERFfB21Q?e=FPTRgk"
-        class="lebenslauf-link">Lebenslauf-Download</a>
-    </header>
+      class="lebenslauf-link" 
+      target="_blank" 
+      rel="noopener"
+      aria-label="Lebenslauf als PDF herunterladen (öffnet in neuem Tab)">
+     Lebenslauf-Download
+   </a>
 
     <main class="content" id="main-content">
       <div class="timeline-container">
@@ -134,9 +138,9 @@
       </div>
 
       <div class="certificates-compact">
-        <div class="certificates-toggle">
-          <span class="toggle-icon">+</span>
-          <h3>Zertifikate & Qualifikationen</h3>
+        <div class="certificates-toggle" role="button" aria-expanded="false" aria-controls="certificates-grid">
+          <span class="toggle-icon" aria-hidden="true">+</span>
+          <h2>Zertifikate & Qualifikationen</h2>
         </div>
 
         <div class="certificates-grid">

@@ -229,6 +229,7 @@ body {
 
 .skip-link:focus {
     top: 0;
+    outline: 2px solid var(--accent);
 }
 
 /* Moderne Clip-Path Animation */
@@ -965,8 +966,8 @@ body {
 
 .cert-tag {
     background-color: rgba(0, 0, 0, 0.05);
-    color: #333;
-    font-size: 0.85rem;
+    color: #000000;
+    font-size: 0.95rem;
     padding: 6px 12px;
     border-radius: 30px;
     white-space: nowrap;
@@ -1780,7 +1781,7 @@ body {
                 transparent 90deg,
                 transparent 180deg,
                 rgb(0, 0, 0) 180deg,
-                rgb(0, 0, 0) 270deg,
+                rgb(255, 0, 0) 270deg,
                 transparent 270deg,
                 transparent 360deg);
         z-index: -1;
@@ -3009,15 +3010,15 @@ body {
         /* Zwei schwarze Streifen mit transparenten Lücken dazwischen */
         background: conic-gradient(rgb(255, 255, 255) 0deg,
                 /* Start 1. schwarzer Streifen */
-                black 90deg,
+                rgb(0, 0, 0) 90deg,
                 /* Ende 1. schwarzer Streifen */
                 transparent 90deg,
                 /* Start 1. Lücke */
                 transparent 180deg,
                 /* Ende 1. Lücke */
-                rgb(253, 253, 253) 180deg,
+                rgb(255, 255, 255) 180deg,
                 /* Start 2. schwarzer Streifen */
-                black 270deg,
+                rgb(0, 0, 0) 270deg,
                 /* Ende 2. schwarzer Streifen */
                 transparent 270deg,
                 /* Start 2. Lücke */
