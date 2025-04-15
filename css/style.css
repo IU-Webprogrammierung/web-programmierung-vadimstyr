@@ -1377,9 +1377,6 @@ body {
         margin-bottom: 200px;
     }
 
-
-    /* Anpassungen für die Fähigkeiten-Sektion */
-
     /* Verkleinert die Schriftgröße der Zertifikat-Tags
        für bessere Anordnung auf kleinen Bildschirmen */
     .cert-tag {
@@ -1390,7 +1387,6 @@ body {
        für visuelle Hierarchie */
     .skills-header .title {
         font-size: 2.5rem;
-        /* Passe diesen Wert nach Bedarf an */
     }
 
 
@@ -1426,34 +1422,23 @@ body {
         color: var(--accent);
         float: right;
         font-size: 32px;
-        /* Größer (von 28px) */
         font-weight: bold;
         cursor: pointer;
         width: 40px;
-        /* Feste Breite */
         height: 40px;
-        /* Feste Höhe */
         line-height: 36px;
-        /* Für vertikale Zentrierung */
         text-align: center;
-        /* Horizontal zentriert */
         border-radius: 50%;
-        /* Kreisförmiger Button */
         background-color: rgba(0, 0, 0, 0.05);
-        /* Leichter Hintergrund */
         position: sticky;
-        /* Bleibt sichtbar beim Scrollen */
         top: 0;
-        /* Am oberen Rand */
         margin-bottom: 10px;
-        /* Abstand zum Inhalt */
         transition: background-color 0.2s;
     }
 
     /* Subtile Hover-Effekt für den Schließen-Button */
     .modal-close:hover {
         background-color: rgba(0, 0, 0, 0.1);
-        /* Dunklerer Hintergrund beim Hover */
     }
 
     /* Formatiert den Titel im Modal mit prominenter
@@ -1461,12 +1446,9 @@ body {
     #modal-title {
         margin-top: 10px;
         margin-bottom: 20px;
-        /* Mehr Abstand nach unten */
         color: var(--accent);
         font-size: 20px;
-        /* Größere Schrift */
         padding-right: 40px;
-        /* Platz für den Schließen-Button */
     }
 
     /* Verhindert, dass CV-Titel in der Timeline 
@@ -1501,18 +1483,13 @@ body {
         display: none;
         position: absolute;
         top: 50%;
-        /* Vertikal mittig ausrichten */
         transform: translateY(-50%);
-        /* Exakte vertikale Zentrierung */
         font-weight: bold;
         font-size: 1.6em;
-        /* Etwas größer für bessere Klickbarkeit */
         color: var(--accent);
         line-height: 1;
-        /* Verhindert unerwünschten Zeilenumbruch */
         transition: transform 0.3s ease;
         z-index: 1;
-        /* Sicherstellen, dass es über dem Text liegt, falls es Überlappungen gibt */
     }
 
     /* Macht das Feld für die Position/Ausbildungsart zum klickbaren
@@ -1520,11 +1497,8 @@ body {
     .timeline-item .cv-field {
         cursor: pointer;
         position: relative;
-        /* Beibehalten für alle Fälle */
         display: block;
         margin-bottom: 5px;
-        /* Weniger Margin hier, da das Icon Platz braucht */
-        /* Kein Padding-Right mehr für das Icon nötig */
         padding-right: 0;
     }
 
@@ -1533,25 +1507,16 @@ body {
     .timeline-item .cv-field::after {
         content: '+';
         display: block !important;
-        /* Erzwingen, dass es ein Block-Element ist */
         clear: both;
-        /* Sicherstellen, dass es unter floatenden Elementen steht */
         width: 100%;
-        /* Volle Breite des Containers nehmen */
         text-align: center;
-        /* Icon zentrieren */
         font-weight: bold;
         font-size: 1.8em;
-        /* Ggf. Größe anpassen */
         line-height: 1.2;
-        /* Höhe anpassen */
         color: var(--accent);
         margin-top: 5px;
-        /* Abstand zum .cv-field Text */
         margin-bottom: 10px;
-        /* Abstand zur Beschreibung darunter schaffen */
         padding: 5px 0;
-        /* Etwas Padding für Klickfläche (optional) */
         transition: transform 0.3s ease;
     }
 
@@ -1665,6 +1630,11 @@ body {
     .cv-modal.show {
         display: block;
         animation: fadeIn 0.3s;
+    }
+    .certificates-compact .certificates-toggle h2 {
+        font-size: 1.1rem;
+        color: #010101;
+        margin: 0;
     }
 
     /* ====================================================
@@ -2317,10 +2287,9 @@ body {
     }
 
     /* Überschrift größer machen */
-    .certificates-compact .certificates-toggle h3 {
-        font-size: 2rem;
-        /* Passe den Wert an */
-        color: #000;
+    .certificates-compact .certificates-toggle h2 {
+        font-size: 2rem; 
+        color: #010101;
     }
 
     /* Modal komplett ausblenden auf Tablets */
@@ -2332,6 +2301,8 @@ body {
     .modal-close {
         display: none !important;
     }
+
+
 
     /* ======================================================
    KONTAKTFORMULAR
