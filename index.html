@@ -7,19 +7,21 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="picture/vs.svg">
     <script defer src="js/main.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <title>Vadim Styr</title>
 </head>
 
 <body class="home-page">
-    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
     <div class="container">
         <nav class="nav">
-            <button class="menu-toggle" aria-controls="nav-menu" aria-haspopup="true" aria-expanded="false" aria-label="Menü öffnen">☰</button>
-            <ul class="nav-menu">
+            <button class="menu-toggle" aria-controls="nav-menu" aria-haspopup="true" aria-expanded="false"
+                aria-label="Menü öffnen">☰</button>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a class="nav-link" id="projekte-link" href="html/projekte.html"><span>Projekte</span></a></li>
                 <li><a class="nav-link" id="me-link" href="html/me.html"><span>Me</span></a></li>
                 <li><a class="nav-link" id="kontakt-link" href="html/kontakt.html"><span>Kontakt</span></a></li>
-                <li><a class="nav-link" id="lebenslauf-link" href="html/lebenslauf.html"><span>Lebenslauf</span></a></li>
+                <li><a class="nav-link" id="lebenslauf-link" href="html/lebenslauf.html"><span>Lebenslauf</span></a>
+                </li>
             </ul>
         </nav>
 
@@ -27,17 +29,19 @@
 
         <div class="content-wrapper">
             <header class="header">
-                <h1 class="title">Vadim Styr</h1>
-                <p class="subtitle">Keep it simple, keep it real - just<br> go with the flow and let it heal.</p>
+                <h1 class="title" id="title-header-index">VADIM STYR</h1>
+                <p id="subtitle-header-index-line1" class="subtitle-line">Keep it simple, keep it real</p>
+                <p id="subtitle-header-index-line2" class="subtitle-line">Just go with the flow and let <strong>IT</strong> heal.</p>
             </header>
 
             <main class="content" id="main-content">
                 <!-- Hier können weitere Inhalte eingefügt werden -->
             </main>
 
-        <footer class="impressum-footer-index">
-            <p><a href="html/impressum.html" class="impressum-link-index">Impressum</a></p>
-        </footer>
+            <footer class="impressum-footer-index">
+                <p><a href="html/impressum.html" class="impressum-link-index">Impressum</a></p>
+            </footer>
+        </div>
     </div>
 </body>
 

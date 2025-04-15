@@ -1,17 +1,214 @@
-/* ===== BASIS-ELEMENTE ===== */
+/* Basis-Variablen */
+:root {
+    --primary: #000;
+    --background: #f5e1c0;
+    --accent: #ff0202;
+    --radius: 0.8rem;
+    --nav-radius: 0.8rem;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --transition: all 0.3s ease;
+    --pad-btn: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+    --profile-size: clamp(200px, 60vw, 400px);
+    --main-font: 'Anton', sans-serif;
+}
 
-/* Grundlegende Seitengestaltung */
+/* Grundlegende Body-Styles: Hintergrund, Schrift, Reset */
 body {
-    background-color: #f5e1c0;
-    font-family: "Arial", sans-serif;
+    background: var(--background);
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     min-height: 100vh;
 }
 
-/* ===== ACCESSIBILITY ===== */
+/* Haupttitel-Schriftart */
+.title {
+    font-family: var(--main-font);
+}
 
-/* Skip-Link für Tastatur-Navigation (Barrierefreiheit) */
+/* ======================================================
+   BUTTONS UND LINKS
+   Einheitliche Gestaltung für alle Buttons und Links
+   ====================================================== */
+   .button,
+   .nav-link,
+   .impressum-link,
+   .impressum-link-index,
+   .impressum-link-kontakt,
+   .impressum-link-lebenslauf,
+   .project-button,
+   .lebenslauf-link {
+       display: inline-block;
+       background: rgba(255, 255, 255, 0.5); /* Leicht weißer Hintergrund */
+       color: var(--primary);
+       font-weight: bold;
+       text-decoration: none;
+       padding: var(--pad-btn);
+       border-radius: var(--radius);
+       border: 1.5px solid var(--primary);
+       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+       transition: all 0.3s ease;
+       position: relative;
+       z-index: 1;
+   }
+   
+   /* Navigation-Link mit speziellem Radius */
+   .nav-link {
+       border-radius: var(--nav-radius);
+   }
+
+/* ======================================================
+   NAVIGATION
+   Trennlinie unter der Navigation für visuelle Abgrenzung
+   ====================================================== */
+   .nav ul::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right,
+            transparent,
+            rgba(0, 0, 0, 0.1) 20%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.1) 80%,
+            transparent);
+    margin: 15px auto 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover-Effekt für Projekt-Button */
+.project-button:hover {
+    background: var(--primary);
+}
+
+/* ======================================================
+   BUTTON-EFFEKTE UND ANIMATIONEN
+   Ripple-Effekt und aktive Zustände für Buttons und Links
+   ====================================================== */
+   .button,
+   .nav-link,
+   .impressum-link,
+   .impressum-link-index,
+   .impressum-link-kontakt,
+   .impressum-link-lebenslauf,
+   .project-button,
+   .lebenslauf-link {
+       position: relative;
+       overflow: hidden;
+   }
+   
+   /* Ripple-Element für Klick-Animation (per JS eingefügt) */
+   .ripple {
+       position: absolute;
+       border-radius: 50%;
+       background: rgba(255, 255, 255, 0.7);
+       transform: scale(0);
+       animation: ripple-animation 0.6s ease-out;
+       pointer-events: none;
+   }
+   
+   @keyframes ripple-animation {
+       to {
+           transform: scale(4);
+           opacity: 0;
+       }
+   }
+
+/* ======================================================
+   TEXT- UND TITEL-ANIMATIONEN
+   Farbverlauf, Schreibmaschinen- und Cursor-Effekte
+   ====================================================== */
+   @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--accent); }
+}
+
+@keyframes hide-cursor {
+    to { border-color: transparent; }
+}
+
+@keyframes waiting {
+    0%, 100% { width: 0; }
+}
+
+@keyframes show-cursor {
+    to { border-color: var(--accent); }
+}
+
+/* Verbesserter Hover-Effekt */
+.button:hover,
+.nav-link:hover,
+.impressum-link:hover,
+.impressum-link-index:hover,
+.impressum-link-kontakt:hover,
+.impressum-link-lebenslauf:hover,
+.project-button:hover,
+.lebenslauf-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* ======================================================
+   BUTTON-HOVER UND ACTIVE-ZUSTÄNDE
+   Verbesserte Interaktion und visuelles Feedback
+   ====================================================== */
+.button:active,
+.nav-link:active,
+.impressum-link:active,
+.impressum-link-index:active,
+.impressum-link-kontakt:active,
+.impressum-link-lebenslauf:active,
+.project-button:active,
+.lebenslauf-link:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    animation: pulse 0.3s ease-out;
+    border-color: var(--accent);
+}
+
+/* Pulsier-Animation beim Klick */
+.button:active,
+.nav-link:active,
+.impressum-link:active,
+.impressum-link-index:active,
+.impressum-link-kontakt:active,
+.impressum-link-lebenslauf:active,
+.project-button:active,
+.lebenslauf-link:active {
+    animation: pulse 0.3s ease-out;
+    border-color: transparent;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ======================================================
+   ACCESSIBILITY: SKIP-LINK
+   Ermöglicht das Überspringen der Navigation für Screenreader
+   ====================================================== */
 .skip-link {
     position: absolute;
     top: -40px;
@@ -24,11 +221,121 @@ body {
 
 .skip-link:focus {
     top: 0;
+    outline: 2px solid var(--accent);
 }
 
-/* ===== HAUPT-CONTAINER ===== */
+/* ======================================================
+   PAGE-TRANSITION UND BLOCK-ANIMATIONEN
+   Für Seitenübergänge und visuelle Effekte
+   ====================================================== */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: var(--background);
+    pointer-events: none;
+    clip-path: circle(0% at center);
+    transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
 
-/* Container für den gesamten Seiteninhalt */
+.page-transition.active {
+    clip-path: circle(150% at center);
+    pointer-events: all;
+}
+
+.page-transition.closing {
+    clip-path: circle(150% at center);
+    animation: reverse-clip 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes reverse-clip {
+    from {
+        clip-path: circle(150% at center);
+    }
+
+    to {
+        clip-path: circle(0% at center);
+    }
+}
+
+.blocks-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    position: relative;
+}
+
+/* Änderung der Lego-Block-Farben zu transparentem Grau-Weiß */
+.lego-block {
+    background-color: rgba(240, 240, 240, 0.3);
+    /* Sehr helles Grau mit 30% Opazität */
+    border-radius: 4px;
+    transform: translateY(100vh);
+    opacity: 0;
+    backdrop-filter: blur(2px);
+    /* Optionaler Blur-Effekt für moderneres Aussehen */
+}
+
+/* Block-Variationen für subtile Farbakzente */
+.lego-block:nth-child(5n+2) {
+    background-color: rgba(255, 255, 255, 0.4);
+    /* Weiß mit 40% Opazität */
+}
+
+.lego-block:nth-child(7n+3) {
+    background-color: rgba(200, 200, 200, 0.3);
+    /* Mittleres Grau mit 30% Opazität */
+}
+
+.lego-block:nth-child(3n+1) {
+    background-color: rgba(230, 230, 230, 0.25);
+    /* Leicht dunkleres Grau mit 25% Opazität */
+}
+
+.page-transition.active .lego-block {
+    animation: buildUp 0.5s forwards;
+}
+
+.page-transition.closing .lego-block {
+    animation: tearDown 0.5s forwards;
+}
+
+/* Zeitversetzung für jede Spalte (für aufbauenden Effekt) */
+@keyframes buildUp {
+    0% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 0.7;
+    }
+
+    /* Maximal 70% Deckkraft */
+}
+
+@keyframes tearDown {
+    0% {
+        transform: translateY(0);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+/* ======================================================
+   LAYOUT-GRUNDELEMENTE
+   Container, Header, Navigation, Footer, Social Media
+   ====================================================== */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -41,47 +348,50 @@ body {
     padding: 0 clamp(1rem, 3%, 2rem);
 }
 
-/* ===== HEADER-BEREICH ===== */
-
-/* Header-Container */
+/* Header */
 .header {
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: auto;
     text-align: center;
 }
 
 .profile-picture {
-    width: clamp(200px, 60vw, 400px);
-    height: clamp(200px, 60vw, 400px);
+    width: var(--profile-size);
+    height: var(--profile-size);
     border-radius: 50%;
     object-fit: cover;
     margin: 0 auto;
 }
 
-
-/* Hauptüberschrift (H1) */
 .title {
     font-size: clamp(3em, 8vw, 4.5em);
     margin-bottom: clamp(5px, 2vh, 10px);
 }
 
-/* Untertitel unter H1 */
 .subtitle {
     font-size: clamp(1.2em, 4vw, 2em);
     margin-bottom: clamp(20px, 5vh, 40px);
     font-style: italic;
 }
+/* ======================================================
+   ENDE BASIS-ELEMENTE UND GRUNDDESIGN
+   ====================================================== */
 
-/* ===== NAVIGATION ===== */
-/* Navigations-Liste */
+/* ======================================================
+   NAVIGATION, FOOTER UND SOCIAL MEDIA
+   Enthält das Layout und die Stile für die Navigationsleiste,
+   Footer, Burger-Menü und Social Media Bereiche.
+   ====================================================== */
+
+/* Navigation-Leiste: horizontale Ausrichtung und volle Breite */
 .nav {
     width: 100%;
     position: relative;
     display: flex;
 }
 
+/* Navigation-Liste: zentriert, ohne Standard-List-Styles */
 .nav ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
@@ -90,73 +400,683 @@ body {
     flex-wrap: wrap;
 }
 
-/* Navigations-Links */
+/* Navigation-Link: Großbuchstaben, responsive Schrift, abgerundete Ecken */
 .nav-link {
     display: block;
-    background-color: #000;
-    color: #fff;
-    text-decoration: none;
-    padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
     text-transform: uppercase;
-    font-weight: bold;
     font-size: clamp(0.9em, 2vw, 1.2em);
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    border-radius: var(--nav-radius);
+    /* Von 5px auf var(--nav-radius) geändert */
 }
 
-/* Hover-Effekt für Navigation */
+/* Navigation-Link Hover-Effekt: Transparenz */
 .nav-link:hover {
     opacity: 0.8;
 }
 
-/* ===== HAUPTINHALT ===== */
-/* Content-Bereich */
+/* Content-Bereich: nimmt keinen zusätzlichen Platz ein */
 .content {
     flex: 0;
-    /* Ändere zu 0 statt 1 */
 }
 
-/* ===== FOOTER-BEREICH ===== */
-
+/* Footer: kein zusätzlicher Außenabstand */
 .impressum-footer {
-
-    margin-top: 0;
-    margin-bottom: 0;
-
-}
-
-/* Gestaltung des Impressum-Links als Button */
-.impressum-link {
-    display: inline-block;
-    background-color: #000000;
-    color: #ffffff;
-    font-weight: bold;
-    text-decoration: none;
-    padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-    border-radius: 0.5rem;
-    font-size: clamp(0.9em, 2vw, 1.2em);
     margin: 0;
 }
 
-/* ===== Bürger-Button ===== */
+/* Burger-Menü-Button: nur für mobile Ansicht sichtbar */
 .menu-toggle {
     display: none;
+    /* Standardmäßig versteckt */
     background: none;
     border: none;
     font-size: 2rem;
     cursor: pointer;
     color: #000;
-    margin: 10px auto;
-    align-self: center;
     width: 40px;
     padding: 0;
 }
 
-/* ===== Media Querys ===== */
+/* Social Media Button-Gruppen: zentriert, mit Abstand */
+.social-media-buttons,
+.social-media-buttons-kontakt,
+.social-media-buttons-profile {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
 
-/* Mobile (340px bis 640px) */
+/* Social Media Icons: schwarze Farbe, größere Schrift */
+.social-media-buttons i,
+.social-media-buttons-kontakt i {
+    color: black;
+    font-size: 1.5rem;
+}
+
+/* Social Media Icon Hover: Transparenz-Übergang */
+.social-media-link:hover i {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+/* ======================================================
+   PROJEKTBILDER ANIMATION
+   Pulsierender Effekt für Projektbilder
+   ====================================================== */
+@keyframes pulse-image {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Klasse für die Pulsier-Animation bei Projektbildern */
+.quiz-app-picture img,
+.e-commerce-picture img {
+    animation: pulse-image 2s ease-in-out;
+}
+
+/* ======================================================
+   TIMELINE LAYOUT FÜR LEBENSLAUF
+   Animierte Timeline mit abwechselnden Einträgen links/rechts
+   ====================================================== */
+
+/* Zentriert Titel, Datum, Feld und Beschreibung in den Timeline-Boxen */
+.timeline-content .cv-title,
+.timeline-content .timeline-date,
+.timeline-content .cv-field,
+.timeline-content .cv-description {
+    text-align: center; /* Inhalt mittig ausrichten */
+    width: 100%;
+}
+
+/* Timeline-Boxen: Hintergrund, Rahmen, Schatten, zentrierte Ausrichtung */
+.timeline-content {
+    padding: 20px 30px;
+    background-color: rgba(245, 225, 192, 0.7);
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-left: 3px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Container für die Timeline: mittig, mit Abstand und Padding */
+.timeline-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem 0;
+}
+
+/* Vertikale Linie in der Timeline-Mitte, animiert beim Laden */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--accent);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    transform: scaleY(0);
+    transform-origin: top;
+    animation: grow-line 1.8s ease forwards 0.5s;
+}
+
+/* Einzelne Timeline-Einträge: halbe Breite, Animation beim Erscheinen */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    opacity: 0;
+    animation: fade-in 0.8s ease forwards;
+    animation-delay: calc(var(--delay) + 0.8s);
+    margin-bottom: 30px;
+}
+
+/* Rechts positionierte Timeline-Einträge */
+.right {
+    left: 50%;
+}
+
+/* Links positionierte Timeline-Einträge */
+.left {
+    left: 0;
+}
+
+/* Verbindungslinien zwischen Timeline-Einträgen und Mittelachse */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    background-color: var(--accent);
+    top: 30px;
+    opacity: 0;
+    animation: line-appear 0.6s ease forwards;
+    animation-delay: calc(var(--delay) + 1.8s);
+    z-index: 1;
+}
+
+/* Linie zeigt nach links bei rechten Einträgen */
+.right::after {
+    left: 3px;
+    transform-origin: left center;
+}
+
+/* Linie zeigt nach rechts bei linken Einträgen */
+.left::after {
+    right: -3px;
+    transform-origin: right center;
+}
+
+/* Animation: Linie erscheint horizontal */
+@keyframes line-appear {
+    from {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+/* Animation: Timeline-Eintrag blendet von unten ein */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation: Vertikale Linie wächst von oben nach unten */
+@keyframes grow-line {
+    from {
+        transform: scaleY(0);
+    }
+    to {
+        transform: scaleY(1);
+    }
+}
+
+/* Weiße Variante der Timeline-Box für Detailansicht */
+.timeline-content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-left: 3px solid var(--accent);
+}
+
+/* Start- und Endpunkte der Timeline als Kreise */
+.timeline-start-circle {
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    animation: circle-appear 1s ease forwards;
+}
+
+.timeline-end-circle {
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    animation: circle-appear 0.6s ease forwards 2.2s;
+}
+
+/* Animation: Kreise erscheinen mit Skalierung */
+@keyframes circle-appear {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* Animation: Pulsierender Effekt für Kreise */
+@keyframes circle-pulse {
+    0% {
+        transform: translateX(-50%) scale(0);
+    }
+    70% {
+        transform: translateX(-50%) scale(1.2);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* Datumsanzeige in der Timeline: Akzentfarbe und Fettdruck */
+.timeline-date {
+    font-weight: bold;
+    color: var(--accent);
+    margin: 0 0 8px;
+}
+
+/* ======================================================
+   SKILLS & ZERTIFIKATE IM LEBENSLAUF
+   Enthält Grid-Layout, Fortschrittsbalken und Zertifikate
+   ====================================================== */
+
+/* Container für Skills-Grid */
+.skills-container {
+    max-width: 1000px;
+    margin: 4rem auto;
+    position: relative;
+}
+
+/* Überschrift für Skills mit Unterstreichung */
+.skills-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+.skills-header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* Grid für Skill-Kategorien */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Einzelne Skill-Kategorie */
+.skill-category {
+    background-color: rgba(245, 225, 192, 0.7);
+    border-radius: 8px;
+    padding: 2rem;
+    opacity: 0;
+    animation: fade-in 0.8s ease forwards;
+    animation-delay: calc(var(--delay) + 0.3s);
+    backdrop-filter: blur(3px);
+}
+
+/* Titel der Skill-Kategorie */
+.category-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Skills als Tags/Pills */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+/* Einzelner Skill-Tag */
+.skill-tag {
+    background-color: rgba(245, 245, 245, 0.7);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: tag-appear 0.5s ease forwards;
+    animation-delay: calc(var(--tag-delay) + 0.5s);
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 2, 2, 0.1);
+}
+
+/* Bildung und Zertifikate Sektionen */
+.education-section,
+.certificates-section {
+    margin-top: 4rem;
+}
+
+/* Grid für Zertifikate */
+.certificate-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Einzelne Zertifikatskarte */
+.certificate-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 3px solid var(--accent);
+    opacity: 0;
+    animation: fade-in 0.6s ease forwards;
+    animation-delay: calc(var(--cert-delay) + 0.8s);
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Animation für das Erscheinen der Skill-Tags */
+@keyframes tag-appear {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Kreisförmige Fortschrittsbalken für Skills */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.skill-item {
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fade-in 0.8s ease forwards;
+    animation-delay: calc(var(--tag-delay) + 0.3s);
+}
+
+.circle-progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+}
+
+.circle-progress {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.circle-progress-svg {
+    transform: rotate(-90deg);
+}
+
+.circle-progress-background {
+    fill: rgba(245, 225, 192, 0.5);
+    stroke: rgba(0, 0, 0, 0.1);
+    stroke-width: 10px;
+}
+
+.circle-progress-bar {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 10px;
+    stroke-linecap: round;
+    stroke-dasharray: 339.292;
+    stroke-dashoffset: calc(339.292 - (339.292 * var(--percent)) / 100);
+    animation: progress-animation 1.8s ease forwards;
+}
+
+.circle-progress-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill-percent {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.skill-name {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.skill-level {
+    font-size: 0.9rem;
+    color: #000000;
+    text-align: center;
+}
+
+/* Animation für Fortschrittsbalken */
+@keyframes progress-animation {
+    from {
+        stroke-dashoffset: 339.292;
+    }
+    to {
+        stroke-dashoffset: calc(339.292 - (339.292 * var(--percent)) / 100);
+    }
+}
+
+/* Kompakte Zertifikate-Sektion */
+.certificates-compact {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Zertifikate-Toggle-Button */
+.certificates-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.certificates-toggle h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #555;
+    font-weight: 500;
+}
+
+.toggle-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: var(--accent);
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 24px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.certificates-toggle.active .toggle-icon {
+    transform: rotate(45deg);
+}
+
+/* Zertifikate-Grid: Animation beim Öffnen */
+.certificates-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    justify-content: center;
+}
+
+.certificates-toggle.active+.certificates-grid {
+    max-height: 900px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Einzelne Zertifikate als Tag */
+.cert-tag {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #000000;
+    font-size: 0.95rem;
+    padding: 6px 12px;
+    border-radius: 30px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    animation: cert-fade-in 0.5s ease forwards;
+    animation-delay: calc(var(--cert-delay) + 0.1s);
+    animation-play-state: paused;
+}
+
+.certificates-toggle.active+.certificates-grid .cert-tag {
+    animation-play-state: running;
+}
+
+/* Animation für das Einblenden der Zertifikate-Tags */
+@keyframes cert-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cert-tag:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+/* Header für den Lebenslauf */
+.cv-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.cv-header .title {
+    margin-bottom: 0.5rem;
+    margin-top: 200px;
+}
+
+.cv-header .subtitle {
+    margin-top: 10px;
+    margin-bottom: 1.5rem;
+}
+
+/* ======================================================
+   ME-SEITE: ANIMATIONEN UND EFFEKTE
+   Spezielle Animationen für die persönliche Profilseite (me.html)
+   ====================================================== */
+
+/* Animation für me-subtitle */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes changeColor {
+    0% {
+        color: black;
+    }
+
+    80% {
+        color: black;
+    }
+
+    100% {
+        color: var(--accent, #ff0000);
+    }
+}
+
+.animated-char {
+    display: inline-block;
+    opacity: 0;
+    animation: slideInFromLeft 0.8s forwards, changeColor 2s forwards;
+}
+
+/* Mobile */
 @media (max-width: 640px) {
 
+    /* Responsive Profilbildgröße für mobile Geräte:
+       - Mindestgröße: 150px
+       - Dynamische Größe: 45% der Viewport-Breite
+       - Maximale Größe: 250px */
+    :root {
+        --profile-size: clamp(150px, 45vw, 250px);
+    }
+
+    /* ====================================================
+       ALLGEMEINE MOBILE ANPASSUNGEN
+       ==================================================== */
+
+    /* Entfernt die horizontale Trennlinie im ausgeklappten Menü,
+       die auf Desktop Ansicht die Menüpunkte vom Inhalt trennt */
+    .nav-menu.nav-menu-active ul::after {
+        display: none;
+    }
+
+    /* Fixiert den Impressum-Footer am unteren Bildschirmrand
+       und zentriert ihn horizontal auf der Startseite */
     .impressum-footer-index {
         position: fixed;
         bottom: 20px;
@@ -164,85 +1084,93 @@ body {
         transform: translateX(-50%);
     }
 
-    .impressum-link-index {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
+    /* Richtet den Inhalt auf der Startseite mit mehr vertikalem
+       Raum aus und definiert eine Mindesthöhe */
     .home-page .container {
-        display: flex;
-        flex-direction: column;
         justify-content: space-between;
         min-height: 50vh;
-
     }
 
+    #me-subtitle {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    /* ====================================================
+       HEADER UND LAYOUT-ELEMENTE
+       ==================================================== */
+
+    /* Reduziert den Abstand des Lebenslauf-Headers nach oben
+       von 200px (Desktop) auf nur 20px für kompaktes mobiles Layout */
+    .cv-header .title {
+        margin-bottom: 0.5rem;
+        margin-top: 20px;
+    }
+
+    /* Organisiert den Content-Wrapper als vertikale, zentrierte Spalte
+       für besseres mobiles Layout */
     .content-wrapper {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         margin-top: auto;
     }
 
+    /* Blendet Datumsangaben aus, die nur für die Desktop-Ansicht
+       konzipiert sind, um Platz zu sparen */
     .desktop-date {
         display: none;
     }
 
+    /* Reduziert Abstände zwischen Header-Elementen für
+       ein kompakteres Erscheinungsbild */
     .header img,
     .header h1,
     .header p {
         margin: 0.2rem 0;
     }
 
+    /* ====================================================
+       NAVIGATION UND BURGER-MENÜ
+       ==================================================== */
 
-    /* Hide regular navigation by default */
+    /* Blendet die horizontale Standard-Navigation aus, 
+       die für Desktop konzipiert ist */
     .nav-menu {
         display: none;
     }
 
-    /* Show the hamburger menu button */
+    /* Zeigt das Burger-Menü-Icon an und fixiert es 
+       in der oberen rechten Ecke des Bildschirms */
     .menu-toggle {
         display: block;
-        border: none;
-        cursor: pointer;
-        font-size: 24px;
         position: fixed;
         top: 1rem;
         right: 1rem;
         z-index: 1000;
         padding: 5px 10px;
-        transition: all 0.3s ease;
-        background-color: transparent;
+        background: transparent;
     }
 
-    /* Menu when active */
+    /* Konfiguriert das aufgeklappte Menü als Vollbild-Overlay 
+       mit zentrierten Elementen */
     .nav-menu.nav-menu-active {
         position: fixed;
-        /* Fest positioniert, kein Verschieben des Inhalts */
         top: 0;
         left: 0;
         width: 100%;
         height: 100vh;
-        margin: 0;
-        padding: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         z-index: 999;
-        background-color: #f5e1c0;
+        background: var(--background);
     }
 
-    /* Navigation items styling */
+    /* Gestaltet die Listenelemente im aktiven Menü
+       als zentrierte Blöcke mit voller Breite */
     .nav-menu.nav-menu-active li {
         display: flex;
         justify-content: center;
@@ -250,149 +1178,166 @@ body {
         margin: 0.5rem 0;
     }
 
+    /* Formatiert die Navigations-Links im aktiven Menü
+       mit angepasster Breite und Zentrierung */
     .nav-menu.nav-menu-active .nav-link {
         width: 80%;
         text-align: center;
-        background-color: #000;
-        color: #fff;
         padding: 0.8rem;
-        border-radius: 5px;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-weight: bold;
+        border-radius: var(--nav-radius);
     }
 
-    .nav ul li {
+    /* Versteckt standardmäßig alle Menüpunkte, 
+       werden erst bei aktivem Menü gezeigt */
+    .nav-menu li {
         display: none;
     }
 
-    .profile-picture {
-        grid-area: image;
-        width: clamp(150px, 45vw, 250px);
-        height: clamp(150px, 45vw, 250px);
-        margin: 0.7rem 0;
+    /* Entfernt die Trennlinie nach dem Menü,
+       wenn es aktiv/ausgeklappt ist */
+    #nav-menu.nav-menu-active::after {
+        display: none;
     }
 
-    /* Image optimization */
+    /* Sorgt für responsive Bilder, die nicht über
+       ihren Container hinausragen */
     .img {
         max-width: 100%;
         height: auto;
     }
 
+    /* Anpassung der Projektbilder für einheitliche
+       Höhe und optimale Darstellung */
     .quiz-app-picture img,
     .e-commerce-picture img {
-        width: 100%;
-        height: auto;
-        max-height: 200px;
-        object-fit: contain;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
     }
 
-    /* Button and link styles */
-    button,
-    .link {
-        padding: 10px 20px;
-        font-size: 1rem;
-        border-radius: 0.5rem;
+    /* ====================================================
+   ELEGANTE TRENNLINIE - PROJEKTEHEADER
+   Erstellt eine subtile, horizontale Gradientenlinie unter 
+   der "Projekte"-Überschrift mit zentrierter Position 
+   und sanften Verlaufseffekten für mehr visuelle Tiefe
+   ==================================================== */
+    .header-projekte {
+        position: relative;
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
 
+    .header-projekte::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.1) 20%,
+                rgba(0, 0, 0, 0.2) 50%,
+                rgba(0, 0, 0, 0.1) 80%,
+                transparent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+
+    /* ====================================================
+   ELEGANTE TRENNLINIE - PROJEKTCONTAINER
+   Fügt eine dezente Separation zwischen Projekten ein
+   mit identischem Gradient-Stil wie die Header-Trennlinie
+   für visuelle Konsistenz im mobilen Layout
+   ==================================================== */
+    .project-section .quiz-app-container,
+    .project-section .e-commerce-container {
+        position: relative;
+        padding-bottom: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .project-section .quiz-app-container::after,
+    .project-section .e-commerce-container::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.1) 20%,
+                rgba(0, 0, 0, 0.2) 50%,
+                rgba(0, 0, 0, 0.1) 80%,
+                transparent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Blendet die Seitenleiste aus, die auf Desktop angezeigt wird */
     .sidebar {
         display: none;
     }
 
-    /* Footer positioning */
+    /* Zentriert den Impressum-Footer und gibt ihm Abstand nach unten */
     .impressum-footer {
         text-align: center;
-        left: auto;
-        transform: none;
         width: 100%;
         margin-bottom: 1rem;
     }
 
-    .impressum-link {
-        display: inline-block;
-    }
-
-    .lebenslauf-link {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        margin: 0;
-    }
-
+    /* Zentriert den Hauptcontainer und fügt Abstände hinzu */
     .container {
-        display: flex;
         justify-content: center;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding: 1rem;
         margin-top: 2rem;
         padding-top: 2rem;
     }
 
-    /* Abschnitte (Berufserfahrung, Fähigkeiten, etc.) */
-    .job,
-    .skills,
-    .right-column,
-    .cv-job {
-        margin-bottom: 1rem;
-        padding: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #ffffff;
-        text-align: center;
-        border-radius: 10px;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    }
-
+    /* Formatiert die Titel im Lebenslauf für bessere Lesbarkeit
+       und zentrierte Ausrichtung */
     .cv-title {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-        text-align: center;
+        font-size: 1rem;
+        position: relative;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
+    /* Passt die Datumsangaben im Lebenslauf mit 
+       dezenter Formatierung an */
     .cv-date {
         font-size: 0.9rem;
         color: #555;
         margin-bottom: 0.5rem;
-        text-align: center;
     }
 
-    .cv-field {
-        font-size: 0.9rem;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 0.5rem;
-    }
-
-    .cv-description {
-        font-size: 0.9rem;
-        line-height: 1.4;
-        text-align: center;
-        font-family: "Arial", sans-serif;
-        line-height: 1.6;
-    }
-
-    /* Fähigkeitenliste */
+    /* Organisiert die Skills-Liste in zwei Spalten
+       für bessere Raumnutzung */
     .skills ul {
         column-count: 2;
         column-gap: 1rem;
-        list-style-type: disc;
-        padding-left: 1rem;
         list-style: none;
     }
 
-    /* Bildungs- und Zertifikatssektionen */
+    /* Entfernt Rahmen der rechten Spalte und 
+       fügt subtilen Schatten hinzu */
     .right-column {
         border: none;
         padding: 0;
         box-shadow: 0 15px 10px rgba(0, 0, 0, 0.1);
     }
 
+    /* Formatiert Überschriften in der rechten Spalte
+       für bessere Lesbarkeit */
     .right-column h3 {
         padding: 1rem;
         font-size: 1.2rem;
@@ -400,117 +1345,661 @@ body {
         margin-bottom: 0.5rem;
     }
 
-    .right-column ul {
-        list-style-type: disc;
-        padding-left: 1.5rem;
+    /* Entfernt Aufzählungspunkte und zentriert die Listen
+       in der rechten Spalte und Skills-Sektion */
+    .right-column ul,
+    .skills ul {
+        list-style: none;
+        text-align: center;
     }
 
+    /* Optimiert Textabsätze in der rechten Spalte
+       für mobile Lesbarkeit */
     .right-column p {
         font-size: 0.9rem;
         line-height: 1.4;
     }
 
-    .skills ul,
-    .right-column ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        text-align: center;
-    }
-
-
-    body {
-        font-family: "Arial", sans-serif;
-        line-height: 1.6;
-    }
-
-
-    .social-media-buttons-kontakt {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        width: 100%;
-        margin-bottom: 200px;
-    }
-
-    /* Icons schwarz färben */
-    .social-media-buttons-kontakt i {
-        color: black;
-        font-size: 1.5rem;
-
-    }
-
-    .social-media-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-    }
-
-    /* Icons schwarz färben */
-    .social-media-buttons i {
-        color: black;
-        font-size: 1.5rem;
-    }
-
-    /* Optional: Hover-Effekt für bessere Interaktion */
-    .social-media-link:hover i {
-        opacity: 0.7;
-        transition: opacity 0.3s ease;
-    }
-
+    /* Anpassung der Projekt-Buttons mit responsiver Schriftgröße */
     .project-button {
-        background-color: #000000;
-        color: #fff;
-        border: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.7em, 2vw, 0.9em);
-        text-transform: uppercase;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease;
         margin-bottom: 20px;
+        font-size: clamp(0.7em, 2vw, 0.9em);
     }
 
-    .impressum-link {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .impressum-link-lebenslauf {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
+    /* Gibt dem Impressum-Bereich mehr Abstand nach unten */
     .impressum-section {
-        margin-bottom: 200px;
-        /* Negative Margin zieht nach oben */
+        margin-bottom: 100px;
         padding: 1rem;
     }
 
+    /* Fügt großzügigen Abstand unter den 
+       Social-Media-Buttons auf der Kontaktseite hinzu */
+    .social-media-buttons-kontakt {
+        margin-bottom: 200px;
+    }
+
+    /* Verkleinert die Schriftgröße der Zertifikat-Tags
+       für bessere Anordnung auf kleinen Bildschirmen */
+    .cert-tag {
+        font-size: 0.7rem;
+    }
+
+    /* Vergrößert die Überschrift im Skills-Bereich
+       für visuelle Hierarchie */
+    .skills-header .title {
+        font-size: 2.5rem;
+    }
+
+
+
+    /* ====================================================
+       TIMELINE MOBILE STYLES - Modal - LEBENSLAUF
+       ==================================================== */
+
+
+    /* Optimierter Modal-Container für die CV-Details,
+       mit angepassten Abständen und Scrollfunktion */
+    .modal-content {
+        background-color: var(--background);
+        margin: 5% auto;
+        /* Weniger vertikalen Abstand (von 15% auf 5%) */
+        padding: 20px;
+        border-radius: 8px;
+        width: 90%;
+        /* Etwas breiter (von 85% auf 90%) */
+        max-width: 640px;
+        /* Größeres Maximum */
+        max-height: 80vh;
+        /* Begrenzt die Höhe auf 80% der Viewport-Höhe */
+        overflow-y: auto;
+        /* Scrollbar, wenn der Inhalt zu lang ist */
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        /* Stärkerer Schatten */
+    }
+
+    /* Gestaltet den Schließen-Button als kreisförmigen,
+       klebenden Button, der beim Scrollen sichtbar bleibt */
+    .modal-close {
+        color: var(--accent);
+        float: right;
+        font-size: 32px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        line-height: 36px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        margin-bottom: 10px;
+        transition: background-color 0.2s;
+    }
+
+    /* Subtile Hover-Effekt für den Schließen-Button */
+    .modal-close:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    /* Formatiert den Titel im Modal mit prominenter
+       Farbgebung und Abständen */
+    #modal-title {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        color: var(--accent);
+        font-size: 20px;
+        padding-right: 40px;
+    }
+
+    /* Verhindert, dass CV-Titel in der Timeline 
+       als klickbar erscheinen */
+    .timeline-item .cv-title {
+        position: static;
+        cursor: default;
+        display: block;
+    }
+
+    /* Standardformatierung für Titel im CV-Bereich */
+    .cv-title {
+        font-size: 0.9rem;
+    }
+
+    /* Anpassung der Datumsanzeige in der Timeline */
+    .timeline-date {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Formatierung der Berufs-/Positionsangaben in der Timeline */
+    .cv-field {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Deaktiviert das Plus/Minus-Icon nach dem Titel,
+       da im mobilen Layout ein anderer Ansatz verwendet wird */
+    .timeline-item .cv-title::after {
+        content: '';
+        display: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: bold;
+        font-size: 1.6em;
+        color: var(--accent);
+        line-height: 1;
+        transition: transform 0.3s ease;
+        z-index: 1;
+    }
+
+    /* Macht das Feld für die Position/Ausbildungsart zum klickbaren
+       Trigger für das Modal */
+    .timeline-item .cv-field {
+        cursor: pointer;
+        position: relative;
+        display: block;
+        margin-bottom: 5px;
+        padding-right: 0;
+    }
+
+    /* Fügt ein zentriertes Plus-Icon nach dem Positions-Feld hinzu,
+       das als visueller Indikator für Klickbarkeit dient */
+    .timeline-item .cv-field::after {
+        content: '+';
+        display: block !important;
+        clear: both;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.8em;
+        line-height: 1.2;
+        color: var(--accent);
+        margin-top: 5px;
+        margin-bottom: 10px;
+        padding: 5px 0;
+        transition: transform 0.3s ease;
+    }
+
+    /* Ändert das Plus-Icon zu einem Minus-Icon und rotiert es,
+       wenn der zugehörige Inhalt sichtbar ist */
+    .timeline-item.description-visible .cv-field::after {
+        content: '−';
+        transform: rotate(180deg);
+    }
+
+    /* Blendet die Beschreibungstexte in der Timeline grundsätzlich aus,
+       da diese im Modal angezeigt werden */
+    .timeline-item .cv-description {
+        display: none;
+        /* Einfach ausblenden statt der komplexen max-height Animation */
+    }
+
+    /* Stellt sicher, dass die Beschreibungen auch bei aktiviertem
+       "description-visible"-Status ausgeblendet bleiben */
+    .timeline-item.description-visible .cv-description {
+        display: none;
+        /* Sicherstellen, dass es immer ausgeblendet bleibt */
+    }
+
+    /* Verhindert horizontales Scrollen im Hauptcontainer */
+    .container {
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    /* Verhindert horizontales Scrollen im Timeline-Container */
+    .timeline-container {
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    /* Sorgt dafür, dass Timeline-Elemente nicht über
+       den Bildschirmrand hinauslaufen */
+    .timeline-item {
+        box-sizing: border-box;
+        /* Keine Breitenänderung, nur overflow kontrollieren */
+        overflow-x: hidden;
+    }
+
+    /* Optimiert den Inhalt der Timeline-Elemente für kleine Bildschirme,
+       mit automatischem Textumbruch und zentrierter Ausrichtung */
+    .timeline-content {
+        width: 100%;
+        padding: 5px 5px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Grundlegendes Styling für das Modal-Fenster, 
+       das als Overlay erscheint */
+    .cv-modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        overflow: auto;
+    }
+
+    /* Zweite Definition des Modal-Inhalts mit anderen Werten
+       (ggf. für einen anderen Zustand gedacht) */
+    .modal-content {
+        background-color: var(--background);
+        margin: 15% auto;
+        padding: 20px;
+        border-radius: 8px;
+        width: 85%;
+        max-width: 600px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Alternative Definition des Schließen-Buttons
+       mit abweichenden Werten */
+    .modal-close {
+        color: var(--accent);
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    /* Alternative Definition für den Modal-Titel, 
+       ohne einige der spezifischeren Eigenschaften */
+    #modal-title {
+        margin-top: 10px;
+        color: var(--accent);
+    }
+
+    /* Formatierung für den Beschreibungstext im Modal */
+    #modal-description {
+        margin-top: 15px;
+        line-height: 1.6;
+        font-size: 16px;
+    }
+
+    /* Animation für das Einblenden des Modals
+       beim Öffnen */
+    .cv-modal.show {
+        display: block;
+        animation: fadeIn 0.3s;
+    }
+    .certificates-compact .certificates-toggle h2 {
+        font-size: 1.1rem;
+        color: #010101;
+        margin: 0;
+    }
+
+    /* ====================================================
+       ENDE TIMELINE MOBILE STYLES
+       ==================================================== */
+
+    /* Definition der Einblend-Animation für das Modal */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Gestaltet den Haupttitel auf der Startseite mit
+       animiertem Farbverlauf in Blautönen */
+    #title-header-index {
+        font-size: 4rem;
+        /* Kleiner für mobile Geräte */
+        background: linear-gradient(45deg,
+                #0015ff 0%,
+                #000000 25%,
+                #3083ff 50%,
+                #000000 75%,
+                #003366 100%);
+        background-size: 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradient-shift 10s ease infinite;
+    }
+
+    /* Basisstil für die Untertitelzeilen mit Schreibmaschineneffekt,
+       angepasst an mobile Größen */
+    .subtitle-line {
+        font-size: 1.0rem;
+        /* Kleiner für mobile Geräte */
+        font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 1px;
+        color: rgba(0, 0, 0, 0.8);
+        border-right: 2px solid transparent;
+        width: 0;
+    }
+
+    /* Animation für die erste Zeile des Untertitels:
+       Schreibmaschineneffekt mit blinkendem Cursor */
+    #subtitle-header-index-line1 {
+        border-right: 2px solid var(--accent);
+        animation:
+            typing 2.5s steps(30, end) 1s forwards,
+            blink-caret 0.75s step-end infinite,
+            hide-cursor 0.1s linear 3.5s forwards;
+    }
+
+    /* Animation für die zweite Zeile des Untertitels:
+       Verzögertes Erscheinen nach Abschluss der ersten Zeile */
+    #subtitle-header-index-line2 {
+        border-right: 2px solid transparent;
+        animation:
+            waiting 3.5s steps(1, end),
+            show-cursor 0.1s linear 3.5s forwards,
+            typing 3s steps(35, end) 3.6s forwards,
+            blink-caret 0.75s step-end 6.6s forwards 8,
+            hide-cursor 0.1s linear 12.6s forwards;
+    }
+
+    /* Fügt Abstand über dem Header auf der Startseite hinzu */
+    .home-page .header {
+        margin-top: 40px;
+        /* Etwas Abstand nach oben */
+    }
+
+    /* Abstand unter der ersten Untertitelzeile */
+    #subtitle-header-index-line1 {
+        margin-bottom: 0.3rem;
+    }
+
+    /* Abstand unter der zweiten Untertitelzeile */
+    #subtitle-header-index-line2 {
+        margin-bottom: 1rem;
+    }
+
+
+
+    /* ====================================================
+       PROFILBILD-ANIMATION FÜR MOBILE GERÄTE
+       Fügt rotierende schwarze Streifen um das Profilbild 
+       für ein dynamisches Erscheinungsbild auf Mobilgeräten
+       ==================================================== */
+
+    /* Container für das Profilbild mit dem rotierenden Effekt */
+    .profile-picture-container {
+        position: relative;
+        display: inline-block;
+        border-radius: 50%;
+        vertical-align: middle;
+        margin: 0 auto;
+        /* Für bessere Zentrierung auf Mobilgeräten */
+    }
+
+    /* Äußerer rotierender Streifen-Effekt */
+    .profile-picture-container::before {
+        content: "";
+        position: absolute;
+        inset: -5px;
+        /* Etwas kompakter als auf Desktop (-10px) */
+        border-radius: 50%;
+        background: conic-gradient(rgb(0, 0, 0) 0deg,
+                rgb(0, 0, 0) 90deg,
+                transparent 90deg,
+                transparent 180deg,
+                rgb(0, 0, 0) 180deg,
+                rgb(255, 0, 0) 270deg,
+                transparent 270deg,
+                transparent 360deg);
+        z-index: -1;
+        animation: rotate-strip 5s linear infinite;
+    }
+
+    /* Weißer Abstandshalter zwischen Bild und rotierendem Streifen */
+    .profile-picture-container::after {
+        content: "";
+        position: absolute;
+        inset: -5px;
+        /* Etwas kompakter als auf Desktop (-5px) */
+        border-radius: 50%;
+        background: #ffffff;
+        z-index: -1;
+    }
+
+    /* Animation für rotierende Profilbildstreifen - global verfügbar */
+    @keyframes rotate-strip {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .social-media-buttons-profile i {
+        color: rgb(0, 0, 0) !important;
+        font-size: 1.3rem;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .social-media-buttons-profile {
+        position: relative;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .social-media-buttons-profile::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.1) 20%,
+                rgba(0, 0, 0, 0.2) 50%,
+                rgba(0, 0, 0, 0.1) 80%,
+                transparent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    /* ====================================================
+       KONTAKTFORMULAR MOBILE OPTIMIERUNG
+       Verbessert die Benutzerfreundlichkeit und das visuelle 
+       Erscheinungsbild des Kontaktformulars auf mobilen Geräten
+       ==================================================== */
+
+    /* Kontakt-Sektion mit besseren Abständen und Zentrierung */
+    .contact-form-section {
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    /* Überschrift des Kontaktformulars */
+    .contact-heading {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+        color:red;
+        text-align: center;
+        
+    }
+
+    /* Einleitungstext zum Formular */
+    .contact-intro {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    /* Das Formular selbst */
+    .contact-form {
+        padding: 0 3rem;
+    }
+
+    /* Einzelne Formulargruppen mit verbesserten Abständen */
+    .form-group {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 1.2rem 0;
+        box-sizing: border-box;
+    }
+
+    /* Optimierte Labels für bessere Lesbarkeit */
+    .contact-form label {
+        display: block;
+        margin-bottom: 0.4rem;
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: black;
+        font-weight: bold;
+    }
+
+    /* Verbesserte Eingabefelder für Touch-Eingabe */
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.75rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    /* Hover- und Fokus-Effekte für Eingabefelder */
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 2px rgba(0, 21, 255, 0.1);
+    }
+
+    /* Checkbox-Styling für bessere Bedienbarkeit */
+    .contact-form input[type="checkbox"] {
+        margin-right: 0.5rem;
+        transform: scale(1.2);
+    }
+
+    /* Beschriftung für Checkbox mit kleinerem Text */
+    .contact-form input[type="checkbox"]+label {
+        display: inline;
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+
+    /* Verbesserter Submit-Button */
+    .submit-button {
+        width: 100%;
+        padding: 0.9rem;
+        background: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: background-color 0.3s;
+    }
+
+    /* Hover-Effekt für Button */
+    .submit-button:hover {
+        background-color: #0010cc;
+    }
+
+    /* Verbesserte Textfeld-Größen für mobile Eingabe */
+    .contact-form textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+
+    /* ======================================================
+   PROJEKT-PRÄSENTATION STYLING
+   System zur einheitlichen Darstellung von Projekten
+   ====================================================== */
+
+    /* Projekt-Titel mit eleganter Unterstreichung */
+    .project-title {
+        font-size: 2.0rem;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .project-title::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, var(--accent), transparent);
+    }
+
+    /* Zeitraum im dezenten Stil */
+    .project-date {
+        font-style: italic;
+        color: #666;
+        margin-bottom: 1.2rem;
+        font-size: 1.1rem;
+    }
+
+    /* Flexible Tag-Container für Technologien */
+    .tech-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+        justify-content: center;
+    }
+
+    /* Einzelne Technologie-Tags mit Hover-Effekt */
+    .tech-tag {
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 0.35rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #444;
+        transition: all 0.3s ease;
+    }
+
+    .tech-tag:hover {
+        background-color: var(--accent);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    /* Optimierte Projektbeschreibung */
+    .project-description {
+        line-height: 1.7;
+        margin: 1.5rem auto;
+        max-width: 550px;
+        font-size: 1.05rem;
+    }
 }
 
-/* Tablet (641px bis 1024px) */
+/* Tablet */
 @media (min-width: 641px) and (max-width: 1023px) {
+    :root {
+        --profile-size: clamp(200px, 40vw, 300px);
+    }
+
     h1 {
         font-size: clamp(2.3em, 3vw, 4rem);
         margin-bottom: 2rem;
@@ -526,59 +2015,68 @@ body {
         line-height: 1.7;
     }
 
-    /* Container und Layout */
     .container {
         padding: 1rem;
+        margin-top: 4rem;
+        padding-top: 1rem;
         justify-content: flex-start;
-        text-align: center;
     }
 
-    /* Header-Bereich mit zentrierter Ausrichtung */
     .header {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
+        margin: 0;
     }
 
-    /* Profilbild anpassen */
-    .profile-picture {
-        width: clamp(200px, 40vw, 300px);
-        height: clamp(200px, 40vw, 300px);
-        border-radius: 50%;
-        margin: 0 auto 1.5rem;
+    body:not(.home-page) .profile-picture {
+        margin-top: 100px;
+        /* Verschiebt das Bild nach unten */
     }
 
-    /* Titel und Untertitel zentrieren */
+    /* Container auf der Me-Seite mit mehr Platz nach oben */
+    body:not(.home-page) .container {
+        padding-top: 50px;
+        justify-content: flex-start;
+    }
+
+    /* Mehr Platz für Navigation */
+    .nav {
+        margin-bottom: 80px;
+    }
+
+    /* Wenn nötig, Footer nach unten schieben */
+    body:not(.home-page) .impressum-footer {
+        margin-top: 40px;
+    }
+
     .title,
     .subtitle {
-        text-align: center;
         margin: 0 auto;
     }
 
-    /* Navigation ohne Burger-Menü */
     .nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
         width: 100%;
-        margin: 2rem auto;
-        display: flex;
-        justify-content: center;
-        position: static;
-        left: auto;
+        padding-top: 2rem;
+        margin: 0;
+        z-index: 100;
     }
 
+    /* Navigation & allgemeine Mobile-Styles (behalten) */
     .nav-menu {
-        display: flex;
-        justify-content: center;
-        width: 100%;
+        display: none;
+    }
+
+    .menu-toggle {
+        display: none !important;
     }
 
     .nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
         gap: 1rem;
-        padding: 0;
         margin: 0 auto;
     }
 
@@ -588,213 +2086,63 @@ body {
 
     .nav-link {
         font-size: 1.3rem;
-        transition: background-color 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease;
     }
 
-    /* Content-Bereich */
     .content {
         width: 100%;
         padding: 1rem;
     }
 
-    /* Social Media Buttons */
-    .social-media-buttons-kontakt {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        width: 100%;
-        margin-bottom: 200px;
+    /* ====================================================
+       ELEGANTE TRENNLINIE - SOCIAL MEDIA ICONS
+       Fügt eine subtile, horizontale Gradientenlinie unter 
+       den Social-Media-Icons ein für konsistentes Design
+       ==================================================== */
+    .social-media-buttons-profile {
+        position: relative;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
     }
 
-    /* Icons schwarz färben */
-    .social-media-buttons-kontakt i {
-        color: black;
-        font-size: 2.5rem;
+    .social-media-buttons-profile::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.1) 20%,
+                rgba(0, 0, 0, 0.2) 50%,
+                rgba(0, 0, 0, 0.1) 80%,
+                transparent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
 
-    .social-media-buttons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        width: 100%;
-        margin-bottom: 200px;
-    }
-
-    .social-media-buttons i {
-        color: black;
-        font-size: 2.5rem;
-    }
-
-
-    /* Projektseiten-spezifische Anpassungen */
     .quiz-app-picture img,
     .e-commerce-picture img {
-        max-width: 100%;
-        height: auto;
         max-height: 300px;
-        object-fit: contain;
-    }
-
-    .job,
-    .skills,
-    .right-column,
-    .cv-job {
-        margin-bottom: 1rem;
-        padding: center;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #ffffff;
-        text-align: center;
-        border-radius: 10px;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .desktop-date {
-        display: none;
-        /* Auf Mobile ausgeblendet */
-    }
-
-    /* Job-Abschnitt */
-    .cv-title {
-        font-size: 1.4rem;
-        font-weight: bold;
-        margin-bottom: 0.7rem;
-        text-align: left;
-        padding-left: 1rem;
-    }
-
-    .cv-date {
-        font-size: 1.1rem;
-        color: #555;
-        margin-bottom: 0.7rem;
-        text-align: left;
-        padding-left: 1rem;
-    }
-
-    .cv-field {
-        font-size: 1.1rem;
-        font-weight: bold;
-        text-align: left;
-        margin-bottom: 0.7rem;
-        padding-left: 1rem;
-    }
-
-    .cv-description {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        text-align: left;
-        font-family: "Arial", sans-serif;
-        padding-left: 1rem;
-    }
-
-    /* Fähigkeiten-Abschnitt */
-    .skills h3 {
-        font-size: 1.4rem;
-        margin-bottom: 1rem;
-        text-align: left;
-        padding-left: 1rem;
-    }
-
-    .skills ul {
-        column-count: 2;
-        column-gap: 2rem;
-        list-style-type: disc;
-        padding-left: 1.5rem;
-        text-align: left;
-    }
-
-    .skills li {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-        break-inside: avoid;
-    }
-
-    /* Rechte Spalte (Bildung, Zertifikate) */
-    .right-column {
-        border: 1px solid #ccc;
-        padding: 1.5rem;
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .right-column h3 {
-        padding: 0 0 0.7rem 0;
-        font-size: 1.4rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        text-align: left;
-        border-bottom: 2px solid #ddd;
-    }
-
-    .right-column ul {
-        list-style-type: disc;
-        padding-left: 1.5rem;
-        text-align: left;
-    }
-
-    .right-column li {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        margin-bottom: 0.7rem;
-    }
-
-    .right-column p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        text-align: left;
-    }
-
-    .lebenslauf-link {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        margin: 0;
-    }
-
-    .quiz-app-picture img,
-    .e-commerce-picture img {
-        height: auto;
         width: clamp(200px, 50vw, 300px);
         height: clamp(200px, 50vw, 300px);
         border-radius: 50%;
     }
 
+    /* CV Styles */
+
+
     .home-page .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        /* Verteilt Elemente - erste oben, letzte unten */
-        min-height: 60vh;
-
-    }
-
-    .content-wrapper {
-        display: flex;
-        flex-direction: column;
+        min-height: 90vh;
         justify-content: center;
-        align-items: center;
-        margin-top: auto;
+        display: flex;
+        flex-direction: column;
     }
-
 
     .impressum-footer {
         position: relative;
         align-items: center;
         bottom: 0;
-    }
-
-    .impressum-link {
-        transition: background-color 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease;
     }
 
     .impressum-footer-kontakt {
@@ -804,8 +2152,6 @@ body {
         transform: translateX(-50%);
     }
 
-    /* impressum footer Index */
-
     .impressum-footer-index {
         position: fixed;
         bottom: 20px;
@@ -813,114 +2159,547 @@ body {
         transform: translateX(-50%);
     }
 
-    .impressum-link-index {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .impressum-link-lebenslauf {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-
     .project-button {
-        background-color: #000000;
-        color: #fff;
-        border: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
         font-size: clamp(0.3em, 2vw, 0.9em);
-        text-transform: uppercase;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease;
         margin-bottom: 20px;
     }
 
     .project-button:hover {
-        background-color: #ff0202;
-        /* Farbe beim Hover ändern */
+        background: var(--accent);
     }
 
+    /* Anpassungen für die Überschriften im Tablet-Modus */
+    .header h1.title {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Anpassungen für die Untertitel im Tablet-Modus */
+    .subtitle-line {
+        font-size: 1.5rem;
+        margin: 0 auto;
+        letter-spacing: 1px;
+    }
+
+    /* Erste Untertitelzeile */
+    #subtitle-header-index-line1 {
+        margin-bottom: 0.3rem;
+    }
+
+    /* Zweite Untertitelzeile */
+    #subtitle-header-index-line2 {
+        margin-bottom: 1rem;
+    }
+
+    /* Abstand zwischen Header und Inhalt anpassen */
+    .content-wrapper {
+        margin-top: 1rem;
+    }
+
+    #title-header-index {
+        font-size: 7rem;
+        /* Kleiner als auf Desktop */
+        background: linear-gradient(45deg,
+                #0015ff 0%,
+                #000000 25%,
+                #3083ff 50%,
+                #000000 75%,
+                #003366 100%);
+        background-size: 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradient-shift 10s ease infinite;
+    }
+
+    .subtitle-line {
+        font-size: 1.5rem;
+        /* Angepasste Größe */
+        font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 1px;
+        color: rgba(0, 0, 0, 0.8);
+        border-right: 2px solid transparent;
+        width: 0;
+    }
+
+    #subtitle-header-index-line1 {
+        border-right: 2px solid var(--accent);
+        animation:
+            typing 2.5s steps(30, end) 1s forwards,
+            blink-caret 0.75s step-end infinite,
+            hide-cursor 0.1s linear 3.5s forwards;
+    }
+
+    #subtitle-header-index-line2 {
+        border-right: 2px solid transparent;
+        animation:
+            waiting 3.5s steps(1, end),
+            show-cursor 0.1s linear 3.5s forwards,
+            typing 3s steps(35, end) 3.6s forwards,
+            blink-caret 0.75s step-end 6.6s forwards 8,
+            hide-cursor 0.1s linear 12.6s forwards;
+    }
+
+
+    /* CV Schriftgrößere angepasst */
+
+    .cv-header {
+        font-size: 1.5rem;
+    }
+
+    #skills-title {
+        font-size: 2.5rem;
+    }
+
+    .timeline-date {
+        font-size: 1.3rem;
+    }
+
+    .cv-field {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .cv-description {
+        font-size: 1.2rem;
+        line-height: 1.4;
+        margin-top: 0.5rem;
+    }
+
+    .timeline-content {
+        text-align: center;
+    }
+
+    .cv-title {
+        font-size: 1.5rem;
+        ;
+    }
+
+    /* Zertikate die aufgeklappt werden größer machen */
+    .cert-tag {
+        font-size: 1.3rem;
+    }
+
+    /* Toggle-Icon größer machen */
+    .certificates-compact .certificates-toggle .toggle-icon {
+        font-size: 2rem;
+        /* Passe den Wert an */
+    }
+
+    /* Überschrift größer machen */
+    .certificates-compact .certificates-toggle h2 {
+        font-size: 2rem; 
+        color: #010101;
+    }
+
+    /* Modal komplett ausblenden auf Tablets */
+    .cv-modal {
+        display: none !important;
+    }
+
+    /* Schließen-Button verstecken */
+    .modal-close {
+        display: none !important;
+    }
+
+
+
+    /* ======================================================
+   KONTAKTFORMULAR
+   Stilisierung für das Kontaktformular
+   ====================================================== */
+
+    .contact-form-section {
+        width: 100%;
+        padding: 1.5rem 0;
+        box-sizing: border-box;
+    }
+
+    .contact-heading {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: red;
+        font-weight: bold;
+    }
+
+    .contact-intro {
+        margin-bottom: 2rem;
+        color: var(--text-secondary);
+    }
+
+    .form-group {
+        width: 100%;
+        margin: 0 0 1rem 0;
+        /* Kein seitlicher Margin */
+    }
+
+    .form-group label {
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+
+    /* Eingabefelder auf 100% Breite setzen */
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 1rem;
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .form-group input[type="checkbox"] {
+        margin-right: 0.5rem;
+    }
+
+    .form-group:has(input[type="checkbox"]) {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .form-group:has(input[type="checkbox"]) label {
+        font-size: 0.9rem;
+        font-weight: normal;
+    }
+
+    .submit-button {
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        align-self: flex-start;
+    }
+
+    .submit-button:hover {
+        background-color: var(--accent-hover, #0056b3);
+    }
+
+    /* ======================================================
+       PROFILBILD-ANIMATION - ROTIERENDE STREIFEN (TABLET)
+       Erzeugt zwei rotierende schwarze Streifen um das Profilbild
+       auf der Me-Seite - identisch zur Desktop-Version
+       ====================================================== */
+    body:not(.home-page) .profile-picture {
+        margin-top: 0;
+        /* Entferne die Verschiebung */
+    }
+
+    /* Angepasste CSS-Styles */
+    @keyframes rotate-strip {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Container-Styling */
+    .profile-picture-container.js-animation {
+        position: relative;
+        border-radius: 50%;
+        overflow: visible;
+        aspect-ratio: 1/1;
+        margin-top: 2rem;
+    }
+
+    /* Rotierender Streifen */
+    .rotating-stripes {
+        position: absolute;
+        inset: -12px;
+        border-radius: 50%;
+        background: conic-gradient(rgb(255, 255, 255) 0deg,
+                black 90deg,
+                transparent 90deg,
+                transparent 180deg,
+                rgb(253, 253, 253) 180deg,
+                black 270deg,
+                transparent 270deg,
+                transparent 360deg);
+        z-index: -2;
+        animation: rotate-strip 5s linear infinite;
+    }
+
+    /* Weißer Spacer */
+    .white-spacer {
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        background: #ffffff;
+        z-index: -1;
+    }
+
+    /* Social Media Icons Pop-Animation */
+
+    /* Basis-Styling der Social-Media-Icons */
+    .social-media-link {
+        position: relative;
+        display: inline-block;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: scale(0.5);
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Die Pop-Animation */
+    @keyframes popAndColor {
+        0% {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        70% {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* DIESE REGEL FEHLT - füge sie hinzu: */
+    .social-media-link.animate {
+        animation: popAndColor 0.6s forwards;
+    }
+
+    .social-media-buttons-profile a:nth-child(1).animate {
+        animation-delay: 0.2s;
+    }
+
+    .social-media-buttons-profile a:nth-child(2).animate {
+        animation-delay: 0.4s;
+    }
+
+    .social-media-buttons-profile a:nth-child(3).animate {
+        animation-delay: 0.6s;
+    }
+
+    .social-media-buttons-profile a:nth-child(4).animate {
+        animation-delay: 0.8s;
+    }
+
+    .social-media-buttons-profile a:nth-child(5).animate {
+        animation-delay: 1.0s;
+    }
+
+    /* ÄNDERN: Farbregel ohne !important während Animation */
+    .social-media-buttons-profile i {
+        transition: color 0.5s ease;
+        font-size: 2rem;
+    }
+
+    /* Farbe nur für Icons OHNE Farbklasse */
+    .social-media-buttons-profile a:not(.color-vavira):not(.color-github):not(.color-xing):not(.color-linkedin):not(.color-mail) i {
+        color: black;
+    }
+
+    /* ====================================================
+       PROJEKTSEITE LAYOUT UND TRENNLINIEN (TABLET)
+       Optimierte Darstellung mit stilvollen Trennlinien
+       ==================================================== */
+
+    /* Hauptcontainer für Projekte zentrieren und optimieren */
+    .centered-content {
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 0 15px;
+        margin-top: 2rem;
+    }
+
+    /* Elegante Trennlinie unter der Projekteüberschrift */
+    .header-projekte {
+        position: relative;
+        padding-bottom: 2rem;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    .header-projekte::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.1) 20%,
+                rgba(0, 0, 0, 0.2) 50%,
+                rgba(0, 0, 0, 0.1) 80%,
+                transparent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Projektcontainer vertikal anordnen statt horizontal */
+    .project-section .quiz-app-container,
+    .project-section .e-commerce-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        padding-bottom: 3rem;
+        margin-bottom: 3rem;
+        max-width: 100%;
+    }
+
+    /* Elegante Trennlinie unter jedem Projekt */
+    .project-section .quiz-app-container::after,
+    .project-section .e-commerce-container::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.1) 20%,
+                rgba(0, 0, 0, 0.2) 50%,
+                rgba(0, 0, 0, 0.1) 80%,
+                transparent);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Keine Trennlinie unter dem letzten Projekt */
+    .project-section .e-commerce-container:last-child::after {
+        display: none;
+    }
+
+    /* Größere Projektbilder für bessere Sichtbarkeit */
+    .quiz-app-picture img,
+    .e-commerce-picture img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-bottom: 1.5rem;
+    }
+
+
+
+
+    /* Projekt-Titel mit Gradient-Unterstreichung */
+    .project-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .project-title::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, var(--accent), transparent);
+    }
+
+    /* Zeitraum stilvoller darstellen */
+    .project-date {
+        font-style: italic;
+        color: #666;
+        margin-bottom: 1.2rem;
+        font-size: 1.1rem;
+    }
+
+    /* Technologie-Tags */
+    .tech-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+        justify-content: center;
+    }
+
+    .tech-tag {
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 0.35rem 0.8rem;
+        border-radius: 20px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #444;
+        transition: all 0.3s ease;
+    }
+
+    .tech-tag:hover {
+        background-color: var(--accent);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    /* Projekt-Beschreibung mit besserer Lesbarkeit */
+    .project-description {
+        line-height: 1.7;
+        margin: 1.5rem auto;
+        max-width: 550px;
+        font-size: 1.3rem;
+    }
+
+
+    /* Button anpassen und vergrößern für bessere Bedienung */
+    .project-button {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+        margin-top: 1rem;
+        background-color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+    }
+
+    .project-button:hover {
+        background-color: var(--accent);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
 }
 
-/* Desktop (größer als 1025px) */
+/* Desktop */
 @media (min-width: 1024px) {
+    :root {
+        --profile-size: clamp(200px, 40vw, 300px);
+    }
 
     p {
         font-size: 1.1rem;
         line-height: 1.4;
         max-width: 65ch;
-        margin-left: auto;
-        margin-right: auto;
-
+        margin: 0 auto;
     }
 
     .content {
         max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto;
         padding: 0 1rem;
     }
 
-    .nav {
-        display: flex;
-        position: absolute;
-        top: 0;
-        left: 50px;
-        width: 100%;
-        padding-top: 2rem;
-        justify-content: flex-start;
-        z-index: 100;
-    }
-
-    .nav-link {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease;
-    }
-
-    .nav-link:hover {
-        /* Schatten beim Hover verstärken */
-        box-shadow: 0 6px 10px rgba(255, 94, 0, 0.4);
-    }
-
-    /* Bild-Container rechts */
-    .profile-picture {
-        width: clamp(200px, 40vw, 300px);
-        height: clamp(200px, 40vw, 300px);
-        border-radius: 50%;
-        margin: 0 auto 1.5rem;
-    }
-
-    /* Social Media */
-    .content .social-media-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 3rem;
-    }
-
     .header {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
+        margin: 2rem 0 1rem;
         padding: 2rem;
     }
 
@@ -928,9 +2707,15 @@ body {
         margin-bottom: 0.2rem;
     }
 
+    .text-container {
+        flex: 1;
+        /* Text-Container nimmt den verfügbaren Platz ein */
+        text-align: center;
+        padding-right: 2rem;
+    }
+
     .header p.subtitle {
-        margin-bottom: 0.5rem;
-        margin-top: 0;
+        margin: 0 0 0.5rem;
     }
 
     .header p:not(.subtitle) {
@@ -938,74 +2723,8 @@ body {
         line-height: 1.3;
     }
 
-    .header .profile-picture {
-        margin-bottom: -1rem;
-    }
-
     .social-media-buttons i {
-        color: black;
         font-size: 1.8rem;
-    }
-
-    .project-section .quiz-app-container,
-    .project-section .e-commerce-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 2rem;
-        margin-bottom: 3rem;
-        text-align: left;
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* Bildcontainer auf feste Breite setzen */
-    .quiz-app-picture,
-    .e-commerce-picture {
-        flex: 0 0 auto;
-        width: 220px;
-    }
-
-    .quiz-app-picture img,
-    .e-commerce-picture img {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Projekte-Überschriften links ausrichten */
-    .project-title {
-        text-align: left;
-        margin-top: 0;
-    }
-
-    /* Projekt-Beschreibung formatieren */
-    .project-description {
-        margin-bottom: 0.5rem;
-        line-height: 1.5;
-    }
-
-    .project-button {
-        background-color: #000000;
-        color: #fff;
-        border: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.3em, 2vw, 0.7em);
-        text-transform: uppercase;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease;
-    }
-
-    .project-button:hover {
-        background-color: #ff0202;
-        /* Farbe beim Hover ändern */
     }
 
     .impressum-footer-index {
@@ -1015,222 +2734,682 @@ body {
         transform: translateX(-50%);
     }
 
-    .impressum-link-index {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .impressum-link,
-    .impressum-link-index,
-    .impressum-link-kontakt {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .impressum-link-lebenslauf {
-        display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: none;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
     .social-media-buttons-kontakt {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        width: 100%;
         margin-bottom: 200px;
     }
 
-    /* Icons schwarz färben */
-    .social-media-buttons-kontakt i {
+    .nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding-top: 2rem;
+        display: flex;
+        justify-content: center;
+        /* Zentriert die Navigationselemente */
+        z-index: 100;
+    }
+
+    .nav-link:hover {
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+        border-radius: var(--nav-radius);
+        /* Sicherstellen, dass der Radius beim Hover erhalten bleibt */
+    }
+
+    .profile-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .social-media-buttons-profile {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .social-media-buttons-profile i {
+        font-size: 1.8rem;
         color: black;
-        font-size: 1.5rem;
+        padding-top: 20px;
     }
 
-    /* Lebenslauf Bereich */
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f5e1c0;
-        margin: 0;
-        padding: 0;
+
+    /* ======================================================
+   KONTAKTFORMULAR
+   Stilisierung für das Kontaktformular
+   ====================================================== */
+
+    .contact-form-section {
+        width: 100%;
+        padding: 1.5rem 0;
+        box-sizing: border-box;
     }
 
-    .content {
+    .contact-heading {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: red
+    }
+
+    .contact-intro {
+        margin-bottom: 2rem;
+        color: var(--text-secondary);
+    }
+
+    .form-group {
+        width: 100%;
+        margin: 0 0 1rem 0;
+        /* Kein seitlicher Margin */
+    }
+
+    .form-group label {
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+
+    /* Eingabefelder auf 100% Breite setzen */
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 1rem;
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .form-group input[type="checkbox"] {
+        margin-right: 0.5rem;
+    }
+
+    .form-group:has(input[type="checkbox"]) {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .form-group:has(input[type="checkbox"]) label {
+        font-size: 0.9rem;
+        font-weight: normal;
+    }
+
+    .submit-button {
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        align-self: flex-start;
+    }
+
+    .submit-button:hover {
+        background-color: var(--accent-hover, #0056b3);
+    }
+
+    /* ======================================================
+   TITELANIMATIONEN & TYPOGRAFIE-EFFEKTE
+   Enthält animierten Farbverlauf für den Haupttitel und
+   Schreibmaschineneffekt für die Untertitel auf der Startseite
+   ====================================================== */
+
+    /* Haupttitel mit animiertem Farbverlauf */
+    #title-header-index {
+        font-size: 10rem;
+        background: linear-gradient(45deg,
+                #0015ff 0%,
+                #000000 25%,
+                #3083ff 50%,
+                #000000 75%,
+                #003366 100%);
+        background-size: 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradient-shift 10s ease infinite;
+    }
+
+    /* Basisstil für Schreibmaschineneffekt der Untertitel */
+    .subtitle-line {
+        font-size: 2rem;
+        font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 1px;
+        color: rgba(0, 0, 0, 0.8);
+        border-right: 2px solid transparent;
+        width: 0;
+    }
+
+    /* Erste Zeile des Untertitels mit Tipp-Animation */
+    #subtitle-header-index-line1 {
+        border-right: 2px solid var(--accent);
+        animation:
+            typing 2.5s steps(30, end) 1s forwards,
+            blink-caret 0.75s step-end infinite,
+            hide-cursor 0.1s linear 3.5s forwards;
+    }
+
+    /* Zweite Zeile des Untertitels mit verzögerter Tipp-Animation */
+    #subtitle-header-index-line2 {
+        border-right: 2px solid transparent;
+        animation:
+            waiting 3.5s steps(1, end),
+            show-cursor 0.1s linear 3.5s forwards,
+            typing 3s steps(35, end) 3.6s forwards,
+            blink-caret 0.75s step-end 6.6s forwards 8,
+            hide-cursor 0.1s linear 12.6s forwards;
+    }
+
+    /* ====== ENDE TITELANIMATIONEN ====== */
+
+    /* ======================================================
+   ME-SEITE LAYOUT
+   Spezielles Layout für die persönliche Profilseite
+   ====================================================== */
+
+    /* Container mit Text links, Profilbild rechts */
+    body:not(.home-page) .header {
+        display: flex;
+        flex-direction: row-reverse;
+        /* Bild rechts, Text links */
+        align-items: center;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+
+    /* Basis-Styling für das Profilbild */
+    .profile-picture {
+        position: relative;
+        z-index: 2;
+        border-radius: 50%;
+        border: 2px solid transparent;
+    }
+
+    /* Impressum-Footer auf der Me-Seite */
+    body:not(.home-page) .impressum-footer {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* ====== ENDE ME-SEITE LAYOUT ====== */
+
+    /* ======================================================
+   PROFILBILD-ANIMATION - ROTIERENDE STREIFEN
+   Erzeugt zwei rotierende schwarze Streifen um das Profilbild
+   auf der Me-Seite (nur in Desktop-Ansicht)
+   ====================================================== */
+
+    /* Animation für die Rotation der Streifen um das Profilbild */
+    @keyframes rotate-strip {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Container für das Profilbild mit dem rotierenden Effekt */
+    .profile-picture-container {
+        position: relative;
+        display: inline-block;
+        /* Verhindert unerwartetes Layoutverhalten */
+        border-radius: 50%;
+        vertical-align: middle;
+        /* Hilft bei der Ausrichtung im Textfluss */
+    }
+
+    /* Äußerer rotierender Streifen-Effekt */
+    .profile-picture-container::before {
+        content: "";
+        position: absolute;
+        inset: -10px;
+        /* Äußerer Rand: 10px vom Bild entfernt */
+        border-radius: 50%;
+        /* Zwei schwarze Streifen mit transparenten Lücken dazwischen */
+        background: conic-gradient(rgb(255, 255, 255) 0deg,
+                /* Start 1. schwarzer Streifen */
+                rgb(0, 0, 0) 90deg,
+                /* Ende 1. schwarzer Streifen */
+                transparent 90deg,
+                /* Start 1. Lücke */
+                transparent 180deg,
+                /* Ende 1. Lücke */
+                rgb(255, 255, 255) 180deg,
+                /* Start 2. schwarzer Streifen */
+                rgb(0, 0, 0) 270deg,
+                /* Ende 2. schwarzer Streifen */
+                transparent 270deg,
+                /* Start 2. Lücke */
+                transparent 360deg
+                /* Ende 2. Lücke */
+            );
+        z-index: -1;
+        /* Hinter Bild und ::after */
+        animation: rotate-strip 5s linear infinite;
+        /* Dauer und Art der Rotation */
+    }
+
+    /* Weißer Abstandshalter zwischen Bild und rotierendem Streifen */
+    .profile-picture-container::after {
+        content: "";
+        position: absolute;
+        inset: -5px;
+        /* Innerer Rand: 5px vom Bild entfernt (Streifendicke: 5px) */
+        border-radius: 50%;
+        background: #ffffff;
+        /* Weißer Hintergrund als Abstandshalter */
+        z-index: -1;
+        /* Hinter Bild, aber über den rotierenden Streifen */
+    }
+
+    /* ====== ENDE PROFILBILD-ANIMATION ====== */
+
+
+
+
+    /* Gemeinsames Icon-Styling */
+    /* Spezifisches Layout für die Kontaktseite */
+    /* Spezifisches Layout für die Kontaktseite */
+    /* Container richtig gestalten */
+    .kontakt-page .content-wrapper {
+        display: flex;
+        flex-direction: row-reverse;
+        /* Umgekehrte Richtung: Formular links, Profilbild rechts */
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 6rem;
+        /* Platz für das Menü */
+    }
+
+    /* Header-Layout für die Kontaktseite komplett überschreiben */
+    .kontakt-page .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 6rem;
+        /* Platz für das Menü */
+    }
+
+    /* Kontaktformular direkt im Header platzieren */
+    .kontakt-page .contact-form-section {
+        width: 100%;
+        order: 1;
+        /* Links anordnen */
+    }
+
+    /* Profilbereich richtig ausrichten */
+    .kontakt-page .profile-section {
+        width: 60%;
+        order: 2;
+        /* Rechts anordnen */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Bild-Container zentrieren */
+    .kontakt-page .profile-picture-container {
+        margin: 0 auto;
+    }
+
+    /* Social Media Icons zentrieren */
+    .kontakt-page .social-media-buttons-profile {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .submit-button {
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        align-self: center;
+        /* Ändere von flex-start zu center */
+        margin-top: 1rem;
+        /* Etwas mehr Abstand nach oben */
+    }
+
+    #impressum-footer-kontakt {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: -100px;
+    }
+
+
+
+    /* Kontakt Social Media Icons aufploppen und anderes Design unter Desktop */
+    /* Basis-Styling der Social-Media-Icons */
+    .social-media-link {
+        position: relative;
+        display: inline-block;
+        transition: all 0.3s ease;
+        /* Wichtig für den Hover-Effekt */
+        color: #000;
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    /* Individuelle Farbklassen für jedes Icon */
+    .social-media-link.color-vavira i {
+        color: #e74c3c;
+    }
+
+    .social-media-link.color-github i {
+        color: #333;
+    }
+
+    .social-media-link.color-xing i {
+        color: #026466;
+    }
+
+    .social-media-link.color-linkedin i {
+        color: #0077b5;
+    }
+
+    .social-media-link.color-mail i {
+        color: #d54b3d;
+    }
+
+    /* Animation-Keyframes für das Aufploppen */
+    @keyframes popAndColor {
+        0% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+
+        40% {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+
+        70% {
+            transform: scale(0.9);
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Animation beim Laden der Seite */
+    .social-media-link.animate {
+        animation: popAndColor 0.6s forwards;
+    }
+
+    /* Verzögerung für jedes Icon */
+    .social-media-buttons-profile a:nth-child(1).animate {
+        animation-delay: 0.2s;
+    }
+
+    .social-media-buttons-profile a:nth-child(2).animate {
+        animation-delay: 0.4s;
+    }
+
+    .social-media-buttons-profile a:nth-child(3).animate {
+        animation-delay: 0.6s;
+    }
+
+    .social-media-buttons-profile a:nth-child(4).animate {
+        animation-delay: 0.8s;
+    }
+
+    .social-media-buttons-profile a:nth-child(5).animate {
+        animation-delay: 1.0s;
+    }
+
+    /* Hover-Effekt für die Icons - mit !important für höhere Priorität */
+    .social-media-link:hover {
+        transform: scale(1.2) !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    /* Beschreibungen auf Desktop IMMER sichtbar */
+    .cv-description,
+    .timeline-content .cv-description {
+        max-height: none !important;
+        opacity: 1 !important;
+        overflow: visible !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        transition: none !important;
+    }
+
+    /* Modal komplett ausblenden auf Tablets */
+    .cv-modal {
+        display: none !important;
+    }
+
+    /* Schließen-Button verstecken */
+    .modal-close {
+        display: none !important;
+    }
+
+    /* ======================================================
+       PROJEKT-PRÄSENTATION STYLING (DESKTOP)
+       Elegante und responsive Darstellung von Projekten für große Bildschirme
+       ====================================================== */
+    /* Header-Projekte weiter nach unten verschieben, um Überlappung mit dem Menü zu vermeiden */
+    .header-projekte {
+        margin-top: 6rem;
+        /* Großzügiger Abstand zum Menü */
+        padding-top: 2rem;
+        /* Zusätzlicher innerer Abstand */
+        position: relative;
+        text-align: center;
+    }
+
+    /* Elegante Trennlinie unter der Projekteüberschrift auch für Desktop */
+    .header-projekte::after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 2px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.1) 20%,
+                var(--accent) 50%,
+                rgba(0, 0, 0, 0.1) 80%,
+                transparent);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Hauptcontainer für Projekte */
+    .centered-content {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 20px;
-        display: flex;
-        flex-wrap: wrap;
+        padding: 0 20px;
     }
 
-    /* Datum-Styling */
-    .desktop-date {
-        width: 180px;
-        font-size: 1.8rem;
-        font-weight: bold;
-        margin: 0;
-        padding-right: 20px;
-        text-align: left;
-        box-sizing: border-box;
-        white-space: nowrap;
-    }
-
-    /* Job-Abschnitt */
-    .cv-job {
-        width: calc(100% - 180px);
-        margin: 0 0 40px 0;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 300px;
-    }
-
-    /* Titel */
-    .cv-title {
-        font-size: 1.2rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 0 0 15px 0;
-        ;
-        padding: 0;
-        line-height: 1.2;
-        width: 100%;
-        text-align: left;
-    }
-
-    /* Berufsfeld */
-    .cv-field,
-    .cv-date {
-        font-style: italic;
-        margin: 2px 0;
-        padding: 0;
-        line-height: 1.2;
-        width: 100%;
-        text-align: left;
-    }
-
-    /* Beschreibung */
-    .cv-description {
-        margin: 5px 0 0 0;
-        padding: 0;
-        line-height: 1.4;
-        width: 100%;
-        text-align: left;
-    }
-
-    /* Styles für den Skills-Bereich */
-    .skills {
-        width: 90%;
-        max-width: 900px;
-        margin: 30px auto;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .skills h3 {
-        font-size: 24px;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 0 0 30px 0;
-        text-align: center;
-        width: 100%;
-    }
-
-    .skills ul {
-        column-count: 3;
-        column-gap: 30px;
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    .skills li {
-        margin-bottom: 10px;
-        break-inside: avoid;
-        text-align: center;
-    }
-
-    /* Styles für die rechte Spalte */
-    .right-column {
-        width: 90%;
-        max-width: 900px;
-        margin: 30px auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .right-column h3 {
-        font-size: 24px;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 30px 0 20px 0;
-        text-align: center;
-        width: 100%;
-    }
-
-    .right-column p {
-        margin: 0 0 30px 0;
-        font-size: 16px;
-        text-align: center;
-        width: 100%;
-    }
-
-    .right-column ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0 0 40px 0;
-        text-align: center;
-        width: 100%;
-    }
-
-    .right-column li {
-        margin-bottom: 8px;
-        text-align: center;
-    }
-
-    .lebenslauf-link {
+    /* Projekttitel mit Gradient-Unterstreichung */
+    .project-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        position: relative;
         display: inline-block;
-        background-color: #000000;
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
-        border-radius: 0.5rem;
-        font-size: clamp(0.9em, 2vw, 1.2em);
-        margin: 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        text-align: left;
+        /* Links ausrichten für Desktop */
     }
+
+    .project-title::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(to right, var(--accent), transparent 80%);
+    }
+
+    /* Zweispaltiges Layout für Projekte */
+    .project-section .quiz-app-container,
+    .project-section .e-commerce-container {
+        display: flex;
+        align-items: center;
+        gap: 5rem;
+        margin: 4rem auto;
+        position: relative;
+        max-width: 1000px;
+    }
+
+    /* Abwechselnde Ausrichtung für mehr visuelle Dynamik */
+    .project-section .quiz-app-container {
+        flex-direction: row;
+        /* Bild links, Text rechts */
+    }
+
+    .project-section .e-commerce-container {
+        flex-direction: row-reverse;
+        /* Bild rechts, Text links */
+    }
+
+    /* Bildcontainer mit vergrößerten Bildern */
+    .quiz-app-picture,
+    .e-commerce-picture {
+        flex: 0 0 330px;
+    }
+
+    .quiz-app-picture img,
+    .e-commerce-picture img {
+        width: 320px;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .quiz-app-picture img:hover,
+    .e-commerce-picture img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Textcontainer mit besserer Ausrichtung */
+    .quiz-text-container,
+    .e-commerce-text-container {
+        flex: 1;
+        text-align: left;
+    }
+
+    /* Projektdatum mit dezenter Darstellung */
+    .project-date {
+        font-style: italic;
+        color: #666;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+
+    /* Technologie-Tags mit linksbündiger Ausrichtung */
+    .tech-tags {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 1.2rem 0;
+        justify-content: flex-start;
+    }
+
+    .tech-tag {
+        background-color: rgba(0, 0, 0, 0.04);
+        padding: 0.4rem 1rem;
+        border-radius: 25px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #333;
+        transition: all 0.3s ease;
+    }
+
+    .tech-tag:hover {
+        background-color: var(--accent);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Projekt-Beschreibung mit optimierter Lesbarkeit */
+    .project-description {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin: 1.5rem 0;
+        max-width: 650px;
+        color: #333;
+    }
+
+    /* Größere, auffälligere Call-to-Action-Buttons */
+    .project-button {
+        font-size: 1rem;
+        padding: 0.8rem 2rem;
+        margin-top: 1rem;
+        background-color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .project-button:hover {
+        background-color: var(--accent);
+        color: white;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Trennlinie zwischen Projekten */
+    .project-section .quiz-app-container::after {
+        content: "";
+        position: absolute;
+        bottom: -2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right,
+                transparent,
+                rgba(0, 0, 0, 0.05) 20%,
+                rgba(0, 0, 0, 0.1) 50%,
+                rgba(0, 0, 0, 0.05) 80%,
+                transparent);
+    }
+
+    #impressum-footer-projekte {
+        bottom: -250px;
+    }
+
+    .e-commerce-container .tech-tags {
+        justify-content: center; /* Muss rechtsbündig sein, erscheint aber linksbündig wegen flex-direction: row-reverse */
+    }
+    
+
+
+
 
 
 }
