@@ -1829,8 +1829,9 @@ body {
     .contact-heading {
         font-size: 1.6rem;
         margin-bottom: 0.8rem;
-        color: var(--accent);
+        color:red;
         text-align: center;
+        
     }
 
     /* Einleitungstext zum Formular */
@@ -2790,7 +2791,7 @@ body {
     .contact-heading {
         font-size: 2.5rem;
         margin-bottom: 1rem;
-        color: var(--text-primary);
+        color: red
     }
 
     .contact-intro {
