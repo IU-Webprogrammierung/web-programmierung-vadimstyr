@@ -876,13 +876,14 @@ body {
 
 .skill-name {
     margin-top: 10px;
-    font-weight: 500;
     text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .skill-level {
-    font-size: 0.8rem;
-    color: #666;
+    font-size: 0.9rem;
+    color: #000000;
     text-align: center;
 }
 
