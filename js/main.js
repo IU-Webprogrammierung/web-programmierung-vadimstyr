@@ -279,3 +279,11 @@ document.addEventListener('DOMContentLoaded', function() {
         subtitle.innerHTML = animatedHTML;
     }
 });
+
+// Dark Mode Toggle:
+// Schaltet zwischen hellem und dunklem Design durch Klick auf den Moon-Button.
+// Fügt dem HTML-Element die Klasse 'dark-mode' hinzu oder entfernt sie, 
+// was automatisch die CSS-Variablen für Farben und Schatten ändert.
+document.getElementById('darkmode-toggle').onclick = function() {
+    document.documentElement.classList.toggle('dark-mode');
+};

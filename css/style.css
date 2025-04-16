@@ -14,7 +14,7 @@
 
 html {
     scroll-behavior: smooth;
-  }
+}
 
 /* Grundlegende Body-Styles: Hintergrund, Schrift, Reset */
 body {
@@ -28,6 +28,41 @@ body {
 /* Haupttitel-Schriftart */
 .title {
     font-family: var(--main-font);
+}
+
+/* Dark Mode: Setzt dunklere Farbvariablen für das Theme
+   Überschreibt die Standard-Farbvariablen mit dunkleren Versionen
+   für ein augenfreundliches Design bei wenig Umgebungslicht */
+.dark-mode {
+    --background: #a3a3a3;
+    --primary: #fff;
+    --accent: #ff4b2b;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Wendet den Dark-Mode-Hintergrund auf das gesamte Dokument an
+   Wichtig: Wird auf HTML statt body angewendet, um den kompletten Viewport abzudecken */
+html.dark-mode {
+    background-color: var(--background);
+}
+
+/* Styling für den Dark-Mode-Umschalter
+   Transparenter Button mit Mondicon (🌙) für minimalistisches Design
+   Passt seine Farbe an das aktuelle Theme an */
+#darkmode-toggle {
+    background-color: transparent;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--primary);
+}
+
+/* Interaktiver Hover-Effekt für den Dark-Mode-Button
+   Vergrößert den Button leicht für besseres visuelles Feedback */
+#darkmode-toggle:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
 /* ======================================================
