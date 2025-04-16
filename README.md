@@ -24,6 +24,18 @@ Diese responsive Website dient als mein persönliches Portfolio und präsentiert
 - `/js/` - JavaScript-Dateien
 - `/img/` - Bildressourcen
 
+## Git-Workflow
+Das Projekt wurde mit einer strukturierten Branch-Strategie entwickelt:
+- `main` - Stabile Hauptversion - HTML 
+- `phase2` - Entwicklung responsiver Features und Verbesserungen - CSS & JS
+- `phase3` - Implementierung fortgeschrittener Features (Dark Mode, Animationen)
+
+Jede Phase wurde durch Pull Requests und strukturierte Commits dokumentiert.
+
+## Live-Demo
+Die Website ist unter [vadimstyr.de](https://iu-webprogrammierung.github.io/web-programmierung-vadimstyr/) live verfügbar.
+
+
 ## Autor
 Vadim Styr
 
