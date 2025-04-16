@@ -12,6 +12,10 @@
     --main-font: 'Anton', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 /* Grundlegende Body-Styles: Hintergrund, Schrift, Reset */
 body {
     background: var(--background);
