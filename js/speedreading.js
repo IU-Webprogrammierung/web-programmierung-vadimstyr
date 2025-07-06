@@ -79,7 +79,7 @@ async function generateText() {
 
   // Show loading
   document.getElementById('setupSection').classList.add('hidden');
-  document.getElementById('readingText').classList.remove('hidden');
+  document.getElementById('readingContainer').classList.remove('hidden');
   document.getElementById('loadingText').classList.remove('hidden');
   document.getElementById('textContent').innerHTML = '';
 
@@ -112,7 +112,7 @@ async function generateText() {
     console.error('Error generating text:', error);
     showError('Failed to generate text. Please check your API key and try again.');
     document.getElementById('setupSection').classList.remove('hidden');
-    document.getElementById('readingText').classList.add('hidden');
+    document.getElementById('readingContainer').classList.add('hidden');
   }
 }
 
@@ -123,7 +123,7 @@ function useDefaultText() {
   correctAnswers = defaultQuestions.map(q => q.correct);
 
   document.getElementById('setupSection').classList.add('hidden');
-  document.getElementById('readingText').classList.remove('hidden');
+  document.getElementById('readingContainer').classList.remove('hidden');
   document.getElementById('loadingText').classList.add('hidden');
   document.getElementById('textContent').innerHTML = currentText;
   document.getElementById('wordCount').textContent = `Word count: ${currentWordCount}`;
@@ -396,7 +396,7 @@ function restartTest() {
   document.getElementById('startBtn').classList.remove('hidden');
   document.getElementById('finishBtn').classList.add('hidden');
   document.getElementById('finishBtn').disabled = true;
-  document.getElementById('readingText').classList.add('hidden');
+  document.getElementById('readingContainer').classList.add('hidden');
   document.getElementById('questionSection').classList.add('hidden');
   document.getElementById('results').classList.add('hidden');
   document.getElementById('timer').textContent = 'Ready to start';
@@ -404,5 +404,107 @@ function restartTest() {
   // Clear any error messages
   document.querySelectorAll('.error').forEach(el => el.remove());
 
+  // Clear chat messages
+  clearChatMessages();
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+// AI Assistant functionality
+async function askAssistant() {
+  const questionInput = document.getElementById('assistantQuestion');
+  const question = questionInput.value.trim();
+  const status = document.getElementById('assistantStatus');
+  const askBtn = document.getElementById('askAssistantBtn');
+  
+  if (!question) {
+    showAssistantError('Bitte gib eine Frage ein.');
+    return;
+  }
+
+  const apiKey = document.getElementById('apiKey').value.trim();
+  if (!apiKey) {
+    showAssistantError('Bitte gib zuerst deinen OpenAI API-Schlüssel ein.');
+    return;
+  }
+
+  // Add user message to chat
+  addChatMessage(question, 'user');
+  
+  // Clear input and disable button
+  questionInput.value = '';
+  askBtn.disabled = true;
+  status.textContent = 'KI denkt nach...';
+  status.className = 'assistant-status loading';
+
+  try {
+    const prompt = createAssistantPrompt(question, currentText);
+    const response = await callOpenAI(apiKey, prompt);
+    const answer = response.choices[0].message.content;
+    
+    // Add assistant response to chat
+    addChatMessage(answer, 'assistant');
+    
+    status.textContent = '';
+    status.className = 'assistant-status';
+  } catch (error) {
+    console.error('Error calling AI assistant:', error);
+    addChatMessage('Entschuldigung, ich konnte deine Frage nicht beantworten. Bitte versuche es erneut.', 'assistant');
+    status.textContent = '';
+    status.className = 'assistant-status';
+  } finally {
+    askBtn.disabled = false;
+  }
+}
+
+function createAssistantPrompt(question, readingText) {
+  return `Du bist ein hilfreicher Assistent für einen Lesegeschwindigkeitstest. Ein Benutzer liest gerade den folgenden Text und hat eine Frage dazu.
+
+Text: "${readingText}"
+
+Frage des Benutzers: "${question}"
+
+Bitte beantworte die Frage kurz und präzise (maximal 2-3 Sätze) auf Deutsch. Konzentriere dich darauf, dem Benutzer beim Verständnis des Textes zu helfen. Falls die Frage nicht direkt mit dem Text zusammenhängt, erkläre das höflich und versuche trotzdem zu helfen.`;
+}
+
+function addChatMessage(message, type) {
+  const chatMessages = document.getElementById('chatMessages');
+  const messageDiv = document.createElement('div');
+  messageDiv.className = type === 'user' ? 'user-message' : 'assistant-message';
+  messageDiv.textContent = message;
+  
+  chatMessages.appendChild(messageDiv);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function clearChatMessages() {
+  const chatMessages = document.getElementById('chatMessages');
+  chatMessages.innerHTML = `
+    <div class="assistant-message">
+      Hallo! Ich bin hier, um dir beim Verstehen des Textes zu helfen. Stelle mir gerne Fragen zu Wörtern oder Konzepten, die du nicht verstehst.
+    </div>
+  `;
+}
+
+function showAssistantError(message) {
+  const status = document.getElementById('assistantStatus');
+  status.textContent = message;
+  status.className = 'assistant-status';
+  status.style.color = '#e74c3c';
+  
+  setTimeout(() => {
+    status.textContent = '';
+    status.style.color = '';
+  }, 3000);
+}
+
+// Add Enter key support for assistant question input
+document.addEventListener('DOMContentLoaded', function() {
+  const questionInput = document.getElementById('assistantQuestion');
+  questionInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      askAssistant();
+    }
+  });
+});

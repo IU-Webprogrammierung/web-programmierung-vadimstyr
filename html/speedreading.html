@@ -94,10 +94,33 @@
             <button id="finishBtn" onclick="finishReading()" disabled class="hidden">✅ Finished Reading</button>
         </div>
 
-        <div class="reading-text hidden" id="readingText">
-            <div class="loading" id="loadingText">Generating your custom text...</div>
-            <div id="textContent"></div>
-            <div class="word-count" id="wordCount"></div>
+        <div class="reading-container hidden" id="readingContainer">
+            <div class="reading-text" id="readingText">
+                <div class="loading" id="loadingText">Generating your custom text...</div>
+                <div id="textContent"></div>
+                <div class="word-count" id="wordCount"></div>
+            </div>
+            
+            <div class="ai-assistant-panel" id="aiAssistant">
+                <h3>🤖 AI Assistant</h3>
+                <p>Frage die KI, wenn du etwas nicht verstehst!</p>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="assistant-message">
+                        Hallo! Ich bin hier, um dir beim Verstehen des Textes zu helfen. Stelle mir gerne Fragen zu Wörtern oder Konzepten, die du nicht verstehst.
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <textarea 
+                        id="assistantQuestion" 
+                        placeholder="z.B. Was bedeutet 'Künstliche Intelligenz'?"
+                        rows="2"></textarea>
+                    <button id="askAssistantBtn" onclick="askAssistant()">Fragen</button>
+                </div>
+                
+                <div class="assistant-status" id="assistantStatus"></div>
+            </div>
         </div>
 
         <div class="question-section hidden" id="questionSection">
