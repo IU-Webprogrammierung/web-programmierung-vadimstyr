@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Reading Speed Test</title>
+    <link rel="stylesheet" href="../css/reading.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🤖 AI-Powered Reading Speed Test</h1>
+
+        <div class="timer" id="timer">Ready to start</div>
+
+        <div class="setup-section" id="setupSection">
+            <h2>📝 Text Configuration</h2>
+
+            <div class="api-info">
+                <strong>🔧 API Setup:</strong> Enter your OpenAI API key to generate custom texts. The key is only used
+                for this session and not stored.
+            </div>
+
+            <div class="form-group">
+                <label for="apiKey">OpenAI API Key:</label>
+                <input type="password" id="apiKey" placeholder="sk-..." />
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="topic">Topic/Theme:</label>
+                    <input type="text" id="topic" placeholder="e.g., Technology, Travel, Science, History..." />
+                </div>
+
+                <div class="form-group">
+                    <label for="language">Sprache:</label>
+                    <select id="language">
+                        <option value="en" selected>Englisch</option>
+                        <option value="de">Deutsch</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="level">English Level:</label>
+                    <select id="level">
+                        <option value="A1">A1 - Beginner</option>
+                        <option value="A2" selected>A2 - Elementary</option>
+                        <option value="B1">B1 - Intermediate</option>
+                        <option value="B2">B2 - Upper Intermediate</option>
+                        <option value="C1">C1 - Advanced</option>
+                        <option value="C2">C2 - Proficiency</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="level-de"> Deutsch Level:</label>
+                <select id="level-de">
+                    <option value="A1"> A1 - Anfänger</option>
+                    <option value="A2" selected> A2 - Einsteiger </option>
+                    <option value="B1">B1 - Mittelstufe</option>
+                    <option value="B2">B2 - Oberstufe</option>
+                    <option value="C1">C1 - Fortgeschritten</option>
+                    <option value="C2">C2 - Experten</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="additionalInfo">Additional Requirements (Optional):</label>
+                <textarea id="additionalInfo"
+                    placeholder="e.g., Include specific vocabulary, focus on past tense, mention certain concepts..."></textarea>
+            </div>
+
+            <div class="control-panel">
+                <button class="generate-btn" onclick="generateText()">🎯 Generate Custom Text</button>
+                <button onclick="useDefaultText()">📖 Use Default Text</button>
+            </div>
+        </div>
+
+        <div class="instructions hidden" id="instructions">
+            <h3>📋 Instructions:</h3>
+            <ul>
+                <li>Click "Start Reading" to begin the timer</li>
+                <li>Read the text below at your normal pace</li>
+                <li>When finished, click "Finished Reading"</li>
+                <li>Answer 5 comprehension questions</li>
+                <li>Get your reading speed and comprehension score!</li>
+            </ul>
+        </div>
+
+        <div class="control-panel hidden" id="readingControls">
+            <button id="startBtn" onclick="startReading()">🚀 Start Reading</button>
+            <button id="finishBtn" onclick="finishReading()" disabled class="hidden">✅ Finished Reading</button>
+        </div>
+
+        <div class="reading-text hidden" id="readingText">
+            <div class="loading" id="loadingText">Generating your custom text...</div>
+            <div id="textContent"></div>
+            <div class="word-count" id="wordCount"></div>
+        </div>
+
+        <div class="question-section hidden" id="questionSection">
+            <h2>📝 Comprehension Questions</h2>
+            <div id="questionsContainer"></div>
+            <div class="control-panel">
+                <button id="submitBtn" onclick="submitAnswers()">🎯 Submit Answers</button>
+            </div>
+        </div>
+
+        <div class="results hidden" id="results">
+            <h2>🎉 Your Results</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="readingTime">-</div>
+                    <div class="stat-label">Reading Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="wordsPerMinute">-</div>
+                    <div class="stat-label">Words Per Minute</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="comprehensionScore">-</div>
+                    <div class="stat-label">Comprehension Score</div>
+                </div>
+            </div>
+            <div id="feedback"></div>
+            <div class="control-panel">
+                <button onclick="restartTest()">🔄 Zurück setzen & Wiederholen</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/speedreading.js"></script>
+</body>
+
+</html>
